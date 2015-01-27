@@ -1,6 +1,628 @@
 # Julia wrapper for header: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/HYPRE.h
 # Automatically generated using Clang.jl wrap_c, version 0.0.0
 
+# Julia wrapper for header: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/seq_mv.h
+# Automatically generated using Clang.jl wrap_c, version 0.0.0
+
+
+function HYPRE_CheckError(hypre_ierr::HYPRE_Int,hypre_error_code::HYPRE_Int)
+    ccall((:HYPRE_CheckError,libHYPRE),HYPRE_Int,(HYPRE_Int,HYPRE_Int),hypre_ierr,hypre_error_code)
+end
+
+function HYPRE_DescribeError(hypre_ierr::HYPRE_Int,descr::Ptr{Uint8})
+    ccall((:HYPRE_DescribeError,libHYPRE),Void,(HYPRE_Int,Ptr{Uint8}),hypre_ierr,descr)
+end
+
+function HYPRE_ClearError(hypre_error_code::HYPRE_Int)
+    ccall((:HYPRE_ClearError,libHYPRE),HYPRE_Int,(HYPRE_Int,),hypre_error_code)
+end
+
+function HYPRE_CSRMatrixCreate(num_rows::HYPRE_Int,num_cols::HYPRE_Int,row_sizes::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixCreate,libHYPRE),HYPRE_CSRMatrix,(HYPRE_Int,HYPRE_Int,Ptr{HYPRE_Int}),num_rows,num_cols,row_sizes)
+end
+
+function HYPRE_CSRMatrixDestroy(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixInitialize(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixRead,libHYPRE),HYPRE_CSRMatrix,(Ptr{Uint8},),file_name)
+end
+
+function HYPRE_CSRMatrixPrint(matrix::HYPRE_CSRMatrix,file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixPrint,libHYPRE),Void,(HYPRE_CSRMatrix,Ptr{Uint8}),matrix,file_name)
+end
+
+function HYPRE_CSRMatrixGetNumRows(matrix::HYPRE_CSRMatrix,num_rows::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixGetNumRows,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,Ptr{HYPRE_Int}),matrix,num_rows)
+end
+
+function HYPRE_MappedMatrixCreate()
+    ccall((:HYPRE_MappedMatrixCreate,libHYPRE),HYPRE_MappedMatrix,())
+end
+
+function HYPRE_MappedMatrixDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixLimitedDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixInitialize(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixAssemble(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixPrint(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixPrint,libHYPRE),Void,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixGetColIndex(matrix::HYPRE_MappedMatrix,j::HYPRE_Int)
+    ccall((:HYPRE_MappedMatrixGetColIndex,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,HYPRE_Int),matrix,j)
+end
+
+function HYPRE_MappedMatrixGetMatrix(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixGetMatrix,libHYPRE),Ptr{Void},(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixSetMatrix(matrix::HYPRE_MappedMatrix,matrix_data::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMatrix,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,matrix_data)
+end
+
+function HYPRE_MappedMatrixSetColMap(matrix::HYPRE_MappedMatrix,ColMap::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetColMap,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,ColMap)
+end
+
+function HYPRE_MappedMatrixSetMapData(matrix::HYPRE_MappedMatrix,MapData::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMapData,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,MapData)
+end
+
+function HYPRE_MultiblockMatrixCreate()
+    ccall((:HYPRE_MultiblockMatrixCreate,libHYPRE),HYPRE_MultiblockMatrix,())
+end
+
+function HYPRE_MultiblockMatrixDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixLimitedDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixInitialize(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixAssemble(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixPrint(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixPrint,libHYPRE),Void,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixSetNumSubmatrices(matrix::HYPRE_MultiblockMatrix,n::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetNumSubmatrices,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int),matrix,n)
+end
+
+function HYPRE_MultiblockMatrixSetSubmatrixType(matrix::HYPRE_MultiblockMatrix,j::HYPRE_Int,_type::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetSubmatrixType,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int,HYPRE_Int),matrix,j,_type)
+end
+
+function HYPRE_VectorCreate(size::HYPRE_Int)
+    ccall((:HYPRE_VectorCreate,libHYPRE),HYPRE_Vector,(HYPRE_Int,),size)
+end
+
+function HYPRE_VectorDestroy(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorDestroy,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorInitialize(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorInitialize,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorPrint(vector::HYPRE_Vector,file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorPrint,libHYPRE),HYPRE_Int,(HYPRE_Vector,Ptr{Uint8}),vector,file_name)
+end
+
+function HYPRE_VectorRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorRead,libHYPRE),HYPRE_Vector,(Ptr{Uint8},),file_name)
+end
+
+function hypre_CSRMatrixAdd(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixAdd,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix}),A,B)
+end
+
+function hypre_CSRMatrixMultiply(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixMultiply,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix}),A,B)
+end
+
+function hypre_CSRMatrixDeleteZeros(A::Ptr{hypre_CSRMatrix},tol::Cdouble)
+    ccall((:hypre_CSRMatrixDeleteZeros,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Cdouble),A,tol)
+end
+
+function hypre_CSRMatrixTranspose(A::Ptr{hypre_CSRMatrix},AT::Ptr{Ptr{hypre_CSRMatrix}},data::HYPRE_Int)
+    ccall((:hypre_CSRMatrixTranspose,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{Ptr{hypre_CSRMatrix}},HYPRE_Int),A,AT,data)
+end
+
+function hypre_CSRMatrixReorder(A::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixReorder,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),A)
+end
+
+function hypre_CSRMatrixSumElts(A::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixSumElts,libHYPRE),Cdouble,(Ptr{hypre_CSRMatrix},),A)
+end
+
+function hypre_CSRMatrixCreate(num_rows::HYPRE_Int,num_cols::HYPRE_Int,num_nonzeros::HYPRE_Int)
+    ccall((:hypre_CSRMatrixCreate,libHYPRE),Ptr{hypre_CSRMatrix},(HYPRE_Int,HYPRE_Int,HYPRE_Int),num_rows,num_cols,num_nonzeros)
+end
+
+function hypre_CSRMatrixDestroy(matrix::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),matrix)
+end
+
+function hypre_CSRMatrixInitialize(matrix::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),matrix)
+end
+
+function hypre_CSRMatrixSetDataOwner(matrix::Ptr{hypre_CSRMatrix},owns_data::HYPRE_Int)
+    ccall((:hypre_CSRMatrixSetDataOwner,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},HYPRE_Int),matrix,owns_data)
+end
+
+function hypre_CSRMatrixSetRownnz(matrix::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixSetRownnz,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),matrix)
+end
+
+function hypre_CSRMatrixRead(file_name::Ptr{Uint8})
+    ccall((:hypre_CSRMatrixRead,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{Uint8},),file_name)
+end
+
+function hypre_CSRMatrixPrint(matrix::Ptr{hypre_CSRMatrix},file_name::Ptr{Uint8})
+    ccall((:hypre_CSRMatrixPrint,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{Uint8}),matrix,file_name)
+end
+
+function hypre_CSRMatrixPrintHB(matrix_input::Ptr{hypre_CSRMatrix},file_name::Ptr{Uint8})
+    ccall((:hypre_CSRMatrixPrintHB,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{Uint8}),matrix_input,file_name)
+end
+
+function hypre_CSRMatrixCopy(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix},copy_data::HYPRE_Int)
+    ccall((:hypre_CSRMatrixCopy,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix},HYPRE_Int),A,B,copy_data)
+end
+
+function hypre_CSRMatrixClone(A::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixClone,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},),A)
+end
+
+function hypre_CSRMatrixUnion(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix},col_map_offd_A::Ptr{HYPRE_Int},col_map_offd_B::Ptr{HYPRE_Int},col_map_offd_C::Ptr{Ptr{HYPRE_Int}})
+    ccall((:hypre_CSRMatrixUnion,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix},Ptr{HYPRE_Int},Ptr{HYPRE_Int},Ptr{Ptr{HYPRE_Int}}),A,B,col_map_offd_A,col_map_offd_B,col_map_offd_C)
+end
+
+function hypre_CSRMatrixMatvec(alpha::Cdouble,A::Ptr{hypre_CSRMatrix},x::Ptr{hypre_Vector},beta::Cdouble,y::Ptr{hypre_Vector})
+    ccall((:hypre_CSRMatrixMatvec,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_CSRMatrix},Ptr{hypre_Vector},Cdouble,Ptr{hypre_Vector}),alpha,A,x,beta,y)
+end
+
+function hypre_CSRMatrixMatvecT(alpha::Cdouble,A::Ptr{hypre_CSRMatrix},x::Ptr{hypre_Vector},beta::Cdouble,y::Ptr{hypre_Vector})
+    ccall((:hypre_CSRMatrixMatvecT,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_CSRMatrix},Ptr{hypre_Vector},Cdouble,Ptr{hypre_Vector}),alpha,A,x,beta,y)
+end
+
+function hypre_CSRMatrixMatvec_FF(alpha::Cdouble,A::Ptr{hypre_CSRMatrix},x::Ptr{hypre_Vector},beta::Cdouble,y::Ptr{hypre_Vector},CF_marker_x::Ptr{HYPRE_Int},CF_marker_y::Ptr{HYPRE_Int},fpt::HYPRE_Int)
+    ccall((:hypre_CSRMatrixMatvec_FF,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_CSRMatrix},Ptr{hypre_Vector},Cdouble,Ptr{hypre_Vector},Ptr{HYPRE_Int},Ptr{HYPRE_Int},HYPRE_Int),alpha,A,x,beta,y,CF_marker_x,CF_marker_y,fpt)
+end
+
+function hypre_GeneratePartitioning(length::HYPRE_Int,num_procs::HYPRE_Int,part_ptr::Ptr{Ptr{HYPRE_Int}})
+    ccall((:hypre_GeneratePartitioning,libHYPRE),HYPRE_Int,(HYPRE_Int,HYPRE_Int,Ptr{Ptr{HYPRE_Int}}),length,num_procs,part_ptr)
+end
+
+function hypre_GenerateLocalPartitioning(length::HYPRE_Int,num_procs::HYPRE_Int,myid::HYPRE_Int,part_ptr::Ptr{Ptr{HYPRE_Int}})
+    ccall((:hypre_GenerateLocalPartitioning,libHYPRE),HYPRE_Int,(HYPRE_Int,HYPRE_Int,HYPRE_Int,Ptr{Ptr{HYPRE_Int}}),length,num_procs,myid,part_ptr)
+end
+
+function HYPRE_CSRMatrixCreate(num_rows::HYPRE_Int,num_cols::HYPRE_Int,row_sizes::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixCreate,libHYPRE),HYPRE_CSRMatrix,(HYPRE_Int,HYPRE_Int,Ptr{HYPRE_Int}),num_rows,num_cols,row_sizes)
+end
+
+function HYPRE_CSRMatrixDestroy(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixInitialize(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixRead,libHYPRE),HYPRE_CSRMatrix,(Ptr{Uint8},),file_name)
+end
+
+function HYPRE_CSRMatrixPrint(matrix::HYPRE_CSRMatrix,file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixPrint,libHYPRE),Void,(HYPRE_CSRMatrix,Ptr{Uint8}),matrix,file_name)
+end
+
+function HYPRE_CSRMatrixGetNumRows(matrix::HYPRE_CSRMatrix,num_rows::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixGetNumRows,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,Ptr{HYPRE_Int}),matrix,num_rows)
+end
+
+function HYPRE_MappedMatrixCreate()
+    ccall((:HYPRE_MappedMatrixCreate,libHYPRE),HYPRE_MappedMatrix,())
+end
+
+function HYPRE_MappedMatrixDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixLimitedDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixInitialize(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixAssemble(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixPrint(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixPrint,libHYPRE),Void,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixGetColIndex(matrix::HYPRE_MappedMatrix,j::HYPRE_Int)
+    ccall((:HYPRE_MappedMatrixGetColIndex,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,HYPRE_Int),matrix,j)
+end
+
+function HYPRE_MappedMatrixGetMatrix(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixGetMatrix,libHYPRE),Ptr{Void},(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixSetMatrix(matrix::HYPRE_MappedMatrix,matrix_data::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMatrix,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,matrix_data)
+end
+
+function HYPRE_MappedMatrixSetColMap(matrix::HYPRE_MappedMatrix,ColMap::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetColMap,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,ColMap)
+end
+
+function HYPRE_MappedMatrixSetMapData(matrix::HYPRE_MappedMatrix,MapData::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMapData,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,MapData)
+end
+
+function HYPRE_MultiblockMatrixCreate()
+    ccall((:HYPRE_MultiblockMatrixCreate,libHYPRE),HYPRE_MultiblockMatrix,())
+end
+
+function HYPRE_MultiblockMatrixDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixLimitedDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixInitialize(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixAssemble(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixPrint(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixPrint,libHYPRE),Void,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixSetNumSubmatrices(matrix::HYPRE_MultiblockMatrix,n::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetNumSubmatrices,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int),matrix,n)
+end
+
+function HYPRE_MultiblockMatrixSetSubmatrixType(matrix::HYPRE_MultiblockMatrix,j::HYPRE_Int,_type::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetSubmatrixType,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int,HYPRE_Int),matrix,j,_type)
+end
+
+function HYPRE_VectorCreate(size::HYPRE_Int)
+    ccall((:HYPRE_VectorCreate,libHYPRE),HYPRE_Vector,(HYPRE_Int,),size)
+end
+
+function HYPRE_VectorDestroy(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorDestroy,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorInitialize(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorInitialize,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorPrint(vector::HYPRE_Vector,file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorPrint,libHYPRE),HYPRE_Int,(HYPRE_Vector,Ptr{Uint8}),vector,file_name)
+end
+
+function HYPRE_VectorRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorRead,libHYPRE),HYPRE_Vector,(Ptr{Uint8},),file_name)
+end
+
+function hypre_MappedMatrixCreate()
+    ccall((:hypre_MappedMatrixCreate,libHYPRE),Ptr{hypre_MappedMatrix},())
+end
+
+function hypre_MappedMatrixDestroy(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixLimitedDestroy(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixInitialize(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixAssemble(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixAssemble,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixPrint(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixPrint,libHYPRE),Void,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixGetColIndex(matrix::Ptr{hypre_MappedMatrix},j::HYPRE_Int)
+    ccall((:hypre_MappedMatrixGetColIndex,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},HYPRE_Int),matrix,j)
+end
+
+function hypre_MappedMatrixGetMatrix(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixGetMatrix,libHYPRE),Ptr{Void},(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixSetMatrix(matrix::Ptr{hypre_MappedMatrix},matrix_data::Ptr{Void})
+    ccall((:hypre_MappedMatrixSetMatrix,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},Ptr{Void}),matrix,matrix_data)
+end
+
+function hypre_MappedMatrixSetColMap(matrix::Ptr{hypre_MappedMatrix},ColMap::Ptr{Void})
+    ccall((:hypre_MappedMatrixSetColMap,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},Ptr{Void}),matrix,ColMap)
+end
+
+function hypre_MappedMatrixSetMapData(matrix::Ptr{hypre_MappedMatrix},map_data::Ptr{Void})
+    ccall((:hypre_MappedMatrixSetMapData,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},Ptr{Void}),matrix,map_data)
+end
+
+function hypre_MultiblockMatrixCreate()
+    ccall((:hypre_MultiblockMatrixCreate,libHYPRE),Ptr{hypre_MultiblockMatrix},())
+end
+
+function hypre_MultiblockMatrixDestroy(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixLimitedDestroy(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixInitialize(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixAssemble(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixAssemble,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixPrint(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixPrint,libHYPRE),Void,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixSetNumSubmatrices(matrix::Ptr{hypre_MultiblockMatrix},n::HYPRE_Int)
+    ccall((:hypre_MultiblockMatrixSetNumSubmatrices,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},HYPRE_Int),matrix,n)
+end
+
+function hypre_MultiblockMatrixSetSubmatrixType(matrix::Ptr{hypre_MultiblockMatrix},j::HYPRE_Int,_type::HYPRE_Int)
+    ccall((:hypre_MultiblockMatrixSetSubmatrixType,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},HYPRE_Int,HYPRE_Int),matrix,j,_type)
+end
+
+function hypre_MultiblockMatrixSetSubmatrix(matrix::Ptr{hypre_MultiblockMatrix},j::HYPRE_Int,submatrix::Ptr{Void})
+    ccall((:hypre_MultiblockMatrixSetSubmatrix,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},HYPRE_Int,Ptr{Void}),matrix,j,submatrix)
+end
+
+function hypre_SeqVectorCreate(size::HYPRE_Int)
+    ccall((:hypre_SeqVectorCreate,libHYPRE),Ptr{hypre_Vector},(HYPRE_Int,),size)
+end
+
+function hypre_SeqMultiVectorCreate(size::HYPRE_Int,num_vectors::HYPRE_Int)
+    ccall((:hypre_SeqMultiVectorCreate,libHYPRE),Ptr{hypre_Vector},(HYPRE_Int,HYPRE_Int),size,num_vectors)
+end
+
+function hypre_SeqVectorDestroy(vector::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},),vector)
+end
+
+function hypre_SeqVectorInitialize(vector::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},),vector)
+end
+
+function hypre_SeqVectorSetDataOwner(vector::Ptr{hypre_Vector},owns_data::HYPRE_Int)
+    ccall((:hypre_SeqVectorSetDataOwner,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},HYPRE_Int),vector,owns_data)
+end
+
+function hypre_SeqVectorRead(file_name::Ptr{Uint8})
+    ccall((:hypre_SeqVectorRead,libHYPRE),Ptr{hypre_Vector},(Ptr{Uint8},),file_name)
+end
+
+function hypre_SeqVectorPrint(vector::Ptr{hypre_Vector},file_name::Ptr{Uint8})
+    ccall((:hypre_SeqVectorPrint,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},Ptr{Uint8}),vector,file_name)
+end
+
+function hypre_SeqVectorSetConstantValues(v::Ptr{hypre_Vector},value::Cdouble)
+    ccall((:hypre_SeqVectorSetConstantValues,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},Cdouble),v,value)
+end
+
+function hypre_SeqVectorSetRandomValues(v::Ptr{hypre_Vector},seed::HYPRE_Int)
+    ccall((:hypre_SeqVectorSetRandomValues,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},HYPRE_Int),v,seed)
+end
+
+function hypre_SeqVectorCopy(x::Ptr{hypre_Vector},y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorCopy,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},Ptr{hypre_Vector}),x,y)
+end
+
+function hypre_SeqVectorCloneDeep(x::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorCloneDeep,libHYPRE),Ptr{hypre_Vector},(Ptr{hypre_Vector},),x)
+end
+
+function hypre_SeqVectorCloneShallow(x::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorCloneShallow,libHYPRE),Ptr{hypre_Vector},(Ptr{hypre_Vector},),x)
+end
+
+function hypre_SeqVectorScale(alpha::Cdouble,y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorScale,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_Vector}),alpha,y)
+end
+
+function hypre_SeqVectorAxpy(alpha::Cdouble,x::Ptr{hypre_Vector},y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorAxpy,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_Vector},Ptr{hypre_Vector}),alpha,x,y)
+end
+
+function hypre_SeqVectorInnerProd(x::Ptr{hypre_Vector},y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorInnerProd,libHYPRE),Cdouble,(Ptr{hypre_Vector},Ptr{hypre_Vector}),x,y)
+end
+
+function hypre_VectorSumElts(vector::Ptr{hypre_Vector})
+    ccall((:hypre_VectorSumElts,libHYPRE),Cdouble,(Ptr{hypre_Vector},),vector)
+end
+# Julia wrapper for header: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/HYPRE_seq_mv.h
+# Automatically generated using Clang.jl wrap_c, version 0.0.0
+
+
+function HYPRE_CheckError(hypre_ierr::HYPRE_Int,hypre_error_code::HYPRE_Int)
+    ccall((:HYPRE_CheckError,libHYPRE),HYPRE_Int,(HYPRE_Int,HYPRE_Int),hypre_ierr,hypre_error_code)
+end
+
+function HYPRE_DescribeError(hypre_ierr::HYPRE_Int,descr::Ptr{Uint8})
+    ccall((:HYPRE_DescribeError,libHYPRE),Void,(HYPRE_Int,Ptr{Uint8}),hypre_ierr,descr)
+end
+
+function HYPRE_ClearError(hypre_error_code::HYPRE_Int)
+    ccall((:HYPRE_ClearError,libHYPRE),HYPRE_Int,(HYPRE_Int,),hypre_error_code)
+end
+
+function HYPRE_CSRMatrixCreate(num_rows::HYPRE_Int,num_cols::HYPRE_Int,row_sizes::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixCreate,libHYPRE),HYPRE_CSRMatrix,(HYPRE_Int,HYPRE_Int,Ptr{HYPRE_Int}),num_rows,num_cols,row_sizes)
+end
+
+function HYPRE_CSRMatrixDestroy(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixInitialize(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixRead,libHYPRE),HYPRE_CSRMatrix,(Ptr{Uint8},),file_name)
+end
+
+function HYPRE_CSRMatrixPrint(matrix::HYPRE_CSRMatrix,file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixPrint,libHYPRE),Void,(HYPRE_CSRMatrix,Ptr{Uint8}),matrix,file_name)
+end
+
+function HYPRE_CSRMatrixGetNumRows(matrix::HYPRE_CSRMatrix,num_rows::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixGetNumRows,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,Ptr{HYPRE_Int}),matrix,num_rows)
+end
+
+function HYPRE_MappedMatrixCreate()
+    ccall((:HYPRE_MappedMatrixCreate,libHYPRE),HYPRE_MappedMatrix,())
+end
+
+function HYPRE_MappedMatrixDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixLimitedDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixInitialize(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixAssemble(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixPrint(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixPrint,libHYPRE),Void,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixGetColIndex(matrix::HYPRE_MappedMatrix,j::HYPRE_Int)
+    ccall((:HYPRE_MappedMatrixGetColIndex,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,HYPRE_Int),matrix,j)
+end
+
+function HYPRE_MappedMatrixGetMatrix(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixGetMatrix,libHYPRE),Ptr{Void},(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixSetMatrix(matrix::HYPRE_MappedMatrix,matrix_data::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMatrix,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,matrix_data)
+end
+
+function HYPRE_MappedMatrixSetColMap(matrix::HYPRE_MappedMatrix,ColMap::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetColMap,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,ColMap)
+end
+
+function HYPRE_MappedMatrixSetMapData(matrix::HYPRE_MappedMatrix,MapData::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMapData,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,MapData)
+end
+
+function HYPRE_MultiblockMatrixCreate()
+    ccall((:HYPRE_MultiblockMatrixCreate,libHYPRE),HYPRE_MultiblockMatrix,())
+end
+
+function HYPRE_MultiblockMatrixDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixLimitedDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixInitialize(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixAssemble(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixPrint(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixPrint,libHYPRE),Void,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixSetNumSubmatrices(matrix::HYPRE_MultiblockMatrix,n::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetNumSubmatrices,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int),matrix,n)
+end
+
+function HYPRE_MultiblockMatrixSetSubmatrixType(matrix::HYPRE_MultiblockMatrix,j::HYPRE_Int,_type::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetSubmatrixType,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int,HYPRE_Int),matrix,j,_type)
+end
+
+function HYPRE_VectorCreate(size::HYPRE_Int)
+    ccall((:HYPRE_VectorCreate,libHYPRE),HYPRE_Vector,(HYPRE_Int,),size)
+end
+
+function HYPRE_VectorDestroy(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorDestroy,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorInitialize(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorInitialize,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorPrint(vector::HYPRE_Vector,file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorPrint,libHYPRE),HYPRE_Int,(HYPRE_Vector,Ptr{Uint8}),vector,file_name)
+end
+
+function HYPRE_VectorRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorRead,libHYPRE),HYPRE_Vector,(Ptr{Uint8},),file_name)
+end
 # Julia wrapper for header: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/_hypre_parcsr_mv.h
 # Automatically generated using Clang.jl wrap_c, version 0.0.0
 
@@ -15,6 +637,478 @@ end
 
 function HYPRE_ClearError(hypre_error_code::HYPRE_Int)
     ccall((:HYPRE_ClearError,libHYPRE),HYPRE_Int,(HYPRE_Int,),hypre_error_code)
+end
+
+function HYPRE_CSRMatrixCreate(num_rows::HYPRE_Int,num_cols::HYPRE_Int,row_sizes::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixCreate,libHYPRE),HYPRE_CSRMatrix,(HYPRE_Int,HYPRE_Int,Ptr{HYPRE_Int}),num_rows,num_cols,row_sizes)
+end
+
+function HYPRE_CSRMatrixDestroy(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixInitialize(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixRead,libHYPRE),HYPRE_CSRMatrix,(Ptr{Uint8},),file_name)
+end
+
+function HYPRE_CSRMatrixPrint(matrix::HYPRE_CSRMatrix,file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixPrint,libHYPRE),Void,(HYPRE_CSRMatrix,Ptr{Uint8}),matrix,file_name)
+end
+
+function HYPRE_CSRMatrixGetNumRows(matrix::HYPRE_CSRMatrix,num_rows::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixGetNumRows,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,Ptr{HYPRE_Int}),matrix,num_rows)
+end
+
+function HYPRE_MappedMatrixCreate()
+    ccall((:HYPRE_MappedMatrixCreate,libHYPRE),HYPRE_MappedMatrix,())
+end
+
+function HYPRE_MappedMatrixDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixLimitedDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixInitialize(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixAssemble(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixPrint(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixPrint,libHYPRE),Void,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixGetColIndex(matrix::HYPRE_MappedMatrix,j::HYPRE_Int)
+    ccall((:HYPRE_MappedMatrixGetColIndex,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,HYPRE_Int),matrix,j)
+end
+
+function HYPRE_MappedMatrixGetMatrix(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixGetMatrix,libHYPRE),Ptr{Void},(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixSetMatrix(matrix::HYPRE_MappedMatrix,matrix_data::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMatrix,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,matrix_data)
+end
+
+function HYPRE_MappedMatrixSetColMap(matrix::HYPRE_MappedMatrix,ColMap::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetColMap,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,ColMap)
+end
+
+function HYPRE_MappedMatrixSetMapData(matrix::HYPRE_MappedMatrix,MapData::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMapData,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,MapData)
+end
+
+function HYPRE_MultiblockMatrixCreate()
+    ccall((:HYPRE_MultiblockMatrixCreate,libHYPRE),HYPRE_MultiblockMatrix,())
+end
+
+function HYPRE_MultiblockMatrixDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixLimitedDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixInitialize(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixAssemble(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixPrint(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixPrint,libHYPRE),Void,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixSetNumSubmatrices(matrix::HYPRE_MultiblockMatrix,n::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetNumSubmatrices,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int),matrix,n)
+end
+
+function HYPRE_MultiblockMatrixSetSubmatrixType(matrix::HYPRE_MultiblockMatrix,j::HYPRE_Int,_type::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetSubmatrixType,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int,HYPRE_Int),matrix,j,_type)
+end
+
+function HYPRE_VectorCreate(size::HYPRE_Int)
+    ccall((:HYPRE_VectorCreate,libHYPRE),HYPRE_Vector,(HYPRE_Int,),size)
+end
+
+function HYPRE_VectorDestroy(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorDestroy,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorInitialize(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorInitialize,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorPrint(vector::HYPRE_Vector,file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorPrint,libHYPRE),HYPRE_Int,(HYPRE_Vector,Ptr{Uint8}),vector,file_name)
+end
+
+function HYPRE_VectorRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorRead,libHYPRE),HYPRE_Vector,(Ptr{Uint8},),file_name)
+end
+
+function hypre_CSRMatrixAdd(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixAdd,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix}),A,B)
+end
+
+function hypre_CSRMatrixMultiply(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixMultiply,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix}),A,B)
+end
+
+function hypre_CSRMatrixDeleteZeros(A::Ptr{hypre_CSRMatrix},tol::Cdouble)
+    ccall((:hypre_CSRMatrixDeleteZeros,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Cdouble),A,tol)
+end
+
+function hypre_CSRMatrixTranspose(A::Ptr{hypre_CSRMatrix},AT::Ptr{Ptr{hypre_CSRMatrix}},data::HYPRE_Int)
+    ccall((:hypre_CSRMatrixTranspose,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{Ptr{hypre_CSRMatrix}},HYPRE_Int),A,AT,data)
+end
+
+function hypre_CSRMatrixReorder(A::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixReorder,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),A)
+end
+
+function hypre_CSRMatrixSumElts(A::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixSumElts,libHYPRE),Cdouble,(Ptr{hypre_CSRMatrix},),A)
+end
+
+function hypre_CSRMatrixCreate(num_rows::HYPRE_Int,num_cols::HYPRE_Int,num_nonzeros::HYPRE_Int)
+    ccall((:hypre_CSRMatrixCreate,libHYPRE),Ptr{hypre_CSRMatrix},(HYPRE_Int,HYPRE_Int,HYPRE_Int),num_rows,num_cols,num_nonzeros)
+end
+
+function hypre_CSRMatrixDestroy(matrix::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),matrix)
+end
+
+function hypre_CSRMatrixInitialize(matrix::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),matrix)
+end
+
+function hypre_CSRMatrixSetDataOwner(matrix::Ptr{hypre_CSRMatrix},owns_data::HYPRE_Int)
+    ccall((:hypre_CSRMatrixSetDataOwner,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},HYPRE_Int),matrix,owns_data)
+end
+
+function hypre_CSRMatrixSetRownnz(matrix::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixSetRownnz,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),matrix)
+end
+
+function hypre_CSRMatrixRead(file_name::Ptr{Uint8})
+    ccall((:hypre_CSRMatrixRead,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{Uint8},),file_name)
+end
+
+function hypre_CSRMatrixPrint(matrix::Ptr{hypre_CSRMatrix},file_name::Ptr{Uint8})
+    ccall((:hypre_CSRMatrixPrint,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{Uint8}),matrix,file_name)
+end
+
+function hypre_CSRMatrixPrintHB(matrix_input::Ptr{hypre_CSRMatrix},file_name::Ptr{Uint8})
+    ccall((:hypre_CSRMatrixPrintHB,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{Uint8}),matrix_input,file_name)
+end
+
+function hypre_CSRMatrixCopy(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix},copy_data::HYPRE_Int)
+    ccall((:hypre_CSRMatrixCopy,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix},HYPRE_Int),A,B,copy_data)
+end
+
+function hypre_CSRMatrixClone(A::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixClone,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},),A)
+end
+
+function hypre_CSRMatrixUnion(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix},col_map_offd_A::Ptr{HYPRE_Int},col_map_offd_B::Ptr{HYPRE_Int},col_map_offd_C::Ptr{Ptr{HYPRE_Int}})
+    ccall((:hypre_CSRMatrixUnion,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix},Ptr{HYPRE_Int},Ptr{HYPRE_Int},Ptr{Ptr{HYPRE_Int}}),A,B,col_map_offd_A,col_map_offd_B,col_map_offd_C)
+end
+
+function hypre_CSRMatrixMatvec(alpha::Cdouble,A::Ptr{hypre_CSRMatrix},x::Ptr{hypre_Vector},beta::Cdouble,y::Ptr{hypre_Vector})
+    ccall((:hypre_CSRMatrixMatvec,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_CSRMatrix},Ptr{hypre_Vector},Cdouble,Ptr{hypre_Vector}),alpha,A,x,beta,y)
+end
+
+function hypre_CSRMatrixMatvecT(alpha::Cdouble,A::Ptr{hypre_CSRMatrix},x::Ptr{hypre_Vector},beta::Cdouble,y::Ptr{hypre_Vector})
+    ccall((:hypre_CSRMatrixMatvecT,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_CSRMatrix},Ptr{hypre_Vector},Cdouble,Ptr{hypre_Vector}),alpha,A,x,beta,y)
+end
+
+function hypre_CSRMatrixMatvec_FF(alpha::Cdouble,A::Ptr{hypre_CSRMatrix},x::Ptr{hypre_Vector},beta::Cdouble,y::Ptr{hypre_Vector},CF_marker_x::Ptr{HYPRE_Int},CF_marker_y::Ptr{HYPRE_Int},fpt::HYPRE_Int)
+    ccall((:hypre_CSRMatrixMatvec_FF,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_CSRMatrix},Ptr{hypre_Vector},Cdouble,Ptr{hypre_Vector},Ptr{HYPRE_Int},Ptr{HYPRE_Int},HYPRE_Int),alpha,A,x,beta,y,CF_marker_x,CF_marker_y,fpt)
+end
+
+function hypre_GeneratePartitioning(length::HYPRE_Int,num_procs::HYPRE_Int,part_ptr::Ptr{Ptr{HYPRE_Int}})
+    ccall((:hypre_GeneratePartitioning,libHYPRE),HYPRE_Int,(HYPRE_Int,HYPRE_Int,Ptr{Ptr{HYPRE_Int}}),length,num_procs,part_ptr)
+end
+
+function hypre_GenerateLocalPartitioning(length::HYPRE_Int,num_procs::HYPRE_Int,myid::HYPRE_Int,part_ptr::Ptr{Ptr{HYPRE_Int}})
+    ccall((:hypre_GenerateLocalPartitioning,libHYPRE),HYPRE_Int,(HYPRE_Int,HYPRE_Int,HYPRE_Int,Ptr{Ptr{HYPRE_Int}}),length,num_procs,myid,part_ptr)
+end
+
+function HYPRE_CSRMatrixCreate(num_rows::HYPRE_Int,num_cols::HYPRE_Int,row_sizes::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixCreate,libHYPRE),HYPRE_CSRMatrix,(HYPRE_Int,HYPRE_Int,Ptr{HYPRE_Int}),num_rows,num_cols,row_sizes)
+end
+
+function HYPRE_CSRMatrixDestroy(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixInitialize(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixRead,libHYPRE),HYPRE_CSRMatrix,(Ptr{Uint8},),file_name)
+end
+
+function HYPRE_CSRMatrixPrint(matrix::HYPRE_CSRMatrix,file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixPrint,libHYPRE),Void,(HYPRE_CSRMatrix,Ptr{Uint8}),matrix,file_name)
+end
+
+function HYPRE_CSRMatrixGetNumRows(matrix::HYPRE_CSRMatrix,num_rows::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixGetNumRows,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,Ptr{HYPRE_Int}),matrix,num_rows)
+end
+
+function HYPRE_MappedMatrixCreate()
+    ccall((:HYPRE_MappedMatrixCreate,libHYPRE),HYPRE_MappedMatrix,())
+end
+
+function HYPRE_MappedMatrixDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixLimitedDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixInitialize(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixAssemble(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixPrint(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixPrint,libHYPRE),Void,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixGetColIndex(matrix::HYPRE_MappedMatrix,j::HYPRE_Int)
+    ccall((:HYPRE_MappedMatrixGetColIndex,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,HYPRE_Int),matrix,j)
+end
+
+function HYPRE_MappedMatrixGetMatrix(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixGetMatrix,libHYPRE),Ptr{Void},(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixSetMatrix(matrix::HYPRE_MappedMatrix,matrix_data::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMatrix,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,matrix_data)
+end
+
+function HYPRE_MappedMatrixSetColMap(matrix::HYPRE_MappedMatrix,ColMap::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetColMap,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,ColMap)
+end
+
+function HYPRE_MappedMatrixSetMapData(matrix::HYPRE_MappedMatrix,MapData::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMapData,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,MapData)
+end
+
+function HYPRE_MultiblockMatrixCreate()
+    ccall((:HYPRE_MultiblockMatrixCreate,libHYPRE),HYPRE_MultiblockMatrix,())
+end
+
+function HYPRE_MultiblockMatrixDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixLimitedDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixInitialize(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixAssemble(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixPrint(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixPrint,libHYPRE),Void,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixSetNumSubmatrices(matrix::HYPRE_MultiblockMatrix,n::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetNumSubmatrices,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int),matrix,n)
+end
+
+function HYPRE_MultiblockMatrixSetSubmatrixType(matrix::HYPRE_MultiblockMatrix,j::HYPRE_Int,_type::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetSubmatrixType,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int,HYPRE_Int),matrix,j,_type)
+end
+
+function HYPRE_VectorCreate(size::HYPRE_Int)
+    ccall((:HYPRE_VectorCreate,libHYPRE),HYPRE_Vector,(HYPRE_Int,),size)
+end
+
+function HYPRE_VectorDestroy(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorDestroy,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorInitialize(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorInitialize,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorPrint(vector::HYPRE_Vector,file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorPrint,libHYPRE),HYPRE_Int,(HYPRE_Vector,Ptr{Uint8}),vector,file_name)
+end
+
+function HYPRE_VectorRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorRead,libHYPRE),HYPRE_Vector,(Ptr{Uint8},),file_name)
+end
+
+function hypre_MappedMatrixCreate()
+    ccall((:hypre_MappedMatrixCreate,libHYPRE),Ptr{hypre_MappedMatrix},())
+end
+
+function hypre_MappedMatrixDestroy(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixLimitedDestroy(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixInitialize(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixAssemble(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixAssemble,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixPrint(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixPrint,libHYPRE),Void,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixGetColIndex(matrix::Ptr{hypre_MappedMatrix},j::HYPRE_Int)
+    ccall((:hypre_MappedMatrixGetColIndex,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},HYPRE_Int),matrix,j)
+end
+
+function hypre_MappedMatrixGetMatrix(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixGetMatrix,libHYPRE),Ptr{Void},(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixSetMatrix(matrix::Ptr{hypre_MappedMatrix},matrix_data::Ptr{Void})
+    ccall((:hypre_MappedMatrixSetMatrix,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},Ptr{Void}),matrix,matrix_data)
+end
+
+function hypre_MappedMatrixSetColMap(matrix::Ptr{hypre_MappedMatrix},ColMap::Ptr{Void})
+    ccall((:hypre_MappedMatrixSetColMap,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},Ptr{Void}),matrix,ColMap)
+end
+
+function hypre_MappedMatrixSetMapData(matrix::Ptr{hypre_MappedMatrix},map_data::Ptr{Void})
+    ccall((:hypre_MappedMatrixSetMapData,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},Ptr{Void}),matrix,map_data)
+end
+
+function hypre_MultiblockMatrixCreate()
+    ccall((:hypre_MultiblockMatrixCreate,libHYPRE),Ptr{hypre_MultiblockMatrix},())
+end
+
+function hypre_MultiblockMatrixDestroy(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixLimitedDestroy(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixInitialize(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixAssemble(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixAssemble,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixPrint(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixPrint,libHYPRE),Void,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixSetNumSubmatrices(matrix::Ptr{hypre_MultiblockMatrix},n::HYPRE_Int)
+    ccall((:hypre_MultiblockMatrixSetNumSubmatrices,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},HYPRE_Int),matrix,n)
+end
+
+function hypre_MultiblockMatrixSetSubmatrixType(matrix::Ptr{hypre_MultiblockMatrix},j::HYPRE_Int,_type::HYPRE_Int)
+    ccall((:hypre_MultiblockMatrixSetSubmatrixType,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},HYPRE_Int,HYPRE_Int),matrix,j,_type)
+end
+
+function hypre_MultiblockMatrixSetSubmatrix(matrix::Ptr{hypre_MultiblockMatrix},j::HYPRE_Int,submatrix::Ptr{Void})
+    ccall((:hypre_MultiblockMatrixSetSubmatrix,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},HYPRE_Int,Ptr{Void}),matrix,j,submatrix)
+end
+
+function hypre_SeqVectorCreate(size::HYPRE_Int)
+    ccall((:hypre_SeqVectorCreate,libHYPRE),Ptr{hypre_Vector},(HYPRE_Int,),size)
+end
+
+function hypre_SeqMultiVectorCreate(size::HYPRE_Int,num_vectors::HYPRE_Int)
+    ccall((:hypre_SeqMultiVectorCreate,libHYPRE),Ptr{hypre_Vector},(HYPRE_Int,HYPRE_Int),size,num_vectors)
+end
+
+function hypre_SeqVectorDestroy(vector::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},),vector)
+end
+
+function hypre_SeqVectorInitialize(vector::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},),vector)
+end
+
+function hypre_SeqVectorSetDataOwner(vector::Ptr{hypre_Vector},owns_data::HYPRE_Int)
+    ccall((:hypre_SeqVectorSetDataOwner,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},HYPRE_Int),vector,owns_data)
+end
+
+function hypre_SeqVectorRead(file_name::Ptr{Uint8})
+    ccall((:hypre_SeqVectorRead,libHYPRE),Ptr{hypre_Vector},(Ptr{Uint8},),file_name)
+end
+
+function hypre_SeqVectorPrint(vector::Ptr{hypre_Vector},file_name::Ptr{Uint8})
+    ccall((:hypre_SeqVectorPrint,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},Ptr{Uint8}),vector,file_name)
+end
+
+function hypre_SeqVectorSetConstantValues(v::Ptr{hypre_Vector},value::Cdouble)
+    ccall((:hypre_SeqVectorSetConstantValues,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},Cdouble),v,value)
+end
+
+function hypre_SeqVectorSetRandomValues(v::Ptr{hypre_Vector},seed::HYPRE_Int)
+    ccall((:hypre_SeqVectorSetRandomValues,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},HYPRE_Int),v,seed)
+end
+
+function hypre_SeqVectorCopy(x::Ptr{hypre_Vector},y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorCopy,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},Ptr{hypre_Vector}),x,y)
+end
+
+function hypre_SeqVectorCloneDeep(x::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorCloneDeep,libHYPRE),Ptr{hypre_Vector},(Ptr{hypre_Vector},),x)
+end
+
+function hypre_SeqVectorCloneShallow(x::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorCloneShallow,libHYPRE),Ptr{hypre_Vector},(Ptr{hypre_Vector},),x)
+end
+
+function hypre_SeqVectorScale(alpha::Cdouble,y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorScale,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_Vector}),alpha,y)
+end
+
+function hypre_SeqVectorAxpy(alpha::Cdouble,x::Ptr{hypre_Vector},y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorAxpy,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_Vector},Ptr{hypre_Vector}),alpha,x,y)
+end
+
+function hypre_SeqVectorInnerProd(x::Ptr{hypre_Vector},y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorInnerProd,libHYPRE),Cdouble,(Ptr{hypre_Vector},Ptr{hypre_Vector}),x,y)
+end
+
+function hypre_VectorSumElts(vector::Ptr{hypre_Vector})
+    ccall((:hypre_VectorSumElts,libHYPRE),Cdouble,(Ptr{hypre_Vector},),vector)
 end
 
 function hypre_NumbersNewNode()
@@ -2189,6 +3283,478 @@ end
 
 function HYPRE_ClearError(hypre_error_code::HYPRE_Int)
     ccall((:HYPRE_ClearError,libHYPRE),HYPRE_Int,(HYPRE_Int,),hypre_error_code)
+end
+
+function HYPRE_CSRMatrixCreate(num_rows::HYPRE_Int,num_cols::HYPRE_Int,row_sizes::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixCreate,libHYPRE),HYPRE_CSRMatrix,(HYPRE_Int,HYPRE_Int,Ptr{HYPRE_Int}),num_rows,num_cols,row_sizes)
+end
+
+function HYPRE_CSRMatrixDestroy(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixInitialize(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixRead,libHYPRE),HYPRE_CSRMatrix,(Ptr{Uint8},),file_name)
+end
+
+function HYPRE_CSRMatrixPrint(matrix::HYPRE_CSRMatrix,file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixPrint,libHYPRE),Void,(HYPRE_CSRMatrix,Ptr{Uint8}),matrix,file_name)
+end
+
+function HYPRE_CSRMatrixGetNumRows(matrix::HYPRE_CSRMatrix,num_rows::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixGetNumRows,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,Ptr{HYPRE_Int}),matrix,num_rows)
+end
+
+function HYPRE_MappedMatrixCreate()
+    ccall((:HYPRE_MappedMatrixCreate,libHYPRE),HYPRE_MappedMatrix,())
+end
+
+function HYPRE_MappedMatrixDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixLimitedDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixInitialize(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixAssemble(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixPrint(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixPrint,libHYPRE),Void,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixGetColIndex(matrix::HYPRE_MappedMatrix,j::HYPRE_Int)
+    ccall((:HYPRE_MappedMatrixGetColIndex,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,HYPRE_Int),matrix,j)
+end
+
+function HYPRE_MappedMatrixGetMatrix(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixGetMatrix,libHYPRE),Ptr{Void},(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixSetMatrix(matrix::HYPRE_MappedMatrix,matrix_data::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMatrix,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,matrix_data)
+end
+
+function HYPRE_MappedMatrixSetColMap(matrix::HYPRE_MappedMatrix,ColMap::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetColMap,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,ColMap)
+end
+
+function HYPRE_MappedMatrixSetMapData(matrix::HYPRE_MappedMatrix,MapData::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMapData,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,MapData)
+end
+
+function HYPRE_MultiblockMatrixCreate()
+    ccall((:HYPRE_MultiblockMatrixCreate,libHYPRE),HYPRE_MultiblockMatrix,())
+end
+
+function HYPRE_MultiblockMatrixDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixLimitedDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixInitialize(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixAssemble(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixPrint(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixPrint,libHYPRE),Void,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixSetNumSubmatrices(matrix::HYPRE_MultiblockMatrix,n::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetNumSubmatrices,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int),matrix,n)
+end
+
+function HYPRE_MultiblockMatrixSetSubmatrixType(matrix::HYPRE_MultiblockMatrix,j::HYPRE_Int,_type::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetSubmatrixType,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int,HYPRE_Int),matrix,j,_type)
+end
+
+function HYPRE_VectorCreate(size::HYPRE_Int)
+    ccall((:HYPRE_VectorCreate,libHYPRE),HYPRE_Vector,(HYPRE_Int,),size)
+end
+
+function HYPRE_VectorDestroy(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorDestroy,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorInitialize(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorInitialize,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorPrint(vector::HYPRE_Vector,file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorPrint,libHYPRE),HYPRE_Int,(HYPRE_Vector,Ptr{Uint8}),vector,file_name)
+end
+
+function HYPRE_VectorRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorRead,libHYPRE),HYPRE_Vector,(Ptr{Uint8},),file_name)
+end
+
+function hypre_CSRMatrixAdd(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixAdd,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix}),A,B)
+end
+
+function hypre_CSRMatrixMultiply(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixMultiply,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix}),A,B)
+end
+
+function hypre_CSRMatrixDeleteZeros(A::Ptr{hypre_CSRMatrix},tol::Cdouble)
+    ccall((:hypre_CSRMatrixDeleteZeros,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Cdouble),A,tol)
+end
+
+function hypre_CSRMatrixTranspose(A::Ptr{hypre_CSRMatrix},AT::Ptr{Ptr{hypre_CSRMatrix}},data::HYPRE_Int)
+    ccall((:hypre_CSRMatrixTranspose,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{Ptr{hypre_CSRMatrix}},HYPRE_Int),A,AT,data)
+end
+
+function hypre_CSRMatrixReorder(A::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixReorder,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),A)
+end
+
+function hypre_CSRMatrixSumElts(A::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixSumElts,libHYPRE),Cdouble,(Ptr{hypre_CSRMatrix},),A)
+end
+
+function hypre_CSRMatrixCreate(num_rows::HYPRE_Int,num_cols::HYPRE_Int,num_nonzeros::HYPRE_Int)
+    ccall((:hypre_CSRMatrixCreate,libHYPRE),Ptr{hypre_CSRMatrix},(HYPRE_Int,HYPRE_Int,HYPRE_Int),num_rows,num_cols,num_nonzeros)
+end
+
+function hypre_CSRMatrixDestroy(matrix::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),matrix)
+end
+
+function hypre_CSRMatrixInitialize(matrix::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),matrix)
+end
+
+function hypre_CSRMatrixSetDataOwner(matrix::Ptr{hypre_CSRMatrix},owns_data::HYPRE_Int)
+    ccall((:hypre_CSRMatrixSetDataOwner,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},HYPRE_Int),matrix,owns_data)
+end
+
+function hypre_CSRMatrixSetRownnz(matrix::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixSetRownnz,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),matrix)
+end
+
+function hypre_CSRMatrixRead(file_name::Ptr{Uint8})
+    ccall((:hypre_CSRMatrixRead,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{Uint8},),file_name)
+end
+
+function hypre_CSRMatrixPrint(matrix::Ptr{hypre_CSRMatrix},file_name::Ptr{Uint8})
+    ccall((:hypre_CSRMatrixPrint,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{Uint8}),matrix,file_name)
+end
+
+function hypre_CSRMatrixPrintHB(matrix_input::Ptr{hypre_CSRMatrix},file_name::Ptr{Uint8})
+    ccall((:hypre_CSRMatrixPrintHB,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{Uint8}),matrix_input,file_name)
+end
+
+function hypre_CSRMatrixCopy(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix},copy_data::HYPRE_Int)
+    ccall((:hypre_CSRMatrixCopy,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix},HYPRE_Int),A,B,copy_data)
+end
+
+function hypre_CSRMatrixClone(A::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixClone,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},),A)
+end
+
+function hypre_CSRMatrixUnion(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix},col_map_offd_A::Ptr{HYPRE_Int},col_map_offd_B::Ptr{HYPRE_Int},col_map_offd_C::Ptr{Ptr{HYPRE_Int}})
+    ccall((:hypre_CSRMatrixUnion,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix},Ptr{HYPRE_Int},Ptr{HYPRE_Int},Ptr{Ptr{HYPRE_Int}}),A,B,col_map_offd_A,col_map_offd_B,col_map_offd_C)
+end
+
+function hypre_CSRMatrixMatvec(alpha::Cdouble,A::Ptr{hypre_CSRMatrix},x::Ptr{hypre_Vector},beta::Cdouble,y::Ptr{hypre_Vector})
+    ccall((:hypre_CSRMatrixMatvec,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_CSRMatrix},Ptr{hypre_Vector},Cdouble,Ptr{hypre_Vector}),alpha,A,x,beta,y)
+end
+
+function hypre_CSRMatrixMatvecT(alpha::Cdouble,A::Ptr{hypre_CSRMatrix},x::Ptr{hypre_Vector},beta::Cdouble,y::Ptr{hypre_Vector})
+    ccall((:hypre_CSRMatrixMatvecT,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_CSRMatrix},Ptr{hypre_Vector},Cdouble,Ptr{hypre_Vector}),alpha,A,x,beta,y)
+end
+
+function hypre_CSRMatrixMatvec_FF(alpha::Cdouble,A::Ptr{hypre_CSRMatrix},x::Ptr{hypre_Vector},beta::Cdouble,y::Ptr{hypre_Vector},CF_marker_x::Ptr{HYPRE_Int},CF_marker_y::Ptr{HYPRE_Int},fpt::HYPRE_Int)
+    ccall((:hypre_CSRMatrixMatvec_FF,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_CSRMatrix},Ptr{hypre_Vector},Cdouble,Ptr{hypre_Vector},Ptr{HYPRE_Int},Ptr{HYPRE_Int},HYPRE_Int),alpha,A,x,beta,y,CF_marker_x,CF_marker_y,fpt)
+end
+
+function hypre_GeneratePartitioning(length::HYPRE_Int,num_procs::HYPRE_Int,part_ptr::Ptr{Ptr{HYPRE_Int}})
+    ccall((:hypre_GeneratePartitioning,libHYPRE),HYPRE_Int,(HYPRE_Int,HYPRE_Int,Ptr{Ptr{HYPRE_Int}}),length,num_procs,part_ptr)
+end
+
+function hypre_GenerateLocalPartitioning(length::HYPRE_Int,num_procs::HYPRE_Int,myid::HYPRE_Int,part_ptr::Ptr{Ptr{HYPRE_Int}})
+    ccall((:hypre_GenerateLocalPartitioning,libHYPRE),HYPRE_Int,(HYPRE_Int,HYPRE_Int,HYPRE_Int,Ptr{Ptr{HYPRE_Int}}),length,num_procs,myid,part_ptr)
+end
+
+function HYPRE_CSRMatrixCreate(num_rows::HYPRE_Int,num_cols::HYPRE_Int,row_sizes::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixCreate,libHYPRE),HYPRE_CSRMatrix,(HYPRE_Int,HYPRE_Int,Ptr{HYPRE_Int}),num_rows,num_cols,row_sizes)
+end
+
+function HYPRE_CSRMatrixDestroy(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixInitialize(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixRead,libHYPRE),HYPRE_CSRMatrix,(Ptr{Uint8},),file_name)
+end
+
+function HYPRE_CSRMatrixPrint(matrix::HYPRE_CSRMatrix,file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixPrint,libHYPRE),Void,(HYPRE_CSRMatrix,Ptr{Uint8}),matrix,file_name)
+end
+
+function HYPRE_CSRMatrixGetNumRows(matrix::HYPRE_CSRMatrix,num_rows::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixGetNumRows,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,Ptr{HYPRE_Int}),matrix,num_rows)
+end
+
+function HYPRE_MappedMatrixCreate()
+    ccall((:HYPRE_MappedMatrixCreate,libHYPRE),HYPRE_MappedMatrix,())
+end
+
+function HYPRE_MappedMatrixDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixLimitedDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixInitialize(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixAssemble(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixPrint(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixPrint,libHYPRE),Void,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixGetColIndex(matrix::HYPRE_MappedMatrix,j::HYPRE_Int)
+    ccall((:HYPRE_MappedMatrixGetColIndex,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,HYPRE_Int),matrix,j)
+end
+
+function HYPRE_MappedMatrixGetMatrix(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixGetMatrix,libHYPRE),Ptr{Void},(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixSetMatrix(matrix::HYPRE_MappedMatrix,matrix_data::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMatrix,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,matrix_data)
+end
+
+function HYPRE_MappedMatrixSetColMap(matrix::HYPRE_MappedMatrix,ColMap::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetColMap,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,ColMap)
+end
+
+function HYPRE_MappedMatrixSetMapData(matrix::HYPRE_MappedMatrix,MapData::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMapData,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,MapData)
+end
+
+function HYPRE_MultiblockMatrixCreate()
+    ccall((:HYPRE_MultiblockMatrixCreate,libHYPRE),HYPRE_MultiblockMatrix,())
+end
+
+function HYPRE_MultiblockMatrixDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixLimitedDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixInitialize(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixAssemble(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixPrint(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixPrint,libHYPRE),Void,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixSetNumSubmatrices(matrix::HYPRE_MultiblockMatrix,n::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetNumSubmatrices,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int),matrix,n)
+end
+
+function HYPRE_MultiblockMatrixSetSubmatrixType(matrix::HYPRE_MultiblockMatrix,j::HYPRE_Int,_type::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetSubmatrixType,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int,HYPRE_Int),matrix,j,_type)
+end
+
+function HYPRE_VectorCreate(size::HYPRE_Int)
+    ccall((:HYPRE_VectorCreate,libHYPRE),HYPRE_Vector,(HYPRE_Int,),size)
+end
+
+function HYPRE_VectorDestroy(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorDestroy,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorInitialize(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorInitialize,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorPrint(vector::HYPRE_Vector,file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorPrint,libHYPRE),HYPRE_Int,(HYPRE_Vector,Ptr{Uint8}),vector,file_name)
+end
+
+function HYPRE_VectorRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorRead,libHYPRE),HYPRE_Vector,(Ptr{Uint8},),file_name)
+end
+
+function hypre_MappedMatrixCreate()
+    ccall((:hypre_MappedMatrixCreate,libHYPRE),Ptr{hypre_MappedMatrix},())
+end
+
+function hypre_MappedMatrixDestroy(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixLimitedDestroy(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixInitialize(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixAssemble(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixAssemble,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixPrint(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixPrint,libHYPRE),Void,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixGetColIndex(matrix::Ptr{hypre_MappedMatrix},j::HYPRE_Int)
+    ccall((:hypre_MappedMatrixGetColIndex,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},HYPRE_Int),matrix,j)
+end
+
+function hypre_MappedMatrixGetMatrix(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixGetMatrix,libHYPRE),Ptr{Void},(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixSetMatrix(matrix::Ptr{hypre_MappedMatrix},matrix_data::Ptr{Void})
+    ccall((:hypre_MappedMatrixSetMatrix,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},Ptr{Void}),matrix,matrix_data)
+end
+
+function hypre_MappedMatrixSetColMap(matrix::Ptr{hypre_MappedMatrix},ColMap::Ptr{Void})
+    ccall((:hypre_MappedMatrixSetColMap,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},Ptr{Void}),matrix,ColMap)
+end
+
+function hypre_MappedMatrixSetMapData(matrix::Ptr{hypre_MappedMatrix},map_data::Ptr{Void})
+    ccall((:hypre_MappedMatrixSetMapData,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},Ptr{Void}),matrix,map_data)
+end
+
+function hypre_MultiblockMatrixCreate()
+    ccall((:hypre_MultiblockMatrixCreate,libHYPRE),Ptr{hypre_MultiblockMatrix},())
+end
+
+function hypre_MultiblockMatrixDestroy(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixLimitedDestroy(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixInitialize(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixAssemble(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixAssemble,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixPrint(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixPrint,libHYPRE),Void,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixSetNumSubmatrices(matrix::Ptr{hypre_MultiblockMatrix},n::HYPRE_Int)
+    ccall((:hypre_MultiblockMatrixSetNumSubmatrices,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},HYPRE_Int),matrix,n)
+end
+
+function hypre_MultiblockMatrixSetSubmatrixType(matrix::Ptr{hypre_MultiblockMatrix},j::HYPRE_Int,_type::HYPRE_Int)
+    ccall((:hypre_MultiblockMatrixSetSubmatrixType,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},HYPRE_Int,HYPRE_Int),matrix,j,_type)
+end
+
+function hypre_MultiblockMatrixSetSubmatrix(matrix::Ptr{hypre_MultiblockMatrix},j::HYPRE_Int,submatrix::Ptr{Void})
+    ccall((:hypre_MultiblockMatrixSetSubmatrix,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},HYPRE_Int,Ptr{Void}),matrix,j,submatrix)
+end
+
+function hypre_SeqVectorCreate(size::HYPRE_Int)
+    ccall((:hypre_SeqVectorCreate,libHYPRE),Ptr{hypre_Vector},(HYPRE_Int,),size)
+end
+
+function hypre_SeqMultiVectorCreate(size::HYPRE_Int,num_vectors::HYPRE_Int)
+    ccall((:hypre_SeqMultiVectorCreate,libHYPRE),Ptr{hypre_Vector},(HYPRE_Int,HYPRE_Int),size,num_vectors)
+end
+
+function hypre_SeqVectorDestroy(vector::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},),vector)
+end
+
+function hypre_SeqVectorInitialize(vector::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},),vector)
+end
+
+function hypre_SeqVectorSetDataOwner(vector::Ptr{hypre_Vector},owns_data::HYPRE_Int)
+    ccall((:hypre_SeqVectorSetDataOwner,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},HYPRE_Int),vector,owns_data)
+end
+
+function hypre_SeqVectorRead(file_name::Ptr{Uint8})
+    ccall((:hypre_SeqVectorRead,libHYPRE),Ptr{hypre_Vector},(Ptr{Uint8},),file_name)
+end
+
+function hypre_SeqVectorPrint(vector::Ptr{hypre_Vector},file_name::Ptr{Uint8})
+    ccall((:hypre_SeqVectorPrint,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},Ptr{Uint8}),vector,file_name)
+end
+
+function hypre_SeqVectorSetConstantValues(v::Ptr{hypre_Vector},value::Cdouble)
+    ccall((:hypre_SeqVectorSetConstantValues,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},Cdouble),v,value)
+end
+
+function hypre_SeqVectorSetRandomValues(v::Ptr{hypre_Vector},seed::HYPRE_Int)
+    ccall((:hypre_SeqVectorSetRandomValues,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},HYPRE_Int),v,seed)
+end
+
+function hypre_SeqVectorCopy(x::Ptr{hypre_Vector},y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorCopy,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},Ptr{hypre_Vector}),x,y)
+end
+
+function hypre_SeqVectorCloneDeep(x::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorCloneDeep,libHYPRE),Ptr{hypre_Vector},(Ptr{hypre_Vector},),x)
+end
+
+function hypre_SeqVectorCloneShallow(x::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorCloneShallow,libHYPRE),Ptr{hypre_Vector},(Ptr{hypre_Vector},),x)
+end
+
+function hypre_SeqVectorScale(alpha::Cdouble,y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorScale,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_Vector}),alpha,y)
+end
+
+function hypre_SeqVectorAxpy(alpha::Cdouble,x::Ptr{hypre_Vector},y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorAxpy,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_Vector},Ptr{hypre_Vector}),alpha,x,y)
+end
+
+function hypre_SeqVectorInnerProd(x::Ptr{hypre_Vector},y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorInnerProd,libHYPRE),Cdouble,(Ptr{hypre_Vector},Ptr{hypre_Vector}),x,y)
+end
+
+function hypre_VectorSumElts(vector::Ptr{hypre_Vector})
+    ccall((:hypre_VectorSumElts,libHYPRE),Cdouble,(Ptr{hypre_Vector},),vector)
 end
 
 function hypre_NumbersNewNode()
@@ -6617,6 +8183,478 @@ function HYPRE_ClearError(hypre_error_code::HYPRE_Int)
     ccall((:HYPRE_ClearError,libHYPRE),HYPRE_Int,(HYPRE_Int,),hypre_error_code)
 end
 
+function HYPRE_CSRMatrixCreate(num_rows::HYPRE_Int,num_cols::HYPRE_Int,row_sizes::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixCreate,libHYPRE),HYPRE_CSRMatrix,(HYPRE_Int,HYPRE_Int,Ptr{HYPRE_Int}),num_rows,num_cols,row_sizes)
+end
+
+function HYPRE_CSRMatrixDestroy(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixInitialize(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixRead,libHYPRE),HYPRE_CSRMatrix,(Ptr{Uint8},),file_name)
+end
+
+function HYPRE_CSRMatrixPrint(matrix::HYPRE_CSRMatrix,file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixPrint,libHYPRE),Void,(HYPRE_CSRMatrix,Ptr{Uint8}),matrix,file_name)
+end
+
+function HYPRE_CSRMatrixGetNumRows(matrix::HYPRE_CSRMatrix,num_rows::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixGetNumRows,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,Ptr{HYPRE_Int}),matrix,num_rows)
+end
+
+function HYPRE_MappedMatrixCreate()
+    ccall((:HYPRE_MappedMatrixCreate,libHYPRE),HYPRE_MappedMatrix,())
+end
+
+function HYPRE_MappedMatrixDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixLimitedDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixInitialize(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixAssemble(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixPrint(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixPrint,libHYPRE),Void,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixGetColIndex(matrix::HYPRE_MappedMatrix,j::HYPRE_Int)
+    ccall((:HYPRE_MappedMatrixGetColIndex,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,HYPRE_Int),matrix,j)
+end
+
+function HYPRE_MappedMatrixGetMatrix(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixGetMatrix,libHYPRE),Ptr{Void},(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixSetMatrix(matrix::HYPRE_MappedMatrix,matrix_data::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMatrix,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,matrix_data)
+end
+
+function HYPRE_MappedMatrixSetColMap(matrix::HYPRE_MappedMatrix,ColMap::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetColMap,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,ColMap)
+end
+
+function HYPRE_MappedMatrixSetMapData(matrix::HYPRE_MappedMatrix,MapData::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMapData,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,MapData)
+end
+
+function HYPRE_MultiblockMatrixCreate()
+    ccall((:HYPRE_MultiblockMatrixCreate,libHYPRE),HYPRE_MultiblockMatrix,())
+end
+
+function HYPRE_MultiblockMatrixDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixLimitedDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixInitialize(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixAssemble(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixPrint(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixPrint,libHYPRE),Void,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixSetNumSubmatrices(matrix::HYPRE_MultiblockMatrix,n::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetNumSubmatrices,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int),matrix,n)
+end
+
+function HYPRE_MultiblockMatrixSetSubmatrixType(matrix::HYPRE_MultiblockMatrix,j::HYPRE_Int,_type::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetSubmatrixType,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int,HYPRE_Int),matrix,j,_type)
+end
+
+function HYPRE_VectorCreate(size::HYPRE_Int)
+    ccall((:HYPRE_VectorCreate,libHYPRE),HYPRE_Vector,(HYPRE_Int,),size)
+end
+
+function HYPRE_VectorDestroy(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorDestroy,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorInitialize(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorInitialize,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorPrint(vector::HYPRE_Vector,file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorPrint,libHYPRE),HYPRE_Int,(HYPRE_Vector,Ptr{Uint8}),vector,file_name)
+end
+
+function HYPRE_VectorRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorRead,libHYPRE),HYPRE_Vector,(Ptr{Uint8},),file_name)
+end
+
+function hypre_CSRMatrixAdd(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixAdd,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix}),A,B)
+end
+
+function hypre_CSRMatrixMultiply(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixMultiply,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix}),A,B)
+end
+
+function hypre_CSRMatrixDeleteZeros(A::Ptr{hypre_CSRMatrix},tol::Cdouble)
+    ccall((:hypre_CSRMatrixDeleteZeros,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Cdouble),A,tol)
+end
+
+function hypre_CSRMatrixTranspose(A::Ptr{hypre_CSRMatrix},AT::Ptr{Ptr{hypre_CSRMatrix}},data::HYPRE_Int)
+    ccall((:hypre_CSRMatrixTranspose,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{Ptr{hypre_CSRMatrix}},HYPRE_Int),A,AT,data)
+end
+
+function hypre_CSRMatrixReorder(A::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixReorder,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),A)
+end
+
+function hypre_CSRMatrixSumElts(A::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixSumElts,libHYPRE),Cdouble,(Ptr{hypre_CSRMatrix},),A)
+end
+
+function hypre_CSRMatrixCreate(num_rows::HYPRE_Int,num_cols::HYPRE_Int,num_nonzeros::HYPRE_Int)
+    ccall((:hypre_CSRMatrixCreate,libHYPRE),Ptr{hypre_CSRMatrix},(HYPRE_Int,HYPRE_Int,HYPRE_Int),num_rows,num_cols,num_nonzeros)
+end
+
+function hypre_CSRMatrixDestroy(matrix::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),matrix)
+end
+
+function hypre_CSRMatrixInitialize(matrix::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),matrix)
+end
+
+function hypre_CSRMatrixSetDataOwner(matrix::Ptr{hypre_CSRMatrix},owns_data::HYPRE_Int)
+    ccall((:hypre_CSRMatrixSetDataOwner,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},HYPRE_Int),matrix,owns_data)
+end
+
+function hypre_CSRMatrixSetRownnz(matrix::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixSetRownnz,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),matrix)
+end
+
+function hypre_CSRMatrixRead(file_name::Ptr{Uint8})
+    ccall((:hypre_CSRMatrixRead,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{Uint8},),file_name)
+end
+
+function hypre_CSRMatrixPrint(matrix::Ptr{hypre_CSRMatrix},file_name::Ptr{Uint8})
+    ccall((:hypre_CSRMatrixPrint,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{Uint8}),matrix,file_name)
+end
+
+function hypre_CSRMatrixPrintHB(matrix_input::Ptr{hypre_CSRMatrix},file_name::Ptr{Uint8})
+    ccall((:hypre_CSRMatrixPrintHB,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{Uint8}),matrix_input,file_name)
+end
+
+function hypre_CSRMatrixCopy(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix},copy_data::HYPRE_Int)
+    ccall((:hypre_CSRMatrixCopy,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix},HYPRE_Int),A,B,copy_data)
+end
+
+function hypre_CSRMatrixClone(A::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixClone,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},),A)
+end
+
+function hypre_CSRMatrixUnion(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix},col_map_offd_A::Ptr{HYPRE_Int},col_map_offd_B::Ptr{HYPRE_Int},col_map_offd_C::Ptr{Ptr{HYPRE_Int}})
+    ccall((:hypre_CSRMatrixUnion,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix},Ptr{HYPRE_Int},Ptr{HYPRE_Int},Ptr{Ptr{HYPRE_Int}}),A,B,col_map_offd_A,col_map_offd_B,col_map_offd_C)
+end
+
+function hypre_CSRMatrixMatvec(alpha::Cdouble,A::Ptr{hypre_CSRMatrix},x::Ptr{hypre_Vector},beta::Cdouble,y::Ptr{hypre_Vector})
+    ccall((:hypre_CSRMatrixMatvec,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_CSRMatrix},Ptr{hypre_Vector},Cdouble,Ptr{hypre_Vector}),alpha,A,x,beta,y)
+end
+
+function hypre_CSRMatrixMatvecT(alpha::Cdouble,A::Ptr{hypre_CSRMatrix},x::Ptr{hypre_Vector},beta::Cdouble,y::Ptr{hypre_Vector})
+    ccall((:hypre_CSRMatrixMatvecT,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_CSRMatrix},Ptr{hypre_Vector},Cdouble,Ptr{hypre_Vector}),alpha,A,x,beta,y)
+end
+
+function hypre_CSRMatrixMatvec_FF(alpha::Cdouble,A::Ptr{hypre_CSRMatrix},x::Ptr{hypre_Vector},beta::Cdouble,y::Ptr{hypre_Vector},CF_marker_x::Ptr{HYPRE_Int},CF_marker_y::Ptr{HYPRE_Int},fpt::HYPRE_Int)
+    ccall((:hypre_CSRMatrixMatvec_FF,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_CSRMatrix},Ptr{hypre_Vector},Cdouble,Ptr{hypre_Vector},Ptr{HYPRE_Int},Ptr{HYPRE_Int},HYPRE_Int),alpha,A,x,beta,y,CF_marker_x,CF_marker_y,fpt)
+end
+
+function hypre_GeneratePartitioning(length::HYPRE_Int,num_procs::HYPRE_Int,part_ptr::Ptr{Ptr{HYPRE_Int}})
+    ccall((:hypre_GeneratePartitioning,libHYPRE),HYPRE_Int,(HYPRE_Int,HYPRE_Int,Ptr{Ptr{HYPRE_Int}}),length,num_procs,part_ptr)
+end
+
+function hypre_GenerateLocalPartitioning(length::HYPRE_Int,num_procs::HYPRE_Int,myid::HYPRE_Int,part_ptr::Ptr{Ptr{HYPRE_Int}})
+    ccall((:hypre_GenerateLocalPartitioning,libHYPRE),HYPRE_Int,(HYPRE_Int,HYPRE_Int,HYPRE_Int,Ptr{Ptr{HYPRE_Int}}),length,num_procs,myid,part_ptr)
+end
+
+function HYPRE_CSRMatrixCreate(num_rows::HYPRE_Int,num_cols::HYPRE_Int,row_sizes::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixCreate,libHYPRE),HYPRE_CSRMatrix,(HYPRE_Int,HYPRE_Int,Ptr{HYPRE_Int}),num_rows,num_cols,row_sizes)
+end
+
+function HYPRE_CSRMatrixDestroy(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixInitialize(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixRead,libHYPRE),HYPRE_CSRMatrix,(Ptr{Uint8},),file_name)
+end
+
+function HYPRE_CSRMatrixPrint(matrix::HYPRE_CSRMatrix,file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixPrint,libHYPRE),Void,(HYPRE_CSRMatrix,Ptr{Uint8}),matrix,file_name)
+end
+
+function HYPRE_CSRMatrixGetNumRows(matrix::HYPRE_CSRMatrix,num_rows::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixGetNumRows,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,Ptr{HYPRE_Int}),matrix,num_rows)
+end
+
+function HYPRE_MappedMatrixCreate()
+    ccall((:HYPRE_MappedMatrixCreate,libHYPRE),HYPRE_MappedMatrix,())
+end
+
+function HYPRE_MappedMatrixDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixLimitedDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixInitialize(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixAssemble(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixPrint(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixPrint,libHYPRE),Void,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixGetColIndex(matrix::HYPRE_MappedMatrix,j::HYPRE_Int)
+    ccall((:HYPRE_MappedMatrixGetColIndex,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,HYPRE_Int),matrix,j)
+end
+
+function HYPRE_MappedMatrixGetMatrix(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixGetMatrix,libHYPRE),Ptr{Void},(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixSetMatrix(matrix::HYPRE_MappedMatrix,matrix_data::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMatrix,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,matrix_data)
+end
+
+function HYPRE_MappedMatrixSetColMap(matrix::HYPRE_MappedMatrix,ColMap::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetColMap,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,ColMap)
+end
+
+function HYPRE_MappedMatrixSetMapData(matrix::HYPRE_MappedMatrix,MapData::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMapData,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,MapData)
+end
+
+function HYPRE_MultiblockMatrixCreate()
+    ccall((:HYPRE_MultiblockMatrixCreate,libHYPRE),HYPRE_MultiblockMatrix,())
+end
+
+function HYPRE_MultiblockMatrixDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixLimitedDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixInitialize(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixAssemble(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixPrint(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixPrint,libHYPRE),Void,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixSetNumSubmatrices(matrix::HYPRE_MultiblockMatrix,n::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetNumSubmatrices,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int),matrix,n)
+end
+
+function HYPRE_MultiblockMatrixSetSubmatrixType(matrix::HYPRE_MultiblockMatrix,j::HYPRE_Int,_type::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetSubmatrixType,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int,HYPRE_Int),matrix,j,_type)
+end
+
+function HYPRE_VectorCreate(size::HYPRE_Int)
+    ccall((:HYPRE_VectorCreate,libHYPRE),HYPRE_Vector,(HYPRE_Int,),size)
+end
+
+function HYPRE_VectorDestroy(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorDestroy,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorInitialize(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorInitialize,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorPrint(vector::HYPRE_Vector,file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorPrint,libHYPRE),HYPRE_Int,(HYPRE_Vector,Ptr{Uint8}),vector,file_name)
+end
+
+function HYPRE_VectorRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorRead,libHYPRE),HYPRE_Vector,(Ptr{Uint8},),file_name)
+end
+
+function hypre_MappedMatrixCreate()
+    ccall((:hypre_MappedMatrixCreate,libHYPRE),Ptr{hypre_MappedMatrix},())
+end
+
+function hypre_MappedMatrixDestroy(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixLimitedDestroy(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixInitialize(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixAssemble(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixAssemble,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixPrint(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixPrint,libHYPRE),Void,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixGetColIndex(matrix::Ptr{hypre_MappedMatrix},j::HYPRE_Int)
+    ccall((:hypre_MappedMatrixGetColIndex,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},HYPRE_Int),matrix,j)
+end
+
+function hypre_MappedMatrixGetMatrix(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixGetMatrix,libHYPRE),Ptr{Void},(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixSetMatrix(matrix::Ptr{hypre_MappedMatrix},matrix_data::Ptr{Void})
+    ccall((:hypre_MappedMatrixSetMatrix,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},Ptr{Void}),matrix,matrix_data)
+end
+
+function hypre_MappedMatrixSetColMap(matrix::Ptr{hypre_MappedMatrix},ColMap::Ptr{Void})
+    ccall((:hypre_MappedMatrixSetColMap,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},Ptr{Void}),matrix,ColMap)
+end
+
+function hypre_MappedMatrixSetMapData(matrix::Ptr{hypre_MappedMatrix},map_data::Ptr{Void})
+    ccall((:hypre_MappedMatrixSetMapData,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},Ptr{Void}),matrix,map_data)
+end
+
+function hypre_MultiblockMatrixCreate()
+    ccall((:hypre_MultiblockMatrixCreate,libHYPRE),Ptr{hypre_MultiblockMatrix},())
+end
+
+function hypre_MultiblockMatrixDestroy(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixLimitedDestroy(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixInitialize(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixAssemble(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixAssemble,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixPrint(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixPrint,libHYPRE),Void,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixSetNumSubmatrices(matrix::Ptr{hypre_MultiblockMatrix},n::HYPRE_Int)
+    ccall((:hypre_MultiblockMatrixSetNumSubmatrices,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},HYPRE_Int),matrix,n)
+end
+
+function hypre_MultiblockMatrixSetSubmatrixType(matrix::Ptr{hypre_MultiblockMatrix},j::HYPRE_Int,_type::HYPRE_Int)
+    ccall((:hypre_MultiblockMatrixSetSubmatrixType,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},HYPRE_Int,HYPRE_Int),matrix,j,_type)
+end
+
+function hypre_MultiblockMatrixSetSubmatrix(matrix::Ptr{hypre_MultiblockMatrix},j::HYPRE_Int,submatrix::Ptr{Void})
+    ccall((:hypre_MultiblockMatrixSetSubmatrix,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},HYPRE_Int,Ptr{Void}),matrix,j,submatrix)
+end
+
+function hypre_SeqVectorCreate(size::HYPRE_Int)
+    ccall((:hypre_SeqVectorCreate,libHYPRE),Ptr{hypre_Vector},(HYPRE_Int,),size)
+end
+
+function hypre_SeqMultiVectorCreate(size::HYPRE_Int,num_vectors::HYPRE_Int)
+    ccall((:hypre_SeqMultiVectorCreate,libHYPRE),Ptr{hypre_Vector},(HYPRE_Int,HYPRE_Int),size,num_vectors)
+end
+
+function hypre_SeqVectorDestroy(vector::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},),vector)
+end
+
+function hypre_SeqVectorInitialize(vector::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},),vector)
+end
+
+function hypre_SeqVectorSetDataOwner(vector::Ptr{hypre_Vector},owns_data::HYPRE_Int)
+    ccall((:hypre_SeqVectorSetDataOwner,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},HYPRE_Int),vector,owns_data)
+end
+
+function hypre_SeqVectorRead(file_name::Ptr{Uint8})
+    ccall((:hypre_SeqVectorRead,libHYPRE),Ptr{hypre_Vector},(Ptr{Uint8},),file_name)
+end
+
+function hypre_SeqVectorPrint(vector::Ptr{hypre_Vector},file_name::Ptr{Uint8})
+    ccall((:hypre_SeqVectorPrint,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},Ptr{Uint8}),vector,file_name)
+end
+
+function hypre_SeqVectorSetConstantValues(v::Ptr{hypre_Vector},value::Cdouble)
+    ccall((:hypre_SeqVectorSetConstantValues,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},Cdouble),v,value)
+end
+
+function hypre_SeqVectorSetRandomValues(v::Ptr{hypre_Vector},seed::HYPRE_Int)
+    ccall((:hypre_SeqVectorSetRandomValues,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},HYPRE_Int),v,seed)
+end
+
+function hypre_SeqVectorCopy(x::Ptr{hypre_Vector},y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorCopy,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},Ptr{hypre_Vector}),x,y)
+end
+
+function hypre_SeqVectorCloneDeep(x::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorCloneDeep,libHYPRE),Ptr{hypre_Vector},(Ptr{hypre_Vector},),x)
+end
+
+function hypre_SeqVectorCloneShallow(x::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorCloneShallow,libHYPRE),Ptr{hypre_Vector},(Ptr{hypre_Vector},),x)
+end
+
+function hypre_SeqVectorScale(alpha::Cdouble,y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorScale,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_Vector}),alpha,y)
+end
+
+function hypre_SeqVectorAxpy(alpha::Cdouble,x::Ptr{hypre_Vector},y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorAxpy,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_Vector},Ptr{hypre_Vector}),alpha,x,y)
+end
+
+function hypre_SeqVectorInnerProd(x::Ptr{hypre_Vector},y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorInnerProd,libHYPRE),Cdouble,(Ptr{hypre_Vector},Ptr{hypre_Vector}),x,y)
+end
+
+function hypre_VectorSumElts(vector::Ptr{hypre_Vector})
+    ccall((:hypre_VectorSumElts,libHYPRE),Cdouble,(Ptr{hypre_Vector},),vector)
+end
+
 function hypre_NumbersNewNode()
     ccall((:hypre_NumbersNewNode,libHYPRE),Ptr{hypre_NumbersNode},())
 end
@@ -8360,6 +10398,126 @@ function HYPRE_ClearError(hypre_error_code::HYPRE_Int)
     ccall((:HYPRE_ClearError,libHYPRE),HYPRE_Int,(HYPRE_Int,),hypre_error_code)
 end
 
+function HYPRE_CSRMatrixCreate(num_rows::HYPRE_Int,num_cols::HYPRE_Int,row_sizes::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixCreate,libHYPRE),HYPRE_CSRMatrix,(HYPRE_Int,HYPRE_Int,Ptr{HYPRE_Int}),num_rows,num_cols,row_sizes)
+end
+
+function HYPRE_CSRMatrixDestroy(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixInitialize(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixRead,libHYPRE),HYPRE_CSRMatrix,(Ptr{Uint8},),file_name)
+end
+
+function HYPRE_CSRMatrixPrint(matrix::HYPRE_CSRMatrix,file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixPrint,libHYPRE),Void,(HYPRE_CSRMatrix,Ptr{Uint8}),matrix,file_name)
+end
+
+function HYPRE_CSRMatrixGetNumRows(matrix::HYPRE_CSRMatrix,num_rows::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixGetNumRows,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,Ptr{HYPRE_Int}),matrix,num_rows)
+end
+
+function HYPRE_MappedMatrixCreate()
+    ccall((:HYPRE_MappedMatrixCreate,libHYPRE),HYPRE_MappedMatrix,())
+end
+
+function HYPRE_MappedMatrixDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixLimitedDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixInitialize(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixAssemble(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixPrint(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixPrint,libHYPRE),Void,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixGetColIndex(matrix::HYPRE_MappedMatrix,j::HYPRE_Int)
+    ccall((:HYPRE_MappedMatrixGetColIndex,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,HYPRE_Int),matrix,j)
+end
+
+function HYPRE_MappedMatrixGetMatrix(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixGetMatrix,libHYPRE),Ptr{Void},(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixSetMatrix(matrix::HYPRE_MappedMatrix,matrix_data::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMatrix,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,matrix_data)
+end
+
+function HYPRE_MappedMatrixSetColMap(matrix::HYPRE_MappedMatrix,ColMap::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetColMap,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,ColMap)
+end
+
+function HYPRE_MappedMatrixSetMapData(matrix::HYPRE_MappedMatrix,MapData::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMapData,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,MapData)
+end
+
+function HYPRE_MultiblockMatrixCreate()
+    ccall((:HYPRE_MultiblockMatrixCreate,libHYPRE),HYPRE_MultiblockMatrix,())
+end
+
+function HYPRE_MultiblockMatrixDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixLimitedDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixInitialize(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixAssemble(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixPrint(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixPrint,libHYPRE),Void,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixSetNumSubmatrices(matrix::HYPRE_MultiblockMatrix,n::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetNumSubmatrices,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int),matrix,n)
+end
+
+function HYPRE_MultiblockMatrixSetSubmatrixType(matrix::HYPRE_MultiblockMatrix,j::HYPRE_Int,_type::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetSubmatrixType,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int,HYPRE_Int),matrix,j,_type)
+end
+
+function HYPRE_VectorCreate(size::HYPRE_Int)
+    ccall((:HYPRE_VectorCreate,libHYPRE),HYPRE_Vector,(HYPRE_Int,),size)
+end
+
+function HYPRE_VectorDestroy(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorDestroy,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorInitialize(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorInitialize,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorPrint(vector::HYPRE_Vector,file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorPrint,libHYPRE),HYPRE_Int,(HYPRE_Vector,Ptr{Uint8}),vector,file_name)
+end
+
+function HYPRE_VectorRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorRead,libHYPRE),HYPRE_Vector,(Ptr{Uint8},),file_name)
+end
+
 function hypre_BiCGSTABFunctionsCreate(CreateVector::Ptr{Void},DestroyVector::Ptr{Void},MatvecCreate::Ptr{Void},Matvec::Ptr{Void},MatvecDestroy::Ptr{Void},InnerProd::Ptr{Void},CopyVector::Ptr{Void},ClearVector::Ptr{Void},ScaleVector::Ptr{Void},Axpy::Ptr{Void},CommInfo::Ptr{Void},PrecondSetup::Ptr{Void},Precond::Ptr{Void})
     ccall((:hypre_BiCGSTABFunctionsCreate,libHYPRE),Ptr{hypre_BiCGSTABFunctions},(Ptr{Void},Ptr{Void},Ptr{Void},Ptr{Void},Ptr{Void},Ptr{Void},Ptr{Void},Ptr{Void},Ptr{Void},Ptr{Void},Ptr{Void},Ptr{Void},Ptr{Void}),CreateVector,DestroyVector,MatvecCreate,Matvec,MatvecDestroy,InnerProd,CopyVector,ClearVector,ScaleVector,Axpy,CommInfo,PrecondSetup,Precond)
 end
@@ -9642,6 +11800,358 @@ end
 
 function hypre_PCGGetFinalRelativeResidualNorm(pcg_vdata::Ptr{Void},relative_residual_norm::Ptr{Cdouble})
     ccall((:hypre_PCGGetFinalRelativeResidualNorm,libHYPRE),HYPRE_Int,(Ptr{Void},Ptr{Cdouble}),pcg_vdata,relative_residual_norm)
+end
+
+function hypre_CSRMatrixAdd(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixAdd,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix}),A,B)
+end
+
+function hypre_CSRMatrixMultiply(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixMultiply,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix}),A,B)
+end
+
+function hypre_CSRMatrixDeleteZeros(A::Ptr{hypre_CSRMatrix},tol::Cdouble)
+    ccall((:hypre_CSRMatrixDeleteZeros,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Cdouble),A,tol)
+end
+
+function hypre_CSRMatrixTranspose(A::Ptr{hypre_CSRMatrix},AT::Ptr{Ptr{hypre_CSRMatrix}},data::HYPRE_Int)
+    ccall((:hypre_CSRMatrixTranspose,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{Ptr{hypre_CSRMatrix}},HYPRE_Int),A,AT,data)
+end
+
+function hypre_CSRMatrixReorder(A::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixReorder,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),A)
+end
+
+function hypre_CSRMatrixSumElts(A::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixSumElts,libHYPRE),Cdouble,(Ptr{hypre_CSRMatrix},),A)
+end
+
+function hypre_CSRMatrixCreate(num_rows::HYPRE_Int,num_cols::HYPRE_Int,num_nonzeros::HYPRE_Int)
+    ccall((:hypre_CSRMatrixCreate,libHYPRE),Ptr{hypre_CSRMatrix},(HYPRE_Int,HYPRE_Int,HYPRE_Int),num_rows,num_cols,num_nonzeros)
+end
+
+function hypre_CSRMatrixDestroy(matrix::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),matrix)
+end
+
+function hypre_CSRMatrixInitialize(matrix::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),matrix)
+end
+
+function hypre_CSRMatrixSetDataOwner(matrix::Ptr{hypre_CSRMatrix},owns_data::HYPRE_Int)
+    ccall((:hypre_CSRMatrixSetDataOwner,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},HYPRE_Int),matrix,owns_data)
+end
+
+function hypre_CSRMatrixSetRownnz(matrix::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixSetRownnz,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},),matrix)
+end
+
+function hypre_CSRMatrixRead(file_name::Ptr{Uint8})
+    ccall((:hypre_CSRMatrixRead,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{Uint8},),file_name)
+end
+
+function hypre_CSRMatrixPrint(matrix::Ptr{hypre_CSRMatrix},file_name::Ptr{Uint8})
+    ccall((:hypre_CSRMatrixPrint,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{Uint8}),matrix,file_name)
+end
+
+function hypre_CSRMatrixPrintHB(matrix_input::Ptr{hypre_CSRMatrix},file_name::Ptr{Uint8})
+    ccall((:hypre_CSRMatrixPrintHB,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{Uint8}),matrix_input,file_name)
+end
+
+function hypre_CSRMatrixCopy(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix},copy_data::HYPRE_Int)
+    ccall((:hypre_CSRMatrixCopy,libHYPRE),HYPRE_Int,(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix},HYPRE_Int),A,B,copy_data)
+end
+
+function hypre_CSRMatrixClone(A::Ptr{hypre_CSRMatrix})
+    ccall((:hypre_CSRMatrixClone,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},),A)
+end
+
+function hypre_CSRMatrixUnion(A::Ptr{hypre_CSRMatrix},B::Ptr{hypre_CSRMatrix},col_map_offd_A::Ptr{HYPRE_Int},col_map_offd_B::Ptr{HYPRE_Int},col_map_offd_C::Ptr{Ptr{HYPRE_Int}})
+    ccall((:hypre_CSRMatrixUnion,libHYPRE),Ptr{hypre_CSRMatrix},(Ptr{hypre_CSRMatrix},Ptr{hypre_CSRMatrix},Ptr{HYPRE_Int},Ptr{HYPRE_Int},Ptr{Ptr{HYPRE_Int}}),A,B,col_map_offd_A,col_map_offd_B,col_map_offd_C)
+end
+
+function hypre_CSRMatrixMatvec(alpha::Cdouble,A::Ptr{hypre_CSRMatrix},x::Ptr{hypre_Vector},beta::Cdouble,y::Ptr{hypre_Vector})
+    ccall((:hypre_CSRMatrixMatvec,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_CSRMatrix},Ptr{hypre_Vector},Cdouble,Ptr{hypre_Vector}),alpha,A,x,beta,y)
+end
+
+function hypre_CSRMatrixMatvecT(alpha::Cdouble,A::Ptr{hypre_CSRMatrix},x::Ptr{hypre_Vector},beta::Cdouble,y::Ptr{hypre_Vector})
+    ccall((:hypre_CSRMatrixMatvecT,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_CSRMatrix},Ptr{hypre_Vector},Cdouble,Ptr{hypre_Vector}),alpha,A,x,beta,y)
+end
+
+function hypre_CSRMatrixMatvec_FF(alpha::Cdouble,A::Ptr{hypre_CSRMatrix},x::Ptr{hypre_Vector},beta::Cdouble,y::Ptr{hypre_Vector},CF_marker_x::Ptr{HYPRE_Int},CF_marker_y::Ptr{HYPRE_Int},fpt::HYPRE_Int)
+    ccall((:hypre_CSRMatrixMatvec_FF,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_CSRMatrix},Ptr{hypre_Vector},Cdouble,Ptr{hypre_Vector},Ptr{HYPRE_Int},Ptr{HYPRE_Int},HYPRE_Int),alpha,A,x,beta,y,CF_marker_x,CF_marker_y,fpt)
+end
+
+function hypre_GeneratePartitioning(length::HYPRE_Int,num_procs::HYPRE_Int,part_ptr::Ptr{Ptr{HYPRE_Int}})
+    ccall((:hypre_GeneratePartitioning,libHYPRE),HYPRE_Int,(HYPRE_Int,HYPRE_Int,Ptr{Ptr{HYPRE_Int}}),length,num_procs,part_ptr)
+end
+
+function hypre_GenerateLocalPartitioning(length::HYPRE_Int,num_procs::HYPRE_Int,myid::HYPRE_Int,part_ptr::Ptr{Ptr{HYPRE_Int}})
+    ccall((:hypre_GenerateLocalPartitioning,libHYPRE),HYPRE_Int,(HYPRE_Int,HYPRE_Int,HYPRE_Int,Ptr{Ptr{HYPRE_Int}}),length,num_procs,myid,part_ptr)
+end
+
+function HYPRE_CSRMatrixCreate(num_rows::HYPRE_Int,num_cols::HYPRE_Int,row_sizes::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixCreate,libHYPRE),HYPRE_CSRMatrix,(HYPRE_Int,HYPRE_Int,Ptr{HYPRE_Int}),num_rows,num_cols,row_sizes)
+end
+
+function HYPRE_CSRMatrixDestroy(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixInitialize(matrix::HYPRE_CSRMatrix)
+    ccall((:HYPRE_CSRMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,),matrix)
+end
+
+function HYPRE_CSRMatrixRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixRead,libHYPRE),HYPRE_CSRMatrix,(Ptr{Uint8},),file_name)
+end
+
+function HYPRE_CSRMatrixPrint(matrix::HYPRE_CSRMatrix,file_name::Ptr{Uint8})
+    ccall((:HYPRE_CSRMatrixPrint,libHYPRE),Void,(HYPRE_CSRMatrix,Ptr{Uint8}),matrix,file_name)
+end
+
+function HYPRE_CSRMatrixGetNumRows(matrix::HYPRE_CSRMatrix,num_rows::Ptr{HYPRE_Int})
+    ccall((:HYPRE_CSRMatrixGetNumRows,libHYPRE),HYPRE_Int,(HYPRE_CSRMatrix,Ptr{HYPRE_Int}),matrix,num_rows)
+end
+
+function HYPRE_MappedMatrixCreate()
+    ccall((:HYPRE_MappedMatrixCreate,libHYPRE),HYPRE_MappedMatrix,())
+end
+
+function HYPRE_MappedMatrixDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixLimitedDestroy(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixInitialize(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixAssemble(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixPrint(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixPrint,libHYPRE),Void,(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixGetColIndex(matrix::HYPRE_MappedMatrix,j::HYPRE_Int)
+    ccall((:HYPRE_MappedMatrixGetColIndex,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,HYPRE_Int),matrix,j)
+end
+
+function HYPRE_MappedMatrixGetMatrix(matrix::HYPRE_MappedMatrix)
+    ccall((:HYPRE_MappedMatrixGetMatrix,libHYPRE),Ptr{Void},(HYPRE_MappedMatrix,),matrix)
+end
+
+function HYPRE_MappedMatrixSetMatrix(matrix::HYPRE_MappedMatrix,matrix_data::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMatrix,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,matrix_data)
+end
+
+function HYPRE_MappedMatrixSetColMap(matrix::HYPRE_MappedMatrix,ColMap::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetColMap,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,ColMap)
+end
+
+function HYPRE_MappedMatrixSetMapData(matrix::HYPRE_MappedMatrix,MapData::Ptr{Void})
+    ccall((:HYPRE_MappedMatrixSetMapData,libHYPRE),HYPRE_Int,(HYPRE_MappedMatrix,Ptr{Void}),matrix,MapData)
+end
+
+function HYPRE_MultiblockMatrixCreate()
+    ccall((:HYPRE_MultiblockMatrixCreate,libHYPRE),HYPRE_MultiblockMatrix,())
+end
+
+function HYPRE_MultiblockMatrixDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixLimitedDestroy(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixInitialize(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixInitialize,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixAssemble(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixAssemble,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixPrint(matrix::HYPRE_MultiblockMatrix)
+    ccall((:HYPRE_MultiblockMatrixPrint,libHYPRE),Void,(HYPRE_MultiblockMatrix,),matrix)
+end
+
+function HYPRE_MultiblockMatrixSetNumSubmatrices(matrix::HYPRE_MultiblockMatrix,n::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetNumSubmatrices,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int),matrix,n)
+end
+
+function HYPRE_MultiblockMatrixSetSubmatrixType(matrix::HYPRE_MultiblockMatrix,j::HYPRE_Int,_type::HYPRE_Int)
+    ccall((:HYPRE_MultiblockMatrixSetSubmatrixType,libHYPRE),HYPRE_Int,(HYPRE_MultiblockMatrix,HYPRE_Int,HYPRE_Int),matrix,j,_type)
+end
+
+function HYPRE_VectorCreate(size::HYPRE_Int)
+    ccall((:HYPRE_VectorCreate,libHYPRE),HYPRE_Vector,(HYPRE_Int,),size)
+end
+
+function HYPRE_VectorDestroy(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorDestroy,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorInitialize(vector::HYPRE_Vector)
+    ccall((:HYPRE_VectorInitialize,libHYPRE),HYPRE_Int,(HYPRE_Vector,),vector)
+end
+
+function HYPRE_VectorPrint(vector::HYPRE_Vector,file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorPrint,libHYPRE),HYPRE_Int,(HYPRE_Vector,Ptr{Uint8}),vector,file_name)
+end
+
+function HYPRE_VectorRead(file_name::Ptr{Uint8})
+    ccall((:HYPRE_VectorRead,libHYPRE),HYPRE_Vector,(Ptr{Uint8},),file_name)
+end
+
+function hypre_MappedMatrixCreate()
+    ccall((:hypre_MappedMatrixCreate,libHYPRE),Ptr{hypre_MappedMatrix},())
+end
+
+function hypre_MappedMatrixDestroy(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixLimitedDestroy(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixInitialize(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixAssemble(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixAssemble,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixPrint(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixPrint,libHYPRE),Void,(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixGetColIndex(matrix::Ptr{hypre_MappedMatrix},j::HYPRE_Int)
+    ccall((:hypre_MappedMatrixGetColIndex,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},HYPRE_Int),matrix,j)
+end
+
+function hypre_MappedMatrixGetMatrix(matrix::Ptr{hypre_MappedMatrix})
+    ccall((:hypre_MappedMatrixGetMatrix,libHYPRE),Ptr{Void},(Ptr{hypre_MappedMatrix},),matrix)
+end
+
+function hypre_MappedMatrixSetMatrix(matrix::Ptr{hypre_MappedMatrix},matrix_data::Ptr{Void})
+    ccall((:hypre_MappedMatrixSetMatrix,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},Ptr{Void}),matrix,matrix_data)
+end
+
+function hypre_MappedMatrixSetColMap(matrix::Ptr{hypre_MappedMatrix},ColMap::Ptr{Void})
+    ccall((:hypre_MappedMatrixSetColMap,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},Ptr{Void}),matrix,ColMap)
+end
+
+function hypre_MappedMatrixSetMapData(matrix::Ptr{hypre_MappedMatrix},map_data::Ptr{Void})
+    ccall((:hypre_MappedMatrixSetMapData,libHYPRE),HYPRE_Int,(Ptr{hypre_MappedMatrix},Ptr{Void}),matrix,map_data)
+end
+
+function hypre_MultiblockMatrixCreate()
+    ccall((:hypre_MultiblockMatrixCreate,libHYPRE),Ptr{hypre_MultiblockMatrix},())
+end
+
+function hypre_MultiblockMatrixDestroy(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixLimitedDestroy(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixLimitedDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixInitialize(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixAssemble(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixAssemble,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixPrint(matrix::Ptr{hypre_MultiblockMatrix})
+    ccall((:hypre_MultiblockMatrixPrint,libHYPRE),Void,(Ptr{hypre_MultiblockMatrix},),matrix)
+end
+
+function hypre_MultiblockMatrixSetNumSubmatrices(matrix::Ptr{hypre_MultiblockMatrix},n::HYPRE_Int)
+    ccall((:hypre_MultiblockMatrixSetNumSubmatrices,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},HYPRE_Int),matrix,n)
+end
+
+function hypre_MultiblockMatrixSetSubmatrixType(matrix::Ptr{hypre_MultiblockMatrix},j::HYPRE_Int,_type::HYPRE_Int)
+    ccall((:hypre_MultiblockMatrixSetSubmatrixType,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},HYPRE_Int,HYPRE_Int),matrix,j,_type)
+end
+
+function hypre_MultiblockMatrixSetSubmatrix(matrix::Ptr{hypre_MultiblockMatrix},j::HYPRE_Int,submatrix::Ptr{Void})
+    ccall((:hypre_MultiblockMatrixSetSubmatrix,libHYPRE),HYPRE_Int,(Ptr{hypre_MultiblockMatrix},HYPRE_Int,Ptr{Void}),matrix,j,submatrix)
+end
+
+function hypre_SeqVectorCreate(size::HYPRE_Int)
+    ccall((:hypre_SeqVectorCreate,libHYPRE),Ptr{hypre_Vector},(HYPRE_Int,),size)
+end
+
+function hypre_SeqMultiVectorCreate(size::HYPRE_Int,num_vectors::HYPRE_Int)
+    ccall((:hypre_SeqMultiVectorCreate,libHYPRE),Ptr{hypre_Vector},(HYPRE_Int,HYPRE_Int),size,num_vectors)
+end
+
+function hypre_SeqVectorDestroy(vector::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorDestroy,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},),vector)
+end
+
+function hypre_SeqVectorInitialize(vector::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorInitialize,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},),vector)
+end
+
+function hypre_SeqVectorSetDataOwner(vector::Ptr{hypre_Vector},owns_data::HYPRE_Int)
+    ccall((:hypre_SeqVectorSetDataOwner,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},HYPRE_Int),vector,owns_data)
+end
+
+function hypre_SeqVectorRead(file_name::Ptr{Uint8})
+    ccall((:hypre_SeqVectorRead,libHYPRE),Ptr{hypre_Vector},(Ptr{Uint8},),file_name)
+end
+
+function hypre_SeqVectorPrint(vector::Ptr{hypre_Vector},file_name::Ptr{Uint8})
+    ccall((:hypre_SeqVectorPrint,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},Ptr{Uint8}),vector,file_name)
+end
+
+function hypre_SeqVectorSetConstantValues(v::Ptr{hypre_Vector},value::Cdouble)
+    ccall((:hypre_SeqVectorSetConstantValues,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},Cdouble),v,value)
+end
+
+function hypre_SeqVectorSetRandomValues(v::Ptr{hypre_Vector},seed::HYPRE_Int)
+    ccall((:hypre_SeqVectorSetRandomValues,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},HYPRE_Int),v,seed)
+end
+
+function hypre_SeqVectorCopy(x::Ptr{hypre_Vector},y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorCopy,libHYPRE),HYPRE_Int,(Ptr{hypre_Vector},Ptr{hypre_Vector}),x,y)
+end
+
+function hypre_SeqVectorCloneDeep(x::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorCloneDeep,libHYPRE),Ptr{hypre_Vector},(Ptr{hypre_Vector},),x)
+end
+
+function hypre_SeqVectorCloneShallow(x::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorCloneShallow,libHYPRE),Ptr{hypre_Vector},(Ptr{hypre_Vector},),x)
+end
+
+function hypre_SeqVectorScale(alpha::Cdouble,y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorScale,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_Vector}),alpha,y)
+end
+
+function hypre_SeqVectorAxpy(alpha::Cdouble,x::Ptr{hypre_Vector},y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorAxpy,libHYPRE),HYPRE_Int,(Cdouble,Ptr{hypre_Vector},Ptr{hypre_Vector}),alpha,x,y)
+end
+
+function hypre_SeqVectorInnerProd(x::Ptr{hypre_Vector},y::Ptr{hypre_Vector})
+    ccall((:hypre_SeqVectorInnerProd,libHYPRE),Cdouble,(Ptr{hypre_Vector},Ptr{hypre_Vector}),x,y)
+end
+
+function hypre_VectorSumElts(vector::Ptr{hypre_Vector})
+    ccall((:hypre_VectorSumElts,libHYPRE),Cdouble,(Ptr{hypre_Vector},),vector)
 end
 
 function hypre_NumbersNewNode()
@@ -13971,3 +16481,6 @@ end
 function hypre_ParGenerateHybridScale(A::Ptr{hypre_ParCSRMatrix},domain_structure::Ptr{hypre_CSRMatrix},A_boundary_pointer::Ptr{Ptr{hypre_CSRMatrix}},scale_pointer::Ptr{Ptr{Cdouble}})
     ccall((:hypre_ParGenerateHybridScale,libHYPRE),HYPRE_Int,(Ptr{hypre_ParCSRMatrix},Ptr{hypre_CSRMatrix},Ptr{Ptr{hypre_CSRMatrix}},Ptr{Ptr{Cdouble}}),A,domain_structure,A_boundary_pointer,scale_pointer)
 end
+# Julia wrapper for header: /home/jgoldfar/Documents/work/projects/Hypre.jl/gen/mpi_h_min.h
+# Automatically generated using Clang.jl wrap_c, version 0.0.0
+

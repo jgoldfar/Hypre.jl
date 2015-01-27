@@ -1,3 +1,4 @@
+include("libhypre_mpi_h.jl")
 
 const HYPRE_UNITIALIZED = -999
 const HYPRE_PETSC_MAT_PARILUT_SOLVER = 222
@@ -18,6 +19,105 @@ const HYPRE_ERROR_GENERIC = 1
 const HYPRE_ERROR_MEMORY = 2
 const HYPRE_ERROR_ARG = 4
 const HYPRE_ERROR_CONV = 256
+
+# Skipping MacroDefinition: hypre_CSRMatrixData ( matrix ) ( ( matrix ) -> data )
+# Skipping MacroDefinition: hypre_CSRMatrixI ( matrix ) ( ( matrix ) -> i )
+# Skipping MacroDefinition: hypre_CSRMatrixJ ( matrix ) ( ( matrix ) -> j )
+# Skipping MacroDefinition: hypre_CSRMatrixNumRows ( matrix ) ( ( matrix ) -> num_rows )
+# Skipping MacroDefinition: hypre_CSRMatrixNumCols ( matrix ) ( ( matrix ) -> num_cols )
+# Skipping MacroDefinition: hypre_CSRMatrixNumNonzeros ( matrix ) ( ( matrix ) -> num_nonzeros )
+# Skipping MacroDefinition: hypre_CSRMatrixRownnz ( matrix ) ( ( matrix ) -> rownnz )
+# Skipping MacroDefinition: hypre_CSRMatrixNumRownnz ( matrix ) ( ( matrix ) -> num_rownnz )
+# Skipping MacroDefinition: hypre_CSRMatrixOwnsData ( matrix ) ( ( matrix ) -> owns_data )
+# Skipping MacroDefinition: hypre_CSRBooleanMatrix_Get_I ( matrix ) ( ( matrix ) -> i )
+# Skipping MacroDefinition: hypre_CSRBooleanMatrix_Get_J ( matrix ) ( ( matrix ) -> j )
+# Skipping MacroDefinition: hypre_CSRBooleanMatrix_Get_NRows ( matrix ) ( ( matrix ) -> num_rows )
+# Skipping MacroDefinition: hypre_CSRBooleanMatrix_Get_NCols ( matrix ) ( ( matrix ) -> num_cols )
+# Skipping MacroDefinition: hypre_CSRBooleanMatrix_Get_NNZ ( matrix ) ( ( matrix ) -> num_nonzeros )
+# Skipping MacroDefinition: hypre_CSRBooleanMatrix_Get_OwnsData ( matrix ) ( ( matrix ) -> owns_data )
+# Skipping MacroDefinition: hypre_MappedMatrixMatrix ( matrix ) ( ( matrix ) -> matrix )
+# Skipping MacroDefinition: hypre_MappedMatrixColMap ( matrix ) ( ( matrix ) -> ColMap )
+# Skipping MacroDefinition: hypre_MappedMatrixMapData ( matrix ) ( ( matrix ) -> MapData )
+# Skipping MacroDefinition: hypre_MappedMatrixColIndex ( matrix , j ) ( hypre_MappedMatrixColMap ( matrix ) ( j , hypre_MappedMatrixMapData ( matrix ) ) )
+# Skipping MacroDefinition: hypre_MultiblockMatrixSubmatrices ( matrix ) ( ( matrix ) -> submatrices )
+# Skipping MacroDefinition: hypre_MultiblockMatrixNumSubmatrices ( matrix ) ( ( matrix ) -> num_submatrices )
+# Skipping MacroDefinition: hypre_MultiblockMatrixSubmatrixTypes ( matrix ) ( ( matrix ) -> submatrix_types )
+# Skipping MacroDefinition: hypre_MultiblockMatrixSubmatrix ( matrix , j ) ( hypre_MultiblockMatrixSubmatrices \
+# ( matrix ) [ j ] )
+# Skipping MacroDefinition: hypre_MultiblockMatrixSubmatrixType ( matrix , j ) ( hypre_MultiblockMatrixSubmatrixTypes \
+# ( matrix ) [ j ] )
+# Skipping MacroDefinition: hypre_VectorData ( vector ) ( ( vector ) -> data )
+# Skipping MacroDefinition: hypre_VectorSize ( vector ) ( ( vector ) -> size )
+# Skipping MacroDefinition: hypre_VectorOwnsData ( vector ) ( ( vector ) -> owns_data )
+# Skipping MacroDefinition: hypre_VectorNumVectors ( vector ) ( ( vector ) -> num_vectors )
+# Skipping MacroDefinition: hypre_VectorMultiVecStorageMethod ( vector ) ( ( vector ) -> multivec_storage_method )
+# Skipping MacroDefinition: hypre_VectorVectorStride ( vector ) ( ( vector ) -> vecstride )
+# Skipping MacroDefinition: hypre_VectorIndexStride ( vector ) ( ( vector ) -> idxstride )
+
+typealias HYPRE_Int Cint
+
+type hypre_CSRMatrix_struct
+end
+
+typealias HYPRE_CSRMatrix Ptr{hypre_CSRMatrix_struct}
+
+type hypre_MappedMatrix_struct
+end
+
+typealias HYPRE_MappedMatrix Ptr{hypre_MappedMatrix_struct}
+
+type hypre_MultiblockMatrix_struct
+end
+
+typealias HYPRE_MultiblockMatrix Ptr{hypre_MultiblockMatrix_struct}
+
+type hypre_Vector_struct
+end
+
+typealias HYPRE_Vector Ptr{hypre_Vector_struct}
+
+type hypre_CSRMatrix
+    i::Ptr{HYPRE_Int}
+    j::Ptr{HYPRE_Int}
+    num_rows::HYPRE_Int
+    num_cols::HYPRE_Int
+    num_nonzeros::HYPRE_Int
+    owns_data::HYPRE_Int
+    data::Ptr{Cdouble}
+    rownnz::Ptr{HYPRE_Int}
+    num_rownnz::HYPRE_Int
+end
+
+type hypre_CSRBooleanMatrix
+    i::Ptr{HYPRE_Int}
+    j::Ptr{HYPRE_Int}
+    num_rows::HYPRE_Int
+    num_cols::HYPRE_Int
+    num_nonzeros::HYPRE_Int
+    owns_data::HYPRE_Int
+end
+
+type hypre_MappedMatrix
+    matrix::Ptr{Void}
+    ColMap::Ptr{Void}
+    MapData::Ptr{Void}
+end
+
+type hypre_MultiblockMatrix
+    num_submatrices::HYPRE_Int
+    submatrix_types::Ptr{HYPRE_Int}
+    submatrices::Ptr{Ptr{Void}}
+end
+
+type hypre_Vector
+    data::Ptr{Cdouble}
+    size::HYPRE_Int
+    owns_data::HYPRE_Int
+    num_vectors::HYPRE_Int
+    multivec_storage_method::HYPRE_Int
+    vecstride::HYPRE_Int
+    idxstride::HYPRE_Int
+end
 
 # Skipping MacroDefinition: hypre_ParCSRCommPkgComm ( comm_pkg ) ( comm_pkg -> comm )
 # Skipping MacroDefinition: hypre_ParCSRCommPkgNumSends ( comm_pkg ) ( comm_pkg -> num_sends )
@@ -118,7 +218,7 @@ const HYPRE_ERROR_CONV = 256
 # Skipping MacroDefinition: hypre_ParChordMatrixNumRdofsToprocessor ( matrix ) ( ( matrix ) -> num_rdofs_toprocessor )
 # Skipping MacroDefinition: hypre_ParChordMatrixRdofToprocessor ( matrix ) ( ( matrix ) -> rdof_toprocessor )
 
-typealias HYPRE_Int Cint
+typealias MPI_Comm Cint
 
 type hypre_ParCSRCommPkg
     comm::MPI_Comm
@@ -2065,3 +2165,25 @@ immutable Array_3_Ptr
 end
 
 zero(::Type{Array_3_Ptr}) = Array_3_Ptr(fill(zero(Ptr{hypre_ParVector}),3)...)
+
+# Skipping MacroDefinition: MPI_CHAR ( ( MPI_Datatype ) 0x4c000101 )
+# Skipping MacroDefinition: MPI_SIGNED_CHAR ( ( MPI_Datatype ) 0x4c000118 )
+# Skipping MacroDefinition: MPI_UNSIGNED_CHAR ( ( MPI_Datatype ) 0x4c000102 )
+# Skipping MacroDefinition: MPI_BYTE ( ( MPI_Datatype ) 0x4c00010d )
+# Skipping MacroDefinition: MPI_WCHAR ( ( MPI_Datatype ) 0x4c00040e )
+# Skipping MacroDefinition: MPI_SHORT ( ( MPI_Datatype ) 0x4c000203 )
+# Skipping MacroDefinition: MPI_UNSIGNED_SHORT ( ( MPI_Datatype ) 0x4c000204 )
+# Skipping MacroDefinition: MPI_INT ( ( MPI_Datatype ) 0x4c000405 )
+# Skipping MacroDefinition: MPI_UNSIGNED ( ( MPI_Datatype ) 0x4c000406 )
+# Skipping MacroDefinition: MPI_LONG ( ( MPI_Datatype ) 0x4c000807 )
+# Skipping MacroDefinition: MPI_UNSIGNED_LONG ( ( MPI_Datatype ) 0x4c000808 )
+# Skipping MacroDefinition: MPI_FLOAT ( ( MPI_Datatype ) 0x4c00040a )
+# Skipping MacroDefinition: MPI_DOUBLE ( ( MPI_Datatype ) 0x4c00080b )
+# Skipping MacroDefinition: MPI_LONG_DOUBLE ( ( MPI_Datatype ) 0x4c00100c )
+# Skipping MacroDefinition: MPI_LONG_LONG_INT ( ( MPI_Datatype ) 0x4c000809 )
+# Skipping MacroDefinition: MPI_UNSIGNED_LONG_LONG ( ( MPI_Datatype ) 0x4c000819 )
+
+const MPI_LONG_LONG = MPI_LONG_LONG_INT
+
+typealias MPI_Datatype Cint
+typealias MPI_Request Cint
