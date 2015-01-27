@@ -1,4 +1,4 @@
-headerlist => ASCIIString["cfei_hypre.h","cfei-hypre.h","Cnames.h","colamd.h","csr_block_matrix.h","csr_matmultivec.h","Data.h","distributed_matrix.h","fei_defs.h","hypre_cfei.h","HYPRE_config.h","HYPRE_DistributedMatrixPilutSolver_protos.h","HYPRE_DistributedMatrixPilutSolver_types.h","HYPRE_error_f.h","HYPRE_FEI_includes.h","HYPREf.h","HYPRE.h","_hypre_IJ_mv.h","HYPRE_IJ_mv.h","HYPRE_krylov.h","HYPRE_LinSysCore.h","HYPRE_lobpcg.h","HYPRE_matrix_matrix_protos.h","_hypre_parcsr_ls.h","HYPRE_parcsr_ls.h","_hypre_parcsr_mv.h","HYPRE_parcsr_mv.h","HYPRE_seq_mv.h","_hypre_sstruct_ls.h","HYPRE_sstruct_ls.h","_hypre_sstruct_mv.h","HYPRE_sstruct_mv.h","_hypre_struct_ls.h","HYPRE_struct_ls.h","_hypre_struct_mv.h","HYPRE_struct_mv.h","_hypre_utilities.h","HYPRE_utilities.h","interpreter.h","krylov.h","LinearSystemCore.h","LLNL_FEI_Fei.h","LLNL_FEI_Impl.h","LLNL_FEI_LSCore.h","LLNL_FEI_Matrix.h","LLNL_FEI_Solver.h","lobpcg.h","Lookup.h","multivector.h","old_colamd.h","par_csr_block_matrix.h","par_csr_matmultivec.h","par_csr_pmvcomm.h","par_multivector.h","seq_multivector.h","seq_mv.h","slu_cdefs.h","slu_Cnames.h","slu_dcomplex.h","slu_ddefs.h","slu_scomplex.h","slu_sdefs.h","slu_util.h","slu_zdefs.h","supermatrix.h","temp_multivector.h"]
+headerlist => ASCIIString["cfei_hypre.h","cfei-hypre.h","Cnames.h","colamd.h","csr_block_matrix.h","csr_matmultivec.h","Data.h","fortran.h","fortran_matrix.h","distributed_matrix.h","fei_defs.h","hypre_cfei.h","HYPRE_config.h","HYPRE_DistributedMatrixPilutSolver_protos.h","HYPRE_DistributedMatrixPilutSolver_types.h","HYPRE_error_f.h","HYPRE_FEI_includes.h","HYPREf.h","HYPRE.h","_hypre_IJ_mv.h","HYPRE_IJ_mv.h","HYPRE_krylov.h","HYPRE_LinSysCore.h","HYPRE_lobpcg.h","HYPRE_matrix_matrix_protos.h","_hypre_parcsr_ls.h","HYPRE_parcsr_ls.h","_hypre_parcsr_mv.h","HYPRE_parcsr_mv.h","HYPRE_seq_mv.h","_hypre_sstruct_ls.h","HYPRE_sstruct_ls.h","_hypre_sstruct_mv.h","HYPRE_sstruct_mv.h","_hypre_struct_ls.h","HYPRE_struct_ls.h","_hypre_struct_mv.h","HYPRE_struct_mv.h","_hypre_utilities.h","HYPRE_utilities.h","interpreter.h","krylov.h","LinearSystemCore.h","LLNL_FEI_Fei.h","LLNL_FEI_Impl.h","LLNL_FEI_LSCore.h","LLNL_FEI_Matrix.h","LLNL_FEI_Solver.h","lobpcg.h","Lookup.h","multivector.h","old_colamd.h","par_csr_block_matrix.h","par_csr_matmultivec.h","par_csr_pmvcomm.h","par_multivector.h","seq_multivector.h","seq_mv.h","slu_cdefs.h","slu_Cnames.h","slu_dcomplex.h","slu_ddefs.h","slu_scomplex.h","slu_sdefs.h","slu_util.h","slu_zdefs.h","supermatrix.h","temp_multivector.h"]
 Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
 Target: x86_64-pc-linux-gnu
 Thread model: posix
@@ -165,6 +165,52 @@ ignoring nonexistent directory "/include"
 End of search list.
 /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/Data.h:20:1: error: unknown type name 'class'
 /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/Data.h:20:11: error: expected ';' after top level declarator
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpich
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpich
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
 Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
 Target: x86_64-pc-linux-gnu
 Thread model: posix
@@ -1661,6 +1707,52 @@ WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/fortran.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+Error-causing macro: 2.9.0b
+WARNING: Not wrapping InclusionDirective   mpi.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   stdlib.h
+Error-causing macro: ()
+WARNING: Not wrapping InclusionDirective   stdlib.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   string.h
+WARNING: Not wrapping InclusionDirective   stdlib.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   string.h
+WARNING: Not wrapping MacroExpansion   HYPRE_FMANGLE
+WARNING: Not wrapping MacroExpansion   HYPRE_FMANGLE
+WARNING: Not wrapping MacroExpansion   HYPRE_FMANGLE
+WARNING: Not wrapping MacroExpansion   HYPRE_FMANGLE
+WARNING: Not wrapping MacroExpansion   HYPRE_F77_FUNC_
+WARNING: Not wrapping MacroExpansion   HYPRE_USING_HYPRE_BLAS
+WARNING: Not wrapping MacroExpansion   HYPRE_USING_HYPRE_LAPACK
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Not wrapping VarDecl   hypre__global_error
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/fortran_matrix.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+Error-causing macro: 2.9.0b
+WARNING: Not wrapping InclusionDirective   mpi.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   stdlib.h
+Error-causing macro: ()
+WARNING: Not wrapping InclusionDirective   stdlib.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   string.h
+WARNING: Not wrapping InclusionDirective   stdlib.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   string.h
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Not wrapping VarDecl   hypre__global_error
+WARNING: Skipping unnamed StructDecl
+writing libhypre.jl
 WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/fei_defs.h
 writing libhypre.jl
 WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/HYPRE_config.h
@@ -1762,6 +1854,7 @@ WARNING: Not wrapping InclusionDirective   HYPRE_config.h
 Error-causing macro: 2.9.0b
 WARNING: Not wrapping InclusionDirective   mpi.h
 WARNING: Not wrapping InclusionDirective   fortran_matrix.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
 WARNING: Not wrapping InclusionDirective   stdio.h
 WARNING: Not wrapping InclusionDirective   stdlib.h
@@ -1778,12 +1871,13 @@ WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   interpreter.h
 WARNING: Not wrapping InclusionDirective   HYPRE_MatvecFunctions.h
-WARNING: Not wrapping MacroInstantiation   HYPRE_SOLVER_STRUCT
-WARNING: Not wrapping MacroInstantiation   HYPRE_MATRIX_STRUCT
-WARNING: Not wrapping MacroInstantiation   HYPRE_VECTOR_STRUCT
+WARNING: Not wrapping MacroExpansion   HYPRE_SOLVER_STRUCT
+WARNING: Not wrapping MacroExpansion   HYPRE_MATRIX_STRUCT
+WARNING: Not wrapping MacroExpansion   HYPRE_VECTOR_STRUCT
 WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 WARNING: Not wrapping VarDecl   hypre__global_error
+WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 writing libhypre.jl
 WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/_hypre_parcsr_ls.h
@@ -1820,9 +1914,9 @@ WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   krylov.h
 WARNING: Not wrapping InclusionDirective   HYPRE_krylov.h
 WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
-WARNING: Not wrapping MacroInstantiation   HYPRE_SOLVER_STRUCT
-WARNING: Not wrapping MacroInstantiation   HYPRE_VECTOR_STRUCT
-WARNING: Not wrapping MacroInstantiation   HYPRE_MODIFYPC
+WARNING: Not wrapping MacroExpansion   HYPRE_SOLVER_STRUCT
+WARNING: Not wrapping MacroExpansion   HYPRE_VECTOR_STRUCT
+WARNING: Not wrapping MacroExpansion   HYPRE_MODIFYPC
 WARNING: Not wrapping InclusionDirective   stdlib.h
 WARNING: Not wrapping InclusionDirective   stdio.h
 WARNING: Not wrapping InclusionDirective   math.h
@@ -1849,25 +1943,27 @@ WARNING: Not wrapping InclusionDirective   seq_mv.h
 WARNING: Not wrapping InclusionDirective   HYPRE_lobpcg.h
 WARNING: Not wrapping InclusionDirective   HYPRE_krylov.h
 WARNING: Not wrapping InclusionDirective   fortran_matrix.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   multivector.h
 WARNING: Not wrapping InclusionDirective   interpreter.h
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   interpreter.h
 WARNING: Not wrapping InclusionDirective   HYPRE_MatvecFunctions.h
-WARNING: Not wrapping MacroInstantiation   HYPRE_SOLVER_STRUCT
-WARNING: Not wrapping MacroInstantiation   HYPRE_MATRIX_STRUCT
-WARNING: Not wrapping MacroInstantiation   HYPRE_VECTOR_STRUCT
+WARNING: Not wrapping MacroExpansion   HYPRE_SOLVER_STRUCT
+WARNING: Not wrapping MacroExpansion   HYPRE_MATRIX_STRUCT
+WARNING: Not wrapping MacroExpansion   HYPRE_VECTOR_STRUCT
 WARNING: Not wrapping InclusionDirective   par_csr_block_matrix.h
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   csr_block_matrix.h
 WARNING: Not wrapping InclusionDirective   seq_mv.h
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   _hypre_parcsr_mv.h
-WARNING: Not wrapping MacroInstantiation   CUMNUMIT
-WARNING: Not wrapping MacroInstantiation   CUMNUMIT
+WARNING: Not wrapping MacroExpansion   CUMNUMIT
+WARNING: Not wrapping MacroExpansion   CUMNUMIT
 WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 WARNING: Not wrapping VarDecl   hypre__global_error
+WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
@@ -2013,7 +2109,7 @@ WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
 WARNING: Not wrapping InclusionDirective   HYPRE.h
 WARNING: Not wrapping InclusionDirective   HYPRE_struct_mv.h
 WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
-WARNING: Not wrapping MacroInstantiation   HYPRE_StructVector_defined
+WARNING: Not wrapping MacroExpansion   HYPRE_StructVector_defined
 WARNING: Not wrapping InclusionDirective   HYPRE_IJ_mv.h
 WARNING: Not wrapping InclusionDirective   HYPRE_config.h
 Error-causing macro: 2.9.0b
@@ -2049,11 +2145,11 @@ WARNING: Not wrapping InclusionDirective   HYPRE_parcsr_mv.h
 WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
 WARNING: Not wrapping InclusionDirective   HYPRE_seq_mv.h
 WARNING: Not wrapping InclusionDirective   HYPRE_IJ_mv.h
-WARNING: Not wrapping MacroInstantiation   HYPRE_SOLVER_STRUCT
-WARNING: Not wrapping MacroInstantiation   HYPRE_MODIFYPC
+WARNING: Not wrapping MacroExpansion   HYPRE_SOLVER_STRUCT
+WARNING: Not wrapping MacroExpansion   HYPRE_MODIFYPC
 WARNING: Not wrapping InclusionDirective   interpreter.h
 WARNING: Not wrapping InclusionDirective   HYPRE_MatvecFunctions.h
-WARNING: Not wrapping MacroInstantiation   HYPRE_MODIFYPC
+WARNING: Not wrapping MacroExpansion   HYPRE_MODIFYPC
 WARNING: Not wrapping InclusionDirective   interpreter.h
 WARNING: Not wrapping InclusionDirective   HYPRE_MatvecFunctions.h
 WARNING: Not wrapping InclusionDirective   _hypre_sstruct_mv.h
@@ -2138,7 +2234,7 @@ WARNING: Not wrapping InclusionDirective   mpi.h
 WARNING: Not wrapping InclusionDirective   HYPRE.h
 WARNING: Not wrapping InclusionDirective   HYPRE_struct_mv.h
 WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
-WARNING: Not wrapping MacroInstantiation   HYPRE_StructVector_defined
+WARNING: Not wrapping MacroExpansion   HYPRE_StructVector_defined
 WARNING: Not wrapping InclusionDirective   HYPRE_IJ_mv.h
 WARNING: Not wrapping InclusionDirective   HYPRE_config.h
 Error-causing macro: 2.9.0b
@@ -2234,7 +2330,7 @@ WARNING: Not wrapping InclusionDirective   mpi.h
 WARNING: Not wrapping InclusionDirective   HYPRE.h
 WARNING: Not wrapping InclusionDirective   HYPRE_struct_mv.h
 WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
-WARNING: Not wrapping MacroInstantiation   HYPRE_StructVector_defined
+WARNING: Not wrapping MacroExpansion   HYPRE_StructVector_defined
 WARNING: Not wrapping InclusionDirective   HYPRE_IJ_mv.h
 WARNING: Not wrapping InclusionDirective   HYPRE_config.h
 Error-causing macro: 2.9.0b
@@ -2262,7 +2358,7 @@ WARNING: Not wrapping InclusionDirective   HYPRE_struct_ls.h
 WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
 WARNING: Not wrapping InclusionDirective   HYPRE_struct_mv.h
 WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
-WARNING: Not wrapping MacroInstantiation   HYPRE_StructVector_defined
+WARNING: Not wrapping MacroExpansion   HYPRE_StructVector_defined
 WARNING: Not wrapping InclusionDirective   interpreter.h
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   HYPRE_MatvecFunctions.h
@@ -2277,8 +2373,8 @@ WARNING: Not wrapping InclusionDirective   _hypre_struct_mv.h
 WARNING: Not wrapping InclusionDirective   krylov.h
 WARNING: Not wrapping InclusionDirective   HYPRE_krylov.h
 WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
-WARNING: Not wrapping MacroInstantiation   HYPRE_SOLVER_STRUCT
-WARNING: Not wrapping MacroInstantiation   HYPRE_MODIFYPC
+WARNING: Not wrapping MacroExpansion   HYPRE_SOLVER_STRUCT
+WARNING: Not wrapping MacroExpansion   HYPRE_MODIFYPC
 WARNING: Not wrapping InclusionDirective   stdlib.h
 WARNING: Not wrapping InclusionDirective   stdio.h
 WARNING: Not wrapping InclusionDirective   math.h
@@ -2313,7 +2409,7 @@ Error-causing macro: 2.9.0b
 WARNING: Not wrapping InclusionDirective   mpi.h
 WARNING: Not wrapping InclusionDirective   HYPRE_struct_mv.h
 WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
-WARNING: Not wrapping MacroInstantiation   HYPRE_StructVector_defined
+WARNING: Not wrapping MacroExpansion   HYPRE_StructVector_defined
 WARNING: Not wrapping InclusionDirective   interpreter.h
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
@@ -2350,7 +2446,7 @@ WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
 WARNING: Not wrapping InclusionDirective   HYPRE_config.h
 Error-causing macro: 2.9.0b
 WARNING: Not wrapping InclusionDirective   mpi.h
-WARNING: Not wrapping MacroInstantiation   HYPRE_StructVector_defined
+WARNING: Not wrapping MacroExpansion   HYPRE_StructVector_defined
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
 WARNING: Not wrapping InclusionDirective   stdio.h
@@ -2374,7 +2470,7 @@ WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
 WARNING: Not wrapping InclusionDirective   HYPRE_config.h
 Error-causing macro: 2.9.0b
 WARNING: Not wrapping InclusionDirective   mpi.h
-WARNING: Not wrapping MacroInstantiation   HYPRE_StructVector_defined
+WARNING: Not wrapping MacroExpansion   HYPRE_StructVector_defined
 writing libhypre.jl
 WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/_hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
@@ -2669,14 +2765,14 @@ WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 writing libhypre.jl
 WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/slu_Cnames.h
-WARNING: Not wrapping MacroInstantiation   F77_CALL_C
-WARNING: Not wrapping MacroInstantiation   ADD_
-WARNING: Not wrapping MacroInstantiation   F77_CALL_C
-WARNING: Not wrapping MacroInstantiation   ADD__
-WARNING: Not wrapping MacroInstantiation   F77_CALL_C
-WARNING: Not wrapping MacroInstantiation   UPCASE
-WARNING: Not wrapping MacroInstantiation   F77_CALL_C
-WARNING: Not wrapping MacroInstantiation   NOCHANGE
+WARNING: Not wrapping MacroExpansion   F77_CALL_C
+WARNING: Not wrapping MacroExpansion   ADD_
+WARNING: Not wrapping MacroExpansion   F77_CALL_C
+WARNING: Not wrapping MacroExpansion   ADD__
+WARNING: Not wrapping MacroExpansion   F77_CALL_C
+WARNING: Not wrapping MacroExpansion   UPCASE
+WARNING: Not wrapping MacroExpansion   F77_CALL_C
+WARNING: Not wrapping MacroExpansion   NOCHANGE
 writing libhypre.jl
 WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/slu_dcomplex.h
 WARNING: Skipping unnamed StructDecl
@@ -2731,13 +2827,13 @@ WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/includ
 writing libhypre.jl
 WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/colamd.h
 WARNING: Not wrapping InclusionDirective   stdlib.h
-WARNING: Not wrapping MacroInstantiation   COLAMD_KNOBS
-WARNING: Not wrapping MacroInstantiation   COLAMD_KNOBS
-WARNING: Not wrapping MacroInstantiation   COLAMD_STATS
-WARNING: Not wrapping MacroInstantiation   COLAMD_KNOBS
-WARNING: Not wrapping MacroInstantiation   COLAMD_STATS
-WARNING: Not wrapping MacroInstantiation   COLAMD_STATS
-WARNING: Not wrapping MacroInstantiation   COLAMD_STATS
+WARNING: Not wrapping MacroExpansion   COLAMD_KNOBS
+WARNING: Not wrapping MacroExpansion   COLAMD_KNOBS
+WARNING: Not wrapping MacroExpansion   COLAMD_STATS
+WARNING: Not wrapping MacroExpansion   COLAMD_KNOBS
+WARNING: Not wrapping MacroExpansion   COLAMD_STATS
+WARNING: Not wrapping MacroExpansion   COLAMD_STATS
+WARNING: Not wrapping MacroExpansion   COLAMD_STATS
 writing libhypre.jl
 WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/csr_matmultivec.h
 WARNING: Not wrapping InclusionDirective   seq_mv.h
@@ -2776,8 +2872,8 @@ writing libhypre.jl
 WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/Data.h
 WARNING: Not wrapping InclusionDirective   string.h
 WARNING: Not wrapping InclusionDirective   stdlib.h
-WARNING: Not wrapping MacroInstantiation   NULL
-WARNING: Not wrapping MacroInstantiation   NULL
+WARNING: Not wrapping MacroExpansion   NULL
+WARNING: Not wrapping MacroExpansion   NULL
 WARNING: Not wrapping VarDecl   Data
 writing libhypre.jl
 WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/distributed_matrix.h
@@ -2852,7 +2948,7 @@ WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
 WARNING: Not wrapping InclusionDirective   HYPRE.h
 WARNING: Not wrapping InclusionDirective   HYPRE_struct_mv.h
 WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
-WARNING: Not wrapping MacroInstantiation   HYPRE_StructVector_defined
+WARNING: Not wrapping MacroExpansion   HYPRE_StructVector_defined
 WARNING: Not wrapping InclusionDirective   HYPRE_IJ_mv.h
 WARNING: Not wrapping InclusionDirective   HYPRE_config.h
 Error-causing macro: 2.9.0b
@@ -2888,11 +2984,11 @@ WARNING: Not wrapping InclusionDirective   HYPRE_parcsr_mv.h
 WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
 WARNING: Not wrapping InclusionDirective   HYPRE_seq_mv.h
 WARNING: Not wrapping InclusionDirective   HYPRE_IJ_mv.h
-WARNING: Not wrapping MacroInstantiation   HYPRE_SOLVER_STRUCT
-WARNING: Not wrapping MacroInstantiation   HYPRE_MODIFYPC
+WARNING: Not wrapping MacroExpansion   HYPRE_SOLVER_STRUCT
+WARNING: Not wrapping MacroExpansion   HYPRE_MODIFYPC
 WARNING: Not wrapping InclusionDirective   interpreter.h
 WARNING: Not wrapping InclusionDirective   HYPRE_MatvecFunctions.h
-WARNING: Not wrapping MacroInstantiation   HYPRE_MODIFYPC
+WARNING: Not wrapping MacroExpansion   HYPRE_MODIFYPC
 WARNING: Not wrapping InclusionDirective   interpreter.h
 WARNING: Not wrapping InclusionDirective   HYPRE_MatvecFunctions.h
 WARNING: Not wrapping InclusionDirective   _hypre_sstruct_mv.h
@@ -2933,9 +3029,9 @@ WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   krylov.h
 WARNING: Not wrapping InclusionDirective   HYPRE_krylov.h
 WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
-WARNING: Not wrapping MacroInstantiation   HYPRE_SOLVER_STRUCT
-WARNING: Not wrapping MacroInstantiation   HYPRE_VECTOR_STRUCT
-WARNING: Not wrapping MacroInstantiation   HYPRE_MODIFYPC
+WARNING: Not wrapping MacroExpansion   HYPRE_SOLVER_STRUCT
+WARNING: Not wrapping MacroExpansion   HYPRE_VECTOR_STRUCT
+WARNING: Not wrapping MacroExpansion   HYPRE_MODIFYPC
 WARNING: Not wrapping InclusionDirective   stdlib.h
 WARNING: Not wrapping InclusionDirective   stdio.h
 WARNING: Not wrapping InclusionDirective   math.h
@@ -2949,7 +3045,7 @@ WARNING: Not wrapping InclusionDirective   HYPRE_struct_ls.h
 WARNING: Not wrapping InclusionDirective   _hypre_struct_mv.h
 WARNING: Not wrapping InclusionDirective   krylov.h
 WARNING: Not wrapping InclusionDirective   HYPRE_krylov.h
-WARNING: Not wrapping MacroInstantiation   hypre_KRYLOV_HEADER
+WARNING: Not wrapping MacroExpansion   hypre_KRYLOV_HEADER
 WARNING: Not wrapping InclusionDirective   temp_multivector.h
 WARNING: Not wrapping InclusionDirective   interpreter.h
 WARNING: Not wrapping InclusionDirective   HYPRE_MatvecFunctions.h
@@ -2961,32 +3057,34 @@ WARNING: Not wrapping InclusionDirective   HYPRE_parcsr_ls.h
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   krylov.h
 WARNING: Not wrapping InclusionDirective   HYPRE_krylov.h
-WARNING: Not wrapping MacroInstantiation   hypre_KRYLOV_HEADER
+WARNING: Not wrapping MacroExpansion   hypre_KRYLOV_HEADER
 WARNING: Not wrapping InclusionDirective   seq_mv.h
 WARNING: Not wrapping InclusionDirective   _hypre_parcsr_mv.h
 WARNING: Not wrapping InclusionDirective   HYPRE_lobpcg.h
 WARNING: Not wrapping InclusionDirective   HYPRE_krylov.h
 WARNING: Not wrapping InclusionDirective   fortran_matrix.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   multivector.h
 WARNING: Not wrapping InclusionDirective   interpreter.h
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   interpreter.h
 WARNING: Not wrapping InclusionDirective   HYPRE_MatvecFunctions.h
-WARNING: Not wrapping MacroInstantiation   HYPRE_SOLVER_STRUCT
-WARNING: Not wrapping MacroInstantiation   HYPRE_MATRIX_STRUCT
-WARNING: Not wrapping MacroInstantiation   HYPRE_VECTOR_STRUCT
+WARNING: Not wrapping MacroExpansion   HYPRE_SOLVER_STRUCT
+WARNING: Not wrapping MacroExpansion   HYPRE_MATRIX_STRUCT
+WARNING: Not wrapping MacroExpansion   HYPRE_VECTOR_STRUCT
 WARNING: Not wrapping InclusionDirective   par_csr_block_matrix.h
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   csr_block_matrix.h
 WARNING: Not wrapping InclusionDirective   seq_mv.h
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   _hypre_parcsr_mv.h
-WARNING: Not wrapping MacroInstantiation   CUMNUMIT
-WARNING: Not wrapping MacroInstantiation   CUMNUMIT
+WARNING: Not wrapping MacroExpansion   CUMNUMIT
+WARNING: Not wrapping MacroExpansion   CUMNUMIT
 WARNING: Not wrapping InclusionDirective   multivector.h
 WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 WARNING: Not wrapping VarDecl   hypre__global_error
+WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
@@ -3118,8 +3216,8 @@ WARNING: Not wrapping InclusionDirective   fei_defs.h
 WARNING: Not wrapping VarDecl   Lookup
 writing libhypre.jl
 WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/old_colamd.h
-WARNING: Not wrapping MacroInstantiation   COLAMD_KNOBS
-WARNING: Not wrapping MacroInstantiation   COLAMD_KNOBS
+WARNING: Not wrapping MacroExpansion   COLAMD_KNOBS
+WARNING: Not wrapping MacroExpansion   COLAMD_KNOBS
 writing libhypre.jl
 WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/par_csr_matmultivec.h
 WARNING: Not wrapping InclusionDirective   _hypre_parcsr_mv.h
@@ -3236,14 +3334,14 @@ WARNING: Skipping unnamed StructDecl
 writing libhypre.jl
 WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/slu_cdefs.h
 WARNING: Not wrapping InclusionDirective   slu_Cnames.h
-WARNING: Not wrapping MacroInstantiation   F77_CALL_C
-WARNING: Not wrapping MacroInstantiation   ADD_
-WARNING: Not wrapping MacroInstantiation   F77_CALL_C
-WARNING: Not wrapping MacroInstantiation   ADD__
-WARNING: Not wrapping MacroInstantiation   F77_CALL_C
-WARNING: Not wrapping MacroInstantiation   UPCASE
-WARNING: Not wrapping MacroInstantiation   F77_CALL_C
-WARNING: Not wrapping MacroInstantiation   NOCHANGE
+WARNING: Not wrapping MacroExpansion   F77_CALL_C
+WARNING: Not wrapping MacroExpansion   ADD_
+WARNING: Not wrapping MacroExpansion   F77_CALL_C
+WARNING: Not wrapping MacroExpansion   ADD__
+WARNING: Not wrapping MacroExpansion   F77_CALL_C
+WARNING: Not wrapping MacroExpansion   UPCASE
+WARNING: Not wrapping MacroExpansion   F77_CALL_C
+WARNING: Not wrapping MacroExpansion   NOCHANGE
 WARNING: Not wrapping InclusionDirective   supermatrix.h
 WARNING: Not wrapping InclusionDirective   slu_util.h
 WARNING: Not wrapping InclusionDirective   stdio.h
@@ -3269,6 +3367,7 @@ WARNING: Not wrapping InclusionDirective   HYPRE_config.h
 Error-causing macro: 2.9.0b
 WARNING: Not wrapping InclusionDirective   mpi.h
 WARNING: Not wrapping InclusionDirective   fortran.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
 WARNING: Not wrapping InclusionDirective   stdio.h
 WARNING: Not wrapping InclusionDirective   stdlib.h
@@ -3279,6 +3378,13 @@ WARNING: Not wrapping InclusionDirective   string.h
 WARNING: Not wrapping InclusionDirective   stdlib.h
 WARNING: Not wrapping InclusionDirective   stdio.h
 WARNING: Not wrapping InclusionDirective   string.h
+WARNING: Not wrapping MacroExpansion   HYPRE_FMANGLE
+WARNING: Not wrapping MacroExpansion   HYPRE_FMANGLE
+WARNING: Not wrapping MacroExpansion   HYPRE_FMANGLE
+WARNING: Not wrapping MacroExpansion   HYPRE_FMANGLE
+WARNING: Not wrapping MacroExpansion   HYPRE_F77_FUNC_
+WARNING: Not wrapping MacroExpansion   HYPRE_USING_HYPRE_BLAS
+WARNING: Not wrapping MacroExpansion   HYPRE_USING_HYPRE_LAPACK
 WARNING: Not wrapping InclusionDirective   supermatrix.h
 WARNING: Not wrapping InclusionDirective   slu_util.h
 WARNING: Not wrapping InclusionDirective   stdio.h
@@ -3301,14 +3407,14 @@ WARNING: Skipping unnamed StructDecl
 writing libhypre.jl
 WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/slu_sdefs.h
 WARNING: Not wrapping InclusionDirective   slu_Cnames.h
-WARNING: Not wrapping MacroInstantiation   F77_CALL_C
-WARNING: Not wrapping MacroInstantiation   ADD_
-WARNING: Not wrapping MacroInstantiation   F77_CALL_C
-WARNING: Not wrapping MacroInstantiation   ADD__
-WARNING: Not wrapping MacroInstantiation   F77_CALL_C
-WARNING: Not wrapping MacroInstantiation   UPCASE
-WARNING: Not wrapping MacroInstantiation   F77_CALL_C
-WARNING: Not wrapping MacroInstantiation   NOCHANGE
+WARNING: Not wrapping MacroExpansion   F77_CALL_C
+WARNING: Not wrapping MacroExpansion   ADD_
+WARNING: Not wrapping MacroExpansion   F77_CALL_C
+WARNING: Not wrapping MacroExpansion   ADD__
+WARNING: Not wrapping MacroExpansion   F77_CALL_C
+WARNING: Not wrapping MacroExpansion   UPCASE
+WARNING: Not wrapping MacroExpansion   F77_CALL_C
+WARNING: Not wrapping MacroExpansion   NOCHANGE
 WARNING: Not wrapping InclusionDirective   supermatrix.h
 WARNING: Not wrapping InclusionDirective   slu_util.h
 WARNING: Not wrapping InclusionDirective   stdio.h
@@ -3328,14 +3434,14 @@ WARNING: Skipping unnamed StructDecl
 writing libhypre.jl
 WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/slu_zdefs.h
 WARNING: Not wrapping InclusionDirective   slu_Cnames.h
-WARNING: Not wrapping MacroInstantiation   F77_CALL_C
-WARNING: Not wrapping MacroInstantiation   ADD_
-WARNING: Not wrapping MacroInstantiation   F77_CALL_C
-WARNING: Not wrapping MacroInstantiation   ADD__
-WARNING: Not wrapping MacroInstantiation   F77_CALL_C
-WARNING: Not wrapping MacroInstantiation   UPCASE
-WARNING: Not wrapping MacroInstantiation   F77_CALL_C
-WARNING: Not wrapping MacroInstantiation   NOCHANGE
+WARNING: Not wrapping MacroExpansion   F77_CALL_C
+WARNING: Not wrapping MacroExpansion   ADD_
+WARNING: Not wrapping MacroExpansion   F77_CALL_C
+WARNING: Not wrapping MacroExpansion   ADD__
+WARNING: Not wrapping MacroExpansion   F77_CALL_C
+WARNING: Not wrapping MacroExpansion   UPCASE
+WARNING: Not wrapping MacroExpansion   F77_CALL_C
+WARNING: Not wrapping MacroExpansion   NOCHANGE
 WARNING: Not wrapping InclusionDirective   supermatrix.h
 WARNING: Not wrapping InclusionDirective   slu_util.h
 WARNING: Not wrapping InclusionDirective   stdio.h
