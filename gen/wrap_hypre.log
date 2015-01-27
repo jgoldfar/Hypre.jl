@@ -1249,3 +1249,516 @@ ERROR: ParseError("invalid numeric constant \"2.9.\"")
  in _start at ./client.jl:354
 while loading /home/jgoldfar/Documents/work/projects/Hypre.jl/gen/wrap_hypre.jl, in expression starting on line 51
 
+headerlist => ASCIIString["HYPRE.h","_hypre_struct_ls.h","_hypre_sstruct_mv.h","_hypre_parcsr_ls.h","_hypre_parcsr_mv.h","krylov.h","temp_multivector.h","interpreter.h","HYPRE_lobpcg.h","HYPRE_utilities.h","_hypre_IJ_mv.h"]
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/HYPRE.h
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/_hypre_parcsr_mv.h
+WARNING: Not wrapping InclusionDirective   stdlib.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   math.h
+WARNING: Not wrapping InclusionDirective   HYPRE_parcsr_mv.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   mpi.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   seq_mv.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   seq_mv.h
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/krylov.h
+WARNING: Not wrapping InclusionDirective   HYPRE_krylov.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   mpi.h
+WARNING: Not wrapping InclusionDirective   stdlib.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   math.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/temp_multivector.h
+WARNING: Not wrapping InclusionDirective   interpreter.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   mpi.h
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/interpreter.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   mpi.h
+WARNING: Skipping unnamed StructDecl
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/HYPRE_lobpcg.h
+WARNING: Not wrapping InclusionDirective   HYPRE_krylov.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   mpi.h
+WARNING: Not wrapping InclusionDirective   fortran_matrix.h
+WARNING: Not wrapping InclusionDirective   multivector.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   interpreter.h
+WARNING: Not wrapping InclusionDirective   HYPRE_MatvecFunctions.h
+WARNING: Not wrapping MacroInstantiation   HYPRE_SOLVER_STRUCT
+WARNING: Not wrapping MacroInstantiation   HYPRE_MATRIX_STRUCT
+WARNING: Not wrapping MacroInstantiation   HYPRE_VECTOR_STRUCT
+WARNING: Skipping unnamed StructDecl
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/HYPRE_utilities.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   mpi.h
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/_hypre_IJ_mv.h
+WARNING: Not wrapping InclusionDirective   stdlib.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   math.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   mpi.h
+WARNING: Not wrapping InclusionDirective   seq_mv.h
+WARNING: Not wrapping InclusionDirective   _hypre_parcsr_mv.h
+WARNING: Not wrapping InclusionDirective   stdlib.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   math.h
+WARNING: Not wrapping InclusionDirective   HYPRE_parcsr_mv.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   seq_mv.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   seq_mv.h
+WARNING: Not wrapping InclusionDirective   HYPRE_IJ_mv.h
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/_hypre_struct_ls.h
+WARNING: Not wrapping InclusionDirective   stdlib.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   math.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   mpi.h
+WARNING: Not wrapping InclusionDirective   HYPRE_struct_ls.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   _hypre_struct_mv.h
+WARNING: Not wrapping InclusionDirective   krylov.h
+WARNING: Not wrapping InclusionDirective   HYPRE_krylov.h
+WARNING: Not wrapping InclusionDirective   stdlib.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   math.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   temp_multivector.h
+WARNING: Not wrapping InclusionDirective   interpreter.h
+WARNING: Not wrapping InclusionDirective   HYPRE_MatvecFunctions.h
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/_hypre_sstruct_mv.h
+WARNING: Not wrapping InclusionDirective   stdlib.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   math.h
+WARNING: Not wrapping InclusionDirective   HYPRE_sstruct_mv.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   mpi.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   _hypre_struct_mv.h
+WARNING: Not wrapping InclusionDirective   _hypre_IJ_mv.h
+WARNING: Not wrapping InclusionDirective   stdlib.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   math.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   seq_mv.h
+WARNING: Not wrapping InclusionDirective   _hypre_parcsr_mv.h
+WARNING: Not wrapping InclusionDirective   stdlib.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   math.h
+WARNING: Not wrapping InclusionDirective   HYPRE_parcsr_mv.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   seq_mv.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   seq_mv.h
+WARNING: Not wrapping InclusionDirective   HYPRE_IJ_mv.h
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/_hypre_parcsr_ls.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   HYPRE_parcsr_ls.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   mpi.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   krylov.h
+WARNING: Not wrapping InclusionDirective   HYPRE_krylov.h
+WARNING: Not wrapping InclusionDirective   stdlib.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   math.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   seq_mv.h
+WARNING: Not wrapping InclusionDirective   _hypre_parcsr_mv.h
+WARNING: Not wrapping InclusionDirective   stdlib.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   math.h
+WARNING: Not wrapping InclusionDirective   HYPRE_parcsr_mv.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   seq_mv.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   seq_mv.h
+WARNING: Not wrapping InclusionDirective   HYPRE_lobpcg.h
+WARNING: Not wrapping InclusionDirective   HYPRE_krylov.h
+WARNING: Not wrapping InclusionDirective   fortran_matrix.h
+WARNING: Not wrapping InclusionDirective   multivector.h
+WARNING: Not wrapping InclusionDirective   interpreter.h
+WARNING: Not wrapping InclusionDirective   HYPRE_MatvecFunctions.h
+WARNING: Not wrapping MacroInstantiation   HYPRE_SOLVER_STRUCT
+WARNING: Not wrapping MacroInstantiation   HYPRE_MATRIX_STRUCT
+WARNING: Not wrapping MacroInstantiation   HYPRE_VECTOR_STRUCT
+WARNING: Not wrapping InclusionDirective   par_csr_block_matrix.h
+WARNING: Not wrapping MacroInstantiation   CUMNUMIT
+WARNING: Not wrapping MacroInstantiation   CUMNUMIT
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+WARNING: Skipping unnamed StructDecl
+writing libhypre.jl

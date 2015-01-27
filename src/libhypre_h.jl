@@ -11,6 +11,14 @@ const HYPRE_PFMG = 10
 const HYPRE_SMG = 11
 const HYPRE_Jacobi = 17
 
+# Skipping MacroDefinition: HYPRE_Version ( ) "HYPRE_RELEASE_NAME  $Date: 2010/12/20 19:27:44 $ Compiled: " __DATE__ " " __TIME__
+
+const HYPRE_MPI_INT = MPI_INT
+const HYPRE_ERROR_GENERIC = 1
+const HYPRE_ERROR_MEMORY = 2
+const HYPRE_ERROR_ARG = 4
+const HYPRE_ERROR_CONV = 256
+
 # Skipping MacroDefinition: hypre_ParCSRCommPkgComm ( comm_pkg ) ( comm_pkg -> comm )
 # Skipping MacroDefinition: hypre_ParCSRCommPkgNumSends ( comm_pkg ) ( comm_pkg -> num_sends )
 # Skipping MacroDefinition: hypre_ParCSRCommPkgSendProcs ( comm_pkg ) ( comm_pkg -> send_procs )
@@ -109,6 +117,8 @@ const HYPRE_Jacobi = 17
 # Skipping MacroDefinition: hypre_ParChordMatrixToprocessor ( matrix ) ( ( matrix ) -> toprocessor )
 # Skipping MacroDefinition: hypre_ParChordMatrixNumRdofsToprocessor ( matrix ) ( ( matrix ) -> num_rdofs_toprocessor )
 # Skipping MacroDefinition: hypre_ParChordMatrixRdofToprocessor ( matrix ) ( ( matrix ) -> rdof_toprocessor )
+
+typealias HYPRE_Int Cint
 
 type hypre_ParCSRCommPkg
     comm::MPI_Comm
@@ -572,6 +582,127 @@ type mv_TempMultiVector
 end
 
 typealias mv_TempMultiVectorPtr Ptr{mv_TempMultiVector}
+
+# Skipping MacroDefinition: hypre_AuxParCSRMatrixLocalNumRows ( matrix ) ( ( matrix ) -> local_num_rows )
+# Skipping MacroDefinition: hypre_AuxParCSRMatrixLocalNumCols ( matrix ) ( ( matrix ) -> local_num_cols )
+# Skipping MacroDefinition: hypre_AuxParCSRMatrixNeedAux ( matrix ) ( ( matrix ) -> need_aux )
+# Skipping MacroDefinition: hypre_AuxParCSRMatrixRowLength ( matrix ) ( ( matrix ) -> row_length )
+# Skipping MacroDefinition: hypre_AuxParCSRMatrixRowSpace ( matrix ) ( ( matrix ) -> row_space )
+# Skipping MacroDefinition: hypre_AuxParCSRMatrixAuxJ ( matrix ) ( ( matrix ) -> aux_j )
+# Skipping MacroDefinition: hypre_AuxParCSRMatrixAuxData ( matrix ) ( ( matrix ) -> aux_data )
+# Skipping MacroDefinition: hypre_AuxParCSRMatrixIndxDiag ( matrix ) ( ( matrix ) -> indx_diag )
+# Skipping MacroDefinition: hypre_AuxParCSRMatrixIndxOffd ( matrix ) ( ( matrix ) -> indx_offd )
+# Skipping MacroDefinition: hypre_AuxParCSRMatrixMaxOffProcElmts ( matrix ) ( ( matrix ) -> max_off_proc_elmts )
+# Skipping MacroDefinition: hypre_AuxParCSRMatrixCurrentNumElmts ( matrix ) ( ( matrix ) -> current_num_elmts )
+# Skipping MacroDefinition: hypre_AuxParCSRMatrixOffProcIIndx ( matrix ) ( ( matrix ) -> off_proc_i_indx )
+# Skipping MacroDefinition: hypre_AuxParCSRMatrixOffProcI ( matrix ) ( ( matrix ) -> off_proc_i )
+# Skipping MacroDefinition: hypre_AuxParCSRMatrixOffProcJ ( matrix ) ( ( matrix ) -> off_proc_j )
+# Skipping MacroDefinition: hypre_AuxParCSRMatrixOffProcData ( matrix ) ( ( matrix ) -> off_proc_data )
+# Skipping MacroDefinition: hypre_AuxParCSRMatrixCancelIndx ( matrix ) ( ( matrix ) -> cancel_indx )
+# Skipping MacroDefinition: hypre_AuxParVectorMaxOffProcElmts ( matrix ) ( ( matrix ) -> max_off_proc_elmts )
+# Skipping MacroDefinition: hypre_AuxParVectorCurrentNumElmts ( matrix ) ( ( matrix ) -> current_num_elmts )
+# Skipping MacroDefinition: hypre_AuxParVectorOffProcI ( matrix ) ( ( matrix ) -> off_proc_i )
+# Skipping MacroDefinition: hypre_AuxParVectorOffProcData ( matrix ) ( ( matrix ) -> off_proc_data )
+# Skipping MacroDefinition: hypre_AuxParVectorCancelIndx ( matrix ) ( ( matrix ) -> cancel_indx )
+# Skipping MacroDefinition: hypre_IJMatrixComm ( matrix ) ( ( matrix ) -> comm )
+# Skipping MacroDefinition: hypre_IJMatrixRowPartitioning ( matrix ) ( ( matrix ) -> row_partitioning )
+# Skipping MacroDefinition: hypre_IJMatrixColPartitioning ( matrix ) ( ( matrix ) -> col_partitioning )
+# Skipping MacroDefinition: hypre_IJMatrixObjectType ( matrix ) ( ( matrix ) -> object_type )
+# Skipping MacroDefinition: hypre_IJMatrixObject ( matrix ) ( ( matrix ) -> object )
+# Skipping MacroDefinition: hypre_IJMatrixTranslator ( matrix ) ( ( matrix ) -> translator )
+# Skipping MacroDefinition: hypre_IJMatrixAssembleFlag ( matrix ) ( ( matrix ) -> assemble_flag )
+# Skipping MacroDefinition: hypre_IJMatrixGlobalFirstRow ( matrix ) ( ( matrix ) -> global_first_row )
+# Skipping MacroDefinition: hypre_IJMatrixGlobalFirstCol ( matrix ) ( ( matrix ) -> global_first_col )
+# Skipping MacroDefinition: hypre_IJMatrixGlobalNumRows ( matrix ) ( ( matrix ) -> global_num_rows )
+# Skipping MacroDefinition: hypre_IJMatrixGlobalNumCols ( matrix ) ( ( matrix ) -> global_num_cols )
+# Skipping MacroDefinition: hypre_IJMatrixPrintLevel ( matrix ) ( ( matrix ) -> print_level )
+# Skipping MacroDefinition: hypre_IJVectorComm ( vector ) ( ( vector ) -> comm )
+# Skipping MacroDefinition: hypre_IJVectorPartitioning ( vector ) ( ( vector ) -> partitioning )
+# Skipping MacroDefinition: hypre_IJVectorObjectType ( vector ) ( ( vector ) -> object_type )
+# Skipping MacroDefinition: hypre_IJVectorObject ( vector ) ( ( vector ) -> object )
+# Skipping MacroDefinition: hypre_IJVectorTranslator ( vector ) ( ( vector ) -> translator )
+# Skipping MacroDefinition: hypre_IJVectorGlobalFirstRow ( vector ) ( ( vector ) -> global_first_row )
+# Skipping MacroDefinition: hypre_IJVectorGlobalNumRows ( vector ) ( ( vector ) -> global_num_rows )
+# Skipping MacroDefinition: hypre_IJVectorPrintLevel ( vector ) ( ( vector ) -> print_level )
+
+type hypre_AuxParCSRMatrix
+    local_num_rows::HYPRE_Int
+    local_num_cols::HYPRE_Int
+    need_aux::HYPRE_Int
+    row_length::Ptr{HYPRE_Int}
+    row_space::Ptr{HYPRE_Int}
+    aux_j::Ptr{Ptr{HYPRE_Int}}
+    aux_data::Ptr{Ptr{Cdouble}}
+    indx_diag::Ptr{HYPRE_Int}
+    indx_offd::Ptr{HYPRE_Int}
+    max_off_proc_elmts::HYPRE_Int
+    current_num_elmts::HYPRE_Int
+    off_proc_i_indx::HYPRE_Int
+    off_proc_i::Ptr{HYPRE_Int}
+    off_proc_j::Ptr{HYPRE_Int}
+    off_proc_data::Ptr{Cdouble}
+    cancel_indx::HYPRE_Int
+end
+
+type hypre_AuxParVector
+    max_off_proc_elmts::HYPRE_Int
+    current_num_elmts::HYPRE_Int
+    off_proc_i::Ptr{HYPRE_Int}
+    off_proc_data::Ptr{Cdouble}
+    cancel_indx::HYPRE_Int
+end
+
+type hypre_IJMatrix_struct
+    comm::MPI_Comm
+    row_partitioning::Ptr{HYPRE_Int}
+    col_partitioning::Ptr{HYPRE_Int}
+    object_type::HYPRE_Int
+    object::Ptr{Void}
+    translator::Ptr{Void}
+    assemble_flag::HYPRE_Int
+    global_first_row::HYPRE_Int
+    global_first_col::HYPRE_Int
+    global_num_rows::HYPRE_Int
+    global_num_cols::HYPRE_Int
+    print_level::HYPRE_Int
+end
+
+type hypre_IJMatrix
+    comm::MPI_Comm
+    row_partitioning::Ptr{HYPRE_Int}
+    col_partitioning::Ptr{HYPRE_Int}
+    object_type::HYPRE_Int
+    object::Ptr{Void}
+    translator::Ptr{Void}
+    assemble_flag::HYPRE_Int
+    global_first_row::HYPRE_Int
+    global_first_col::HYPRE_Int
+    global_num_rows::HYPRE_Int
+    global_num_cols::HYPRE_Int
+    print_level::HYPRE_Int
+end
+
+type hypre_IJVector_struct
+    comm::MPI_Comm
+    partitioning::Ptr{HYPRE_Int}
+    object_type::HYPRE_Int
+    object::Ptr{Void}
+    translator::Ptr{Void}
+    global_first_row::HYPRE_Int
+    global_num_rows::HYPRE_Int
+    print_level::HYPRE_Int
+end
+
+type hypre_IJVector
+    comm::MPI_Comm
+    partitioning::Ptr{HYPRE_Int}
+    object_type::HYPRE_Int
+    object::Ptr{Void}
+    translator::Ptr{Void}
+    global_first_row::HYPRE_Int
+    global_num_rows::HYPRE_Int
+    print_level::HYPRE_Int
+end
 
 # Skipping MacroDefinition: hypre_SStructGridComm ( grid ) ( ( grid ) -> comm )
 # Skipping MacroDefinition: hypre_SStructGridNDim ( grid ) ( ( grid ) -> ndim )
