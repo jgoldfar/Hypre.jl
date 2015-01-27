@@ -1,0 +1,23 @@
+language: cpp
+compiler:
+    - clang
+notifications:
+    email: false
+env:
+    - JULIAVERSION="juliareleases"
+    - JULIAVERSION="julianightlies"
+matrix:
+    allow_failures:
+      - env: JULIAVERSION="julianightlies"
+before_install:
+    - sudo add-apt-repository ppa:staticfloat/julia-deps -y
+    - sudo add-apt-repository ppa:staticfloat/${JULIAVERSION} -y
+    - sudo apt-get update -qq -y
+    - sudo apt-get install libpcre3-dev gfortran julia -y
+script:
+    - julia -e 'Pkg.init(); Pkg.clone("https://github.com/jgoldfar/Hypre.jl.git"); Pkg.build("Hypre")'
+    - julia -e 'using Hypre; @assert isdefined(:Hypre); @assert typeof(Hypre) === Module'
+    - if [ $JULIAVERSION = "juliareleases" ]; then julia --code-coverage test/runtests.jl; fi
+    - if [ $JULIAVERSION = "julianightlies" ]; then julia test/runtests.jl; fi
+after_success:
+    - if [ $JULIAVERSION = "juliareleases" ]; then julia -e 'cd(Pkg.dir("Hypre")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'; fi
