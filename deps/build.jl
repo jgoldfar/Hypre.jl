@@ -26,10 +26,10 @@ provides(SimpleBuild, (@build_steps begin
                          @build_steps begin
                            ChangeDirectory(cmakebuilddir)
                            `cmake -DHYPRE_SHARED:BOOL=ON ..`
-`cmake -DHYPRE_INSTALL_PREFIX:PATH=$prefix ..`
+                           `cmake -DHYPRE_INSTALL_PREFIX:PATH=$prefix ..`
                            `cmake -L ..`
                            `make`
-`make install`
+                           `make install`
                          end
                        end), libhypre)
 
