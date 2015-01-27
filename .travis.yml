@@ -12,8 +12,9 @@ matrix:
 before_install:
     - sudo add-apt-repository ppa:staticfloat/julia-deps -y
     - sudo add-apt-repository ppa:staticfloat/${JULIAVERSION} -y
+    - echo "yes" | sudo add-apt-repository ppa:kalakris/cmake
     - sudo apt-get update -qq -y
-    - sudo apt-get install libpcre3-dev libcr-dev mpich2 gfortran julia -y
+    - sudo apt-get install cmake libpcre3-dev libcr-dev mpich2 gfortran julia -y
 script:
     - julia -e 'Pkg.init(); Pkg.clone("https://github.com/jgoldfar/Hypre.jl.git"); Pkg.build("Hypre")'
     - julia -e 'using Hypre; @assert isdefined(:Hypre); @assert typeof(Hypre) === Module'
