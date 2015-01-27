@@ -1,6 +1,7 @@
 typealias MPI_Datatype Cint
 typealias MPI_Comm Cint
-typealias MPI_Request Cint;
+typealias MPI_Request Cint
+typealias MPI_Group Cint
 
 # Skipping MacroDefinition:
 const MPI_CHAR = 0x4c000101
@@ -37,3 +38,23 @@ const MPI_UNSIGNED_LONG_LONG = 0x4c000819
 
 const hypre_MPI_Datatype = MPI_Datatype
 const hypre_MPI_Request = MPI_Request
+
+type FILE
+end
+
+#=typedef struct
+{
+  void*  (*MatvecCreate)  ( void *A, void *x );
+  HYPRE_Int    (*Matvec)        ( void *matvec_data, double alpha, void *A,
+                             void *x, double beta, void *y );
+  HYPRE_Int    (*MatvecDestroy) ( void *matvec_data );
+
+  void*  (*MatMultiVecCreate)  ( void *A, void *x );
+  HYPRE_Int    (*MatMultiVec)        ( void *data, double alpha, void *A,
+				 void *x, double beta, void *y );
+  HYPRE_Int    (*MatMultiVecDestroy)  ( void *data );
+
+} HYPRE_MatvecFunctions;=#
+
+type HYPRE_MatvecFunctions
+end

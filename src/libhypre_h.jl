@@ -1,19 +1,566 @@
 
+const MPICH_DEFINE_ATTR_TYPE_TYPES = 1
+
+# Skipping MacroDefinition: MPICH_ATTR_POINTER_WITH_TYPE_TAG ( buffer_idx , type_idx ) __attribute__ ( ( pointer_with_type_tag ( MPI , buffer_idx , type_idx ) ) )
+# Skipping MacroDefinition: MPICH_ATTR_TYPE_TAG ( type ) __attribute__ ( ( type_tag_for_datatype ( MPI , type ) ) )
+# Skipping MacroDefinition: MPICH_ATTR_TYPE_TAG_LAYOUT_COMPATIBLE ( type ) __attribute__ ( ( type_tag_for_datatype ( MPI , type , layout_compatible ) ) )
+# Skipping MacroDefinition: MPICH_ATTR_TYPE_TAG_MUST_BE_NULL ( ) __attribute__ ( ( type_tag_for_datatype ( MPI , void , must_be_null ) ) )
+# Skipping MacroDefinition: MPICH_ATTR_TYPE_TAG_STDINT ( type ) MPICH_ATTR_TYPE_TAG ( type )
+# Skipping MacroDefinition: MPICH_ATTR_TYPE_TAG_C99 ( type ) MPICH_ATTR_TYPE_TAG ( type )
+# Skipping MacroDefinition: MPI_COMM_NULL ( ( MPI_Comm ) 0x04000000 )
+# Skipping MacroDefinition: MPI_OP_NULL ( ( MPI_Op ) 0x18000000 )
+# Skipping MacroDefinition: MPI_GROUP_NULL ( ( MPI_Group ) 0x08000000 )
+# Skipping MacroDefinition: MPI_DATATYPE_NULL ( ( MPI_Datatype ) 0x0c000000 )
+# Skipping MacroDefinition: MPI_REQUEST_NULL ( ( MPI_Request ) 0x2c000000 )
+# Skipping MacroDefinition: MPI_ERRHANDLER_NULL ( ( MPI_Errhandler ) 0x14000000 )
+# Skipping MacroDefinition: MPI_MESSAGE_NULL ( ( MPI_Message ) MPI_REQUEST_NULL )
+# Skipping MacroDefinition: MPI_MESSAGE_NO_PROC ( ( MPI_Message ) 0x6c000000 )
+
+const MPI_IDENT = 0
+const MPI_CONGRUENT = 1
+const MPI_SIMILAR = 2
+const MPI_UNEQUAL = 3
+
+# Skipping MacroDefinition: MPI_CHAR ( ( MPI_Datatype ) 0x4c000101 )
+# Skipping MacroDefinition: MPI_SIGNED_CHAR ( ( MPI_Datatype ) 0x4c000118 )
+# Skipping MacroDefinition: MPI_UNSIGNED_CHAR ( ( MPI_Datatype ) 0x4c000102 )
+# Skipping MacroDefinition: MPI_BYTE ( ( MPI_Datatype ) 0x4c00010d )
+# Skipping MacroDefinition: MPI_WCHAR ( ( MPI_Datatype ) 0x4c00040e )
+# Skipping MacroDefinition: MPI_SHORT ( ( MPI_Datatype ) 0x4c000203 )
+# Skipping MacroDefinition: MPI_UNSIGNED_SHORT ( ( MPI_Datatype ) 0x4c000204 )
+# Skipping MacroDefinition: MPI_INT ( ( MPI_Datatype ) 0x4c000405 )
+# Skipping MacroDefinition: MPI_UNSIGNED ( ( MPI_Datatype ) 0x4c000406 )
+# Skipping MacroDefinition: MPI_LONG ( ( MPI_Datatype ) 0x4c000807 )
+# Skipping MacroDefinition: MPI_UNSIGNED_LONG ( ( MPI_Datatype ) 0x4c000808 )
+# Skipping MacroDefinition: MPI_FLOAT ( ( MPI_Datatype ) 0x4c00040a )
+# Skipping MacroDefinition: MPI_DOUBLE ( ( MPI_Datatype ) 0x4c00080b )
+# Skipping MacroDefinition: MPI_LONG_DOUBLE ( ( MPI_Datatype ) 0x4c00100c )
+# Skipping MacroDefinition: MPI_LONG_LONG_INT ( ( MPI_Datatype ) 0x4c000809 )
+# Skipping MacroDefinition: MPI_UNSIGNED_LONG_LONG ( ( MPI_Datatype ) 0x4c000819 )
+include("libhypre_mpi_h.jl")
+
+const MPI_LONG_LONG = MPI_LONG_LONG_INT
+
+# Skipping MacroDefinition: MPI_PACKED ( ( MPI_Datatype ) 0x4c00010f )
+# Skipping MacroDefinition: MPI_LB ( ( MPI_Datatype ) 0x4c000010 )
+# Skipping MacroDefinition: MPI_UB ( ( MPI_Datatype ) 0x4c000011 )
+# Skipping MacroDefinition: MPI_FLOAT_INT ( ( MPI_Datatype ) 0x8c000000 )
+# Skipping MacroDefinition: MPI_DOUBLE_INT ( ( MPI_Datatype ) 0x8c000001 )
+# Skipping MacroDefinition: MPI_LONG_INT ( ( MPI_Datatype ) 0x8c000002 )
+# Skipping MacroDefinition: MPI_SHORT_INT ( ( MPI_Datatype ) 0x8c000003 )
+# Skipping MacroDefinition: MPI_2INT ( ( MPI_Datatype ) 0x4c000816 )
+# Skipping MacroDefinition: MPI_LONG_DOUBLE_INT ( ( MPI_Datatype ) 0x8c000004 )
+# Skipping MacroDefinition: MPI_COMPLEX ( ( MPI_Datatype ) 1275070494 )
+# Skipping MacroDefinition: MPI_DOUBLE_COMPLEX ( ( MPI_Datatype ) 1275072546 )
+# Skipping MacroDefinition: MPI_LOGICAL ( ( MPI_Datatype ) 1275069469 )
+# Skipping MacroDefinition: MPI_REAL ( ( MPI_Datatype ) 1275069468 )
+# Skipping MacroDefinition: MPI_DOUBLE_PRECISION ( ( MPI_Datatype ) 1275070495 )
+# Skipping MacroDefinition: MPI_INTEGER ( ( MPI_Datatype ) 1275069467 )
+# Skipping MacroDefinition: MPI_2INTEGER ( ( MPI_Datatype ) 1275070496 )
+# Skipping MacroDefinition: MPI_2REAL ( ( MPI_Datatype ) 1275070497 )
+# Skipping MacroDefinition: MPI_2DOUBLE_PRECISION ( ( MPI_Datatype ) 1275072547 )
+# Skipping MacroDefinition: MPI_CHARACTER ( ( MPI_Datatype ) 1275068698 )
+# Skipping MacroDefinition: MPI_REAL4 ( ( MPI_Datatype ) 0x4c000427 )
+# Skipping MacroDefinition: MPI_REAL8 ( ( MPI_Datatype ) 0x4c000829 )
+# Skipping MacroDefinition: MPI_REAL16 ( ( MPI_Datatype ) 0x4c00102b )
+# Skipping MacroDefinition: MPI_COMPLEX8 ( ( MPI_Datatype ) 0x4c000828 )
+# Skipping MacroDefinition: MPI_COMPLEX16 ( ( MPI_Datatype ) 0x4c00102a )
+# Skipping MacroDefinition: MPI_COMPLEX32 ( ( MPI_Datatype ) 0x4c00202c )
+# Skipping MacroDefinition: MPI_INTEGER1 ( ( MPI_Datatype ) 0x4c00012d )
+# Skipping MacroDefinition: MPI_INTEGER2 ( ( MPI_Datatype ) 0x4c00022f )
+# Skipping MacroDefinition: MPI_INTEGER4 ( ( MPI_Datatype ) 0x4c000430 )
+# Skipping MacroDefinition: MPI_INTEGER8 ( ( MPI_Datatype ) 0x4c000831 )
+# Skipping MacroDefinition: MPI_INTEGER16 ( ( MPI_Datatype ) MPI_DATATYPE_NULL )
+# Skipping MacroDefinition: MPI_INT8_T ( ( MPI_Datatype ) 0x4c000137 )
+# Skipping MacroDefinition: MPI_INT16_T ( ( MPI_Datatype ) 0x4c000238 )
+# Skipping MacroDefinition: MPI_INT32_T ( ( MPI_Datatype ) 0x4c000439 )
+# Skipping MacroDefinition: MPI_INT64_T ( ( MPI_Datatype ) 0x4c00083a )
+# Skipping MacroDefinition: MPI_UINT8_T ( ( MPI_Datatype ) 0x4c00013b )
+# Skipping MacroDefinition: MPI_UINT16_T ( ( MPI_Datatype ) 0x4c00023c )
+# Skipping MacroDefinition: MPI_UINT32_T ( ( MPI_Datatype ) 0x4c00043d )
+# Skipping MacroDefinition: MPI_UINT64_T ( ( MPI_Datatype ) 0x4c00083e )
+# Skipping MacroDefinition: MPI_C_BOOL ( ( MPI_Datatype ) 0x4c00013f )
+# Skipping MacroDefinition:
+const MPI_C_FLOAT_COMPLEX = 0x4c000840
+
+const MPI_C_COMPLEX = MPI_C_FLOAT_COMPLEX
+
+# Skipping MacroDefinition: MPI_C_DOUBLE_COMPLEX ( ( MPI_Datatype ) 0x4c001041 )
+# Skipping MacroDefinition: MPI_C_LONG_DOUBLE_COMPLEX ( ( MPI_Datatype ) 0x4c002042 )
+# Skipping MacroDefinition: MPI_AINT ( ( MPI_Datatype ) 0x4c000843 )
+# Skipping MacroDefinition: MPI_OFFSET ( ( MPI_Datatype ) 0x4c000844 )
+# Skipping MacroDefinition: MPI_COUNT ( ( MPI_Datatype ) 0x4c000845 )
+# Skipping MacroDefinition: MPI_CXX_BOOL ( ( MPI_Datatype ) 0x4c000133 )
+# Skipping MacroDefinition: MPI_CXX_FLOAT_COMPLEX ( ( MPI_Datatype ) 0x4c000834 )
+# Skipping MacroDefinition: MPI_CXX_DOUBLE_COMPLEX ( ( MPI_Datatype ) 0x4c001035 )
+# Skipping MacroDefinition: MPI_CXX_LONG_DOUBLE_COMPLEX ( ( MPI_Datatype ) 0x4c002036 )
+
+const MPI_TYPECLASS_REAL = 1
+const MPI_TYPECLASS_INTEGER = 2
+const MPI_TYPECLASS_COMPLEX = 3
+
+# Skipping MacroDefinition: MPI_COMM_WORLD ( ( MPI_Comm ) 0x44000000 )
+# Skipping MacroDefinition: MPI_COMM_SELF ( ( MPI_Comm ) 0x44000001 )
+# Skipping MacroDefinition: MPI_GROUP_EMPTY ( ( MPI_Group ) 0x48000000 )
+# Skipping MacroDefinition: MPI_WIN_NULL ( ( MPI_Win ) 0x20000000 )
+# Skipping MacroDefinition: MPI_FILE_NULL ( ( MPI_File ) 0 )
+# Skipping MacroDefinition: MPI_MAX ( MPI_Op ) ( 0x58000001 )
+# Skipping MacroDefinition: MPI_MIN ( MPI_Op ) ( 0x58000002 )
+# Skipping MacroDefinition: MPI_SUM ( MPI_Op ) ( 0x58000003 )
+# Skipping MacroDefinition: MPI_PROD ( MPI_Op ) ( 0x58000004 )
+# Skipping MacroDefinition: MPI_LAND ( MPI_Op ) ( 0x58000005 )
+# Skipping MacroDefinition: MPI_BAND ( MPI_Op ) ( 0x58000006 )
+# Skipping MacroDefinition: MPI_LOR ( MPI_Op ) ( 0x58000007 )
+# Skipping MacroDefinition: MPI_BOR ( MPI_Op ) ( 0x58000008 )
+# Skipping MacroDefinition: MPI_LXOR ( MPI_Op ) ( 0x58000009 )
+# Skipping MacroDefinition: MPI_BXOR ( MPI_Op ) ( 0x5800000a )
+# Skipping MacroDefinition: MPI_MINLOC ( MPI_Op ) ( 0x5800000b )
+# Skipping MacroDefinition: MPI_MAXLOC ( MPI_Op ) ( 0x5800000c )
+# Skipping MacroDefinition: MPI_REPLACE ( MPI_Op ) ( 0x5800000d )
+# Skipping MacroDefinition: MPI_NO_OP ( MPI_Op ) ( 0x5800000e )
+
+const MPI_TAG_UB = 0x64400001
+const MPI_HOST = 0x64400003
+const MPI_IO = 0x64400005
+const MPI_WTIME_IS_GLOBAL = 0x64400007
+const MPI_UNIVERSE_SIZE = 0x64400009
+const MPI_LASTUSEDCODE = 0x6440000b
+const MPI_APPNUM = 0x6440000d
+const MPI_WIN_BASE = 0x66000001
+const MPI_WIN_SIZE = 0x66000003
+const MPI_WIN_DISP_UNIT = 0x66000005
+const MPI_WIN_CREATE_FLAVOR = 0x66000007
+const MPI_WIN_MODEL = 0x66000009
+const MPI_MAX_PROCESSOR_NAME = 128
+const MPI_MAX_LIBRARY_VERSION_STRING = 8192
+const MPI_MAX_ERROR_STRING = 1024
+const MPI_MAX_PORT_NAME = 256
+const MPI_MAX_OBJECT_NAME = 128
+const MPI_UNDEFINED = -32766
+const MPI_KEYVAL_INVALID = 0x24000000
+const MPI_BSEND_OVERHEAD = 96
+
+# Skipping MacroDefinition: MPI_BOTTOM ( void * ) 0
+
+const MPI_PROC_NULL = -1
+const MPI_ANY_SOURCE = -2
+const MPI_ROOT = -3
+const MPI_ANY_TAG = -1
+const MPI_LOCK_EXCLUSIVE = 234
+const MPI_LOCK_SHARED = 235
+
+# Skipping MacroDefinition: MPI_ERRORS_ARE_FATAL ( ( MPI_Errhandler ) 0x54000000 )
+# Skipping MacroDefinition: MPI_ERRORS_RETURN ( ( MPI_Errhandler ) 0x54000001 )
+# Skipping MacroDefinition: MPIR_ERRORS_THROW_EXCEPTIONS ( ( MPI_Errhandler ) 0x54000002 )
+# Skipping MacroDefinition: MPI_NULL_COPY_FN ( ( MPI_Copy_function * ) 0 )
+# Skipping MacroDefinition: MPI_NULL_DELETE_FN ( ( MPI_Delete_function * ) 0 )
+
+# const MPI_DUP_FN = MPIR_Dup_fn
+
+# Skipping MacroDefinition: MPI_COMM_NULL_COPY_FN ( ( MPI_Comm_copy_attr_function * ) 0 )
+# Skipping MacroDefinition: MPI_COMM_NULL_DELETE_FN ( ( MPI_Comm_delete_attr_function * ) 0 )
+# Skipping MacroDefinition: MPI_COMM_DUP_FN ( ( MPI_Comm_copy_attr_function * ) MPI_DUP_FN )
+# Skipping MacroDefinition: MPI_WIN_NULL_COPY_FN ( ( MPI_Win_copy_attr_function * ) 0 )
+# Skipping MacroDefinition: MPI_WIN_NULL_DELETE_FN ( ( MPI_Win_delete_attr_function * ) 0 )
+# Skipping MacroDefinition: MPI_WIN_DUP_FN ( ( MPI_Win_copy_attr_function * ) MPI_DUP_FN )
+# Skipping MacroDefinition: MPI_TYPE_NULL_COPY_FN ( ( MPI_Type_copy_attr_function * ) 0 )
+# Skipping MacroDefinition: MPI_TYPE_NULL_DELETE_FN ( ( MPI_Type_delete_attr_function * ) 0 )
+# Skipping MacroDefinition: MPI_TYPE_DUP_FN ( ( MPI_Type_copy_attr_function * ) MPI_DUP_FN )
+
+const MPI_VERSION = 3
+const MPI_SUBVERSION = 0
+const MPICH_NAME = 3
+const MPICH = 1
+const MPICH_HAS_C2F = 1
+const MPICH_VERSION = "3.0.4"
+const MPICH_NUMVERSION = 30004300
+const MPICH_RELEASE_TYPE_ALPHA = 0
+const MPICH_RELEASE_TYPE_BETA = 1
+const MPICH_RELEASE_TYPE_RC = 2
+const MPICH_RELEASE_TYPE_PATCH = 3
+
+# Skipping MacroDefinition: MPICH_CALC_VERSION ( MAJOR , MINOR , REVISION , TYPE , PATCH ) ( ( ( MAJOR ) * 10000000 ) + ( ( MINOR ) * 100000 ) + ( ( REVISION ) * 1000 ) + ( ( TYPE ) * 100 ) + ( PATCH ) )
+# Skipping MacroDefinition: MPI_INFO_NULL ( ( MPI_Info ) 0x1c000000 )
+# Skipping MacroDefinition: MPI_INFO_ENV ( ( MPI_Info ) 0x5c000001 )
+
+const MPI_MAX_INFO_KEY = 255
+const MPI_MAX_INFO_VAL = 1024
+const MPI_ORDER_C = 56
+const MPI_ORDER_FORTRAN = 57
+const MPI_DISTRIBUTE_BLOCK = 121
+const MPI_DISTRIBUTE_CYCLIC = 122
+const MPI_DISTRIBUTE_NONE = 123
+const MPI_DISTRIBUTE_DFLT_DARG = -49767
+
+# Skipping MacroDefinition: MPI_IN_PLACE ( void * ) - 1
+
+const MPI_MODE_NOCHECK = 1024
+const MPI_MODE_NOSTORE = 2048
+const MPI_MODE_NOPUT = 4096
+const MPI_MODE_NOPRECEDE = 8192
+const MPI_MODE_NOSUCCEED = 16384
+const MPI_COMM_TYPE_SHARED = 1
+const MPI_AINT_FMT_DEC_SPEC = "%ld"
+const MPI_AINT_FMT_HEX_SPEC = "%lx"
+
+# Skipping MacroDefinition: MPI_T_ENUM_NULL ( ( MPI_T_enum ) NULL )
+# Skipping MacroDefinition: MPI_T_CVAR_HANDLE_NULL ( ( MPI_T_cvar_handle ) NULL )
+# Skipping MacroDefinition: MPI_T_PVAR_HANDLE_NULL ( ( MPI_T_pvar_handle ) NULL )
+# Skipping MacroDefinition: MPI_T_PVAR_SESSION_NULL ( ( MPI_T_pvar_session ) NULL )
+# Skipping MacroDefinition: MPI_Comm_c2f ( comm ) ( MPI_Fint ) ( comm )
+# Skipping MacroDefinition: MPI_Comm_f2c ( comm ) ( MPI_Comm ) ( comm )
+# Skipping MacroDefinition: MPI_Type_c2f ( datatype ) ( MPI_Fint ) ( datatype )
+# Skipping MacroDefinition: MPI_Type_f2c ( datatype ) ( MPI_Datatype ) ( datatype )
+# Skipping MacroDefinition: MPI_Group_c2f ( group ) ( MPI_Fint ) ( group )
+# Skipping MacroDefinition: MPI_Group_f2c ( group ) ( MPI_Group ) ( group )
+# Skipping MacroDefinition: MPI_Info_c2f ( info ) ( MPI_Fint ) ( info )
+# Skipping MacroDefinition: MPI_Info_f2c ( info ) ( MPI_Info ) ( info )
+# Skipping MacroDefinition: MPI_Request_f2c ( request ) ( MPI_Request ) ( request )
+# Skipping MacroDefinition: MPI_Request_c2f ( request ) ( MPI_Fint ) ( request )
+# Skipping MacroDefinition: MPI_Op_c2f ( op ) ( MPI_Fint ) ( op )
+# Skipping MacroDefinition: MPI_Op_f2c ( op ) ( MPI_Op ) ( op )
+# Skipping MacroDefinition: MPI_Errhandler_c2f ( errhandler ) ( MPI_Fint ) ( errhandler )
+# Skipping MacroDefinition: MPI_Errhandler_f2c ( errhandler ) ( MPI_Errhandler ) ( errhandler )
+# Skipping MacroDefinition: MPI_Win_c2f ( win ) ( MPI_Fint ) ( win )
+# Skipping MacroDefinition: MPI_Win_f2c ( win ) ( MPI_Win ) ( win )
+# Skipping MacroDefinition: MPI_Message_c2f ( msg ) ( ( MPI_Fint ) ( msg ) )
+# Skipping MacroDefinition: MPI_Message_f2c ( msg ) ( ( MPI_Message ) ( msg ) )
+# Skipping MacroDefinition: PMPI_Comm_c2f ( comm ) ( MPI_Fint ) ( comm )
+# Skipping MacroDefinition: PMPI_Comm_f2c ( comm ) ( MPI_Comm ) ( comm )
+# Skipping MacroDefinition: PMPI_Type_c2f ( datatype ) ( MPI_Fint ) ( datatype )
+# Skipping MacroDefinition: PMPI_Type_f2c ( datatype ) ( MPI_Datatype ) ( datatype )
+# Skipping MacroDefinition: PMPI_Group_c2f ( group ) ( MPI_Fint ) ( group )
+# Skipping MacroDefinition: PMPI_Group_f2c ( group ) ( MPI_Group ) ( group )
+# Skipping MacroDefinition: PMPI_Info_c2f ( info ) ( MPI_Fint ) ( info )
+# Skipping MacroDefinition: PMPI_Info_f2c ( info ) ( MPI_Info ) ( info )
+# Skipping MacroDefinition: PMPI_Request_f2c ( request ) ( MPI_Request ) ( request )
+# Skipping MacroDefinition: PMPI_Request_c2f ( request ) ( MPI_Fint ) ( request )
+# Skipping MacroDefinition: PMPI_Op_c2f ( op ) ( MPI_Fint ) ( op )
+# Skipping MacroDefinition: PMPI_Op_f2c ( op ) ( MPI_Op ) ( op )
+# Skipping MacroDefinition: PMPI_Errhandler_c2f ( errhandler ) ( MPI_Fint ) ( errhandler )
+# Skipping MacroDefinition: PMPI_Errhandler_f2c ( errhandler ) ( MPI_Errhandler ) ( errhandler )
+# Skipping MacroDefinition: PMPI_Win_c2f ( win ) ( MPI_Fint ) ( win )
+# Skipping MacroDefinition: PMPI_Win_f2c ( win ) ( MPI_Win ) ( win )
+# Skipping MacroDefinition: PMPI_Message_c2f ( msg ) ( ( MPI_Fint ) ( msg ) )
+# Skipping MacroDefinition: PMPI_Message_f2c ( msg ) ( ( MPI_Message ) ( msg ) )
+# Skipping MacroDefinition: MPI_STATUS_IGNORE ( MPI_Status * ) 1
+# Skipping MacroDefinition: MPI_STATUSES_IGNORE ( MPI_Status * ) 1
+# Skipping MacroDefinition: MPI_ERRCODES_IGNORE ( int * ) 0
+# Skipping MacroDefinition: MPI_ARGV_NULL ( char * * ) 0
+# Skipping MacroDefinition: MPI_ARGVS_NULL ( char * * * ) 0
+
+const MPI_THREAD_SINGLE = 0
+const MPI_THREAD_FUNNELED = 1
+const MPI_THREAD_SERIALIZED = 2
+const MPI_THREAD_MULTIPLE = 3
+const MPI_SUCCESS = 0
+const MPI_ERR_BUFFER = 1
+const MPI_ERR_COUNT = 2
+const MPI_ERR_TYPE = 3
+const MPI_ERR_TAG = 4
+const MPI_ERR_COMM = 5
+const MPI_ERR_RANK = 6
+const MPI_ERR_ROOT = 7
+const MPI_ERR_TRUNCATE = 14
+const MPI_ERR_GROUP = 8
+const MPI_ERR_OP = 9
+const MPI_ERR_REQUEST = 19
+const MPI_ERR_TOPOLOGY = 10
+const MPI_ERR_DIMS = 11
+const MPI_ERR_ARG = 12
+const MPI_ERR_OTHER = 15
+const MPI_ERR_UNKNOWN = 13
+const MPI_ERR_INTERN = 16
+const MPI_ERR_IN_STATUS = 17
+const MPI_ERR_PENDING = 18
+const MPI_ERR_FILE = 27
+const MPI_ERR_ACCESS = 20
+const MPI_ERR_AMODE = 21
+const MPI_ERR_BAD_FILE = 22
+const MPI_ERR_FILE_EXISTS = 25
+const MPI_ERR_FILE_IN_USE = 26
+const MPI_ERR_NO_SPACE = 36
+const MPI_ERR_NO_SUCH_FILE = 37
+const MPI_ERR_IO = 32
+const MPI_ERR_READ_ONLY = 40
+const MPI_ERR_CONVERSION = 23
+const MPI_ERR_DUP_DATAREP = 24
+const MPI_ERR_UNSUPPORTED_DATAREP = 43
+const MPI_ERR_INFO = 28
+const MPI_ERR_INFO_KEY = 29
+const MPI_ERR_INFO_VALUE = 30
+const MPI_ERR_INFO_NOKEY = 31
+const MPI_ERR_NAME = 33
+const MPI_ERR_NO_MEM = 34
+const MPI_ERR_NOT_SAME = 35
+const MPI_ERR_PORT = 38
+const MPI_ERR_QUOTA = 39
+const MPI_ERR_SERVICE = 41
+const MPI_ERR_SPAWN = 42
+const MPI_ERR_UNSUPPORTED_OPERATION = 44
+const MPI_ERR_WIN = 45
+const MPI_ERR_BASE = 46
+const MPI_ERR_LOCKTYPE = 47
+const MPI_ERR_KEYVAL = 48
+const MPI_ERR_RMA_CONFLICT = 49
+const MPI_ERR_RMA_SYNC = 50
+const MPI_ERR_SIZE = 51
+const MPI_ERR_DISP = 52
+const MPI_ERR_ASSERT = 53
+const MPIX_ERR_PROC_FAIL_STOP = 54
+const MPI_ERR_RMA_RANGE = 55
+const MPI_ERR_RMA_ATTACH = 56
+const MPI_ERR_RMA_SHARED = 57
+const MPI_ERR_RMA_FLAVOR = 58
+const MPI_ERR_LASTCODE = 0x03ffffff
+const MPICH_ERR_LAST_CLASS = 58
+
+# Skipping MacroDefinition: MPI_CONVERSION_FN_NULL ( ( MPI_Datarep_conversion_function * ) 0 )
+
+const MPIIMPL_ADVERTISES_FEATURES = 1
+const MPIIMPL_HAVE_MPI_INFO = 1
+const MPIIMPL_HAVE_MPI_COMBINER_DARRAY = 1
+const MPIIMPL_HAVE_MPI_TYPE_CREATE_DARRAY = 1
+const MPIIMPL_HAVE_MPI_COMBINER_SUBARRAY = 1
+const MPIIMPL_HAVE_MPI_COMBINER_DUP = 1
+const MPIIMPL_HAVE_MPI_GREQUEST = 1
+const MPIIMPL_HAVE_STATUS_SET_BYTES = 1
+const MPIIMPL_HAVE_STATUS_SET_INFO = 1
+
+typealias MPI_Datatype Cint
+
+type mpich_struct_mpi_float_int
+    f::Cfloat
+    i::Cint
+end
+
+type mpich_struct_mpi_double_int
+    d::Cdouble
+    i::Cint
+end
+
+type mpich_struct_mpi_long_int
+    l::Clong
+    i::Cint
+end
+
+type mpich_struct_mpi_short_int
+    s::Int16
+    i::Cint
+end
+
+type mpich_struct_mpi_2int
+    i1::Cint
+    i2::Cint
+end
+
+type mpich_struct_mpi_long_double_int
+    ld::Float64
+    i::Cint
+end
+
+typealias MPI_Comm Cint
+typealias MPI_Group Cint
+typealias MPI_Win Cint
+
+type ADIOI_FileD
+end
+
+typealias MPI_File Ptr{ADIOI_FileD}
+typealias MPI_Op Cint
+
+# begin enum MPIR_Win_flavor
+typealias MPIR_Win_flavor Uint32
+const MPI_WIN_FLAVOR_CREATE = (uint32)(1)
+const MPI_WIN_FLAVOR_ALLOCATE = (uint32)(2)
+const MPI_WIN_FLAVOR_DYNAMIC = (uint32)(3)
+const MPI_WIN_FLAVOR_SHARED = (uint32)(4)
+# end enum MPIR_Win_flavor
+
+# begin enum MPIR_Win_flavor_t
+typealias MPIR_Win_flavor_t Uint32
+const MPI_WIN_FLAVOR_CREATE = (uint32)(1)
+const MPI_WIN_FLAVOR_ALLOCATE = (uint32)(2)
+const MPI_WIN_FLAVOR_DYNAMIC = (uint32)(3)
+const MPI_WIN_FLAVOR_SHARED = (uint32)(4)
+# end enum MPIR_Win_flavor_t
+
+# begin enum MPIR_Win_model
+typealias MPIR_Win_model Uint32
+const MPI_WIN_SEPARATE = (uint32)(1)
+const MPI_WIN_UNIFIED = (uint32)(2)
+# end enum MPIR_Win_model
+
+# begin enum MPIR_Win_model_t
+typealias MPIR_Win_model_t Uint32
+const MPI_WIN_SEPARATE = (uint32)(1)
+const MPI_WIN_UNIFIED = (uint32)(2)
+# end enum MPIR_Win_model_t
+
+# begin enum MPIR_Topo_type
+typealias MPIR_Topo_type Uint32
+const MPI_GRAPH = (uint32)(1)
+const MPI_CART = (uint32)(2)
+const MPI_DIST_GRAPH = (uint32)(3)
+# end enum MPIR_Topo_type
+
+# typealias MPI_Comm_errhandler_fn MPI_Comm_errhandler_function
+# typealias MPI_File_errhandler_fn MPI_File_errhandler_function
+# typealias MPI_Win_errhandler_fn MPI_Win_errhandler_function
+typealias MPI_Errhandler Cint
+typealias MPI_Request Cint
+typealias MPI_Message Cint
+
+# begin enum MPIR_Combiner_enum
+typealias MPIR_Combiner_enum Uint32
+const MPI_COMBINER_NAMED = (uint32)(1)
+const MPI_COMBINER_DUP = (uint32)(2)
+const MPI_COMBINER_CONTIGUOUS = (uint32)(3)
+const MPI_COMBINER_VECTOR = (uint32)(4)
+const MPI_COMBINER_HVECTOR_INTEGER = (uint32)(5)
+const MPI_COMBINER_HVECTOR = (uint32)(6)
+const MPI_COMBINER_INDEXED = (uint32)(7)
+const MPI_COMBINER_HINDEXED_INTEGER = (uint32)(8)
+const MPI_COMBINER_HINDEXED = (uint32)(9)
+const MPI_COMBINER_INDEXED_BLOCK = (uint32)(10)
+const MPI_COMBINER_HINDEXED_BLOCK = (uint32)(11)
+const MPI_COMBINER_STRUCT_INTEGER = (uint32)(12)
+const MPI_COMBINER_STRUCT = (uint32)(13)
+const MPI_COMBINER_SUBARRAY = (uint32)(14)
+const MPI_COMBINER_DARRAY = (uint32)(15)
+const MPI_COMBINER_F90_REAL = (uint32)(16)
+const MPI_COMBINER_F90_COMPLEX = (uint32)(17)
+const MPI_COMBINER_F90_INTEGER = (uint32)(18)
+const MPI_COMBINER_RESIZED = (uint32)(19)
+# end enum MPIR_Combiner_enum
+
+typealias MPI_Info Cint
+typealias MPI_Aint Clong
+typealias MPI_Fint Cint
+typealias MPI_Count Clonglong
+typealias MPI_Offset Clonglong
+
+immutable Array_2_Cint
+    d1::Cint
+    d2::Cint
+end
+
+zero(::Type{Array_2_Cint}) = Array_2_Cint(fill(zero(Cint),2)...)
+
+type MPI_Status
+    MPI_SOURCE::Cint
+    MPI_TAG::Cint
+    MPI_ERROR::Cint
+    count::MPI_Count
+    cancelled::Cint
+    abi_slush_fund::Array_2_Cint
+end
+
+type MPIR_T_enum
+end
+
+typealias MPI_T_enum Ptr{MPIR_T_enum}
+
+type MPIR_T_cvar_handle
+end
+
+typealias MPI_T_cvar_handle Ptr{MPIR_T_cvar_handle}
+
+type MPIR_T_pvar_handle
+end
+
+typealias MPI_T_pvar_handle Ptr{MPIR_T_pvar_handle}
+
+type MPIR_T_pvar_session
+end
+
+typealias MPI_T_pvar_session Ptr{MPIR_T_pvar_session}
+
+# begin enum MPIR_T_verbosity_t
+typealias MPIR_T_verbosity_t Uint32
+const MPIX_T_VERBOSITY_INVALID = (uint32)(0)
+const MPI_T_VERBOSITY_USER_BASIC = (uint32)(221)
+const MPI_T_VERBOSITY_USER_DETAIL = (uint32)(222)
+const MPI_T_VERBOSITY_USER_ALL = (uint32)(223)
+const MPI_T_VERBOSITY_TUNER_BASIC = (uint32)(224)
+const MPI_T_VERBOSITY_TUNER_DETAIL = (uint32)(225)
+const MPI_T_VERBOSITY_TUNER_ALL = (uint32)(226)
+const MPI_T_VERBOSITY_MPIDEV_BASIC = (uint32)(227)
+const MPI_T_VERBOSITY_MPIDEV_DETAIL = (uint32)(228)
+const MPI_T_VERBOSITY_MPIDEV_ALL = (uint32)(229)
+# end enum MPIR_T_verbosity_t
+
+# begin enum MPIR_T_bind_t
+typealias MPIR_T_bind_t Uint32
+const MPIX_T_BIND_INVALID = (uint32)(0)
+const MPI_T_BIND_NO_OBJECT = (uint32)(9700)
+const MPI_T_BIND_MPI_COMM = (uint32)(9701)
+const MPI_T_BIND_MPI_DATATYPE = (uint32)(9702)
+const MPI_T_BIND_MPI_ERRHANDLER = (uint32)(9703)
+const MPI_T_BIND_MPI_FILE = (uint32)(9704)
+const MPI_T_BIND_MPI_GROUP = (uint32)(9705)
+const MPI_T_BIND_MPI_OP = (uint32)(9706)
+const MPI_T_BIND_MPI_REQUEST = (uint32)(9707)
+const MPI_T_BIND_MPI_WIN = (uint32)(9708)
+const MPI_T_BIND_MPI_MESSAGE = (uint32)(9709)
+const MPI_T_BIND_MPI_INFO = (uint32)(9710)
+# end enum MPIR_T_bind_t
+
+# begin enum MPIR_T_scope_t
+typealias MPIR_T_scope_t Uint32
+const MPIX_T_SCOPE_INVALID = (uint32)(0)
+const MPI_T_SCOPE_READONLY = (uint32)(60439)
+const MPI_T_SCOPE_LOCAL = (uint32)(60440)
+const MPI_T_SCOPE_GROUP = (uint32)(60441)
+const MPI_T_SCOPE_GROUP_EQ = (uint32)(60442)
+const MPI_T_SCOPE_ALL = (uint32)(60443)
+const MPI_T_SCOPE_ALL_EQ = (uint32)(60444)
+# end enum MPIR_T_scope_t
+
+# begin enum MPIR_T_pvar_class_t
+typealias MPIR_T_pvar_class_t Uint32
+const MPIX_T_PVAR_CLASS_INVALID = (uint32)(0)
+const MPI_T_PVAR_CLASS_STATE = (uint32)(240)
+const MPI_T_PVAR_CLASS_LEVEL = (uint32)(241)
+const MPI_T_PVAR_CLASS_SIZE = (uint32)(242)
+const MPI_T_PVAR_CLASS_PERCENTAGE = (uint32)(243)
+const MPI_T_PVAR_CLASS_HIGHWATERMARK = (uint32)(244)
+const MPI_T_PVAR_CLASS_LOWWATERMARK = (uint32)(245)
+const MPI_T_PVAR_CLASS_COUNTER = (uint32)(246)
+const MPI_T_PVAR_CLASS_AGGREGATE = (uint32)(247)
+const MPI_T_PVAR_CLASS_TIMER = (uint32)(248)
+const MPI_T_PVAR_CLASS_GENERIC = (uint32)(249)
+# end enum MPIR_T_pvar_class_t
+
+immutable Array_3_Cint
+    d1::Cint
+    d2::Cint
+    d3::Cint
+end
+
+zero(::Type{Array_3_Cint}) = Array_3_Cint(fill(zero(Cint),3)...)
+
+typealias MPIX_Grequest_class Cint
+
+type mpixi_mutex_s
+end
+
+typealias MPIX_Mutex Ptr{mpixi_mutex_s}
+
 type LinSysCore_struct
     lsc_::Ptr{Void}
 end
 
 typealias LinSysCore LinSysCore_struct
 
-include("libhypre_mpi_h.jl")
-
 const HYPRE_RELEASE_NAME = "hypre"
 
 const HYPRE_RELEASE_VERSION = v"2.9.0-b"
+const _VERSION = HYPRE_RELEASE_VERSION
 
-const HYPRE_RELEASE_DATE = "2012 / 10 / 30"
+const HYPRE_RELEASE_DATE = "2012/10/30"
 
-const HYPRE_RELEASE_TIME = "00:00:00"
+# Skipping MacroDefinition: HYPRE_RELEASE_TIME 00 : 00 : 00
 const HYPRE_RELEASE_BUGS = "hypre-support@llnl.gov"
 
 const HYPRE_FMANGLE = 0
@@ -24,7 +571,7 @@ const HYPRE_FMANGLE_LAPACK = 0
 # Skipping MacroDefinition: HYPRE_F77_FUNC_ ( name , NAME ) name ##
 # Skipping MacroDefinition: HYPRE_Version ( ) "HYPRE_RELEASE_NAME  $Date: 2010/12/20 19:27:44 $ Compiled: " __DATE__ " " __TIME__
 
-const HYPRE_MPI_INT = MPI.datatypes[Cint]
+const HYPRE_MPI_INT = MPI.MPI_INT32_T
 const HYPRE_ERROR_GENERIC = 1
 const HYPRE_ERROR_MEMORY = 2
 const HYPRE_ERROR_ARG = 4
@@ -36,7 +583,7 @@ const HYPRE_ERROR_CONV = 256
 
 const hypre_MPI_COMM_WORLD = MPI.MPI_COMM_WORLD
 const hypre_MPI_COMM_NULL = MPI.MPI_COMM_NULL
-const hypre_MPI_BOTTOM = zero(Ptr{Void})
+const hypre_MPI_BOTTOM = 0x0
 const hypre_MPI_COMM_SELF = MPI.MPI_COMM_SELF
 const hypre_MPI_DOUBLE = MPI_DOUBLE
 const hypre_MPI_CHAR = MPI_CHAR
@@ -180,7 +727,7 @@ typealias hypre_MPI_Datatype MPI_Datatype
 typealias hypre_MPI_Status MPI_Status
 typealias hypre_MPI_Op MPI_Op
 typealias hypre_MPI_Aint MPI_Aint
-typealias hypre_MPI_User_function MPI_User_function
+# typealias hypre_MPI_User_function MPI_User_function
 
 type double_linked_list
     data::HYPRE_Int
@@ -259,6 +806,14 @@ type hypre_CSRBlockMatrix
     num_cols::HYPRE_Int
     num_nonzeros::HYPRE_Int
     owns_data::HYPRE_Int
+end
+
+type utilities_FortranMatrix
+    globalHeight::hypre_longint
+    height::hypre_longint
+    width::hypre_longint
+    value::Ptr{Cdouble}
+    ownsValues::HYPRE_Int
 end
 
 const FEI_SINGLE_SYSTEM = 0
@@ -756,7 +1311,7 @@ typealias mv_MultiVectorPtr Ptr{mv_MultiVector}
 # Skipping MacroDefinition: hypre_ParAMGDataRestriction ( amg_data ) ( ( amg_data ) -> restr_par )
 # Skipping MacroDefinition: hypre_ParAMGDataMaxLevels ( amg_data ) ( ( amg_data ) -> max_levels )
 # Skipping MacroDefinition: hypre_ParAMGDataStrongThreshold ( amg_data ) \
-# ( ( amg_data ) -> strong_threshold )
+( ( amg_data ) -> strong_threshold )
 # Skipping MacroDefinition: hypre_ParAMGDataMaxRowSum ( amg_data ) ( ( amg_data ) -> max_row_sum )
 # Skipping MacroDefinition: hypre_ParAMGDataTruncFactor ( amg_data ) ( ( amg_data ) -> trunc_factor )
 # Skipping MacroDefinition: hypre_ParAMGDataAggTruncFactor ( amg_data ) ( ( amg_data ) -> agg_trunc_factor )
@@ -796,7 +1351,7 @@ typealias mv_MultiVectorPtr Ptr{mv_MultiVector}
 # Skipping MacroDefinition: hypre_ParAMGDataUserNumSweeps ( amg_data ) ( ( amg_data ) -> user_num_sweeps )
 # Skipping MacroDefinition: hypre_ParAMGDataGridRelaxType ( amg_data ) ( ( amg_data ) -> grid_relax_type )
 # Skipping MacroDefinition: hypre_ParAMGDataGridRelaxPoints ( amg_data ) \
-# ( ( amg_data ) -> grid_relax_points )
+( ( amg_data ) -> grid_relax_points )
 # Skipping MacroDefinition: hypre_ParAMGDataRelaxOrder ( amg_data ) ( ( amg_data ) -> relax_order )
 # Skipping MacroDefinition: hypre_ParAMGDataRelaxWeight ( amg_data ) ( ( amg_data ) -> relax_weight )
 # Skipping MacroDefinition: hypre_ParAMGDataOmega ( amg_data ) ( ( amg_data ) -> omega )
@@ -818,21 +1373,21 @@ typealias mv_MultiVectorPtr Ptr{mv_MultiVector}
 # Skipping MacroDefinition: hypre_ParAMGDataDofFuncArray ( amg_data ) ( ( amg_data ) -> dof_func_array )
 # Skipping MacroDefinition: hypre_ParAMGDataDofPointArray ( amg_data ) ( ( amg_data ) -> dof_point_array )
 # Skipping MacroDefinition: hypre_ParAMGDataPointDofMapArray ( amg_data ) \
-# ( ( amg_data ) -> point_dof_map_array )
+( ( amg_data ) -> point_dof_map_array )
 # Skipping MacroDefinition: hypre_ParAMGDataNumLevels ( amg_data ) ( ( amg_data ) -> num_levels )
 # Skipping MacroDefinition: hypre_ParAMGDataSmoothType ( amg_data ) ( ( amg_data ) -> smooth_type )
 # Skipping MacroDefinition: hypre_ParAMGDataSmoothNumLevels ( amg_data ) \
-# ( ( amg_data ) -> smooth_num_levels )
+( ( amg_data ) -> smooth_num_levels )
 # Skipping MacroDefinition: hypre_ParAMGDataSmoothNumSweeps ( amg_data ) \
-# ( ( amg_data ) -> smooth_num_sweeps )
+( ( amg_data ) -> smooth_num_sweeps )
 # Skipping MacroDefinition: hypre_ParAMGDataSmoother ( amg_data ) ( ( amg_data ) -> smoother )
 # Skipping MacroDefinition: hypre_ParAMGDataVariant ( amg_data ) ( ( amg_data ) -> schw_variant )
 # Skipping MacroDefinition: hypre_ParAMGDataOverlap ( amg_data ) ( ( amg_data ) -> schw_overlap )
 # Skipping MacroDefinition: hypre_ParAMGDataDomainType ( amg_data ) ( ( amg_data ) -> schw_domain_type )
 # Skipping MacroDefinition: hypre_ParAMGDataSchwarzRlxWeight ( amg_data ) \
-# ( ( amg_data ) -> schwarz_rlx_weight )
+( ( amg_data ) -> schwarz_rlx_weight )
 # Skipping MacroDefinition: hypre_ParAMGDataSchwarzUseNonSymm ( amg_data ) \
-# ( ( amg_data ) -> schwarz_use_nonsymm )
+( ( amg_data ) -> schwarz_use_nonsymm )
 # Skipping MacroDefinition: hypre_ParAMGDataSym ( amg_data ) ( ( amg_data ) -> ps_sym )
 # Skipping MacroDefinition: hypre_ParAMGDataLevel ( amg_data ) ( ( amg_data ) -> ps_level )
 # Skipping MacroDefinition: hypre_ParAMGDataMaxNzPerRow ( amg_data ) ( ( amg_data ) -> pi_max_nz_per_row )
@@ -2120,9 +2675,9 @@ const hypre_BoxArrayExcess = 10
 # Skipping MacroDefinition: hypre_StructGridNumGhost ( grid ) ( ( grid ) -> num_ghost )
 # Skipping MacroDefinition: hypre_StructGridBoxMan ( grid ) ( ( grid ) -> box_man )
 # Skipping MacroDefinition: hypre_StructGridBox ( grid , i ) \
-( hypre_BoxArrayBox ( hypre_StructGridBoxes ( grid ) , i ) )
+# ( hypre_BoxArrayBox ( hypre_StructGridBoxes ( grid ) , i ) )
 # Skipping MacroDefinition: hypre_StructGridNumBoxes ( grid ) \
-( hypre_BoxArraySize ( hypre_StructGridBoxes ( grid ) ) )
+# ( hypre_BoxArraySize ( hypre_StructGridBoxes ( grid ) ) )
 # Skipping MacroDefinition: hypre_StructGridIDPeriod ( grid ) hypre_BoxNeighborsIDPeriod ( hypre_StructGridNeighbors ( grid ) )
 # Skipping MacroDefinition: hypre_ForStructGridBoxI ( i , grid ) hypre_ForBoxI ( i , hypre_StructGridBoxes ( grid ) )
 # Skipping MacroDefinition: hypre_StructStencilShape ( stencil ) ( ( stencil ) -> shape )
@@ -2225,11 +2780,11 @@ const hypre_BoxArrayExcess = 10
 # Skipping MacroDefinition: hypre_StructMatrixDim ( matrix ) hypre_StructGridDim ( hypre_StructMatrixGrid ( matrix ) )
 # Skipping MacroDefinition: hypre_StructMatrixBox ( matrix , b ) hypre_BoxArrayBox ( hypre_StructMatrixDataSpace ( matrix ) , b )
 # Skipping MacroDefinition: hypre_StructMatrixBoxData ( matrix , b , s ) \
-( hypre_StructMatrixData ( matrix ) + hypre_StructMatrixDataIndices ( matrix ) [ b ] [ s ] )
+# ( hypre_StructMatrixData ( matrix ) + hypre_StructMatrixDataIndices ( matrix ) [ b ] [ s ] )
 # Skipping MacroDefinition: hypre_StructMatrixBoxDataValue ( matrix , b , s , index ) \
-( hypre_StructMatrixBoxData ( matrix , b , s ) + hypre_BoxIndexRank ( hypre_StructMatrixBox ( matrix , b ) , index ) )
+# ( hypre_StructMatrixBoxData ( matrix , b , s ) + hypre_BoxIndexRank ( hypre_StructMatrixBox ( matrix , b ) , index ) )
 # Skipping MacroDefinition: hypre_CCStructMatrixBoxDataValue ( matrix , b , s , index ) \
-( hypre_StructMatrixBoxData ( matrix , b , s ) + hypre_CCBoxIndexRank ( hypre_StructMatrixBox ( matrix , b ) , index ) )
+# ( hypre_StructMatrixBoxData ( matrix , b , s ) + hypre_CCBoxIndexRank ( hypre_StructMatrixBox ( matrix , b ) , index ) )
 # Skipping MacroDefinition: hypre_StructVectorComm ( vector ) ( ( vector ) -> comm )
 # Skipping MacroDefinition: hypre_StructVectorGrid ( vector ) ( ( vector ) -> grid )
 # Skipping MacroDefinition: hypre_StructVectorDataSpace ( vector ) ( ( vector ) -> data_space )
@@ -2244,9 +2799,9 @@ const hypre_BoxArrayExcess = 10
 # Skipping MacroDefinition: hypre_StructVectorDim ( vector ) hypre_StructGridDim ( hypre_StructVectorGrid ( vector ) )
 # Skipping MacroDefinition: hypre_StructVectorBox ( vector , b ) hypre_BoxArrayBox ( hypre_StructVectorDataSpace ( vector ) , b )
 # Skipping MacroDefinition: hypre_StructVectorBoxData ( vector , b ) \
-( hypre_StructVectorData ( vector ) + hypre_StructVectorDataIndices ( vector ) [ b ] )
+# ( hypre_StructVectorData ( vector ) + hypre_StructVectorDataIndices ( vector ) [ b ] )
 # Skipping MacroDefinition: hypre_StructVectorBoxDataValue ( vector , b , index ) \
-( hypre_StructVectorBoxData ( vector , b ) + hypre_BoxIndexRank ( hypre_StructVectorBox ( vector , b ) , index ) )
+# ( hypre_StructVectorBoxData ( vector , b ) + hypre_BoxIndexRank ( hypre_StructVectorBox ( vector , b ) , index ) )
 # Skipping MacroDefinition: hypre_SStructGridComm ( grid ) ( ( grid ) -> comm )
 # Skipping MacroDefinition: hypre_SStructGridNDim ( grid ) ( ( grid ) -> ndim )
 # Skipping MacroDefinition: hypre_SStructGridNParts ( grid ) ( ( grid ) -> nparts )
@@ -2286,17 +2841,17 @@ const hypre_BoxArrayExcess = 10
 # Skipping MacroDefinition: hypre_SStructPGridCellSGridDone ( pgrid ) ( ( pgrid ) -> cell_sgrid_done )
 # Skipping MacroDefinition: hypre_SStructPGridSGrids ( pgrid ) ( ( pgrid ) -> sgrids )
 # Skipping MacroDefinition: hypre_SStructPGridSGrid ( pgrid , var ) \
-( ( pgrid ) -> sgrids [ hypre_SStructPGridVarType ( pgrid , var ) ] )
+# ( ( pgrid ) -> sgrids [ hypre_SStructPGridVarType ( pgrid , var ) ] )
 # Skipping MacroDefinition: hypre_SStructPGridCellSGrid ( pgrid ) \
-( ( pgrid ) -> sgrids [ HYPRE_SSTRUCT_VARIABLE_CELL ] )
+# ( ( pgrid ) -> sgrids [ HYPRE_SSTRUCT_VARIABLE_CELL ] )
 # Skipping MacroDefinition: hypre_SStructPGridVTSGrid ( pgrid , vartype ) ( ( pgrid ) -> sgrids [ vartype ] )
 # Skipping MacroDefinition: hypre_SStructPGridIBoxArrays ( pgrid ) ( ( pgrid ) -> iboxarrays )
 # Skipping MacroDefinition: hypre_SStructPGridIBoxArray ( pgrid , var ) \
-( ( pgrid ) -> iboxarrays [ hypre_SStructPGridVarType ( pgrid , var ) ] )
+# ( ( pgrid ) -> iboxarrays [ hypre_SStructPGridVarType ( pgrid , var ) ] )
 # Skipping MacroDefinition: hypre_SStructPGridCellIBoxArray ( pgrid ) \
-( ( pgrid ) -> iboxarrays [ HYPRE_SSTRUCT_VARIABLE_CELL ] )
+# ( ( pgrid ) -> iboxarrays [ HYPRE_SSTRUCT_VARIABLE_CELL ] )
 # Skipping MacroDefinition: hypre_SStructPGridVTIBoxArray ( pgrid , vartype ) \
-( ( pgrid ) -> iboxarrays [ vartype ] )
+# ( ( pgrid ) -> iboxarrays [ vartype ] )
 # Skipping MacroDefinition: hypre_SStructPGridPNeighbors ( pgrid ) ( ( pgrid ) -> pneighbors )
 # Skipping MacroDefinition: hypre_SStructPGridPNborOffsets ( pgrid ) ( ( pgrid ) -> pnbor_offsets )
 # Skipping MacroDefinition: hypre_SStructPGridLocalSize ( pgrid ) ( ( pgrid ) -> local_size )
@@ -2426,10 +2981,10 @@ const hypre_BoxArrayExcess = 10
 # Skipping MacroDefinition: hypre_SStructPMatrixSMap ( pmat , var ) ( ( pmat ) -> smaps [ var ] )
 # Skipping MacroDefinition: hypre_SStructPMatrixSStencils ( pmat ) ( ( pmat ) -> sstencils )
 # Skipping MacroDefinition: hypre_SStructPMatrixSStencil ( pmat , vi , vj ) \
-( ( pmat ) -> sstencils [ vi ] [ vj ] )
+# ( ( pmat ) -> sstencils [ vi ] [ vj ] )
 # Skipping MacroDefinition: hypre_SStructPMatrixSMatrices ( pmat ) ( ( pmat ) -> smatrices )
 # Skipping MacroDefinition: hypre_SStructPMatrixSMatrix ( pmat , vi , vj ) \
-( ( pmat ) -> smatrices [ vi ] [ vj ] )
+# ( ( pmat ) -> smatrices [ vi ] [ vj ] )
 # Skipping MacroDefinition: hypre_SStructPMatrixSymmetric ( pmat ) ( ( pmat ) -> symmetric )
 # Skipping MacroDefinition: hypre_SStructPMatrixSEntriesSize ( pmat ) ( ( pmat ) -> sentries_size )
 # Skipping MacroDefinition: hypre_SStructPMatrixSEntries ( pmat ) ( ( pmat ) -> sentries )
@@ -3368,7 +3923,7 @@ const NO_MARKER = 3
 # Skipping MacroDefinition: USER_FREE ( addr ) superlu_free ( addr )
 # Skipping MacroDefinition: SUPERLU_FREE ( addr ) USER_FREE ( addr )
 # Skipping MacroDefinition: CHECK_MALLOC ( where ) { extern int superlu_malloc_total ; printf ( "%s: malloc_total %d Bytes\n" , where , superlu_malloc_total ) ; \
-}
+# }
 # Skipping MacroDefinition: SUPERLU_MAX ( x , y ) ( ( x ) > ( y ) ? ( x ) : ( y ) )
 # Skipping MacroDefinition: SUPERLU_MIN ( x , y ) ( ( x ) < ( y ) ? ( x ) : ( y ) )
 
@@ -3724,11 +4279,11 @@ const COLAMD_ERROR_internal_error = -999
 # Skipping MacroDefinition: COLAMD_C ( n_col ) ( ( int ) ( ( ( n_col ) + 1 ) * sizeof ( Colamd_Col ) / sizeof ( int ) ) )
 # Skipping MacroDefinition: COLAMD_R ( n_row ) ( ( int ) ( ( ( n_row ) + 1 ) * sizeof ( Colamd_Row ) / sizeof ( int ) ) )
 # Skipping MacroDefinition: COLAMD_RECOMMENDED ( nnz , n_row , n_col ) \
-( \
-( ( nnz ) < 0 || ( n_row ) < 0 || ( n_col ) < 0 ) \
-? ( - 1 ) \
-: ( 2 * ( nnz ) + COLAMD_C ( n_col ) + COLAMD_R ( n_row ) + ( n_col ) + ( ( nnz ) / 5 ) ) \
-)
+# ( \
+# ( ( nnz ) < 0 || ( n_row ) < 0 || ( n_col ) < 0 ) \
+# ? ( - 1 ) \
+# : ( 2 * ( nnz ) + COLAMD_C ( n_col ) + COLAMD_R ( n_row ) + ( n_col ) + ( ( nnz ) / 5 ) ) \
+# )
 
 type Colamd_Col_struct
     start::Cint
