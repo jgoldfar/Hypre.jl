@@ -31,6 +31,6 @@ provides(SimpleBuild, (@build_steps begin
                            `make`
                            `make install`
                          end
-                       end), libhypre)
+                       end), libhypre, os=:Unix)
 
 @BinDeps.install [:libhypre => :libhypre]
