@@ -19,7 +19,17 @@ clang_includes = map(x->joinpath(JULIAHOME, x),[
                      )
 
 path = "/home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include"
-headerlist = ["HYPRE.h", "_hypre_struct_ls.h", "_hypre_sstruct_mv.h", "_hypre_parcsr_ls.h", "_hypre_parcsr_mv.h", "krylov.h", "temp_multivector.h", "interpreter.h", "HYPRE_lobpcg.h"]
+headerlist = ["HYPRE.h",
+              "_hypre_struct_ls.h",
+              "_hypre_sstruct_mv.h",
+              "_hypre_parcsr_ls.h",
+              "_hypre_parcsr_mv.h",
+              "krylov.h",
+              "temp_multivector.h",
+              "interpreter.h",
+              "HYPRE_lobpcg.h",
+              "HYPRE_utilities.h",
+              "_hypre_IJ_mv.h"]
 
 push!(clang_includes, path)
 push!(clang_includes, "/usr/include/mpi")

@@ -205,29 +205,551 @@ ignoring nonexistent directory "/include"
  /usr/include/x86_64-linux-gnu
  /usr/include
 End of search list.
-headerlist => ASCIIString["HYPRE.h","_hypre_struct_ls.h","_hypre_sstruct_mv.h","_hypre_parcsr_ls.h","_hypre_parcsr_mv.h","krylov.h","temp_multivector.h","interpreter.h","HYPRE_lobpcg.h"]
-WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/HYPRE.h
-writing libhypre.jl
-WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/_hypre_parcsr_mv.h
-writing libhypre.jl
-WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/krylov.h
-writing libhypre.jl
-WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/temp_multivector.h
-writing libhypre.jl
-WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/interpreter.h
-writing libhypre.jl
-WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/HYPRE_lobpcg.h
-writing libhypre.jl
-WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/_hypre_struct_ls.h
-writing libhypre.jl
-WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/_hypre_sstruct_mv.h
-writing libhypre.jl
-WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/_hypre_parcsr_ls.h
-writing libhypre.jl
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
 WARNING: Not wrapping InclusionDirective   stdlib.h
 WARNING: Not wrapping InclusionDirective   stdio.h
 WARNING: Not wrapping InclusionDirective   math.h
 WARNING: Not wrapping InclusionDirective   HYPRE_parcsr_mv.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   stdlib.h
+ERROR: Reducing over an empty array is not allowed.
+ in _mapreduce at reduce.jl:160
+ in mapreduce at reduce.jl:182
+ in get_symbols at /home/jgoldfar/.julia/v0.3/Clang/src/wrap_c.jl:549
+ in get_symbols at /home/jgoldfar/.julia/v0.3/Clang/src/wrap_c.jl:548
+ in wrap at /home/jgoldfar/.julia/v0.3/Clang/src/wrap_c.jl:582
+ in wrap_header at /home/jgoldfar/.julia/v0.3/Clang/src/wrap_c.jl:641
+ in run at /home/jgoldfar/.julia/v0.3/Clang/src/wrap_c.jl:759
+ in include at ./boot.jl:245
+ in include_from_node1 at loading.jl:128
+ in process_options at ./client.jl:285
+ in _start at ./client.jl:354
+while loading /home/jgoldfar/Documents/work/projects/Hypre.jl/gen/wrap_hypre.jl, in expression starting on line 40
+headerlist => ASCIIString["HYPRE.h","_hypre_struct_ls.h","_hypre_sstruct_mv.h","_hypre_parcsr_ls.h","_hypre_parcsr_mv.h","krylov.h","temp_multivector.h","interpreter.h","HYPRE_lobpcg.h","_hypre_utilities.h"]
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/HYPRE.h
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/_hypre_parcsr_mv.h
+
+headerlist => ASCIIString["HYPRE.h","_hypre_struct_ls.h","_hypre_sstruct_mv.h","_hypre_parcsr_ls.h","_hypre_parcsr_mv.h","krylov.h","temp_multivector.h","interpreter.h","HYPRE_lobpcg.h","_hypre_utilities.h"]
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/HYPRE.h
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/_hypre_parcsr_mv.h
+WARNING: Not wrapping InclusionDirective   stdlib.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   math.h
+WARNING: Not wrapping InclusionDirective   HYPRE_parcsr_mv.h
+WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   HYPRE_utilities.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   stdlib.h
+ERROR: Reducing over an empty array is not allowed.
+ in _mapreduce at reduce.jl:160
+ in mapreduce at reduce.jl:182
+ in get_symbols at /home/jgoldfar/.julia/v0.3/Clang/src/wrap_c.jl:549
+ in get_symbols at /home/jgoldfar/.julia/v0.3/Clang/src/wrap_c.jl:548
+ in wrap at /home/jgoldfar/.julia/v0.3/Clang/src/wrap_c.jl:582
+ in wrap_header at /home/jgoldfar/.julia/v0.3/Clang/src/wrap_c.jl:641
+ in run at /home/jgoldfar/.julia/v0.3/Clang/src/wrap_c.jl:759
+ in include at ./boot.jl:245
+ in include_from_node1 at loading.jl:128
+ in process_options at ./client.jl:285
+ in _start at ./client.jl:354
+while loading /home/jgoldfar/Documents/work/projects/Hypre.jl/gen/wrap_hypre.jl, in expression starting on line 40
+
+headerlist => ASCIIString["HYPRE.h","_hypre_struct_ls.h","_hypre_sstruct_mv.h","_hypre_parcsr_ls.h","_hypre_parcsr_mv.h","krylov.h","temp_multivector.h","interpreter.h","HYPRE_lobpcg.h","HYPRE_utilities.h"]
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/HYPRE.h
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/_hypre_parcsr_mv.h
+WARNING: Not wrapping InclusionDirective   stdlib.h
+WARNING: Not wrapping InclusionDirective   stdio.h
+WARNING: Not wrapping InclusionDirective   math.h
+WARNING: Not wrapping InclusionDirective   HYPRE_parcsr_mv.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   mpi.h
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   seq_mv.h
 WARNING: Not wrapping InclusionDirective   HYPRE_config.h
@@ -243,7 +765,11 @@ WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/krylov.h
 WARNING: Not wrapping InclusionDirective   HYPRE_krylov.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   mpi.h
 WARNING: Not wrapping InclusionDirective   stdlib.h
 WARNING: Not wrapping InclusionDirective   stdio.h
 WARNING: Not wrapping InclusionDirective   math.h
@@ -260,13 +786,25 @@ WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/temp_multivector.h
 WARNING: Not wrapping InclusionDirective   interpreter.h
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   mpi.h
 WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/interpreter.h
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   mpi.h
 WARNING: Skipping unnamed StructDecl
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/HYPRE_lobpcg.h
 WARNING: Not wrapping InclusionDirective   HYPRE_krylov.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   mpi.h
 WARNING: Not wrapping InclusionDirective   fortran_matrix.h
 WARNING: Not wrapping InclusionDirective   multivector.h
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
@@ -276,10 +814,18 @@ WARNING: Not wrapping MacroInstantiation   HYPRE_SOLVER_STRUCT
 WARNING: Not wrapping MacroInstantiation   HYPRE_MATRIX_STRUCT
 WARNING: Not wrapping MacroInstantiation   HYPRE_VECTOR_STRUCT
 WARNING: Skipping unnamed StructDecl
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/HYPRE_utilities.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   mpi.h
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/_hypre_struct_ls.h
 WARNING: Not wrapping InclusionDirective   stdlib.h
 WARNING: Not wrapping InclusionDirective   stdio.h
 WARNING: Not wrapping InclusionDirective   math.h
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   mpi.h
 WARNING: Not wrapping InclusionDirective   HYPRE_struct_ls.h
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   _hypre_struct_mv.h
@@ -306,10 +852,14 @@ WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/_hypre_sstruct_mv.h
 WARNING: Not wrapping InclusionDirective   stdlib.h
 WARNING: Not wrapping InclusionDirective   stdio.h
 WARNING: Not wrapping InclusionDirective   math.h
 WARNING: Not wrapping InclusionDirective   HYPRE_sstruct_mv.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   mpi.h
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   _hypre_struct_mv.h
 WARNING: Not wrapping InclusionDirective   _hypre_IJ_mv.h
@@ -344,8 +894,12 @@ WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/_hypre_parcsr_ls.h
 WARNING: Not wrapping InclusionDirective   HYPRE_config.h
 WARNING: Not wrapping InclusionDirective   HYPRE_parcsr_ls.h
+WARNING: Not wrapping InclusionDirective   HYPRE_config.h
+WARNING: Not wrapping InclusionDirective   mpi.h
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   _hypre_utilities.h
 WARNING: Not wrapping InclusionDirective   krylov.h
@@ -402,3 +956,296 @@ WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
 WARNING: Skipping unnamed StructDecl
+writing libhypre.jl
+headerlist => ASCIIString["HYPRE.h","HYPRE_config.h","_hypre_struct_ls.h","_hypre_sstruct_mv.h","_hypre_parcsr_ls.h","_hypre_parcsr_mv.h","krylov.h","temp_multivector.h","interpreter.h","HYPRE_lobpcg.h","HYPRE_utilities.h","_hypre_IJ_mv.h"]
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.2
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.9.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+ignoring nonexistent directory "../lib/clang/3.4/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/clang
+ /home/jgoldfar/Documents/work/projects/julia/usr/include
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm
+ /home/jgoldfar/Documents/work/projects/julia/usr/include/llvm-c
+ /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include
+ /usr/include/mpi
+ /usr/local/include
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/HYPRE.h
+writing libhypre.jl
+WRAPPING HEADER: /home/jgoldfar/Documents/work/projects/Hypre.jl/deps/usr/include/HYPRE_config.h
+ERROR: ParseError("invalid numeric constant \"2.9.\"")
+ in parse at /usr/bin/../lib/x86_64-linux-gnu/julia/sys.so
+ in parse at string.jl:1263
+ in wrap at /home/jgoldfar/.julia/v0.3/Clang/src/wrap_c.jl:579
+ in wrap_header at /home/jgoldfar/.julia/v0.3/Clang/src/wrap_c.jl:641
+ in run at /home/jgoldfar/.julia/v0.3/Clang/src/wrap_c.jl:759
+ in include at ./boot.jl:245
+ in include_from_node1 at loading.jl:128
+ in process_options at ./client.jl:285
+ in _start at ./client.jl:354
+while loading /home/jgoldfar/Documents/work/projects/Hypre.jl/gen/wrap_hypre.jl, in expression starting on line 51
+
