@@ -1,3 +1,5 @@
 /hypre-2.9.0b/
 /deps/src
 /deps/downloads
+/deps/usr
+/deps/deps.jl
