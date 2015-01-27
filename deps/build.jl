@@ -12,6 +12,7 @@ provides(Sources,
 println(BinDeps.depsdir(libhypre))
 prefix = joinpath(BinDeps.depsdir(libhypre), "usr")
 srcdir = joinpath(BinDeps.depsdir(libhypre), "src", hyprefilebase)
+srclibdir = joinpath(srcdir, "lib")
 cmakebuilddir = joinpath(srcdir, "src", "cmbuild")
 
 println("Installing Hypre source to: ", srcdir)
@@ -23,10 +24,10 @@ provides(SimpleBuild, (@build_steps begin
                          CreateDirectory(srcdir)
                          @build_steps begin
                            ChangeDirectory(cmakebuilddir)
-`cmake -DHYPRE_SHARED:BOOL=ON ..`
-`cmake -L ..`
+                           `cmake -DHYPRE_SHARED:BOOL=ON ..`
+                           `cmake -L ..`
                            `make`
-`cp libHYPRE.so $srcdir`
+                           `cp libHYPRE.so $srclibdir`
                          end
                        end), libhypre)
 
