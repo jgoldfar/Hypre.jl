@@ -1,5 +1,7 @@
 Hypre.jl
 =======
+[![Build Status](https://travis-ci.org/jgoldfar/Hypre.jl.svg?branch=master)](https://travis-ci.org/jgoldfar/Hypre.jl)
+[![Coverage Status](https://coveralls.io/repos/jgoldfar/Hypre.jl/badge.svg)](https://coveralls.io/r/jgoldfar/Hypre.jl)
 ### What is this repository for? ###
 
 * Wrapper for the [Hypre library](http://acts.nersc.gov/hypre/) in [Julia](http://julialang.org/), generated using [`Clang.jl`](https://github.com/ihnorton/Clang.jl). Inspiration for the generation scripts was taken from [Eglib.jl](https://github.com/ihnorton/Eglib.jl/blob/master/util/wrap.jl) (Thanks!).
