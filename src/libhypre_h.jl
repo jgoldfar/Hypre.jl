@@ -37,7 +37,7 @@ const MPI_UNEQUAL = 3
 # Skipping MacroDefinition: MPI_LONG_DOUBLE ( ( MPI_Datatype ) 0x4c00100c )
 # Skipping MacroDefinition: MPI_LONG_LONG_INT ( ( MPI_Datatype ) 0x4c000809 )
 # Skipping MacroDefinition: MPI_UNSIGNED_LONG_LONG ( ( MPI_Datatype ) 0x4c000819 )
-include("libhypre_mpi_h.jl")
+include("libhypre_xtra_h.jl")
 
 const MPI_LONG_LONG = MPI_LONG_LONG_INT
 
