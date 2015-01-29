@@ -16,7 +16,8 @@ before_install:
     - sudo apt-get update -qq -y
     - sudo apt-get install cmake libpcre3-dev libcr-dev mpich2 gfortran julia -y
 script:
-    - julia -e 'Pkg.init(); Pkg.clone("https://github.com/jgoldfar/Hypre.jl.git"); Pkg.build("Hypre")'
+    - julia -e 'Pkg.init(); Pkg.clone("https://github.com/jgoldfar/Hypre.jl.git"); Pkg.build("Hypre"); using BinDeps; BinDeps.debug("Hypre");'
+    - ls -R
     - julia -e 'using Hypre; @assert isdefined(:Hypre); @assert typeof(Hypre) === Module'
     - if [ $JULIAVERSION = "juliareleases" ]; then julia --code-coverage test/runtests.jl; fi
     - if [ $JULIAVERSION = "julianightlies" ]; then julia test/runtests.jl; fi
