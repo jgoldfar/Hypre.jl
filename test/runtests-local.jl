@@ -3,7 +3,7 @@ module runtestsLocal
 println("Testing Hypre.jl in Julia version ", VERSION)
 
 using Base.Test
-include(joinpath("..", "src", "Hypre.jl"))
+include(joinpath(dirname(dirname(@__FILE__)), "src", "Hypre.jl"))
 using .Hypre
 
 end #module
