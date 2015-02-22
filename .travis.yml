@@ -3,6 +3,9 @@ compiler:
     - clang
 notifications:
     email: false
+os:
+    - osx
+    - linux
 env:
     - JULIAVERSION="juliareleases"
     - JULIAVERSION="julianightlies"
