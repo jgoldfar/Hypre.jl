@@ -14,6 +14,8 @@ Hypre.jl
 
 * To contribute, please make an issue or pull request. As a general guideline, modifications or additional low-level wrappers can be added to libhypre.jl, and helpers (only) can be added (only) to libhypre_h.jl. High-level wrappers go in the appropriate file(s).
 
+* See also: corresponding [openSUSE Build Service package](https://build.opensuse.org/package/show/home:jgoldfar/mingw64-hypre) for the cross-compiled windows library.
+
 ### Who do I talk to? ###
 
 * Jonathan Goldfarb <jgoldfar@my.fit.edu>
