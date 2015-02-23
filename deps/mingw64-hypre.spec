@@ -66,20 +66,21 @@ User defined interfaces for multiple languages. Hypre currently supports Fortran
 %setup -q -n %{_basename}-%{version}
 
 %build
-%{_mingw64_cmake}
-%{_mingw64_make} %{?_smp_mflags}
+cd %{buildroot}/src/cmbuild && %{_mingw64_cmake} -DHYPRE_SHARED:BOOL=ON -DHYPRE_SEQUENTIAL:BOOL=ON -DHYPRE_INSTALL_PREFIX:PATH=%{buildroot}/usr ..
+cd %{buildroot}/src/cmbuild && %{_mingw64_cmake} -L ..
+cd %{buildroot}/src && make && make install
 
 %install
-%{_mingw64_make} DESTDIR=%{buildroot} install
+%{_mingw64_make} install
 
 mkdir -p %{buildroot}%{_mingw64_bindir}
 mv %{buildroot}%{_mingw64_libdir}/*.dll %{buildroot}%{_mingw64_bindir}/
 
 %files
 %defattr(-,root,root,-)
-%doc LICENSE.txt
 
 %files devel
 %defattr(-,root,root,-)
 
 %changelog
+
