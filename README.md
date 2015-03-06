@@ -23,10 +23,10 @@ Hypre.jl
 ### Roadmap ###
 
 - [0.x.0]
-  - Low level wrapper usable to offer "direct" translation/access to the library
-  - Serial or MPI question settled, at least on Unix platforms
-  - Windows support
+    - Low level wrapper usable to offer "direct" translation/access to the library
+    - Serial or MPI question settled, at least on Unix platforms
+    - Windows support
 
 - [1.x.0]
-  - High level wrapper for creation of structured (`struct`), semi-structured (`sstruct`), unstructured FE (`FEI`) (cpp?), and linear-algebraic (`ij`) matrices, preconditioners
-  - Access to solution methods for defined matrices, including multigrid and other Krylov-based iterative methods implemented by Hypre
+    - High level wrapper for creation of structured (`struct`), semi-structured (`sstruct`), unstructured FE (`FEI`) (cpp?), and linear-algebraic (`ij`) matrices, preconditioners
+    - Access to solution methods for defined matrices, including multigrid and other Krylov-based iterative methods implemented by Hypre
