@@ -6,4 +6,5 @@ using Base.Test
 include(joinpath(dirname(dirname(@__FILE__)), "src", "Hypre.jl"))
 using .Hypre
 
+include("mpi-runs.jl")
 end #module
