@@ -332,31 +332,43 @@ typealias MPI_Datatype Cint
 type mpich_struct_mpi_float_int
     f::Cfloat
     i::Cint
+    
+    mpich_struct_mpi_float_int() = new()
 end
 
 type mpich_struct_mpi_double_int
     d::Cdouble
     i::Cint
+    
+    mpich_struct_mpi_double_int() = new()
 end
 
 type mpich_struct_mpi_long_int
     l::Clong
     i::Cint
+    
+    mpich_struct_mpi_long_int() = new()
 end
 
 type mpich_struct_mpi_short_int
     s::Int16
     i::Cint
+    
+    mpich_struct_mpi_short_int() = new()
 end
 
 type mpich_struct_mpi_2int
     i1::Cint
     i2::Cint
+    
+    mpich_struct_mpi_2int() = new()
 end
 
 type mpich_struct_mpi_long_double_int
     ld::Float64
     i::Cint
+    
+    mpich_struct_mpi_long_double_int() = new()
 end
 
 typealias MPI_Comm Cint
@@ -443,6 +455,8 @@ typealias MPI_Offset Clonglong
 immutable Array_2_Cint
     d1::Cint
     d2::Cint
+    
+    Array_2_Cint() = new()
 end
 
 zero(::Type{Array_2_Cint}) = Array_2_Cint(fill(zero(Cint),2)...)
@@ -454,6 +468,8 @@ type MPI_Status
     count::MPI_Count
     cancelled::Cint
     abi_slush_fund::Array_2_Cint
+    
+    MPI_Status() = new()
 end
 
 type MPIR_T_enum
@@ -549,6 +565,8 @@ typealias MPIX_Mutex Ptr{mpixi_mutex_s}
 
 type LinSysCore_struct
     lsc_::Ptr{Void}
+    
+    LinSysCore_struct() = new()
 end
 
 typealias LinSysCore LinSysCore_struct
@@ -735,6 +753,8 @@ type double_linked_list
     prev_elt::Ptr{double_linked_list}
     head::HYPRE_Int
     tail::HYPRE_Int
+    
+  double_linked_list() = new()
 end
 
 typealias hypre_ListElement double_linked_list
@@ -744,6 +764,8 @@ type hypre_BinaryTree
     parent_id::HYPRE_Int
     num_child::HYPRE_Int
     child_id::Ptr{HYPRE_Int}
+    
+    hypre_BinaryTree() = new()
 end
 
 type hypre_DataExchangeResponse
@@ -752,6 +774,8 @@ type hypre_DataExchangeResponse
     send_response_storage::HYPRE_Int
     data1::Ptr{Void}
     data2::Ptr{Void}
+    
+    hypre_DataExchangeResponse() = new()
 end
 
 type hypre_CSRMatrix
@@ -764,6 +788,8 @@ type hypre_CSRMatrix
     data::Ptr{Cdouble}
     rownnz::Ptr{HYPRE_Int}
     num_rownnz::HYPRE_Int
+    
+    hypre_CSRMatrix() = new()
 end
 
 type hypre_CSRBooleanMatrix
@@ -773,18 +799,24 @@ type hypre_CSRBooleanMatrix
     num_cols::HYPRE_Int
     num_nonzeros::HYPRE_Int
     owns_data::HYPRE_Int
+    
+    hypre_CSRBooleanMatrix() = new()
 end
 
 type hypre_MappedMatrix
     matrix::Ptr{Void}
     ColMap::Ptr{Void}
     MapData::Ptr{Void}
+    
+    hypre_MappedMatrix() = new()
 end
 
 type hypre_MultiblockMatrix
     num_submatrices::HYPRE_Int
     submatrix_types::Ptr{HYPRE_Int}
     submatrices::Ptr{Ptr{Void}}
+    
+    hypre_MultiblockMatrix() = new()
 end
 
 type hypre_Vector
@@ -795,6 +827,8 @@ type hypre_Vector
     multivec_storage_method::HYPRE_Int
     vecstride::HYPRE_Int
     idxstride::HYPRE_Int
+    
+    hypre_Vector() = new()
 end
 
 type hypre_CSRBlockMatrix
@@ -806,6 +840,8 @@ type hypre_CSRBlockMatrix
     num_cols::HYPRE_Int
     num_nonzeros::HYPRE_Int
     owns_data::HYPRE_Int
+    
+    hypre_CSRBlockMatrix() = new()
 end
 
 type utilities_FortranMatrix
@@ -814,6 +850,8 @@ type utilities_FortranMatrix
     width::hypre_longint
     value::Ptr{Cdouble}
     ownsValues::HYPRE_Int
+    
+    utilities_FortranMatrix() = new()
 end
 
 const FEI_SINGLE_SYSTEM = 0
@@ -1012,6 +1050,8 @@ type hypre_ParCSRCommPkg
     recv_vec_starts::Ptr{HYPRE_Int}
     send_mpi_types::Ptr{hypre_MPI_Datatype}
     recv_mpi_types::Ptr{hypre_MPI_Datatype}
+    
+    hypre_ParCSRCommPkg() = new()
 end
 
 type hypre_ParCSRCommHandle
@@ -1020,6 +1060,8 @@ type hypre_ParCSRCommHandle
     recv_data::Ptr{Void}
     num_requests::HYPRE_Int
     requests::Ptr{hypre_MPI_Request}
+    
+    hypre_ParCSRCommHandle = new()
 end
 
 type hypre_IJAssumedPart
@@ -1031,6 +1073,8 @@ type hypre_IJAssumedPart
     row_start_list::Ptr{HYPRE_Int}
     row_end_list::Ptr{HYPRE_Int}
     sort_index::Ptr{HYPRE_Int}
+    
+    hypre_IJAssumedPart() = new()
 end
 
 type hypre_ProcListElements
@@ -1042,6 +1086,8 @@ type hypre_ProcListElements
     elements::Ptr{HYPRE_Int}
     d_elements::Ptr{Cdouble}
     v_elements::Ptr{Void}
+    
+    hypre_ProcListElements() = new()
 end
 
 type hypre_ParVector
@@ -1054,6 +1100,8 @@ type hypre_ParVector
     owns_data::HYPRE_Int
     owns_partitioning::HYPRE_Int
     assumed_partition::Ptr{hypre_IJAssumedPart}
+    
+    hypre_ParVector() = new()
 end
 
 type hypre_ParCSRMatrix
@@ -1080,6 +1128,8 @@ type hypre_ParCSRMatrix
     rowvalues::Ptr{Cdouble}
     getrowactive::HYPRE_Int
     assumed_partition::Ptr{hypre_IJAssumedPart}
+    
+    hypre_ParCSRMatrix() = new()
 end
 
 type hypre_ParCSRBooleanMatrix
@@ -1103,6 +1153,8 @@ type hypre_ParCSRBooleanMatrix
     num_nonzeros::HYPRE_Int
     rowindices::Ptr{HYPRE_Int}
     getrowactive::HYPRE_Int
+    
+    hypre_ParCSRBooleanMatrix() = new()
 end
 
 immutable Array_11_Ptr
@@ -1123,6 +1175,8 @@ zero(::Type{Array_11_Ptr}) = Array_11_Ptr(fill(zero(Ptr{Void}),11)...)
 
 type hypre_NumbersNode
     digit::Array_11_Ptr
+    
+    hypre_NumbersNode() = new()
 end
 
 type hypre_ParChordMatrix
@@ -1143,12 +1197,16 @@ type hypre_ParChordMatrix
     toprocessor::Ptr{HYPRE_Int}
     num_rdofs_toprocessor::Ptr{HYPRE_Int}
     rdof_toprocessor::Ptr{Ptr{HYPRE_Int}}
+    
+    hypre_ParChordMatrix() = new()
 end
 
 type HYPRE_ParCSR_System_Problem
     A::Ptr{hypre_ParCSRMatrix}
     x::Ptr{hypre_ParVector}
     b::Ptr{hypre_ParVector}
+    
+    HYPRE_ParCSR_System_Problem() = new()
 end
 
 type hypre_IJMatrix_struct
@@ -1164,6 +1222,8 @@ type hypre_IJMatrix_struct
     global_num_rows::HYPRE_Int
     global_num_cols::HYPRE_Int
     print_level::HYPRE_Int
+    
+    hypre_IJMatrix_struct() = new()
 end
 
 typealias HYPRE_IJMatrix Ptr{hypre_IJMatrix_struct}
@@ -1177,6 +1237,8 @@ type hypre_IJVector_struct
     global_first_row::HYPRE_Int
     global_num_rows::HYPRE_Int
     print_level::HYPRE_Int
+    
+    hypre_IJVector_struct() = new()
 end
 
 typealias HYPRE_IJVector Ptr{hypre_IJVector_struct}
@@ -1198,6 +1260,8 @@ type hypre_AuxParCSRMatrix
     off_proc_j::Ptr{HYPRE_Int}
     off_proc_data::Ptr{Cdouble}
     cancel_indx::HYPRE_Int
+    
+    hypre_AuxParCSRMatrix() = new()
 end
 
 type hypre_AuxParVector
@@ -1206,6 +1270,8 @@ type hypre_AuxParVector
     off_proc_i::Ptr{HYPRE_Int}
     off_proc_data::Ptr{Cdouble}
     cancel_indx::HYPRE_Int
+    
+    hypre_AuxParVector() = new()
 end
 
 type hypre_IJMatrix
@@ -1221,6 +1287,8 @@ type hypre_IJMatrix
     global_num_rows::HYPRE_Int
     global_num_cols::HYPRE_Int
     print_level::HYPRE_Int
+    
+    hypre_IJMatrix() = new()
 end
 
 type hypre_IJVector
@@ -1232,6 +1300,8 @@ type hypre_IJVector
     global_first_row::HYPRE_Int
     global_num_rows::HYPRE_Int
     print_level::HYPRE_Int
+    
+    hypre_IJVector() = new()
 end
 
 type hypre_Solver_struct
@@ -1272,6 +1342,8 @@ type mv_InterfaceInterpreter
     MultiAxpy::Ptr{Void}
     MultiXapy::Ptr{Void}
     Eval::Ptr{Void}
+    
+    mv_InterfaceInterpreter() = new()
 end
 
 type mv_MultiVector
@@ -1463,6 +1535,8 @@ type hypre_BiCGSTABFunctions
     CommInfo::Ptr{Void}
     precond_setup::Ptr{Void}
     precond::Ptr{Void}
+    
+    hypre_BiCGSTABFunctions() = new()
 end
 
 type hypre_BiCGSTABData
@@ -1489,6 +1563,8 @@ type hypre_BiCGSTABData
     print_level::HYPRE_Int
     norms::Ptr{Cdouble}
     log_file_name::Ptr{Uint8}
+    
+    hypre_BiCGSTABData() = new()
 end
 
 type hypre_CGNRFunctions
@@ -1507,6 +1583,8 @@ type hypre_CGNRFunctions
     precond_setup::Ptr{Void}
     precond::Ptr{Void}
     precondT::Ptr{Void}
+    
+    hypre_CGNRFunctions() = new()
 end
 
 type hypre_CGNRData
@@ -1527,6 +1605,8 @@ type hypre_CGNRData
     logging::HYPRE_Int
     norms::Ptr{Cdouble}
     log_file_name::Ptr{Uint8}
+    
+    hypre_CGNRData() = new()
 end
 
 type hypre_GMRESFunctions
@@ -1546,6 +1626,8 @@ type hypre_GMRESFunctions
     Axpy::Ptr{Void}
     precond::Ptr{Void}
     precond_setup::Ptr{Void}
+    
+    hypre_GMRESFunctions() = new()
 end
 
 type hypre_GMRESData
@@ -1573,6 +1655,8 @@ type hypre_GMRESData
     logging::HYPRE_Int
     norms::Ptr{Cdouble}
     log_file_name::Ptr{Uint8}
+    
+    hypre_GMRESData() = new()
 end
 
 type hypre_LGMRESFunctions
@@ -1592,6 +1676,8 @@ type hypre_LGMRESFunctions
     Axpy::Ptr{Void}
     precond::Ptr{Void}
     precond_setup::Ptr{Void}
+    
+    hypre_LGMRESFunctions() = new()
 end
 
 type hypre_LGMRESData
@@ -1623,6 +1709,8 @@ type hypre_LGMRESData
     logging::HYPRE_Int
     norms::Ptr{Cdouble}
     log_file_name::Ptr{Uint8}
+    
+    hypre_LGMRESData() = new()
 end
 
 type hypre_FlexGMRESFunctions
@@ -1643,6 +1731,8 @@ type hypre_FlexGMRESFunctions
     precond::Ptr{Void}
     precond_setup::Ptr{Void}
     modify_pc::Ptr{Void}
+    
+    hypre_FlexGMRESFunctions() = new()
 end
 
 type hypre_FlexGMRESData
@@ -1670,6 +1760,8 @@ type hypre_FlexGMRESData
     logging::HYPRE_Int
     norms::Ptr{Cdouble}
     log_file_name::Ptr{Uint8}
+    
+    hypre_FlexGMRESData() = new()
 end
 
 type hypre_PCGFunctions
@@ -1688,6 +1780,8 @@ type hypre_PCGFunctions
     Axpy::Ptr{Void}
     precond::Ptr{Void}
     precond_setup::Ptr{Void}
+    
+    hypre_PCGFunctions() = new()
 end
 
 type hypre_PCGData
@@ -1717,11 +1811,15 @@ type hypre_PCGData
     logging::HYPRE_Int
     norms::Ptr{Cdouble}
     rel_norms::Ptr{Cdouble}
+    
+    hypre_PCGData() = new()
 end
 
 type Link
     prev::HYPRE_Int
     next::HYPRE_Int
+    
+    Link() = new()
 end
 
 type hypre_ParCSRBlockMatrix
@@ -1748,6 +1846,8 @@ type hypre_ParCSRBlockMatrix
     rowvalues::Ptr{Cdouble}
     getrowactive::HYPRE_Int
     assumed_partition::Ptr{hypre_IJAssumedPart}
+    
+    hypre_ParCSRBlockMatrix() = new()
 end
 
 immutable Array_256_Uint8
@@ -2400,6 +2500,8 @@ type hypre_ParAMGData
     A_mat::Ptr{Cdouble}
     b_vec::Ptr{Cdouble}
     comm_info::Ptr{HYPRE_Int}
+    
+    hypre_ParAMGData() = new()
 end
 
 immutable Array_3_Ptr
@@ -3033,12 +3135,16 @@ typealias hypre_Index Array_3_HYPRE_Int
 type hypre_Box
     imin::hypre_Index
     imax::hypre_Index
+    
+    hypre_Box() = new()
 end
 
 type hypre_BoxArray
     boxes::Ptr{hypre_Box}
     size::HYPRE_Int
     alloc_size::HYPRE_Int
+    
+    hypre_BoxArray() = new()
 end
 
 immutable Array_6_HYPRE_Int
@@ -3061,6 +3167,8 @@ type hypre_BoxManEntry_struct
     position::HYPRE_Int
     boxman::Ptr{Void}
     next::Ptr{hypre_BoxManEntry_struct}
+    
+    hypre_BoxManEntry_struct() = new()
 end
 
 type hypre_BoxManEntry
@@ -3072,6 +3180,8 @@ type hypre_BoxManEntry
     position::HYPRE_Int
     boxman::Ptr{Void}
     next::Ptr{hypre_BoxManEntry_struct}
+    
+    hypre_BoxManEntry() = new()
 end
 
 type hypre_StructAssumedPart
@@ -3086,6 +3196,8 @@ type hypre_StructAssumedPart
     my_partition_ids_size::HYPRE_Int
     my_partition_ids_alloc::HYPRE_Int
     my_partition_num_distinct_procs::HYPRE_Int
+    
+    hypre_StructAssumedPart() = new()
 end
 
 type hypre_BoxManager
@@ -3118,6 +3230,8 @@ type hypre_BoxManager
     bounding_box::Ptr{hypre_Box}
     next_id::HYPRE_Int
     num_ghost::Array_6_HYPRE_Int
+    
+    hypre_BoxManager() = new()
 end
 
 type hypre_StructGrid
@@ -3136,6 +3250,8 @@ type hypre_StructGrid
     ghlocal_size::HYPRE_Int
     num_ghost::Array_6_HYPRE_Int
     box_man::Ptr{hypre_BoxManager}
+    
+    hypre_StructGrid() = new()
 end
 
 type hypre_StructVector_struct
@@ -3150,6 +3266,8 @@ type hypre_StructVector_struct
     bghost_not_clear::HYPRE_Int
     global_size::HYPRE_Int
     ref_count::HYPRE_Int
+    
+    hypre_StructVector_struct() = new()
 end
 
 typealias HYPRE_StructVector Ptr{hypre_StructVector_struct}
@@ -3170,6 +3288,8 @@ type hypre_StructGrid_struct
     ghlocal_size::HYPRE_Int
     num_ghost::Array_6_HYPRE_Int
     box_man::Ptr{hypre_BoxManager}
+    
+    hypre_StructGrid_struct() = new()
 end
 
 typealias HYPRE_StructGrid Ptr{hypre_StructGrid_struct}
@@ -3179,6 +3299,8 @@ type hypre_StructStencil_struct
     size::HYPRE_Int
     dim::HYPRE_Int
     ref_count::HYPRE_Int
+    
+    hypre_StructStencil_struct() = new()
 end
 
 typealias HYPRE_StructStencil Ptr{hypre_StructStencil_struct}
@@ -3188,6 +3310,8 @@ type hypre_StructStencil
     size::HYPRE_Int
     dim::HYPRE_Int
     ref_count::HYPRE_Int
+    
+    hypre_StructStencil() = new()
 end
 
 immutable Array_4_HYPRE_Int
@@ -3205,6 +3329,8 @@ type hypre_CommEntryType
     length_array::Array_3_HYPRE_Int
     stride_array::Array_4_HYPRE_Int
     order::Ptr{HYPRE_Int}
+    
+    hypre_CommEntryType() = new()
 end
 
 type hypre_CommType
@@ -3214,6 +3340,8 @@ type hypre_CommType
     entries::Ptr{hypre_CommEntryType}
     rem_boxnums::Ptr{HYPRE_Int}
     rem_boxes::Ptr{hypre_Box}
+    
+    hypre_CommType() = new()
 end
 
 type hypre_CommPkg
@@ -3240,6 +3368,8 @@ type hypre_CommPkg
     identity_coord::hypre_Index
     identity_dir::hypre_Index
     identity_order::Ptr{HYPRE_Int}
+    
+    hypre_CommPkg() = new()
 end
 
 type hypre_StructMatrix_struct
@@ -3260,6 +3390,8 @@ type hypre_StructMatrix_struct
     global_size::HYPRE_Int
     comm_pkg::Ptr{hypre_CommPkg}
     ref_count::HYPRE_Int
+    
+    hypre_StructMatrix_struct() = new()
 end
 
 typealias HYPRE_StructMatrix Ptr{hypre_StructMatrix_struct}
@@ -3288,6 +3420,8 @@ type hypre_CommPkg_struct
     identity_coord::hypre_Index
     identity_dir::hypre_Index
     identity_order::Ptr{HYPRE_Int}
+    
+    hypre_CommPkg_struct() = new()
 end
 
 typealias HYPRE_CommPkg Ptr{hypre_CommPkg_struct}
@@ -3320,6 +3454,8 @@ type hypre_SStructPGrid
     periodic::hypre_Index
     ghlocal_size::HYPRE_Int
     cell_sgrid_done::HYPRE_Int
+    
+    hypre_SStructPGrid() = new()
 end
 
 type hypre_SStructNeighbor
@@ -3328,11 +3464,15 @@ type hypre_SStructNeighbor
     ilower::hypre_Index
     coord::hypre_Index
     dir::hypre_Index
+    
+    hypre_SStructNeighbor() = new()
 end
 
 type hypre_BoxArrayArray
     box_arrays::Ptr{Ptr{hypre_BoxArray}}
     size::HYPRE_Int
+    
+    hypre_BoxArrayArray() = new()
 end
 
 type hypre_CommInfo
@@ -3352,6 +3492,8 @@ type hypre_CommInfo
     send_transforms::Ptr{Ptr{HYPRE_Int}}
     recv_transforms::Ptr{Ptr{HYPRE_Int}}
     boxes_match::HYPRE_Int
+    
+    hypre_CommInfo() = new()
 end
 
 type hypre_SStructCommInfo
@@ -3360,12 +3502,16 @@ type hypre_SStructCommInfo
     recv_part::HYPRE_Int
     send_var::HYPRE_Int
     recv_var::HYPRE_Int
+    
+    hypre_SStructCommInfo() = new()
 end
 
 type hypre_SStructUVar
     _type::HYPRE_SStructVariable
     rank::HYPRE_Int
     proc::HYPRE_Int
+    
+    hypre_SStructUVar() = new()
 end
 
 type hypre_SStructUCVar
@@ -3373,6 +3519,8 @@ type hypre_SStructUCVar
     cell::hypre_Index
     nuvars::HYPRE_Int
     uvars::Ptr{hypre_SStructUVar}
+    
+    hypre_SStructUCVar() = new()
 end
 
 type hypre_SStructGrid_struct
@@ -3400,6 +3548,8 @@ type hypre_SStructGrid_struct
     ref_count::HYPRE_Int
     ghlocal_size::HYPRE_Int
     ghstart_rank::HYPRE_Int
+    
+    hypre_SStructGrid_struct() = new()
 end
 
 typealias HYPRE_SStructGrid Ptr{hypre_SStructGrid_struct}
@@ -3408,6 +3558,8 @@ type hypre_SStructStencil_struct
     sstencil::Ptr{hypre_StructStencil}
     vars::Ptr{HYPRE_Int}
     ref_count::HYPRE_Int
+    
+    hypre_SStructStencil_struct() = new()
 end
 
 typealias HYPRE_SStructStencil Ptr{hypre_SStructStencil_struct}
@@ -3437,12 +3589,16 @@ type hypre_SStructGrid
     ref_count::HYPRE_Int
     ghlocal_size::HYPRE_Int
     ghstart_rank::HYPRE_Int
+    
+    hypre_SStructGrid() = new()
 end
 
 type hypre_SStructStencil
     sstencil::Ptr{hypre_StructStencil}
     vars::Ptr{HYPRE_Int}
     ref_count::HYPRE_Int
+    
+    hypre_SStructStencil() = new()
 end
 
 type hypre_SStructUEntry
@@ -3452,6 +3608,8 @@ type hypre_SStructUEntry
     to_boxnum::HYPRE_Int
     to_proc::HYPRE_Int
     to_rank::HYPRE_Int
+    
+    hypre_SStructUEntry() = new()
 end
 
 type hypre_SStructUVEntry
@@ -3461,6 +3619,8 @@ type hypre_SStructUVEntry
     rank::HYPRE_Int
     nUentries::HYPRE_Int
     Uentries::Ptr{hypre_SStructUEntry}
+    
+    hypre_SStructUVEntry() = new()
 end
 
 type hypre_SStructGraphEntry
@@ -3470,6 +3630,8 @@ type hypre_SStructGraphEntry
     to_part::HYPRE_Int
     to_index::hypre_Index
     to_var::HYPRE_Int
+    
+    hypre_SStructGraphEntry() = new()
 end
 
 type hypre_SStructGraph_struct
@@ -3495,6 +3657,8 @@ type hypre_SStructGraph_struct
     graph_entries::Ptr{Ptr{hypre_SStructGraphEntry}}
     n_graph_entries::HYPRE_Int
     a_graph_entries::HYPRE_Int
+    
+    hypre_SStructGraph_struct() = new()
 end
 
 typealias HYPRE_SStructGraph Ptr{hypre_SStructGraph_struct}
@@ -3522,6 +3686,8 @@ type hypre_SStructGraph
     graph_entries::Ptr{Ptr{hypre_SStructGraphEntry}}
     n_graph_entries::HYPRE_Int
     a_graph_entries::HYPRE_Int
+    
+    hypre_SStructGraph() = new()
 end
 
 type hypre_StructMatrix
@@ -3542,6 +3708,8 @@ type hypre_StructMatrix
     global_size::HYPRE_Int
     comm_pkg::Ptr{hypre_CommPkg}
     ref_count::HYPRE_Int
+    
+    hypre_StructMatrix() = new()
 end
 
 type hypre_SStructPMatrix
@@ -3558,6 +3726,8 @@ type hypre_SStructPMatrix
     accumulated::HYPRE_Int
     iscomplex::HYPRE_Int
     ref_count::HYPRE_Int
+    
+    hypre_SStructPMatrix() = new()
 end
 
 type hypre_SStructMatrix_struct
@@ -3580,6 +3750,8 @@ type hypre_SStructMatrix_struct
     global_size::HYPRE_Int
     ref_count::HYPRE_Int
     object_type::HYPRE_Int
+    
+    hypre_SStructMatrix_struct() = new()
 end
 
 typealias HYPRE_SStructMatrix Ptr{hypre_SStructMatrix_struct}
@@ -3596,6 +3768,8 @@ type hypre_StructVector
     bghost_not_clear::HYPRE_Int
     global_size::HYPRE_Int
     ref_count::HYPRE_Int
+    
+    hypre_StructVector() = new()
 end
 
 type hypre_SStructPVector
@@ -3609,6 +3783,8 @@ type hypre_SStructPVector
     ref_count::HYPRE_Int
     dataindices::Ptr{HYPRE_Int}
     datasize::HYPRE_Int
+    
+    hypre_SStructPVector() = new()
 end
 
 type hypre_SStructVector_struct
@@ -3628,6 +3804,8 @@ type hypre_SStructVector_struct
     iscomplex::HYPRE_Int
     global_size::HYPRE_Int
     ref_count::HYPRE_Int
+    
+    hypre_SStructVector_struct() = new()
 end
 
 typealias HYPRE_SStructVector Ptr{hypre_SStructVector_struct}
@@ -3642,17 +3820,23 @@ typealias hypre_IndexRef Ptr{HYPRE_Int}
 type hypre_Box_struct
     imin::hypre_Index
     imax::hypre_Index
+    
+    hypre_Box_struct() = new()
 end
 
 type hypre_BoxArray_struct
     boxes::Ptr{hypre_Box}
     size::HYPRE_Int
     alloc_size::HYPRE_Int
+    
+    hypre_BoxArray_struct() = new()
 end
 
 type hypre_BoxArrayArray_struct
     box_arrays::Ptr{Ptr{hypre_BoxArray}}
     size::HYPRE_Int
+    
+    hypre_BoxArrayArray_struct() = new()
 end
 
 type hypre_CommInfo_struct
@@ -3672,6 +3856,8 @@ type hypre_CommInfo_struct
     send_transforms::Ptr{Ptr{HYPRE_Int}}
     recv_transforms::Ptr{Ptr{HYPRE_Int}}
     boxes_match::HYPRE_Int
+    
+    hypre_CommInfo_struct() = new()
 end
 
 type hypre_CommEntryType_struct
@@ -3680,6 +3866,8 @@ type hypre_CommEntryType_struct
     length_array::Array_3_HYPRE_Int
     stride_array::Array_4_HYPRE_Int
     order::Ptr{HYPRE_Int}
+    
+    hypre_CommEntryType_struct() = new()
 end
 
 type hypre_CommType_struct
@@ -3689,6 +3877,8 @@ type hypre_CommType_struct
     entries::Ptr{hypre_CommEntryType}
     rem_boxnums::Ptr{HYPRE_Int}
     rem_boxes::Ptr{hypre_Box}
+    
+    hypre_CommType_struct() = new()
 end
 
 type hypre_CommHandle_struct
@@ -3701,6 +3891,8 @@ type hypre_CommHandle_struct
     send_buffers::Ptr{Ptr{Cdouble}}
     recv_buffers::Ptr{Ptr{Cdouble}}
     action::HYPRE_Int
+    
+    hypre_CommHandle_struct() = new()
 end
 
 type hypre_CommHandle
@@ -3713,6 +3905,8 @@ type hypre_CommHandle
     send_buffers::Ptr{Ptr{Cdouble}}
     recv_buffers::Ptr{Ptr{Cdouble}}
     action::HYPRE_Int
+    
+    hypre_CommHandle() = new()
 end
 
 type hypre_ComputeInfo_struct
@@ -3720,6 +3914,8 @@ type hypre_ComputeInfo_struct
     indt_boxes::Ptr{hypre_BoxArrayArray}
     dept_boxes::Ptr{hypre_BoxArrayArray}
     stride::hypre_Index
+    
+    hypre_ComputeInfo_struct() = new()
 end
 
 type hypre_ComputeInfo
@@ -3727,6 +3923,8 @@ type hypre_ComputeInfo
     indt_boxes::Ptr{hypre_BoxArrayArray}
     dept_boxes::Ptr{hypre_BoxArrayArray}
     stride::hypre_Index
+    
+    hypre_ComputeInfo() = new()
 end
 
 type hypre_ComputePkg_struct
@@ -3737,6 +3935,8 @@ type hypre_ComputePkg_struct
     grid::Ptr{hypre_StructGrid}
     data_space::Ptr{hypre_BoxArray}
     num_values::HYPRE_Int
+    
+    hypre_ComputePkg_struct() = new()
 end
 
 type hypre_ComputePkg
@@ -3747,6 +3947,8 @@ type hypre_ComputePkg
     grid::Ptr{hypre_StructGrid}
     data_space::Ptr{hypre_BoxArray}
     num_values::HYPRE_Int
+    
+    hypre_ComputePkg() = new()
 end
 
 type hypre_SStructSolver_struct
@@ -3766,6 +3968,8 @@ type hypre_SStructBoxManInfo
     _type::HYPRE_Int
     offset::HYPRE_Int
     ghoffset::HYPRE_Int
+    
+    hypre_SStructBoxManInfo() = new()
 end
 
 type hypre_SStructBoxManNborInfo
@@ -3780,6 +3984,8 @@ type hypre_SStructBoxManNborInfo
     dir::hypre_Index
     stride::hypre_Index
     ghstride::hypre_Index
+    
+    hypre_SStructBoxManNborInfo() = new()
 end
 
 type hypre_SStructMatrix
@@ -3802,6 +4008,8 @@ type hypre_SStructMatrix
     global_size::HYPRE_Int
     ref_count::HYPRE_Int
     object_type::HYPRE_Int
+    
+    hypre_SStructMatrix() = new()
 end
 
 type hypre_SStructVector
@@ -3821,6 +4029,8 @@ type hypre_SStructVector
     iscomplex::HYPRE_Int
     global_size::HYPRE_Int
     ref_count::HYPRE_Int
+    
+    hypre_SStructVector() = new()
 end
 
 type mv_TempMultiVector
@@ -3830,6 +4040,8 @@ type mv_TempMultiVector
     ownsVectors::HYPRE_Int
     ownsMask::HYPRE_Int
     interpreter::Ptr{mv_InterfaceInterpreter}
+    
+    mv_TempMultiVector() = new()
 end
 
 typealias mv_TempMultiVectorPtr Ptr{mv_TempMultiVector}
@@ -3864,6 +4076,8 @@ type hypre_ParMultivector
     owns_partitioning::HYPRE_Int
     num_vectors::HYPRE_Int
     local_vector::Ptr{Cint}
+    
+    hypre_ParMultivector() = new()
 end
 
 # Skipping MacroDefinition: hypre_MultivectorData ( vector ) ( ( vector ) -> data )
@@ -3878,6 +4092,8 @@ type hypre_Multivector
     num_vectors::Cint
     num_active_vectors::Cint
     active_indices::Ptr{Cint}
+    
+    hypre_Multivector() = new()
 end
 
 const ADD_ = 0
@@ -3897,6 +4113,8 @@ const F77_CALL_C = ADD_
 type doublecomplex
     r::Cdouble
     i::Cdouble
+    
+    doublecomplex() = new()
 end
 
 # Skipping MacroDefinition: c_add ( c , a , b ) { ( c ) -> r = ( a ) -> r + ( b ) -> r ; ( c ) -> i = ( a ) -> i + ( b ) -> i ; }
@@ -3909,6 +4127,8 @@ end
 type complex
     r::Cfloat
     i::Cfloat
+    
+    complex() = new()
 end
 
 # Skipping MacroDefinition: FIRSTCOL_OF_SNODE ( i ) ( xsup [ i ] )
@@ -4127,6 +4347,8 @@ type superlu_options_t
     ReplaceTinyPivot::yes_no_t
     SolveInitialized::yes_no_t
     RefineInitialized::yes_no_t
+    
+    superlu_options_t() = new()
 end
 
 type SuperLUStat_t
@@ -4135,6 +4357,8 @@ type SuperLUStat_t
     ops::Ptr{flops_t}
     TinyPivots::Cint
     RefineSteps::Cint
+    
+    SuperLUStat_t() = new()
 end
 
 # Skipping MacroDefinition: L_SUB_START ( col ) ( Lstore -> rowind_colptr [ col ] )
@@ -4213,6 +4437,8 @@ type SuperMatrix
     nrow::Cint
     ncol::Cint
     Store::Ptr{Void}
+    
+    SuperMatrix() = new()
 end
 
 type NCformat
@@ -4220,6 +4446,8 @@ type NCformat
     nzval::Ptr{Void}
     rowind::Ptr{Cint}
     colptr::Ptr{Cint}
+    
+    NCformat() = new()
 end
 
 type NRformat
@@ -4227,6 +4455,8 @@ type NRformat
     nzval::Ptr{Void}
     colind::Ptr{Cint}
     rowptr::Ptr{Cint}
+    
+    NRformat() = new()
 end
 
 type SCformat
@@ -4238,6 +4468,8 @@ type SCformat
     rowind_colptr::Ptr{Cint}
     col_to_sup::Ptr{Cint}
     sup_to_col::Ptr{Cint}
+    
+    SCformat() = new()
 end
 
 type NCPformat
@@ -4246,11 +4478,15 @@ type NCPformat
     rowind::Ptr{Cint}
     colbeg::Ptr{Cint}
     colend::Ptr{Cint}
+    
+    NCPformat() = new()
 end
 
 type DNformat
     lda::Cint
     nzval::Ptr{Void}
+    
+    DNformat() = new()
 end
 
 const COLAMD_KNOBS = 20
@@ -4292,6 +4528,8 @@ type Colamd_Col_struct
     shared2::Void
     shared3::Void
     shared4::Void
+    
+    Colamd_Col_struct() = new()
 end
 
 type Colamd_Col
@@ -4301,6 +4539,8 @@ type Colamd_Col
     shared2::Void
     shared3::Void
     shared4::Void
+    
+    Colamd_Col() = new()
 end
 
 type Colamd_Row_struct
@@ -4308,6 +4548,8 @@ type Colamd_Row_struct
     length::Cint
     shared1::Void
     shared2::Void
+    
+    Colamd_Row_struct() = new()
 end
 
 type Colamd_Row
@@ -4315,6 +4557,8 @@ type Colamd_Row
     length::Cint
     shared1::Void
     shared2::Void
+    
+    Colamd_Row() = new()
 end
 
 immutable Array_20_Cdouble
@@ -4383,10 +4627,14 @@ type hypre_DistributedMatrix
     local_storage::Ptr{Void}
     local_storage_type::HYPRE_Int
     translator::Ptr{Void}
+    
+    hypre_DistributedMatrix() = new()
 end
 
 type HYPRE_FEI_struct
     fei_::Ptr{Void}
+    
+    HYPRE_FEI_struct() = new()
 end
 
 typealias HYPRE_FEI_Impl HYPRE_FEI_struct
@@ -4461,6 +4709,8 @@ type HYPRE_FEI_AMSData
     numLocalNodes_::Cint
     numNodes_::Cint
     NodalCoord_::Ptr{Cdouble}
+    
+    HYPRE_FEI_AMSData() = new()
 end
 
 # Skipping MacroDefinition: hypre_SStructOwnInfoDataSize ( own_data ) ( ( own_data ) -> size )
@@ -4478,12 +4728,16 @@ type hypre_SStructOwnInfoData
     own_cboxnums::Ptr{Ptr{HYPRE_Int}}
     own_composite_cboxes::Ptr{hypre_BoxArrayArray}
     own_composite_size::HYPRE_Int
+    
+    hypre_SStructOwnInfoData() = new()
 end
 
 type hypre_SStructRecvInfoData
     size::HYPRE_Int
     recv_boxes::Ptr{hypre_BoxArrayArray}
     recv_procs::Ptr{Ptr{HYPRE_Int}}
+    
+    hypre_SStructRecvInfoData() = new()
 end
 
 type hypre_SStructSendInfoData
@@ -4491,6 +4745,8 @@ type hypre_SStructSendInfoData
     send_boxes::Ptr{hypre_BoxArrayArray}
     send_procs::Ptr{Ptr{HYPRE_Int}}
     send_remote_boxnums::Ptr{Ptr{HYPRE_Int}}
+    
+    hypre_SStructSendInfoData() = new()
 end
 
 type hypre_PTopology
@@ -4499,6 +4755,8 @@ type hypre_PTopology
     Edge_iedge::Ptr{hypre_IJMatrix}
     Element_Face::Ptr{hypre_IJMatrix}
     Element_Edge::Ptr{hypre_IJMatrix}
+    
+    hypre_PTopology() = new()
 end
 
 type hypre_MaxwellData
@@ -4560,6 +4818,8 @@ type hypre_MaxwellData
     logging::HYPRE_Int
     norms::Ptr{Cdouble}
     rel_norms::Ptr{Cdouble}
+    
+    hypre_MaxwellData() = new()
 end
 
 type hypre_MaxwellOffProcRow
@@ -4567,6 +4827,8 @@ type hypre_MaxwellOffProcRow
     ncols::HYPRE_Int
     cols::Ptr{HYPRE_Int}
     data::Ptr{Cdouble}
+    
+    hypre_MaxwellOffProcRow() = new()
 end
 
 # begin enum ANONYMOUS_16
@@ -4583,11 +4845,15 @@ const REQUESTED_ACCURACY_NOT_ACHIEVED = -1
 type lobpcg_Tolerance
     absolute::Cdouble
     relative::Cdouble
+    
+    lobpcg_Tolerance() = new()
 end
 
 type lobpcg_BLASLAPACKFunctions
     dpotrf::Ptr{Void}
     dsygv::Ptr{Void}
+    
+    lobpcg_BLASLAPACKFunctions() = new()
 end
 
 const COLAMD_JUMBLED_COLS = 3
@@ -4605,6 +4871,8 @@ type hypre_ParCSRCommMultiHandle
     recv_data::Ptr{Void}
     num_requests::HYPRE_Int
     requests::Ptr{hypre_MPI_Request}
+    
+    hypre_ParCSRCommMultiHandle() = new()
 end
 
 typealias int_t Cint
@@ -4744,12 +5012,16 @@ type GlobalLU_t
     nzlumax::Cint
     n::Cint
     MemModel::LU_space_t
+    
+    GlobalLU_t() = new()
 end
 
 type mem_usage_t
     for_lu::Cfloat
     total_needed::Cfloat
     expansions::Cint
+    
+    mem_usage_t() = new()
 end
 
 typealias logical Cint
