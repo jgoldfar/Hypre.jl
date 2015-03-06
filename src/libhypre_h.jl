@@ -1061,7 +1061,7 @@ type hypre_ParCSRCommHandle
     num_requests::HYPRE_Int
     requests::Ptr{hypre_MPI_Request}
     
-    hypre_ParCSRCommHandle = new()
+    hypre_ParCSRCommHandle() = new()
 end
 
 type hypre_IJAssumedPart
