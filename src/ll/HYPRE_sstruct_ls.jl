@@ -2271,15 +2271,15 @@ function hypre_ComputeBoxnums(boxes::Ptr{hypre_BoxArray},procs::Ptr{HYPRE_Int},b
     ccall((:hypre_ComputeBoxnums,libHYPRE),HYPRE_Int,(Ptr{hypre_BoxArray},Ptr{HYPRE_Int},Ptr{Ptr{HYPRE_Int}}),boxes,procs,boxnums_ptr)
 end
 
-warn("hypre_StructGridPrint not wrapped.")
-#function hypre_StructGridPrint(file::Ptr{FILE},grid::Ptr{hypre_StructGrid})
+function hypre_StructGridPrint(file::Ptr{FILE},grid::Ptr{hypre_StructGrid})
+    error("Not implemented.")
 #    ccall((:hypre_StructGridPrint,libHYPRE),HYPRE_Int,(Ptr{FILE},Ptr{hypre_StructGrid}),file,grid)
-#end
+end
 
-warn("hypre_StructGridRead not wrapped.")
-#function hypre_StructGridRead(comm::MPI_Comm,file::Ptr{FILE},grid_ptr::Ptr{Ptr{hypre_StructGrid}})
+function hypre_StructGridRead(comm::MPI_Comm,file::Ptr{FILE},grid_ptr::Ptr{Ptr{hypre_StructGrid}})
+    error("Not implemented.")
 #    ccall((:hypre_StructGridRead,libHYPRE),HYPRE_Int,(MPI_Comm,Ptr{FILE},Ptr{Ptr{hypre_StructGrid}}),comm,file,grid_ptr)
-#end
+end
 
 function hypre_StructGridSetNumGhost(grid::Ptr{hypre_StructGrid},num_ghost::Ptr{HYPRE_Int})
     ccall((:hypre_StructGridSetNumGhost,libHYPRE),HYPRE_Int,(Ptr{hypre_StructGrid},Ptr{HYPRE_Int}),grid,num_ghost)
@@ -2289,25 +2289,25 @@ function hypre_StructInnerProd(x::Ptr{hypre_StructVector},y::Ptr{hypre_StructVec
     ccall((:hypre_StructInnerProd,libHYPRE),Cdouble,(Ptr{hypre_StructVector},Ptr{hypre_StructVector}),x,y)
 end
 
-warn("hypre_PrintBoxArrayData not wrapped.")
-#function hypre_PrintBoxArrayData(file::Ptr{FILE},box_array::Ptr{hypre_BoxArray},data_space::Ptr{hypre_BoxArray},num_values::HYPRE_Int,data::Ptr{Cdouble})
+function hypre_PrintBoxArrayData(file::Ptr{FILE},box_array::Ptr{hypre_BoxArray},data_space::Ptr{hypre_BoxArray},num_values::HYPRE_Int,data::Ptr{Cdouble})
+    error("Not implemented.")
 #    ccall((:hypre_PrintBoxArrayData,libHYPRE),HYPRE_Int,(Ptr{FILE},Ptr{hypre_BoxArray},Ptr{hypre_BoxArray},HYPRE_Int,Ptr{Cdouble}),file,box_array,data_space,num_values,data)
-#end
+end
 
-warn("hypre_PrintCCVDBoxArrayData not wrapped.")
-#function hypre_PrintCCVDBoxArrayData(file::Ptr{FILE},box_array::Ptr{hypre_BoxArray},data_space::Ptr{hypre_BoxArray},num_values::HYPRE_Int,center_rank::HYPRE_Int,stencil_size::HYPRE_Int,symm_elements::Ptr{HYPRE_Int},data::Ptr{Cdouble})
+function hypre_PrintCCVDBoxArrayData(file::Ptr{FILE},box_array::Ptr{hypre_BoxArray},data_space::Ptr{hypre_BoxArray},num_values::HYPRE_Int,center_rank::HYPRE_Int,stencil_size::HYPRE_Int,symm_elements::Ptr{HYPRE_Int},data::Ptr{Cdouble})
+    error("Not implemented.")
 #    ccall((:hypre_PrintCCVDBoxArrayData,libHYPRE),HYPRE_Int,(Ptr{FILE},Ptr{hypre_BoxArray},Ptr{hypre_BoxArray},HYPRE_Int,HYPRE_Int,HYPRE_Int,Ptr{HYPRE_Int},Ptr{Cdouble}),file,box_array,data_space,num_values,center_rank,stencil_size,symm_elements,data)
-#end
+end
 
-warn("hypre_PrintCCBoxArrayData not wrapped.")
-#function hypre_PrintCCBoxArrayData(file::Ptr{FILE},box_array::Ptr{hypre_BoxArray},data_space::Ptr{hypre_BoxArray},num_values::HYPRE_Int,data::Ptr{Cdouble})
+function hypre_PrintCCBoxArrayData(file::Ptr{FILE},box_array::Ptr{hypre_BoxArray},data_space::Ptr{hypre_BoxArray},num_values::HYPRE_Int,data::Ptr{Cdouble})
+    error("Not implemented.")
 #    ccall((:hypre_PrintCCBoxArrayData,libHYPRE),HYPRE_Int,(Ptr{FILE},Ptr{hypre_BoxArray},Ptr{hypre_BoxArray},HYPRE_Int,Ptr{Cdouble}),file,box_array,data_space,num_values,data)
-#end
+end
 
-warn("hypre_ReadBoxArrayData not wrapped.")
-#function hypre_ReadBoxArrayData(file::Ptr{FILE},box_array::Ptr{hypre_BoxArray},data_space::Ptr{hypre_BoxArray},num_values::HYPRE_Int,data::Ptr{Cdouble})
+function hypre_ReadBoxArrayData(file::Ptr{FILE},box_array::Ptr{hypre_BoxArray},data_space::Ptr{hypre_BoxArray},num_values::HYPRE_Int,data::Ptr{Cdouble})
+    error("Not implemented.")
 #    ccall((:hypre_ReadBoxArrayData,libHYPRE),HYPRE_Int,(Ptr{FILE},Ptr{hypre_BoxArray},Ptr{hypre_BoxArray},HYPRE_Int,Ptr{Cdouble}),file,box_array,data_space,num_values,data)
-#end
+end
 
 function hypre_ReadBoxArrayData_CC(file::Ptr{FILE},box_array::Ptr{hypre_BoxArray},data_space::Ptr{hypre_BoxArray},stencil_size::HYPRE_Int,real_stencil_size::HYPRE_Int,constant_coefficient::HYPRE_Int,data::Ptr{Cdouble})
     ccall((:hypre_ReadBoxArrayData_CC,libHYPRE),HYPRE_Int,(Ptr{FILE},Ptr{hypre_BoxArray},Ptr{hypre_BoxArray},HYPRE_Int,HYPRE_Int,HYPRE_Int,Ptr{Cdouble}),file,box_array,data_space,stencil_size,real_stencil_size,constant_coefficient,data)
