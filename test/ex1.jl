@@ -50,13 +50,10 @@ function runex1()
 
   # #     /* Define the geometry of the stencil. Each represents a
   # #     relative offset (in the index space). */
-  offsets = [[0, 0]; [-1, 0]; [1, 0]; [0, -1]; [0, 1]]
+  offsets = reshape([0, 0, -1, 0, 1, 0, 0, -1, 0, 1], 2, 5)
 
   # #       /* Assign each of the 5 stencil entries */
   for entry in 1:5
-    if myid == 0
-    println(offsets[:, entry])
-    end
     #       Hypre.HYPRE_StructStencilSetElement(stencil, entry, offsets[entry]);
   end
   # #   /* 3. Set up a Struct Matrix */
@@ -88,12 +85,6 @@ function runex1()
         values[i + j] = -1.0
       end
     end
-    #       for (i = 0; i < nvalues; i += nentries)
-    #       {
-    #         values[i] = 4.0;
-    #         for (j = 1; j < nentries; j++)
-    #         values[i+j] = -1.0;
-    #         }
 
     #       Hypre.HYPRE_StructMatrixSetBoxValues(A, ilower, iupper, nentries,
     #                                      stencil_indices, values);
@@ -110,12 +101,6 @@ function runex1()
         values[i + j] = -1.0
       end
     end
-    #       for (i = 0; i < nvalues; i += nentries)
-    #       {
-    #         values[i] = 4.0;
-    #         for (j = 1; j < nentries; j++)
-    #         values[i+j] = -1.0;
-    #         }
 
     #       Hypre.HYPRE_StructMatrixSetBoxValues(A, ilower, iupper, nentries,
     #                                      stencil_indices, values);
@@ -213,8 +198,6 @@ function runex1()
     values = ones(12)
     #                  Hypre.HYPRE_StructVectorSetBoxValues(b, ilower, iupper, values);
 
-    #                  for (i = 0; i < 12; i ++)
-    #                  values[i] = 0.0;
     fill!(values, 0.0)
     #                  Hypre.HYPRE_StructVectorSetBoxValues(x, ilower, iupper, values);
   end
