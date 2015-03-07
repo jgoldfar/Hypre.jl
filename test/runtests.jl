@@ -5,8 +5,9 @@ println("Testing Hypre.jl in Julia version ", VERSION)
 using Base.Test
 
 using Hypre
+using MPI
 
-println("Hypre version ", _VERSION, " loaded. Using MPI wrapper version ", MPI.WRAPPER_VERSION)
+println("Hypre version ", Hypre._VERSION, " loaded. Using MPI wrapper version ", MPI.WRAPPER_VERSION)
 
 include("mpi-runs.jl")
 end #module
