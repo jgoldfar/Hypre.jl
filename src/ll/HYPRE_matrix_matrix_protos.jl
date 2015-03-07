@@ -16,5 +16,5 @@
 
 
 function HYPRE_ConvertParCSRMatrixToDistributedMatrix()
-    ccall((:HYPRE_ConvertParCSRMatrixToDistributedMatrix,libHYPRE),Cint,())
+    ccall((:HYPRE_ConvertParCSRMatrixToDistributedMatrix,libhypre),Cint,())
 end
