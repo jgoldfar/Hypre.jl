@@ -27,8 +27,7 @@ function runex1()
   # #   /* 1. Set up a grid. Each processor describes the piece
   # #   of the grid that it owns. */
   # #     /* Create an empty 2D grid object */
-#   Hypre.HYPRE_StructGridCreate(comm, 2, grid)
-
+  Hypre.HYPRE_StructGridCreate(comm, 2, grid)
   # #     /* Add boxes to the grid */
   if myid == 0
     ilower = [-3, 1]
@@ -204,8 +203,8 @@ function runex1()
 
   # #                /* This is a collective call finalizing the vector assembly.
   # #                The vectors are now ``ready to be used'' */
-#                  Hypre.HYPRE_StructVectorAssemble(b);
-#                  Hypre.HYPRE_StructVectorAssemble(x);
+  #                  Hypre.HYPRE_StructVectorAssemble(b);
+  #                  Hypre.HYPRE_StructVectorAssemble(x);
   #                }
 
   #              #     5. Set up and use a solver (See the Reference Manual for descriptions of all of the options.)
