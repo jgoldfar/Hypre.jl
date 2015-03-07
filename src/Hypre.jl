@@ -12,6 +12,4 @@ include("libhypre_h.jl")
 
 include("libhypre.jl")
 
-println("Hypre version ", _VERSION, " loaded. Using MPI wrapper version ", MPI.WRAPPER_VERSION)
-
 end # module
