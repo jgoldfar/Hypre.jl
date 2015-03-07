@@ -18,10 +18,10 @@ end
 function HYPRE_StructGridCreate(comm::MPI_Comm,ndim::HYPRE_Int,grid::Ptr{HYPRE_StructGrid})
     ccall((:HYPRE_StructGridCreate,libHYPRE),HYPRE_Int,(MPI_Comm,HYPRE_Int,Ptr{HYPRE_StructGrid}),comm,ndim,grid)
 end
-function HYPRE_StructGridCreate!(comm::MPI_Comm,ndim::HYPRE_Int,grid)
-    ccall((:HYPRE_StructGridCreate,libHYPRE),HYPRE_Int,(MPI_Comm,HYPRE_Int,Ptr{HYPRE_StructGrid}),comm,ndim,grid)
+function HYPRE_StructGridCreate(comm::MPI_Comm,ndim::HYPRE_Int,grid::hypre_StructGrid_struct)
+    ccall((:HYPRE_StructGridCreate,libHYPRE),HYPRE_Int,(MPI_Comm,HYPRE_Int,Ptr{HYPRE_StructGrid}),comm,ndim,pointer_from_objref(grid))
 end
-HYPRE_StructGridCreate(comm::MPI.Comm,ndim::HYPRE_Int,grid::Ptr{HYPRE_StructGrid}) = HYPRE_StructGridCreate(comm.val, ndim, grid)
+HYPRE_StructGridCreate(comm::MPI.Comm,ndim::HYPRE_Int,grid) = HYPRE_StructGridCreate(comm.val, ndim, grid)
 
 function HYPRE_StructGridDestroy(grid::HYPRE_StructGrid)
     ccall((:HYPRE_StructGridDestroy,libHYPRE),HYPRE_Int,(HYPRE_StructGrid,),grid)
