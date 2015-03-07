@@ -314,45 +314,45 @@ const MPIIMPL_HAVE_STATUS_SET_INFO = 1
 typealias MPI_Datatype Cint
 
 type mpich_struct_mpi_float_int
-    f::Cfloat
-    i::Cint
+  f::Cfloat
+  i::Cint
 
-    mpich_struct_mpi_float_int() = new()
+  mpich_struct_mpi_float_int() = new()
 end
 
 type mpich_struct_mpi_double_int
-    d::Cdouble
-    i::Cint
+  d::Cdouble
+  i::Cint
 
-    mpich_struct_mpi_double_int() = new()
+  mpich_struct_mpi_double_int() = new()
 end
 
 type mpich_struct_mpi_long_int
-    l::Clong
-    i::Cint
+  l::Clong
+  i::Cint
 
-    mpich_struct_mpi_long_int() = new()
+  mpich_struct_mpi_long_int() = new()
 end
 
 type mpich_struct_mpi_short_int
-    s::Int16
-    i::Cint
+  s::Int16
+  i::Cint
 
-    mpich_struct_mpi_short_int() = new()
+  mpich_struct_mpi_short_int() = new()
 end
 
 type mpich_struct_mpi_2int
-    i1::Cint
-    i2::Cint
+  i1::Cint
+  i2::Cint
 
-    mpich_struct_mpi_2int() = new()
+  mpich_struct_mpi_2int() = new()
 end
 
 type mpich_struct_mpi_long_double_int
-    ld::Float64
-    i::Cint
+  ld::Float64
+  i::Cint
 
-    mpich_struct_mpi_long_double_int() = new()
+  mpich_struct_mpi_long_double_int() = new()
 end
 
 typealias MPI_Comm Cint
@@ -437,23 +437,23 @@ typealias MPI_Count Clonglong
 typealias MPI_Offset Clonglong
 
 immutable Array_2_Cint
-    d1::Cint
-    d2::Cint
+  d1::Cint
+  d2::Cint
 
-    Array_2_Cint() = new()
+  Array_2_Cint() = new()
 end
 
 zero(::Type{Array_2_Cint}) = Array_2_Cint(fill(zero(Cint),2)...)
 
 type MPI_Status
-    MPI_SOURCE::Cint
-    MPI_TAG::Cint
-    MPI_ERROR::Cint
-    count::MPI_Count
-    cancelled::Cint
-    abi_slush_fund::Array_2_Cint
+  MPI_SOURCE::Cint
+  MPI_TAG::Cint
+  MPI_ERROR::Cint
+  count::MPI_Count
+  cancelled::Cint
+  abi_slush_fund::Array_2_Cint
 
-    MPI_Status() = new()
+  MPI_Status() = new()
 end
 
 type MPIR_T_enum
@@ -533,9 +533,9 @@ const MPI_T_PVAR_CLASS_GENERIC = (uint32)(249)
 # end enum MPIR_T_pvar_class_t
 
 immutable Array_3_Cint
-    d1::Cint
-    d2::Cint
-    d3::Cint
+  d1::Cint
+  d2::Cint
+  d3::Cint
 end
 
 zero(::Type{Array_3_Cint}) = Array_3_Cint(fill(zero(Cint),3)...)
@@ -548,9 +548,9 @@ end
 typealias MPIX_Mutex Ptr{mpixi_mutex_s}
 
 type LinSysCore_struct
-    lsc_::Ptr{Void}
+  lsc_::Ptr{Void}
 
-    LinSysCore_struct() = new()
+  LinSysCore_struct() = new()
 end
 
 typealias LinSysCore LinSysCore_struct
@@ -732,11 +732,11 @@ typealias hypre_MPI_Aint MPI_Aint
 # typealias hypre_MPI_User_function MPI_User_function
 
 type double_linked_list
-    data::HYPRE_Int
-    next_elt::Ptr{double_linked_list}
-    prev_elt::Ptr{double_linked_list}
-    head::HYPRE_Int
-    tail::HYPRE_Int
+  data::HYPRE_Int
+  next_elt::Ptr{double_linked_list}
+  prev_elt::Ptr{double_linked_list}
+  head::HYPRE_Int
+  tail::HYPRE_Int
 
   double_linked_list() = new()
 end
@@ -745,97 +745,97 @@ typealias hypre_ListElement double_linked_list
 typealias hypre_LinkList Ptr{hypre_ListElement}
 
 type hypre_BinaryTree
-    parent_id::HYPRE_Int
-    num_child::HYPRE_Int
-    child_id::Ptr{HYPRE_Int}
+  parent_id::HYPRE_Int
+  num_child::HYPRE_Int
+  child_id::Ptr{HYPRE_Int}
 
-    hypre_BinaryTree() = new()
+  hypre_BinaryTree() = new()
 end
 
 type hypre_DataExchangeResponse
-    fill_response::Ptr{Void}
-    send_response_overhead::HYPRE_Int
-    send_response_storage::HYPRE_Int
-    data1::Ptr{Void}
-    data2::Ptr{Void}
+  fill_response::Ptr{Void}
+  send_response_overhead::HYPRE_Int
+  send_response_storage::HYPRE_Int
+  data1::Ptr{Void}
+  data2::Ptr{Void}
 
-    hypre_DataExchangeResponse() = new()
+  hypre_DataExchangeResponse() = new()
 end
 
 type hypre_CSRMatrix
-    i::Ptr{HYPRE_Int}
-    j::Ptr{HYPRE_Int}
-    num_rows::HYPRE_Int
-    num_cols::HYPRE_Int
-    num_nonzeros::HYPRE_Int
-    owns_data::HYPRE_Int
-    data::Ptr{Cdouble}
-    rownnz::Ptr{HYPRE_Int}
-    num_rownnz::HYPRE_Int
+  i::Ptr{HYPRE_Int}
+  j::Ptr{HYPRE_Int}
+  num_rows::HYPRE_Int
+  num_cols::HYPRE_Int
+  num_nonzeros::HYPRE_Int
+  owns_data::HYPRE_Int
+  data::Ptr{Cdouble}
+  rownnz::Ptr{HYPRE_Int}
+  num_rownnz::HYPRE_Int
 
-    hypre_CSRMatrix() = new()
+  hypre_CSRMatrix() = new()
 end
 
 type hypre_CSRBooleanMatrix
-    i::Ptr{HYPRE_Int}
-    j::Ptr{HYPRE_Int}
-    num_rows::HYPRE_Int
-    num_cols::HYPRE_Int
-    num_nonzeros::HYPRE_Int
-    owns_data::HYPRE_Int
+  i::Ptr{HYPRE_Int}
+  j::Ptr{HYPRE_Int}
+  num_rows::HYPRE_Int
+  num_cols::HYPRE_Int
+  num_nonzeros::HYPRE_Int
+  owns_data::HYPRE_Int
 
-    hypre_CSRBooleanMatrix() = new()
+  hypre_CSRBooleanMatrix() = new()
 end
 
 type hypre_MappedMatrix
-    matrix::Ptr{Void}
-    ColMap::Ptr{Void}
-    MapData::Ptr{Void}
+  matrix::Ptr{Void}
+  ColMap::Ptr{Void}
+  MapData::Ptr{Void}
 
-    hypre_MappedMatrix() = new()
+  hypre_MappedMatrix() = new()
 end
 
 type hypre_MultiblockMatrix
-    num_submatrices::HYPRE_Int
-    submatrix_types::Ptr{HYPRE_Int}
-    submatrices::Ptr{Ptr{Void}}
+  num_submatrices::HYPRE_Int
+  submatrix_types::Ptr{HYPRE_Int}
+  submatrices::Ptr{Ptr{Void}}
 
-    hypre_MultiblockMatrix() = new()
+  hypre_MultiblockMatrix() = new()
 end
 
 type hypre_Vector
-    data::Ptr{Cdouble}
-    size::HYPRE_Int
-    owns_data::HYPRE_Int
-    num_vectors::HYPRE_Int
-    multivec_storage_method::HYPRE_Int
-    vecstride::HYPRE_Int
-    idxstride::HYPRE_Int
+  data::Ptr{Cdouble}
+  size::HYPRE_Int
+  owns_data::HYPRE_Int
+  num_vectors::HYPRE_Int
+  multivec_storage_method::HYPRE_Int
+  vecstride::HYPRE_Int
+  idxstride::HYPRE_Int
 
-    hypre_Vector() = new()
+  hypre_Vector() = new()
 end
 
 type hypre_CSRBlockMatrix
-    data::Ptr{Cdouble}
-    i::Ptr{HYPRE_Int}
-    j::Ptr{HYPRE_Int}
-    block_size::HYPRE_Int
-    num_rows::HYPRE_Int
-    num_cols::HYPRE_Int
-    num_nonzeros::HYPRE_Int
-    owns_data::HYPRE_Int
+  data::Ptr{Cdouble}
+  i::Ptr{HYPRE_Int}
+  j::Ptr{HYPRE_Int}
+  block_size::HYPRE_Int
+  num_rows::HYPRE_Int
+  num_cols::HYPRE_Int
+  num_nonzeros::HYPRE_Int
+  owns_data::HYPRE_Int
 
-    hypre_CSRBlockMatrix() = new()
+  hypre_CSRBlockMatrix() = new()
 end
 
 type utilities_FortranMatrix
-    globalHeight::hypre_longint
-    height::hypre_longint
-    width::hypre_longint
-    value::Ptr{Cdouble}
-    ownsValues::HYPRE_Int
+  globalHeight::hypre_longint
+  height::hypre_longint
+  width::hypre_longint
+  value::Ptr{Cdouble}
+  ownsValues::HYPRE_Int
 
-    utilities_FortranMatrix() = new()
+  utilities_FortranMatrix() = new()
 end
 
 const FEI_SINGLE_SYSTEM = 0
@@ -1024,268 +1024,268 @@ end
 typealias HYPRE_ParVector Ptr{hypre_ParVector_struct}
 
 type hypre_ParCSRCommPkg
-    comm::MPI_Comm
-    num_sends::HYPRE_Int
-    send_procs::Ptr{HYPRE_Int}
-    send_map_starts::Ptr{HYPRE_Int}
-    send_map_elmts::Ptr{HYPRE_Int}
-    num_recvs::HYPRE_Int
-    recv_procs::Ptr{HYPRE_Int}
-    recv_vec_starts::Ptr{HYPRE_Int}
-    send_mpi_types::Ptr{hypre_MPI_Datatype}
-    recv_mpi_types::Ptr{hypre_MPI_Datatype}
+  comm::MPI_Comm
+  num_sends::HYPRE_Int
+  send_procs::Ptr{HYPRE_Int}
+  send_map_starts::Ptr{HYPRE_Int}
+  send_map_elmts::Ptr{HYPRE_Int}
+  num_recvs::HYPRE_Int
+  recv_procs::Ptr{HYPRE_Int}
+  recv_vec_starts::Ptr{HYPRE_Int}
+  send_mpi_types::Ptr{hypre_MPI_Datatype}
+  recv_mpi_types::Ptr{hypre_MPI_Datatype}
 
-    hypre_ParCSRCommPkg() = new()
+  hypre_ParCSRCommPkg() = new()
 end
 
 type hypre_ParCSRCommHandle
-    comm_pkg::Ptr{hypre_ParCSRCommPkg}
-    send_data::Ptr{Void}
-    recv_data::Ptr{Void}
-    num_requests::HYPRE_Int
-    requests::Ptr{hypre_MPI_Request}
+  comm_pkg::Ptr{hypre_ParCSRCommPkg}
+  send_data::Ptr{Void}
+  recv_data::Ptr{Void}
+  num_requests::HYPRE_Int
+  requests::Ptr{hypre_MPI_Request}
 
-    hypre_ParCSRCommHandle() = new()
+  hypre_ParCSRCommHandle() = new()
 end
 
 type hypre_IJAssumedPart
-    length::HYPRE_Int
-    row_start::HYPRE_Int
-    row_end::HYPRE_Int
-    storage_length::HYPRE_Int
-    proc_list::Ptr{HYPRE_Int}
-    row_start_list::Ptr{HYPRE_Int}
-    row_end_list::Ptr{HYPRE_Int}
-    sort_index::Ptr{HYPRE_Int}
+  length::HYPRE_Int
+  row_start::HYPRE_Int
+  row_end::HYPRE_Int
+  storage_length::HYPRE_Int
+  proc_list::Ptr{HYPRE_Int}
+  row_start_list::Ptr{HYPRE_Int}
+  row_end_list::Ptr{HYPRE_Int}
+  sort_index::Ptr{HYPRE_Int}
 
-    hypre_IJAssumedPart() = new()
+  hypre_IJAssumedPart() = new()
 end
 
 type hypre_ProcListElements
-    length::HYPRE_Int
-    storage_length::HYPRE_Int
-    id::Ptr{HYPRE_Int}
-    vec_starts::Ptr{HYPRE_Int}
-    element_storage_length::HYPRE_Int
-    elements::Ptr{HYPRE_Int}
-    d_elements::Ptr{Cdouble}
-    v_elements::Ptr{Void}
+  length::HYPRE_Int
+  storage_length::HYPRE_Int
+  id::Ptr{HYPRE_Int}
+  vec_starts::Ptr{HYPRE_Int}
+  element_storage_length::HYPRE_Int
+  elements::Ptr{HYPRE_Int}
+  d_elements::Ptr{Cdouble}
+  v_elements::Ptr{Void}
 
-    hypre_ProcListElements() = new()
+  hypre_ProcListElements() = new()
 end
 
 type hypre_ParVector
-    comm::MPI_Comm
-    global_size::HYPRE_Int
-    first_index::HYPRE_Int
-    last_index::HYPRE_Int
-    partitioning::Ptr{HYPRE_Int}
-    local_vector::Ptr{hypre_Vector}
-    owns_data::HYPRE_Int
-    owns_partitioning::HYPRE_Int
-    assumed_partition::Ptr{hypre_IJAssumedPart}
+  comm::MPI_Comm
+  global_size::HYPRE_Int
+  first_index::HYPRE_Int
+  last_index::HYPRE_Int
+  partitioning::Ptr{HYPRE_Int}
+  local_vector::Ptr{hypre_Vector}
+  owns_data::HYPRE_Int
+  owns_partitioning::HYPRE_Int
+  assumed_partition::Ptr{hypre_IJAssumedPart}
 
-    hypre_ParVector() = new()
+  hypre_ParVector() = new()
 end
 
 type hypre_ParCSRMatrix
-    comm::MPI_Comm
-    global_num_rows::HYPRE_Int
-    global_num_cols::HYPRE_Int
-    first_row_index::HYPRE_Int
-    first_col_diag::HYPRE_Int
-    last_row_index::HYPRE_Int
-    last_col_diag::HYPRE_Int
-    diag::Ptr{hypre_CSRMatrix}
-    offd::Ptr{hypre_CSRMatrix}
-    col_map_offd::Ptr{HYPRE_Int}
-    row_starts::Ptr{HYPRE_Int}
-    col_starts::Ptr{HYPRE_Int}
-    comm_pkg::Ptr{hypre_ParCSRCommPkg}
-    comm_pkgT::Ptr{hypre_ParCSRCommPkg}
-    owns_data::HYPRE_Int
-    owns_row_starts::HYPRE_Int
-    owns_col_starts::HYPRE_Int
-    num_nonzeros::HYPRE_Int
-    d_num_nonzeros::Cdouble
-    rowindices::Ptr{HYPRE_Int}
-    rowvalues::Ptr{Cdouble}
-    getrowactive::HYPRE_Int
-    assumed_partition::Ptr{hypre_IJAssumedPart}
+  comm::MPI_Comm
+  global_num_rows::HYPRE_Int
+  global_num_cols::HYPRE_Int
+  first_row_index::HYPRE_Int
+  first_col_diag::HYPRE_Int
+  last_row_index::HYPRE_Int
+  last_col_diag::HYPRE_Int
+  diag::Ptr{hypre_CSRMatrix}
+  offd::Ptr{hypre_CSRMatrix}
+  col_map_offd::Ptr{HYPRE_Int}
+  row_starts::Ptr{HYPRE_Int}
+  col_starts::Ptr{HYPRE_Int}
+  comm_pkg::Ptr{hypre_ParCSRCommPkg}
+  comm_pkgT::Ptr{hypre_ParCSRCommPkg}
+  owns_data::HYPRE_Int
+  owns_row_starts::HYPRE_Int
+  owns_col_starts::HYPRE_Int
+  num_nonzeros::HYPRE_Int
+  d_num_nonzeros::Cdouble
+  rowindices::Ptr{HYPRE_Int}
+  rowvalues::Ptr{Cdouble}
+  getrowactive::HYPRE_Int
+  assumed_partition::Ptr{hypre_IJAssumedPart}
 
-    hypre_ParCSRMatrix() = new()
+  hypre_ParCSRMatrix() = new()
 end
 
 type hypre_ParCSRBooleanMatrix
-    comm::MPI_Comm
-    global_num_rows::HYPRE_Int
-    global_num_cols::HYPRE_Int
-    first_row_index::HYPRE_Int
-    first_col_diag::HYPRE_Int
-    last_row_index::HYPRE_Int
-    last_col_diag::HYPRE_Int
-    diag::Ptr{hypre_CSRBooleanMatrix}
-    offd::Ptr{hypre_CSRBooleanMatrix}
-    col_map_offd::Ptr{HYPRE_Int}
-    row_starts::Ptr{HYPRE_Int}
-    col_starts::Ptr{HYPRE_Int}
-    comm_pkg::Ptr{hypre_ParCSRCommPkg}
-    comm_pkgT::Ptr{hypre_ParCSRCommPkg}
-    owns_data::HYPRE_Int
-    owns_row_starts::HYPRE_Int
-    owns_col_starts::HYPRE_Int
-    num_nonzeros::HYPRE_Int
-    rowindices::Ptr{HYPRE_Int}
-    getrowactive::HYPRE_Int
+  comm::MPI_Comm
+  global_num_rows::HYPRE_Int
+  global_num_cols::HYPRE_Int
+  first_row_index::HYPRE_Int
+  first_col_diag::HYPRE_Int
+  last_row_index::HYPRE_Int
+  last_col_diag::HYPRE_Int
+  diag::Ptr{hypre_CSRBooleanMatrix}
+  offd::Ptr{hypre_CSRBooleanMatrix}
+  col_map_offd::Ptr{HYPRE_Int}
+  row_starts::Ptr{HYPRE_Int}
+  col_starts::Ptr{HYPRE_Int}
+  comm_pkg::Ptr{hypre_ParCSRCommPkg}
+  comm_pkgT::Ptr{hypre_ParCSRCommPkg}
+  owns_data::HYPRE_Int
+  owns_row_starts::HYPRE_Int
+  owns_col_starts::HYPRE_Int
+  num_nonzeros::HYPRE_Int
+  rowindices::Ptr{HYPRE_Int}
+  getrowactive::HYPRE_Int
 
-    hypre_ParCSRBooleanMatrix() = new()
+  hypre_ParCSRBooleanMatrix() = new()
 end
 
 immutable Array_11_Ptr
-    d1::Ptr{Void}
-    d2::Ptr{Void}
-    d3::Ptr{Void}
-    d4::Ptr{Void}
-    d5::Ptr{Void}
-    d6::Ptr{Void}
-    d7::Ptr{Void}
-    d8::Ptr{Void}
-    d9::Ptr{Void}
-    d10::Ptr{Void}
-    d11::Ptr{Void}
+  d1::Ptr{Void}
+  d2::Ptr{Void}
+  d3::Ptr{Void}
+  d4::Ptr{Void}
+  d5::Ptr{Void}
+  d6::Ptr{Void}
+  d7::Ptr{Void}
+  d8::Ptr{Void}
+  d9::Ptr{Void}
+  d10::Ptr{Void}
+  d11::Ptr{Void}
 end
 
 zero(::Type{Array_11_Ptr}) = Array_11_Ptr(fill(zero(Ptr{Void}),11)...)
 
 type hypre_NumbersNode
-    digit::Array_11_Ptr
+  digit::Array_11_Ptr
 
-    hypre_NumbersNode() = new()
+  hypre_NumbersNode() = new()
 end
 
 type hypre_ParChordMatrix
-    comm::MPI_Comm
-    num_inprocessors::HYPRE_Int
-    inprocessor::Ptr{HYPRE_Int}
-    num_idofs_inprocessor::Ptr{HYPRE_Int}
-    idof_inprocessor::Ptr{Ptr{HYPRE_Int}}
-    num_inchords::Ptr{HYPRE_Int}
-    inchord_idof::Ptr{Ptr{HYPRE_Int}}
-    inchord_rdof::Ptr{Ptr{HYPRE_Int}}
-    inchord_data::Ptr{Ptr{Cdouble}}
-    num_idofs::HYPRE_Int
-    num_rdofs::HYPRE_Int
-    firstindex_idof::Ptr{HYPRE_Int}
-    firstindex_rdof::Ptr{HYPRE_Int}
-    num_toprocessors::HYPRE_Int
-    toprocessor::Ptr{HYPRE_Int}
-    num_rdofs_toprocessor::Ptr{HYPRE_Int}
-    rdof_toprocessor::Ptr{Ptr{HYPRE_Int}}
+  comm::MPI_Comm
+  num_inprocessors::HYPRE_Int
+  inprocessor::Ptr{HYPRE_Int}
+  num_idofs_inprocessor::Ptr{HYPRE_Int}
+  idof_inprocessor::Ptr{Ptr{HYPRE_Int}}
+  num_inchords::Ptr{HYPRE_Int}
+  inchord_idof::Ptr{Ptr{HYPRE_Int}}
+  inchord_rdof::Ptr{Ptr{HYPRE_Int}}
+  inchord_data::Ptr{Ptr{Cdouble}}
+  num_idofs::HYPRE_Int
+  num_rdofs::HYPRE_Int
+  firstindex_idof::Ptr{HYPRE_Int}
+  firstindex_rdof::Ptr{HYPRE_Int}
+  num_toprocessors::HYPRE_Int
+  toprocessor::Ptr{HYPRE_Int}
+  num_rdofs_toprocessor::Ptr{HYPRE_Int}
+  rdof_toprocessor::Ptr{Ptr{HYPRE_Int}}
 
-    hypre_ParChordMatrix() = new()
+  hypre_ParChordMatrix() = new()
 end
 
 type HYPRE_ParCSR_System_Problem
-    A::Ptr{hypre_ParCSRMatrix}
-    x::Ptr{hypre_ParVector}
-    b::Ptr{hypre_ParVector}
+  A::Ptr{hypre_ParCSRMatrix}
+  x::Ptr{hypre_ParVector}
+  b::Ptr{hypre_ParVector}
 
-    HYPRE_ParCSR_System_Problem() = new()
+  HYPRE_ParCSR_System_Problem() = new()
 end
 
 type hypre_IJMatrix_struct
-    comm::MPI_Comm
-    row_partitioning::Ptr{HYPRE_Int}
-    col_partitioning::Ptr{HYPRE_Int}
-    object_type::HYPRE_Int
-    object::Ptr{Void}
-    translator::Ptr{Void}
-    assemble_flag::HYPRE_Int
-    global_first_row::HYPRE_Int
-    global_first_col::HYPRE_Int
-    global_num_rows::HYPRE_Int
-    global_num_cols::HYPRE_Int
-    print_level::HYPRE_Int
+  comm::MPI_Comm
+  row_partitioning::Ptr{HYPRE_Int}
+  col_partitioning::Ptr{HYPRE_Int}
+  object_type::HYPRE_Int
+  object::Ptr{Void}
+  translator::Ptr{Void}
+  assemble_flag::HYPRE_Int
+  global_first_row::HYPRE_Int
+  global_first_col::HYPRE_Int
+  global_num_rows::HYPRE_Int
+  global_num_cols::HYPRE_Int
+  print_level::HYPRE_Int
 
-    hypre_IJMatrix_struct() = new()
+  hypre_IJMatrix_struct() = new()
 end
 
 typealias HYPRE_IJMatrix Ptr{hypre_IJMatrix_struct}
 
 type hypre_IJVector_struct
-    comm::MPI_Comm
-    partitioning::Ptr{HYPRE_Int}
-    object_type::HYPRE_Int
-    object::Ptr{Void}
-    translator::Ptr{Void}
-    global_first_row::HYPRE_Int
-    global_num_rows::HYPRE_Int
-    print_level::HYPRE_Int
+  comm::MPI_Comm
+  partitioning::Ptr{HYPRE_Int}
+  object_type::HYPRE_Int
+  object::Ptr{Void}
+  translator::Ptr{Void}
+  global_first_row::HYPRE_Int
+  global_num_rows::HYPRE_Int
+  print_level::HYPRE_Int
 
-    hypre_IJVector_struct() = new()
+  hypre_IJVector_struct() = new()
 end
 
 typealias HYPRE_IJVector Ptr{hypre_IJVector_struct}
 
 type hypre_AuxParCSRMatrix
-    local_num_rows::HYPRE_Int
-    local_num_cols::HYPRE_Int
-    need_aux::HYPRE_Int
-    row_length::Ptr{HYPRE_Int}
-    row_space::Ptr{HYPRE_Int}
-    aux_j::Ptr{Ptr{HYPRE_Int}}
-    aux_data::Ptr{Ptr{Cdouble}}
-    indx_diag::Ptr{HYPRE_Int}
-    indx_offd::Ptr{HYPRE_Int}
-    max_off_proc_elmts::HYPRE_Int
-    current_num_elmts::HYPRE_Int
-    off_proc_i_indx::HYPRE_Int
-    off_proc_i::Ptr{HYPRE_Int}
-    off_proc_j::Ptr{HYPRE_Int}
-    off_proc_data::Ptr{Cdouble}
-    cancel_indx::HYPRE_Int
+  local_num_rows::HYPRE_Int
+  local_num_cols::HYPRE_Int
+  need_aux::HYPRE_Int
+  row_length::Ptr{HYPRE_Int}
+  row_space::Ptr{HYPRE_Int}
+  aux_j::Ptr{Ptr{HYPRE_Int}}
+  aux_data::Ptr{Ptr{Cdouble}}
+  indx_diag::Ptr{HYPRE_Int}
+  indx_offd::Ptr{HYPRE_Int}
+  max_off_proc_elmts::HYPRE_Int
+  current_num_elmts::HYPRE_Int
+  off_proc_i_indx::HYPRE_Int
+  off_proc_i::Ptr{HYPRE_Int}
+  off_proc_j::Ptr{HYPRE_Int}
+  off_proc_data::Ptr{Cdouble}
+  cancel_indx::HYPRE_Int
 
-    hypre_AuxParCSRMatrix() = new()
+  hypre_AuxParCSRMatrix() = new()
 end
 
 type hypre_AuxParVector
-    max_off_proc_elmts::HYPRE_Int
-    current_num_elmts::HYPRE_Int
-    off_proc_i::Ptr{HYPRE_Int}
-    off_proc_data::Ptr{Cdouble}
-    cancel_indx::HYPRE_Int
+  max_off_proc_elmts::HYPRE_Int
+  current_num_elmts::HYPRE_Int
+  off_proc_i::Ptr{HYPRE_Int}
+  off_proc_data::Ptr{Cdouble}
+  cancel_indx::HYPRE_Int
 
-    hypre_AuxParVector() = new()
+  hypre_AuxParVector() = new()
 end
 
 type hypre_IJMatrix
-    comm::MPI_Comm
-    row_partitioning::Ptr{HYPRE_Int}
-    col_partitioning::Ptr{HYPRE_Int}
-    object_type::HYPRE_Int
-    object::Ptr{Void}
-    translator::Ptr{Void}
-    assemble_flag::HYPRE_Int
-    global_first_row::HYPRE_Int
-    global_first_col::HYPRE_Int
-    global_num_rows::HYPRE_Int
-    global_num_cols::HYPRE_Int
-    print_level::HYPRE_Int
+  comm::MPI_Comm
+  row_partitioning::Ptr{HYPRE_Int}
+  col_partitioning::Ptr{HYPRE_Int}
+  object_type::HYPRE_Int
+  object::Ptr{Void}
+  translator::Ptr{Void}
+  assemble_flag::HYPRE_Int
+  global_first_row::HYPRE_Int
+  global_first_col::HYPRE_Int
+  global_num_rows::HYPRE_Int
+  global_num_cols::HYPRE_Int
+  print_level::HYPRE_Int
 
-    hypre_IJMatrix() = new()
+  hypre_IJMatrix() = new()
 end
 
 type hypre_IJVector
-    comm::MPI_Comm
-    partitioning::Ptr{HYPRE_Int}
-    object_type::HYPRE_Int
-    object::Ptr{Void}
-    translator::Ptr{Void}
-    global_first_row::HYPRE_Int
-    global_num_rows::HYPRE_Int
-    print_level::HYPRE_Int
+  comm::MPI_Comm
+  partitioning::Ptr{HYPRE_Int}
+  object_type::HYPRE_Int
+  object::Ptr{Void}
+  translator::Ptr{Void}
+  global_first_row::HYPRE_Int
+  global_num_rows::HYPRE_Int
+  print_level::HYPRE_Int
 
-    hypre_IJVector() = new()
+  hypre_IJVector() = new()
 end
 
 type hypre_Solver_struct
@@ -1301,33 +1301,33 @@ typealias HYPRE_PtrToSolverFcn Ptr{Void}
 typealias HYPRE_PtrToModifyPCFcn Ptr{Void}
 
 type mv_InterfaceInterpreter
-    CreateVector::Ptr{Void}
-    DestroyVector::Ptr{Void}
-    InnerProd::Ptr{Void}
-    CopyVector::Ptr{Void}
-    ClearVector::Ptr{Void}
-    SetRandomValues::Ptr{Void}
-    ScaleVector::Ptr{Void}
-    Axpy::Ptr{Void}
-    VectorSize::Ptr{Void}
-    CreateMultiVector::Ptr{Void}
-    CopyCreateMultiVector::Ptr{Void}
-    DestroyMultiVector::Ptr{Void}
-    Width::Ptr{Void}
-    Height::Ptr{Void}
-    SetMask::Ptr{Void}
-    CopyMultiVector::Ptr{Void}
-    ClearMultiVector::Ptr{Void}
-    SetRandomVectors::Ptr{Void}
-    MultiInnerProd::Ptr{Void}
-    MultiInnerProdDiag::Ptr{Void}
-    MultiVecMat::Ptr{Void}
-    MultiVecMatDiag::Ptr{Void}
-    MultiAxpy::Ptr{Void}
-    MultiXapy::Ptr{Void}
-    Eval::Ptr{Void}
+  CreateVector::Ptr{Void}
+  DestroyVector::Ptr{Void}
+  InnerProd::Ptr{Void}
+  CopyVector::Ptr{Void}
+  ClearVector::Ptr{Void}
+  SetRandomValues::Ptr{Void}
+  ScaleVector::Ptr{Void}
+  Axpy::Ptr{Void}
+  VectorSize::Ptr{Void}
+  CreateMultiVector::Ptr{Void}
+  CopyCreateMultiVector::Ptr{Void}
+  DestroyMultiVector::Ptr{Void}
+  Width::Ptr{Void}
+  Height::Ptr{Void}
+  SetMask::Ptr{Void}
+  CopyMultiVector::Ptr{Void}
+  ClearMultiVector::Ptr{Void}
+  SetRandomVectors::Ptr{Void}
+  MultiInnerProd::Ptr{Void}
+  MultiInnerProdDiag::Ptr{Void}
+  MultiVecMat::Ptr{Void}
+  MultiVecMatDiag::Ptr{Void}
+  MultiAxpy::Ptr{Void}
+  MultiXapy::Ptr{Void}
+  Eval::Ptr{Void}
 
-    mv_InterfaceInterpreter() = new()
+  mv_InterfaceInterpreter() = new()
 end
 
 type mv_MultiVector
@@ -1506,992 +1506,992 @@ typealias mv_MultiVectorPtr Ptr{mv_MultiVector}
 typealias HYPRE_PtrToParSolverFcn Ptr{Void}
 
 type hypre_BiCGSTABFunctions
-    CreateVector::Ptr{Void}
-    DestroyVector::Ptr{Void}
-    MatvecCreate::Ptr{Void}
-    Matvec::Ptr{Void}
-    MatvecDestroy::Ptr{Void}
-    InnerProd::Ptr{Void}
-    CopyVector::Ptr{Void}
-    ClearVector::Ptr{Void}
-    ScaleVector::Ptr{Void}
-    Axpy::Ptr{Void}
-    CommInfo::Ptr{Void}
-    precond_setup::Ptr{Void}
-    precond::Ptr{Void}
+  CreateVector::Ptr{Void}
+  DestroyVector::Ptr{Void}
+  MatvecCreate::Ptr{Void}
+  Matvec::Ptr{Void}
+  MatvecDestroy::Ptr{Void}
+  InnerProd::Ptr{Void}
+  CopyVector::Ptr{Void}
+  ClearVector::Ptr{Void}
+  ScaleVector::Ptr{Void}
+  Axpy::Ptr{Void}
+  CommInfo::Ptr{Void}
+  precond_setup::Ptr{Void}
+  precond::Ptr{Void}
 
-    hypre_BiCGSTABFunctions() = new()
+  hypre_BiCGSTABFunctions() = new()
 end
 
 type hypre_BiCGSTABData
-    min_iter::HYPRE_Int
-    max_iter::HYPRE_Int
-    stop_crit::HYPRE_Int
-    converged::HYPRE_Int
-    tol::Cdouble
-    cf_tol::Cdouble
-    rel_residual_norm::Cdouble
-    a_tol::Cdouble
-    A::Ptr{Void}
-    r::Ptr{Void}
-    r0::Ptr{Void}
-    s::Ptr{Void}
-    v::Ptr{Void}
-    p::Ptr{Void}
-    q::Ptr{Void}
-    matvec_data::Ptr{Void}
-    precond_data::Ptr{Void}
-    functions::Ptr{hypre_BiCGSTABFunctions}
-    num_iterations::HYPRE_Int
-    logging::HYPRE_Int
-    print_level::HYPRE_Int
-    norms::Ptr{Cdouble}
-    log_file_name::Ptr{Uint8}
+  min_iter::HYPRE_Int
+  max_iter::HYPRE_Int
+  stop_crit::HYPRE_Int
+  converged::HYPRE_Int
+  tol::Cdouble
+  cf_tol::Cdouble
+  rel_residual_norm::Cdouble
+  a_tol::Cdouble
+  A::Ptr{Void}
+  r::Ptr{Void}
+  r0::Ptr{Void}
+  s::Ptr{Void}
+  v::Ptr{Void}
+  p::Ptr{Void}
+  q::Ptr{Void}
+  matvec_data::Ptr{Void}
+  precond_data::Ptr{Void}
+  functions::Ptr{hypre_BiCGSTABFunctions}
+  num_iterations::HYPRE_Int
+  logging::HYPRE_Int
+  print_level::HYPRE_Int
+  norms::Ptr{Cdouble}
+  log_file_name::Ptr{Uint8}
 
-    hypre_BiCGSTABData() = new()
+  hypre_BiCGSTABData() = new()
 end
 
 type hypre_CGNRFunctions
-    CommInfo::Ptr{Void}
-    CreateVector::Ptr{Void}
-    DestroyVector::Ptr{Void}
-    MatvecCreate::Ptr{Void}
-    Matvec::Ptr{Void}
-    MatvecT::Ptr{Void}
-    MatvecDestroy::Ptr{Void}
-    InnerProd::Ptr{Void}
-    CopyVector::Ptr{Void}
-    ClearVector::Ptr{Void}
-    ScaleVector::Ptr{Void}
-    Axpy::Ptr{Void}
-    precond_setup::Ptr{Void}
-    precond::Ptr{Void}
-    precondT::Ptr{Void}
+  CommInfo::Ptr{Void}
+  CreateVector::Ptr{Void}
+  DestroyVector::Ptr{Void}
+  MatvecCreate::Ptr{Void}
+  Matvec::Ptr{Void}
+  MatvecT::Ptr{Void}
+  MatvecDestroy::Ptr{Void}
+  InnerProd::Ptr{Void}
+  CopyVector::Ptr{Void}
+  ClearVector::Ptr{Void}
+  ScaleVector::Ptr{Void}
+  Axpy::Ptr{Void}
+  precond_setup::Ptr{Void}
+  precond::Ptr{Void}
+  precondT::Ptr{Void}
 
-    hypre_CGNRFunctions() = new()
+  hypre_CGNRFunctions() = new()
 end
 
 type hypre_CGNRData
-    tol::Cdouble
-    rel_residual_norm::Cdouble
-    min_iter::HYPRE_Int
-    max_iter::HYPRE_Int
-    stop_crit::HYPRE_Int
-    A::Ptr{Void}
-    p::Ptr{Void}
-    q::Ptr{Void}
-    r::Ptr{Void}
-    t::Ptr{Void}
-    matvec_data::Ptr{Void}
-    precond_data::Ptr{Void}
-    functions::Ptr{hypre_CGNRFunctions}
-    num_iterations::HYPRE_Int
-    logging::HYPRE_Int
-    norms::Ptr{Cdouble}
-    log_file_name::Ptr{Uint8}
+  tol::Cdouble
+  rel_residual_norm::Cdouble
+  min_iter::HYPRE_Int
+  max_iter::HYPRE_Int
+  stop_crit::HYPRE_Int
+  A::Ptr{Void}
+  p::Ptr{Void}
+  q::Ptr{Void}
+  r::Ptr{Void}
+  t::Ptr{Void}
+  matvec_data::Ptr{Void}
+  precond_data::Ptr{Void}
+  functions::Ptr{hypre_CGNRFunctions}
+  num_iterations::HYPRE_Int
+  logging::HYPRE_Int
+  norms::Ptr{Cdouble}
+  log_file_name::Ptr{Uint8}
 
-    hypre_CGNRData() = new()
+  hypre_CGNRData() = new()
 end
 
 type hypre_GMRESFunctions
-    CAlloc::Ptr{Void}
-    Free::Ptr{Void}
-    CommInfo::Ptr{Void}
-    CreateVector::Ptr{Void}
-    CreateVectorArray::Ptr{Void}
-    DestroyVector::Ptr{Void}
-    MatvecCreate::Ptr{Void}
-    Matvec::Ptr{Void}
-    MatvecDestroy::Ptr{Void}
-    InnerProd::Ptr{Void}
-    CopyVector::Ptr{Void}
-    ClearVector::Ptr{Void}
-    ScaleVector::Ptr{Void}
-    Axpy::Ptr{Void}
-    precond::Ptr{Void}
-    precond_setup::Ptr{Void}
+  CAlloc::Ptr{Void}
+  Free::Ptr{Void}
+  CommInfo::Ptr{Void}
+  CreateVector::Ptr{Void}
+  CreateVectorArray::Ptr{Void}
+  DestroyVector::Ptr{Void}
+  MatvecCreate::Ptr{Void}
+  Matvec::Ptr{Void}
+  MatvecDestroy::Ptr{Void}
+  InnerProd::Ptr{Void}
+  CopyVector::Ptr{Void}
+  ClearVector::Ptr{Void}
+  ScaleVector::Ptr{Void}
+  Axpy::Ptr{Void}
+  precond::Ptr{Void}
+  precond_setup::Ptr{Void}
 
-    hypre_GMRESFunctions() = new()
+  hypre_GMRESFunctions() = new()
 end
 
 type hypre_GMRESData
-    k_dim::HYPRE_Int
-    min_iter::HYPRE_Int
-    max_iter::HYPRE_Int
-    rel_change::HYPRE_Int
-    skip_real_r_check::HYPRE_Int
-    stop_crit::HYPRE_Int
-    converged::HYPRE_Int
-    tol::Cdouble
-    cf_tol::Cdouble
-    a_tol::Cdouble
-    rel_residual_norm::Cdouble
-    A::Ptr{Void}
-    r::Ptr{Void}
-    w::Ptr{Void}
-    w_2::Ptr{Void}
-    p::Ptr{Ptr{Void}}
-    matvec_data::Ptr{Void}
-    precond_data::Ptr{Void}
-    functions::Ptr{hypre_GMRESFunctions}
-    num_iterations::HYPRE_Int
-    print_level::HYPRE_Int
-    logging::HYPRE_Int
-    norms::Ptr{Cdouble}
-    log_file_name::Ptr{Uint8}
+  k_dim::HYPRE_Int
+  min_iter::HYPRE_Int
+  max_iter::HYPRE_Int
+  rel_change::HYPRE_Int
+  skip_real_r_check::HYPRE_Int
+  stop_crit::HYPRE_Int
+  converged::HYPRE_Int
+  tol::Cdouble
+  cf_tol::Cdouble
+  a_tol::Cdouble
+  rel_residual_norm::Cdouble
+  A::Ptr{Void}
+  r::Ptr{Void}
+  w::Ptr{Void}
+  w_2::Ptr{Void}
+  p::Ptr{Ptr{Void}}
+  matvec_data::Ptr{Void}
+  precond_data::Ptr{Void}
+  functions::Ptr{hypre_GMRESFunctions}
+  num_iterations::HYPRE_Int
+  print_level::HYPRE_Int
+  logging::HYPRE_Int
+  norms::Ptr{Cdouble}
+  log_file_name::Ptr{Uint8}
 
-    hypre_GMRESData() = new()
+  hypre_GMRESData() = new()
 end
 
 type hypre_LGMRESFunctions
-    CAlloc::Ptr{Void}
-    Free::Ptr{Void}
-    CommInfo::Ptr{Void}
-    CreateVector::Ptr{Void}
-    CreateVectorArray::Ptr{Void}
-    DestroyVector::Ptr{Void}
-    MatvecCreate::Ptr{Void}
-    Matvec::Ptr{Void}
-    MatvecDestroy::Ptr{Void}
-    InnerProd::Ptr{Void}
-    CopyVector::Ptr{Void}
-    ClearVector::Ptr{Void}
-    ScaleVector::Ptr{Void}
-    Axpy::Ptr{Void}
-    precond::Ptr{Void}
-    precond_setup::Ptr{Void}
+  CAlloc::Ptr{Void}
+  Free::Ptr{Void}
+  CommInfo::Ptr{Void}
+  CreateVector::Ptr{Void}
+  CreateVectorArray::Ptr{Void}
+  DestroyVector::Ptr{Void}
+  MatvecCreate::Ptr{Void}
+  Matvec::Ptr{Void}
+  MatvecDestroy::Ptr{Void}
+  InnerProd::Ptr{Void}
+  CopyVector::Ptr{Void}
+  ClearVector::Ptr{Void}
+  ScaleVector::Ptr{Void}
+  Axpy::Ptr{Void}
+  precond::Ptr{Void}
+  precond_setup::Ptr{Void}
 
-    hypre_LGMRESFunctions() = new()
+  hypre_LGMRESFunctions() = new()
 end
 
 type hypre_LGMRESData
-    k_dim::HYPRE_Int
-    min_iter::HYPRE_Int
-    max_iter::HYPRE_Int
-    rel_change::HYPRE_Int
-    stop_crit::HYPRE_Int
-    converged::HYPRE_Int
-    tol::Cdouble
-    cf_tol::Cdouble
-    a_tol::Cdouble
-    rel_residual_norm::Cdouble
-    aug_dim::HYPRE_Int
-    approx_constant::HYPRE_Int
-    aug_vecs::Ptr{Ptr{Void}}
-    aug_order::Ptr{HYPRE_Int}
-    a_aug_vecs::Ptr{Ptr{Void}}
-    A::Ptr{Void}
-    r::Ptr{Void}
-    w::Ptr{Void}
-    w_2::Ptr{Void}
-    p::Ptr{Ptr{Void}}
-    matvec_data::Ptr{Void}
-    precond_data::Ptr{Void}
-    functions::Ptr{hypre_LGMRESFunctions}
-    num_iterations::HYPRE_Int
-    print_level::HYPRE_Int
-    logging::HYPRE_Int
-    norms::Ptr{Cdouble}
-    log_file_name::Ptr{Uint8}
+  k_dim::HYPRE_Int
+  min_iter::HYPRE_Int
+  max_iter::HYPRE_Int
+  rel_change::HYPRE_Int
+  stop_crit::HYPRE_Int
+  converged::HYPRE_Int
+  tol::Cdouble
+  cf_tol::Cdouble
+  a_tol::Cdouble
+  rel_residual_norm::Cdouble
+  aug_dim::HYPRE_Int
+  approx_constant::HYPRE_Int
+  aug_vecs::Ptr{Ptr{Void}}
+  aug_order::Ptr{HYPRE_Int}
+  a_aug_vecs::Ptr{Ptr{Void}}
+  A::Ptr{Void}
+  r::Ptr{Void}
+  w::Ptr{Void}
+  w_2::Ptr{Void}
+  p::Ptr{Ptr{Void}}
+  matvec_data::Ptr{Void}
+  precond_data::Ptr{Void}
+  functions::Ptr{hypre_LGMRESFunctions}
+  num_iterations::HYPRE_Int
+  print_level::HYPRE_Int
+  logging::HYPRE_Int
+  norms::Ptr{Cdouble}
+  log_file_name::Ptr{Uint8}
 
-    hypre_LGMRESData() = new()
+  hypre_LGMRESData() = new()
 end
 
 type hypre_FlexGMRESFunctions
-    CAlloc::Ptr{Void}
-    Free::Ptr{Void}
-    CommInfo::Ptr{Void}
-    CreateVector::Ptr{Void}
-    CreateVectorArray::Ptr{Void}
-    DestroyVector::Ptr{Void}
-    MatvecCreate::Ptr{Void}
-    Matvec::Ptr{Void}
-    MatvecDestroy::Ptr{Void}
-    InnerProd::Ptr{Void}
-    CopyVector::Ptr{Void}
-    ClearVector::Ptr{Void}
-    ScaleVector::Ptr{Void}
-    Axpy::Ptr{Void}
-    precond::Ptr{Void}
-    precond_setup::Ptr{Void}
-    modify_pc::Ptr{Void}
+  CAlloc::Ptr{Void}
+  Free::Ptr{Void}
+  CommInfo::Ptr{Void}
+  CreateVector::Ptr{Void}
+  CreateVectorArray::Ptr{Void}
+  DestroyVector::Ptr{Void}
+  MatvecCreate::Ptr{Void}
+  Matvec::Ptr{Void}
+  MatvecDestroy::Ptr{Void}
+  InnerProd::Ptr{Void}
+  CopyVector::Ptr{Void}
+  ClearVector::Ptr{Void}
+  ScaleVector::Ptr{Void}
+  Axpy::Ptr{Void}
+  precond::Ptr{Void}
+  precond_setup::Ptr{Void}
+  modify_pc::Ptr{Void}
 
-    hypre_FlexGMRESFunctions() = new()
+  hypre_FlexGMRESFunctions() = new()
 end
 
 type hypre_FlexGMRESData
-    k_dim::HYPRE_Int
-    min_iter::HYPRE_Int
-    max_iter::HYPRE_Int
-    rel_change::HYPRE_Int
-    stop_crit::HYPRE_Int
-    converged::HYPRE_Int
-    tol::Cdouble
-    cf_tol::Cdouble
-    a_tol::Cdouble
-    rel_residual_norm::Cdouble
-    pre_vecs::Ptr{Ptr{Void}}
-    A::Ptr{Void}
-    r::Ptr{Void}
-    w::Ptr{Void}
-    w_2::Ptr{Void}
-    p::Ptr{Ptr{Void}}
-    matvec_data::Ptr{Void}
-    precond_data::Ptr{Void}
-    functions::Ptr{hypre_FlexGMRESFunctions}
-    num_iterations::HYPRE_Int
-    print_level::HYPRE_Int
-    logging::HYPRE_Int
-    norms::Ptr{Cdouble}
-    log_file_name::Ptr{Uint8}
+  k_dim::HYPRE_Int
+  min_iter::HYPRE_Int
+  max_iter::HYPRE_Int
+  rel_change::HYPRE_Int
+  stop_crit::HYPRE_Int
+  converged::HYPRE_Int
+  tol::Cdouble
+  cf_tol::Cdouble
+  a_tol::Cdouble
+  rel_residual_norm::Cdouble
+  pre_vecs::Ptr{Ptr{Void}}
+  A::Ptr{Void}
+  r::Ptr{Void}
+  w::Ptr{Void}
+  w_2::Ptr{Void}
+  p::Ptr{Ptr{Void}}
+  matvec_data::Ptr{Void}
+  precond_data::Ptr{Void}
+  functions::Ptr{hypre_FlexGMRESFunctions}
+  num_iterations::HYPRE_Int
+  print_level::HYPRE_Int
+  logging::HYPRE_Int
+  norms::Ptr{Cdouble}
+  log_file_name::Ptr{Uint8}
 
-    hypre_FlexGMRESData() = new()
+  hypre_FlexGMRESData() = new()
 end
 
 type hypre_PCGFunctions
-    CAlloc::Ptr{Void}
-    Free::Ptr{Void}
-    CommInfo::Ptr{Void}
-    CreateVector::Ptr{Void}
-    DestroyVector::Ptr{Void}
-    MatvecCreate::Ptr{Void}
-    Matvec::Ptr{Void}
-    MatvecDestroy::Ptr{Void}
-    InnerProd::Ptr{Void}
-    CopyVector::Ptr{Void}
-    ClearVector::Ptr{Void}
-    ScaleVector::Ptr{Void}
-    Axpy::Ptr{Void}
-    precond::Ptr{Void}
-    precond_setup::Ptr{Void}
+  CAlloc::Ptr{Void}
+  Free::Ptr{Void}
+  CommInfo::Ptr{Void}
+  CreateVector::Ptr{Void}
+  DestroyVector::Ptr{Void}
+  MatvecCreate::Ptr{Void}
+  Matvec::Ptr{Void}
+  MatvecDestroy::Ptr{Void}
+  InnerProd::Ptr{Void}
+  CopyVector::Ptr{Void}
+  ClearVector::Ptr{Void}
+  ScaleVector::Ptr{Void}
+  Axpy::Ptr{Void}
+  precond::Ptr{Void}
+  precond_setup::Ptr{Void}
 
-    hypre_PCGFunctions() = new()
+  hypre_PCGFunctions() = new()
 end
 
 type hypre_PCGData
-    tol::Cdouble
-    atolf::Cdouble
-    cf_tol::Cdouble
-    a_tol::Cdouble
-    rtol::Cdouble
-    max_iter::HYPRE_Int
-    two_norm::HYPRE_Int
-    rel_change::HYPRE_Int
-    recompute_residual::HYPRE_Int
-    recompute_residual_p::HYPRE_Int
-    stop_crit::HYPRE_Int
-    converged::HYPRE_Int
-    A::Ptr{Void}
-    p::Ptr{Void}
-    s::Ptr{Void}
-    r::Ptr{Void}
-    owns_matvec_data::HYPRE_Int
-    matvec_data::Ptr{Void}
-    precond_data::Ptr{Void}
-    functions::Ptr{hypre_PCGFunctions}
-    num_iterations::HYPRE_Int
-    rel_residual_norm::Cdouble
-    print_level::HYPRE_Int
-    logging::HYPRE_Int
-    norms::Ptr{Cdouble}
-    rel_norms::Ptr{Cdouble}
+  tol::Cdouble
+  atolf::Cdouble
+  cf_tol::Cdouble
+  a_tol::Cdouble
+  rtol::Cdouble
+  max_iter::HYPRE_Int
+  two_norm::HYPRE_Int
+  rel_change::HYPRE_Int
+  recompute_residual::HYPRE_Int
+  recompute_residual_p::HYPRE_Int
+  stop_crit::HYPRE_Int
+  converged::HYPRE_Int
+  A::Ptr{Void}
+  p::Ptr{Void}
+  s::Ptr{Void}
+  r::Ptr{Void}
+  owns_matvec_data::HYPRE_Int
+  matvec_data::Ptr{Void}
+  precond_data::Ptr{Void}
+  functions::Ptr{hypre_PCGFunctions}
+  num_iterations::HYPRE_Int
+  rel_residual_norm::Cdouble
+  print_level::HYPRE_Int
+  logging::HYPRE_Int
+  norms::Ptr{Cdouble}
+  rel_norms::Ptr{Cdouble}
 
-    hypre_PCGData() = new()
+  hypre_PCGData() = new()
 end
 
 type Link
-    prev::HYPRE_Int
-    next::HYPRE_Int
+  prev::HYPRE_Int
+  next::HYPRE_Int
 
-    Link() = new()
+  Link() = new()
 end
 
 type hypre_ParCSRBlockMatrix
-    comm::MPI_Comm
-    global_num_rows::HYPRE_Int
-    global_num_cols::HYPRE_Int
-    first_row_index::HYPRE_Int
-    first_col_diag::HYPRE_Int
-    last_row_index::HYPRE_Int
-    last_col_diag::HYPRE_Int
-    diag::Ptr{hypre_CSRBlockMatrix}
-    offd::Ptr{hypre_CSRBlockMatrix}
-    col_map_offd::Ptr{HYPRE_Int}
-    row_starts::Ptr{HYPRE_Int}
-    col_starts::Ptr{HYPRE_Int}
-    comm_pkg::Ptr{hypre_ParCSRCommPkg}
-    comm_pkgT::Ptr{hypre_ParCSRCommPkg}
-    owns_data::HYPRE_Int
-    owns_row_starts::HYPRE_Int
-    owns_col_starts::HYPRE_Int
-    num_nonzeros::HYPRE_Int
-    d_num_nonzeros::Cdouble
-    rowindices::Ptr{HYPRE_Int}
-    rowvalues::Ptr{Cdouble}
-    getrowactive::HYPRE_Int
-    assumed_partition::Ptr{hypre_IJAssumedPart}
+  comm::MPI_Comm
+  global_num_rows::HYPRE_Int
+  global_num_cols::HYPRE_Int
+  first_row_index::HYPRE_Int
+  first_col_diag::HYPRE_Int
+  last_row_index::HYPRE_Int
+  last_col_diag::HYPRE_Int
+  diag::Ptr{hypre_CSRBlockMatrix}
+  offd::Ptr{hypre_CSRBlockMatrix}
+  col_map_offd::Ptr{HYPRE_Int}
+  row_starts::Ptr{HYPRE_Int}
+  col_starts::Ptr{HYPRE_Int}
+  comm_pkg::Ptr{hypre_ParCSRCommPkg}
+  comm_pkgT::Ptr{hypre_ParCSRCommPkg}
+  owns_data::HYPRE_Int
+  owns_row_starts::HYPRE_Int
+  owns_col_starts::HYPRE_Int
+  num_nonzeros::HYPRE_Int
+  d_num_nonzeros::Cdouble
+  rowindices::Ptr{HYPRE_Int}
+  rowvalues::Ptr{Cdouble}
+  getrowactive::HYPRE_Int
+  assumed_partition::Ptr{hypre_IJAssumedPart}
 
-    hypre_ParCSRBlockMatrix() = new()
+  hypre_ParCSRBlockMatrix() = new()
 end
 
 immutable Array_256_Uint8
-    d1::Uint8
-    d2::Uint8
-    d3::Uint8
-    d4::Uint8
-    d5::Uint8
-    d6::Uint8
-    d7::Uint8
-    d8::Uint8
-    d9::Uint8
-    d10::Uint8
-    d11::Uint8
-    d12::Uint8
-    d13::Uint8
-    d14::Uint8
-    d15::Uint8
-    d16::Uint8
-    d17::Uint8
-    d18::Uint8
-    d19::Uint8
-    d20::Uint8
-    d21::Uint8
-    d22::Uint8
-    d23::Uint8
-    d24::Uint8
-    d25::Uint8
-    d26::Uint8
-    d27::Uint8
-    d28::Uint8
-    d29::Uint8
-    d30::Uint8
-    d31::Uint8
-    d32::Uint8
-    d33::Uint8
-    d34::Uint8
-    d35::Uint8
-    d36::Uint8
-    d37::Uint8
-    d38::Uint8
-    d39::Uint8
-    d40::Uint8
-    d41::Uint8
-    d42::Uint8
-    d43::Uint8
-    d44::Uint8
-    d45::Uint8
-    d46::Uint8
-    d47::Uint8
-    d48::Uint8
-    d49::Uint8
-    d50::Uint8
-    d51::Uint8
-    d52::Uint8
-    d53::Uint8
-    d54::Uint8
-    d55::Uint8
-    d56::Uint8
-    d57::Uint8
-    d58::Uint8
-    d59::Uint8
-    d60::Uint8
-    d61::Uint8
-    d62::Uint8
-    d63::Uint8
-    d64::Uint8
-    d65::Uint8
-    d66::Uint8
-    d67::Uint8
-    d68::Uint8
-    d69::Uint8
-    d70::Uint8
-    d71::Uint8
-    d72::Uint8
-    d73::Uint8
-    d74::Uint8
-    d75::Uint8
-    d76::Uint8
-    d77::Uint8
-    d78::Uint8
-    d79::Uint8
-    d80::Uint8
-    d81::Uint8
-    d82::Uint8
-    d83::Uint8
-    d84::Uint8
-    d85::Uint8
-    d86::Uint8
-    d87::Uint8
-    d88::Uint8
-    d89::Uint8
-    d90::Uint8
-    d91::Uint8
-    d92::Uint8
-    d93::Uint8
-    d94::Uint8
-    d95::Uint8
-    d96::Uint8
-    d97::Uint8
-    d98::Uint8
-    d99::Uint8
-    d100::Uint8
-    d101::Uint8
-    d102::Uint8
-    d103::Uint8
-    d104::Uint8
-    d105::Uint8
-    d106::Uint8
-    d107::Uint8
-    d108::Uint8
-    d109::Uint8
-    d110::Uint8
-    d111::Uint8
-    d112::Uint8
-    d113::Uint8
-    d114::Uint8
-    d115::Uint8
-    d116::Uint8
-    d117::Uint8
-    d118::Uint8
-    d119::Uint8
-    d120::Uint8
-    d121::Uint8
-    d122::Uint8
-    d123::Uint8
-    d124::Uint8
-    d125::Uint8
-    d126::Uint8
-    d127::Uint8
-    d128::Uint8
-    d129::Uint8
-    d130::Uint8
-    d131::Uint8
-    d132::Uint8
-    d133::Uint8
-    d134::Uint8
-    d135::Uint8
-    d136::Uint8
-    d137::Uint8
-    d138::Uint8
-    d139::Uint8
-    d140::Uint8
-    d141::Uint8
-    d142::Uint8
-    d143::Uint8
-    d144::Uint8
-    d145::Uint8
-    d146::Uint8
-    d147::Uint8
-    d148::Uint8
-    d149::Uint8
-    d150::Uint8
-    d151::Uint8
-    d152::Uint8
-    d153::Uint8
-    d154::Uint8
-    d155::Uint8
-    d156::Uint8
-    d157::Uint8
-    d158::Uint8
-    d159::Uint8
-    d160::Uint8
-    d161::Uint8
-    d162::Uint8
-    d163::Uint8
-    d164::Uint8
-    d165::Uint8
-    d166::Uint8
-    d167::Uint8
-    d168::Uint8
-    d169::Uint8
-    d170::Uint8
-    d171::Uint8
-    d172::Uint8
-    d173::Uint8
-    d174::Uint8
-    d175::Uint8
-    d176::Uint8
-    d177::Uint8
-    d178::Uint8
-    d179::Uint8
-    d180::Uint8
-    d181::Uint8
-    d182::Uint8
-    d183::Uint8
-    d184::Uint8
-    d185::Uint8
-    d186::Uint8
-    d187::Uint8
-    d188::Uint8
-    d189::Uint8
-    d190::Uint8
-    d191::Uint8
-    d192::Uint8
-    d193::Uint8
-    d194::Uint8
-    d195::Uint8
-    d196::Uint8
-    d197::Uint8
-    d198::Uint8
-    d199::Uint8
-    d200::Uint8
-    d201::Uint8
-    d202::Uint8
-    d203::Uint8
-    d204::Uint8
-    d205::Uint8
-    d206::Uint8
-    d207::Uint8
-    d208::Uint8
-    d209::Uint8
-    d210::Uint8
-    d211::Uint8
-    d212::Uint8
-    d213::Uint8
-    d214::Uint8
-    d215::Uint8
-    d216::Uint8
-    d217::Uint8
-    d218::Uint8
-    d219::Uint8
-    d220::Uint8
-    d221::Uint8
-    d222::Uint8
-    d223::Uint8
-    d224::Uint8
-    d225::Uint8
-    d226::Uint8
-    d227::Uint8
-    d228::Uint8
-    d229::Uint8
-    d230::Uint8
-    d231::Uint8
-    d232::Uint8
-    d233::Uint8
-    d234::Uint8
-    d235::Uint8
-    d236::Uint8
-    d237::Uint8
-    d238::Uint8
-    d239::Uint8
-    d240::Uint8
-    d241::Uint8
-    d242::Uint8
-    d243::Uint8
-    d244::Uint8
-    d245::Uint8
-    d246::Uint8
-    d247::Uint8
-    d248::Uint8
-    d249::Uint8
-    d250::Uint8
-    d251::Uint8
-    d252::Uint8
-    d253::Uint8
-    d254::Uint8
-    d255::Uint8
-    d256::Uint8
+  d1::Uint8
+  d2::Uint8
+  d3::Uint8
+  d4::Uint8
+  d5::Uint8
+  d6::Uint8
+  d7::Uint8
+  d8::Uint8
+  d9::Uint8
+  d10::Uint8
+  d11::Uint8
+  d12::Uint8
+  d13::Uint8
+  d14::Uint8
+  d15::Uint8
+  d16::Uint8
+  d17::Uint8
+  d18::Uint8
+  d19::Uint8
+  d20::Uint8
+  d21::Uint8
+  d22::Uint8
+  d23::Uint8
+  d24::Uint8
+  d25::Uint8
+  d26::Uint8
+  d27::Uint8
+  d28::Uint8
+  d29::Uint8
+  d30::Uint8
+  d31::Uint8
+  d32::Uint8
+  d33::Uint8
+  d34::Uint8
+  d35::Uint8
+  d36::Uint8
+  d37::Uint8
+  d38::Uint8
+  d39::Uint8
+  d40::Uint8
+  d41::Uint8
+  d42::Uint8
+  d43::Uint8
+  d44::Uint8
+  d45::Uint8
+  d46::Uint8
+  d47::Uint8
+  d48::Uint8
+  d49::Uint8
+  d50::Uint8
+  d51::Uint8
+  d52::Uint8
+  d53::Uint8
+  d54::Uint8
+  d55::Uint8
+  d56::Uint8
+  d57::Uint8
+  d58::Uint8
+  d59::Uint8
+  d60::Uint8
+  d61::Uint8
+  d62::Uint8
+  d63::Uint8
+  d64::Uint8
+  d65::Uint8
+  d66::Uint8
+  d67::Uint8
+  d68::Uint8
+  d69::Uint8
+  d70::Uint8
+  d71::Uint8
+  d72::Uint8
+  d73::Uint8
+  d74::Uint8
+  d75::Uint8
+  d76::Uint8
+  d77::Uint8
+  d78::Uint8
+  d79::Uint8
+  d80::Uint8
+  d81::Uint8
+  d82::Uint8
+  d83::Uint8
+  d84::Uint8
+  d85::Uint8
+  d86::Uint8
+  d87::Uint8
+  d88::Uint8
+  d89::Uint8
+  d90::Uint8
+  d91::Uint8
+  d92::Uint8
+  d93::Uint8
+  d94::Uint8
+  d95::Uint8
+  d96::Uint8
+  d97::Uint8
+  d98::Uint8
+  d99::Uint8
+  d100::Uint8
+  d101::Uint8
+  d102::Uint8
+  d103::Uint8
+  d104::Uint8
+  d105::Uint8
+  d106::Uint8
+  d107::Uint8
+  d108::Uint8
+  d109::Uint8
+  d110::Uint8
+  d111::Uint8
+  d112::Uint8
+  d113::Uint8
+  d114::Uint8
+  d115::Uint8
+  d116::Uint8
+  d117::Uint8
+  d118::Uint8
+  d119::Uint8
+  d120::Uint8
+  d121::Uint8
+  d122::Uint8
+  d123::Uint8
+  d124::Uint8
+  d125::Uint8
+  d126::Uint8
+  d127::Uint8
+  d128::Uint8
+  d129::Uint8
+  d130::Uint8
+  d131::Uint8
+  d132::Uint8
+  d133::Uint8
+  d134::Uint8
+  d135::Uint8
+  d136::Uint8
+  d137::Uint8
+  d138::Uint8
+  d139::Uint8
+  d140::Uint8
+  d141::Uint8
+  d142::Uint8
+  d143::Uint8
+  d144::Uint8
+  d145::Uint8
+  d146::Uint8
+  d147::Uint8
+  d148::Uint8
+  d149::Uint8
+  d150::Uint8
+  d151::Uint8
+  d152::Uint8
+  d153::Uint8
+  d154::Uint8
+  d155::Uint8
+  d156::Uint8
+  d157::Uint8
+  d158::Uint8
+  d159::Uint8
+  d160::Uint8
+  d161::Uint8
+  d162::Uint8
+  d163::Uint8
+  d164::Uint8
+  d165::Uint8
+  d166::Uint8
+  d167::Uint8
+  d168::Uint8
+  d169::Uint8
+  d170::Uint8
+  d171::Uint8
+  d172::Uint8
+  d173::Uint8
+  d174::Uint8
+  d175::Uint8
+  d176::Uint8
+  d177::Uint8
+  d178::Uint8
+  d179::Uint8
+  d180::Uint8
+  d181::Uint8
+  d182::Uint8
+  d183::Uint8
+  d184::Uint8
+  d185::Uint8
+  d186::Uint8
+  d187::Uint8
+  d188::Uint8
+  d189::Uint8
+  d190::Uint8
+  d191::Uint8
+  d192::Uint8
+  d193::Uint8
+  d194::Uint8
+  d195::Uint8
+  d196::Uint8
+  d197::Uint8
+  d198::Uint8
+  d199::Uint8
+  d200::Uint8
+  d201::Uint8
+  d202::Uint8
+  d203::Uint8
+  d204::Uint8
+  d205::Uint8
+  d206::Uint8
+  d207::Uint8
+  d208::Uint8
+  d209::Uint8
+  d210::Uint8
+  d211::Uint8
+  d212::Uint8
+  d213::Uint8
+  d214::Uint8
+  d215::Uint8
+  d216::Uint8
+  d217::Uint8
+  d218::Uint8
+  d219::Uint8
+  d220::Uint8
+  d221::Uint8
+  d222::Uint8
+  d223::Uint8
+  d224::Uint8
+  d225::Uint8
+  d226::Uint8
+  d227::Uint8
+  d228::Uint8
+  d229::Uint8
+  d230::Uint8
+  d231::Uint8
+  d232::Uint8
+  d233::Uint8
+  d234::Uint8
+  d235::Uint8
+  d236::Uint8
+  d237::Uint8
+  d238::Uint8
+  d239::Uint8
+  d240::Uint8
+  d241::Uint8
+  d242::Uint8
+  d243::Uint8
+  d244::Uint8
+  d245::Uint8
+  d246::Uint8
+  d247::Uint8
+  d248::Uint8
+  d249::Uint8
+  d250::Uint8
+  d251::Uint8
+  d252::Uint8
+  d253::Uint8
+  d254::Uint8
+  d255::Uint8
+  d256::Uint8
 end
 
 zero(::Type{Array_256_Uint8}) = Array_256_Uint8(fill(zero(Uint8),256)...)
 
 immutable Array_251_Uint8
-    d1::Uint8
-    d2::Uint8
-    d3::Uint8
-    d4::Uint8
-    d5::Uint8
-    d6::Uint8
-    d7::Uint8
-    d8::Uint8
-    d9::Uint8
-    d10::Uint8
-    d11::Uint8
-    d12::Uint8
-    d13::Uint8
-    d14::Uint8
-    d15::Uint8
-    d16::Uint8
-    d17::Uint8
-    d18::Uint8
-    d19::Uint8
-    d20::Uint8
-    d21::Uint8
-    d22::Uint8
-    d23::Uint8
-    d24::Uint8
-    d25::Uint8
-    d26::Uint8
-    d27::Uint8
-    d28::Uint8
-    d29::Uint8
-    d30::Uint8
-    d31::Uint8
-    d32::Uint8
-    d33::Uint8
-    d34::Uint8
-    d35::Uint8
-    d36::Uint8
-    d37::Uint8
-    d38::Uint8
-    d39::Uint8
-    d40::Uint8
-    d41::Uint8
-    d42::Uint8
-    d43::Uint8
-    d44::Uint8
-    d45::Uint8
-    d46::Uint8
-    d47::Uint8
-    d48::Uint8
-    d49::Uint8
-    d50::Uint8
-    d51::Uint8
-    d52::Uint8
-    d53::Uint8
-    d54::Uint8
-    d55::Uint8
-    d56::Uint8
-    d57::Uint8
-    d58::Uint8
-    d59::Uint8
-    d60::Uint8
-    d61::Uint8
-    d62::Uint8
-    d63::Uint8
-    d64::Uint8
-    d65::Uint8
-    d66::Uint8
-    d67::Uint8
-    d68::Uint8
-    d69::Uint8
-    d70::Uint8
-    d71::Uint8
-    d72::Uint8
-    d73::Uint8
-    d74::Uint8
-    d75::Uint8
-    d76::Uint8
-    d77::Uint8
-    d78::Uint8
-    d79::Uint8
-    d80::Uint8
-    d81::Uint8
-    d82::Uint8
-    d83::Uint8
-    d84::Uint8
-    d85::Uint8
-    d86::Uint8
-    d87::Uint8
-    d88::Uint8
-    d89::Uint8
-    d90::Uint8
-    d91::Uint8
-    d92::Uint8
-    d93::Uint8
-    d94::Uint8
-    d95::Uint8
-    d96::Uint8
-    d97::Uint8
-    d98::Uint8
-    d99::Uint8
-    d100::Uint8
-    d101::Uint8
-    d102::Uint8
-    d103::Uint8
-    d104::Uint8
-    d105::Uint8
-    d106::Uint8
-    d107::Uint8
-    d108::Uint8
-    d109::Uint8
-    d110::Uint8
-    d111::Uint8
-    d112::Uint8
-    d113::Uint8
-    d114::Uint8
-    d115::Uint8
-    d116::Uint8
-    d117::Uint8
-    d118::Uint8
-    d119::Uint8
-    d120::Uint8
-    d121::Uint8
-    d122::Uint8
-    d123::Uint8
-    d124::Uint8
-    d125::Uint8
-    d126::Uint8
-    d127::Uint8
-    d128::Uint8
-    d129::Uint8
-    d130::Uint8
-    d131::Uint8
-    d132::Uint8
-    d133::Uint8
-    d134::Uint8
-    d135::Uint8
-    d136::Uint8
-    d137::Uint8
-    d138::Uint8
-    d139::Uint8
-    d140::Uint8
-    d141::Uint8
-    d142::Uint8
-    d143::Uint8
-    d144::Uint8
-    d145::Uint8
-    d146::Uint8
-    d147::Uint8
-    d148::Uint8
-    d149::Uint8
-    d150::Uint8
-    d151::Uint8
-    d152::Uint8
-    d153::Uint8
-    d154::Uint8
-    d155::Uint8
-    d156::Uint8
-    d157::Uint8
-    d158::Uint8
-    d159::Uint8
-    d160::Uint8
-    d161::Uint8
-    d162::Uint8
-    d163::Uint8
-    d164::Uint8
-    d165::Uint8
-    d166::Uint8
-    d167::Uint8
-    d168::Uint8
-    d169::Uint8
-    d170::Uint8
-    d171::Uint8
-    d172::Uint8
-    d173::Uint8
-    d174::Uint8
-    d175::Uint8
-    d176::Uint8
-    d177::Uint8
-    d178::Uint8
-    d179::Uint8
-    d180::Uint8
-    d181::Uint8
-    d182::Uint8
-    d183::Uint8
-    d184::Uint8
-    d185::Uint8
-    d186::Uint8
-    d187::Uint8
-    d188::Uint8
-    d189::Uint8
-    d190::Uint8
-    d191::Uint8
-    d192::Uint8
-    d193::Uint8
-    d194::Uint8
-    d195::Uint8
-    d196::Uint8
-    d197::Uint8
-    d198::Uint8
-    d199::Uint8
-    d200::Uint8
-    d201::Uint8
-    d202::Uint8
-    d203::Uint8
-    d204::Uint8
-    d205::Uint8
-    d206::Uint8
-    d207::Uint8
-    d208::Uint8
-    d209::Uint8
-    d210::Uint8
-    d211::Uint8
-    d212::Uint8
-    d213::Uint8
-    d214::Uint8
-    d215::Uint8
-    d216::Uint8
-    d217::Uint8
-    d218::Uint8
-    d219::Uint8
-    d220::Uint8
-    d221::Uint8
-    d222::Uint8
-    d223::Uint8
-    d224::Uint8
-    d225::Uint8
-    d226::Uint8
-    d227::Uint8
-    d228::Uint8
-    d229::Uint8
-    d230::Uint8
-    d231::Uint8
-    d232::Uint8
-    d233::Uint8
-    d234::Uint8
-    d235::Uint8
-    d236::Uint8
-    d237::Uint8
-    d238::Uint8
-    d239::Uint8
-    d240::Uint8
-    d241::Uint8
-    d242::Uint8
-    d243::Uint8
-    d244::Uint8
-    d245::Uint8
-    d246::Uint8
-    d247::Uint8
-    d248::Uint8
-    d249::Uint8
-    d250::Uint8
-    d251::Uint8
+  d1::Uint8
+  d2::Uint8
+  d3::Uint8
+  d4::Uint8
+  d5::Uint8
+  d6::Uint8
+  d7::Uint8
+  d8::Uint8
+  d9::Uint8
+  d10::Uint8
+  d11::Uint8
+  d12::Uint8
+  d13::Uint8
+  d14::Uint8
+  d15::Uint8
+  d16::Uint8
+  d17::Uint8
+  d18::Uint8
+  d19::Uint8
+  d20::Uint8
+  d21::Uint8
+  d22::Uint8
+  d23::Uint8
+  d24::Uint8
+  d25::Uint8
+  d26::Uint8
+  d27::Uint8
+  d28::Uint8
+  d29::Uint8
+  d30::Uint8
+  d31::Uint8
+  d32::Uint8
+  d33::Uint8
+  d34::Uint8
+  d35::Uint8
+  d36::Uint8
+  d37::Uint8
+  d38::Uint8
+  d39::Uint8
+  d40::Uint8
+  d41::Uint8
+  d42::Uint8
+  d43::Uint8
+  d44::Uint8
+  d45::Uint8
+  d46::Uint8
+  d47::Uint8
+  d48::Uint8
+  d49::Uint8
+  d50::Uint8
+  d51::Uint8
+  d52::Uint8
+  d53::Uint8
+  d54::Uint8
+  d55::Uint8
+  d56::Uint8
+  d57::Uint8
+  d58::Uint8
+  d59::Uint8
+  d60::Uint8
+  d61::Uint8
+  d62::Uint8
+  d63::Uint8
+  d64::Uint8
+  d65::Uint8
+  d66::Uint8
+  d67::Uint8
+  d68::Uint8
+  d69::Uint8
+  d70::Uint8
+  d71::Uint8
+  d72::Uint8
+  d73::Uint8
+  d74::Uint8
+  d75::Uint8
+  d76::Uint8
+  d77::Uint8
+  d78::Uint8
+  d79::Uint8
+  d80::Uint8
+  d81::Uint8
+  d82::Uint8
+  d83::Uint8
+  d84::Uint8
+  d85::Uint8
+  d86::Uint8
+  d87::Uint8
+  d88::Uint8
+  d89::Uint8
+  d90::Uint8
+  d91::Uint8
+  d92::Uint8
+  d93::Uint8
+  d94::Uint8
+  d95::Uint8
+  d96::Uint8
+  d97::Uint8
+  d98::Uint8
+  d99::Uint8
+  d100::Uint8
+  d101::Uint8
+  d102::Uint8
+  d103::Uint8
+  d104::Uint8
+  d105::Uint8
+  d106::Uint8
+  d107::Uint8
+  d108::Uint8
+  d109::Uint8
+  d110::Uint8
+  d111::Uint8
+  d112::Uint8
+  d113::Uint8
+  d114::Uint8
+  d115::Uint8
+  d116::Uint8
+  d117::Uint8
+  d118::Uint8
+  d119::Uint8
+  d120::Uint8
+  d121::Uint8
+  d122::Uint8
+  d123::Uint8
+  d124::Uint8
+  d125::Uint8
+  d126::Uint8
+  d127::Uint8
+  d128::Uint8
+  d129::Uint8
+  d130::Uint8
+  d131::Uint8
+  d132::Uint8
+  d133::Uint8
+  d134::Uint8
+  d135::Uint8
+  d136::Uint8
+  d137::Uint8
+  d138::Uint8
+  d139::Uint8
+  d140::Uint8
+  d141::Uint8
+  d142::Uint8
+  d143::Uint8
+  d144::Uint8
+  d145::Uint8
+  d146::Uint8
+  d147::Uint8
+  d148::Uint8
+  d149::Uint8
+  d150::Uint8
+  d151::Uint8
+  d152::Uint8
+  d153::Uint8
+  d154::Uint8
+  d155::Uint8
+  d156::Uint8
+  d157::Uint8
+  d158::Uint8
+  d159::Uint8
+  d160::Uint8
+  d161::Uint8
+  d162::Uint8
+  d163::Uint8
+  d164::Uint8
+  d165::Uint8
+  d166::Uint8
+  d167::Uint8
+  d168::Uint8
+  d169::Uint8
+  d170::Uint8
+  d171::Uint8
+  d172::Uint8
+  d173::Uint8
+  d174::Uint8
+  d175::Uint8
+  d176::Uint8
+  d177::Uint8
+  d178::Uint8
+  d179::Uint8
+  d180::Uint8
+  d181::Uint8
+  d182::Uint8
+  d183::Uint8
+  d184::Uint8
+  d185::Uint8
+  d186::Uint8
+  d187::Uint8
+  d188::Uint8
+  d189::Uint8
+  d190::Uint8
+  d191::Uint8
+  d192::Uint8
+  d193::Uint8
+  d194::Uint8
+  d195::Uint8
+  d196::Uint8
+  d197::Uint8
+  d198::Uint8
+  d199::Uint8
+  d200::Uint8
+  d201::Uint8
+  d202::Uint8
+  d203::Uint8
+  d204::Uint8
+  d205::Uint8
+  d206::Uint8
+  d207::Uint8
+  d208::Uint8
+  d209::Uint8
+  d210::Uint8
+  d211::Uint8
+  d212::Uint8
+  d213::Uint8
+  d214::Uint8
+  d215::Uint8
+  d216::Uint8
+  d217::Uint8
+  d218::Uint8
+  d219::Uint8
+  d220::Uint8
+  d221::Uint8
+  d222::Uint8
+  d223::Uint8
+  d224::Uint8
+  d225::Uint8
+  d226::Uint8
+  d227::Uint8
+  d228::Uint8
+  d229::Uint8
+  d230::Uint8
+  d231::Uint8
+  d232::Uint8
+  d233::Uint8
+  d234::Uint8
+  d235::Uint8
+  d236::Uint8
+  d237::Uint8
+  d238::Uint8
+  d239::Uint8
+  d240::Uint8
+  d241::Uint8
+  d242::Uint8
+  d243::Uint8
+  d244::Uint8
+  d245::Uint8
+  d246::Uint8
+  d247::Uint8
+  d248::Uint8
+  d249::Uint8
+  d250::Uint8
+  d251::Uint8
 end
 
 zero(::Type{Array_251_Uint8}) = Array_251_Uint8(fill(zero(Uint8),251)...)
 
 type hypre_ParAMGData
-    max_levels::HYPRE_Int
-    strong_threshold::Cdouble
-    max_row_sum::Cdouble
-    trunc_factor::Cdouble
-    agg_trunc_factor::Cdouble
-    agg_P12_trunc_factor::Cdouble
-    jacobi_trunc_threshold::Cdouble
-    S_commpkg_switch::Cdouble
-    CR_rate::Cdouble
-    CR_strong_th::Cdouble
-    measure_type::HYPRE_Int
-    setup_type::HYPRE_Int
-    coarsen_type::HYPRE_Int
-    P_max_elmts::HYPRE_Int
-    interp_type::HYPRE_Int
-    sep_weight::HYPRE_Int
-    agg_interp_type::HYPRE_Int
-    agg_P_max_elmts::HYPRE_Int
-    agg_P12_max_elmts::HYPRE_Int
-    restr_par::HYPRE_Int
-    agg_num_levels::HYPRE_Int
-    num_paths::HYPRE_Int
-    post_interp_type::HYPRE_Int
-    num_CR_relax_steps::HYPRE_Int
-    IS_type::HYPRE_Int
-    CR_use_CG::HYPRE_Int
-    cgc_its::HYPRE_Int
-    max_coarse_size::HYPRE_Int
-    min_coarse_size::HYPRE_Int
-    seq_threshold::HYPRE_Int
-    max_iter::HYPRE_Int
-    min_iter::HYPRE_Int
-    cycle_type::HYPRE_Int
-    num_grid_sweeps::Ptr{HYPRE_Int}
-    grid_relax_type::Ptr{HYPRE_Int}
-    grid_relax_points::Ptr{Ptr{HYPRE_Int}}
-    relax_order::HYPRE_Int
-    user_coarse_relax_type::HYPRE_Int
-    user_relax_type::HYPRE_Int
-    user_num_sweeps::HYPRE_Int
-    user_relax_weight::Cdouble
-    relax_weight::Ptr{Cdouble}
-    omega::Ptr{Cdouble}
-    tol::Cdouble
-    A::Ptr{hypre_ParCSRMatrix}
-    num_variables::HYPRE_Int
-    num_functions::HYPRE_Int
-    nodal::HYPRE_Int
-    nodal_levels::HYPRE_Int
-    nodal_diag::HYPRE_Int
-    num_points::HYPRE_Int
-    dof_func::Ptr{HYPRE_Int}
-    dof_point::Ptr{HYPRE_Int}
-    point_dof_map::Ptr{HYPRE_Int}
-    A_array::Ptr{Ptr{hypre_ParCSRMatrix}}
-    F_array::Ptr{Ptr{hypre_ParVector}}
-    U_array::Ptr{Ptr{hypre_ParVector}}
-    P_array::Ptr{Ptr{hypre_ParCSRMatrix}}
-    R_array::Ptr{Ptr{hypre_ParCSRMatrix}}
-    CF_marker_array::Ptr{Ptr{HYPRE_Int}}
-    dof_func_array::Ptr{Ptr{HYPRE_Int}}
-    dof_point_array::Ptr{Ptr{HYPRE_Int}}
-    point_dof_map_array::Ptr{Ptr{HYPRE_Int}}
-    num_levels::HYPRE_Int
-    l1_norms::Ptr{Ptr{Cdouble}}
-    A_block_array::Ptr{Ptr{hypre_ParCSRBlockMatrix}}
-    P_block_array::Ptr{Ptr{hypre_ParCSRBlockMatrix}}
-    R_block_array::Ptr{Ptr{hypre_ParCSRBlockMatrix}}
-    block_mode::HYPRE_Int
-    smooth_num_levels::HYPRE_Int
-    smooth_type::HYPRE_Int
-    smoother::Ptr{HYPRE_Solver}
-    smooth_num_sweeps::HYPRE_Int
-    schw_variant::HYPRE_Int
-    schw_overlap::HYPRE_Int
-    schw_domain_type::HYPRE_Int
-    schwarz_rlx_weight::Cdouble
-    schwarz_use_nonsymm::HYPRE_Int
-    ps_sym::HYPRE_Int
-    ps_level::HYPRE_Int
-    pi_max_nz_per_row::HYPRE_Int
-    eu_level::HYPRE_Int
-    eu_bj::HYPRE_Int
-    ps_threshold::Cdouble
-    ps_filter::Cdouble
-    pi_drop_tol::Cdouble
-    eu_sparse_A::Cdouble
-    euclidfile::Ptr{Uint8}
-    max_eig_est::Ptr{Cdouble}
-    min_eig_est::Ptr{Cdouble}
-    cheby_order::HYPRE_Int
-    cheby_fraction::Cdouble
-    Vtemp::Ptr{hypre_ParVector}
-    Vtemp_local::Ptr{hypre_Vector}
-    Vtemp_local_data::Ptr{Cdouble}
-    cycle_op_count::Cdouble
-    Rtemp::Ptr{hypre_ParVector}
-    Ptemp::Ptr{hypre_ParVector}
-    Ztemp::Ptr{hypre_ParVector}
-    gsmg::HYPRE_Int
-    num_samples::HYPRE_Int
-    logging::HYPRE_Int
-    num_iterations::HYPRE_Int
-    cum_num_iterations::HYPRE_Int
-    rel_resid_norm::Cdouble
-    residual::Ptr{hypre_ParVector}
-    print_level::HYPRE_Int
-    log_file_name::Array_256_Uint8
-    debug_flag::HYPRE_Int
-    plot_grids::HYPRE_Int
-    plot_filename::Array_251_Uint8
-    coorddim::HYPRE_Int
-    coordinates::Ptr{Cfloat}
-    num_interp_vectors::HYPRE_Int
-    num_levels_interp_vectors::HYPRE_Int
-    interp_vectors::Ptr{Ptr{hypre_ParVector}}
-    interp_vectors_array::Ptr{Ptr{Ptr{hypre_ParVector}}}
-    interp_vec_variant::HYPRE_Int
-    interp_vec_first_level::HYPRE_Int
-    interp_vectors_abs_q_trunc::Cdouble
-    interp_vectors_q_max::HYPRE_Int
-    interp_refine::HYPRE_Int
-    smooth_interp_vectors::HYPRE_Int
-    expandp_weights::Ptr{Cdouble}
-    coarse_solver::HYPRE_Solver
-    A_coarse::Ptr{hypre_ParCSRMatrix}
-    f_coarse::Ptr{hypre_ParVector}
-    u_coarse::Ptr{hypre_ParVector}
-    new_comm::MPI_Comm
-    A_mat::Ptr{Cdouble}
-    b_vec::Ptr{Cdouble}
-    comm_info::Ptr{HYPRE_Int}
+  max_levels::HYPRE_Int
+  strong_threshold::Cdouble
+  max_row_sum::Cdouble
+  trunc_factor::Cdouble
+  agg_trunc_factor::Cdouble
+  agg_P12_trunc_factor::Cdouble
+  jacobi_trunc_threshold::Cdouble
+  S_commpkg_switch::Cdouble
+  CR_rate::Cdouble
+  CR_strong_th::Cdouble
+  measure_type::HYPRE_Int
+  setup_type::HYPRE_Int
+  coarsen_type::HYPRE_Int
+  P_max_elmts::HYPRE_Int
+  interp_type::HYPRE_Int
+  sep_weight::HYPRE_Int
+  agg_interp_type::HYPRE_Int
+  agg_P_max_elmts::HYPRE_Int
+  agg_P12_max_elmts::HYPRE_Int
+  restr_par::HYPRE_Int
+  agg_num_levels::HYPRE_Int
+  num_paths::HYPRE_Int
+  post_interp_type::HYPRE_Int
+  num_CR_relax_steps::HYPRE_Int
+  IS_type::HYPRE_Int
+  CR_use_CG::HYPRE_Int
+  cgc_its::HYPRE_Int
+  max_coarse_size::HYPRE_Int
+  min_coarse_size::HYPRE_Int
+  seq_threshold::HYPRE_Int
+  max_iter::HYPRE_Int
+  min_iter::HYPRE_Int
+  cycle_type::HYPRE_Int
+  num_grid_sweeps::Ptr{HYPRE_Int}
+  grid_relax_type::Ptr{HYPRE_Int}
+  grid_relax_points::Ptr{Ptr{HYPRE_Int}}
+  relax_order::HYPRE_Int
+  user_coarse_relax_type::HYPRE_Int
+  user_relax_type::HYPRE_Int
+  user_num_sweeps::HYPRE_Int
+  user_relax_weight::Cdouble
+  relax_weight::Ptr{Cdouble}
+  omega::Ptr{Cdouble}
+  tol::Cdouble
+  A::Ptr{hypre_ParCSRMatrix}
+  num_variables::HYPRE_Int
+  num_functions::HYPRE_Int
+  nodal::HYPRE_Int
+  nodal_levels::HYPRE_Int
+  nodal_diag::HYPRE_Int
+  num_points::HYPRE_Int
+  dof_func::Ptr{HYPRE_Int}
+  dof_point::Ptr{HYPRE_Int}
+  point_dof_map::Ptr{HYPRE_Int}
+  A_array::Ptr{Ptr{hypre_ParCSRMatrix}}
+  F_array::Ptr{Ptr{hypre_ParVector}}
+  U_array::Ptr{Ptr{hypre_ParVector}}
+  P_array::Ptr{Ptr{hypre_ParCSRMatrix}}
+  R_array::Ptr{Ptr{hypre_ParCSRMatrix}}
+  CF_marker_array::Ptr{Ptr{HYPRE_Int}}
+  dof_func_array::Ptr{Ptr{HYPRE_Int}}
+  dof_point_array::Ptr{Ptr{HYPRE_Int}}
+  point_dof_map_array::Ptr{Ptr{HYPRE_Int}}
+  num_levels::HYPRE_Int
+  l1_norms::Ptr{Ptr{Cdouble}}
+  A_block_array::Ptr{Ptr{hypre_ParCSRBlockMatrix}}
+  P_block_array::Ptr{Ptr{hypre_ParCSRBlockMatrix}}
+  R_block_array::Ptr{Ptr{hypre_ParCSRBlockMatrix}}
+  block_mode::HYPRE_Int
+  smooth_num_levels::HYPRE_Int
+  smooth_type::HYPRE_Int
+  smoother::Ptr{HYPRE_Solver}
+  smooth_num_sweeps::HYPRE_Int
+  schw_variant::HYPRE_Int
+  schw_overlap::HYPRE_Int
+  schw_domain_type::HYPRE_Int
+  schwarz_rlx_weight::Cdouble
+  schwarz_use_nonsymm::HYPRE_Int
+  ps_sym::HYPRE_Int
+  ps_level::HYPRE_Int
+  pi_max_nz_per_row::HYPRE_Int
+  eu_level::HYPRE_Int
+  eu_bj::HYPRE_Int
+  ps_threshold::Cdouble
+  ps_filter::Cdouble
+  pi_drop_tol::Cdouble
+  eu_sparse_A::Cdouble
+  euclidfile::Ptr{Uint8}
+  max_eig_est::Ptr{Cdouble}
+  min_eig_est::Ptr{Cdouble}
+  cheby_order::HYPRE_Int
+  cheby_fraction::Cdouble
+  Vtemp::Ptr{hypre_ParVector}
+  Vtemp_local::Ptr{hypre_Vector}
+  Vtemp_local_data::Ptr{Cdouble}
+  cycle_op_count::Cdouble
+  Rtemp::Ptr{hypre_ParVector}
+  Ptemp::Ptr{hypre_ParVector}
+  Ztemp::Ptr{hypre_ParVector}
+  gsmg::HYPRE_Int
+  num_samples::HYPRE_Int
+  logging::HYPRE_Int
+  num_iterations::HYPRE_Int
+  cum_num_iterations::HYPRE_Int
+  rel_resid_norm::Cdouble
+  residual::Ptr{hypre_ParVector}
+  print_level::HYPRE_Int
+  log_file_name::Array_256_Uint8
+  debug_flag::HYPRE_Int
+  plot_grids::HYPRE_Int
+  plot_filename::Array_251_Uint8
+  coorddim::HYPRE_Int
+  coordinates::Ptr{Cfloat}
+  num_interp_vectors::HYPRE_Int
+  num_levels_interp_vectors::HYPRE_Int
+  interp_vectors::Ptr{Ptr{hypre_ParVector}}
+  interp_vectors_array::Ptr{Ptr{Ptr{hypre_ParVector}}}
+  interp_vec_variant::HYPRE_Int
+  interp_vec_first_level::HYPRE_Int
+  interp_vectors_abs_q_trunc::Cdouble
+  interp_vectors_q_max::HYPRE_Int
+  interp_refine::HYPRE_Int
+  smooth_interp_vectors::HYPRE_Int
+  expandp_weights::Ptr{Cdouble}
+  coarse_solver::HYPRE_Solver
+  A_coarse::Ptr{hypre_ParCSRMatrix}
+  f_coarse::Ptr{hypre_ParVector}
+  u_coarse::Ptr{hypre_ParVector}
+  new_comm::MPI_Comm
+  A_mat::Ptr{Cdouble}
+  b_vec::Ptr{Cdouble}
+  comm_info::Ptr{HYPRE_Int}
 
-    hypre_ParAMGData() = new()
+  hypre_ParAMGData() = new()
 end
 
 immutable Array_3_Ptr
-    d1::Ptr{hypre_ParVector}
-    d2::Ptr{hypre_ParVector}
-    d3::Ptr{hypre_ParVector}
+  d1::Ptr{hypre_ParVector}
+  d2::Ptr{hypre_ParVector}
+  d3::Ptr{hypre_ParVector}
 end
 
 zero(::Type{Array_3_Ptr}) = Array_3_Ptr(fill(zero(Ptr{hypre_ParVector}),3)...)
@@ -3107,9 +3107,9 @@ const hypre_BoxArrayExcess = 10
 # Skipping MacroDefinition: hypre_SStructPVectorDataSize ( pvec ) ( ( pvec ) -> datasize )
 
 immutable Array_3_HYPRE_Int
-    d1::HYPRE_Int
-    d2::HYPRE_Int
-    d3::HYPRE_Int
+  d1::HYPRE_Int
+  d2::HYPRE_Int
+  d3::HYPRE_Int
 end
 
 zero(::Type{Array_3_HYPRE_Int}) = Array_3_HYPRE_Int(fill(zero(HYPRE_Int),3)...)
@@ -3117,679 +3117,679 @@ zero(::Type{Array_3_HYPRE_Int}) = Array_3_HYPRE_Int(fill(zero(HYPRE_Int),3)...)
 typealias hypre_Index Array_3_HYPRE_Int
 
 type hypre_Box
-    imin::hypre_Index
-    imax::hypre_Index
+  imin::hypre_Index
+  imax::hypre_Index
 
-    hypre_Box() = new()
+  hypre_Box() = new()
 end
 
 type hypre_BoxArray
-    boxes::Ptr{hypre_Box}
-    size::HYPRE_Int
-    alloc_size::HYPRE_Int
+  boxes::Ptr{hypre_Box}
+  size::HYPRE_Int
+  alloc_size::HYPRE_Int
 
-    hypre_BoxArray() = new()
+  hypre_BoxArray() = new()
 end
 
 immutable Array_6_HYPRE_Int
-    d1::HYPRE_Int
-    d2::HYPRE_Int
-    d3::HYPRE_Int
-    d4::HYPRE_Int
-    d5::HYPRE_Int
-    d6::HYPRE_Int
+  d1::HYPRE_Int
+  d2::HYPRE_Int
+  d3::HYPRE_Int
+  d4::HYPRE_Int
+  d5::HYPRE_Int
+  d6::HYPRE_Int
 end
 
 zero(::Type{Array_6_HYPRE_Int}) = Array_6_HYPRE_Int(fill(zero(HYPRE_Int),6)...)
 
 type hypre_BoxManEntry_struct
-    imin::hypre_Index
-    imax::hypre_Index
-    proc::HYPRE_Int
-    id::HYPRE_Int
-    num_ghost::Array_6_HYPRE_Int
-    position::HYPRE_Int
-    boxman::Ptr{Void}
-    next::Ptr{hypre_BoxManEntry_struct}
+  imin::hypre_Index
+  imax::hypre_Index
+  proc::HYPRE_Int
+  id::HYPRE_Int
+  num_ghost::Array_6_HYPRE_Int
+  position::HYPRE_Int
+  boxman::Ptr{Void}
+  next::Ptr{hypre_BoxManEntry_struct}
 
-    hypre_BoxManEntry_struct() = new()
+  hypre_BoxManEntry_struct() = new()
 end
 
 type hypre_BoxManEntry
-    imin::hypre_Index
-    imax::hypre_Index
-    proc::HYPRE_Int
-    id::HYPRE_Int
-    num_ghost::Array_6_HYPRE_Int
-    position::HYPRE_Int
-    boxman::Ptr{Void}
-    next::Ptr{hypre_BoxManEntry_struct}
+  imin::hypre_Index
+  imax::hypre_Index
+  proc::HYPRE_Int
+  id::HYPRE_Int
+  num_ghost::Array_6_HYPRE_Int
+  position::HYPRE_Int
+  boxman::Ptr{Void}
+  next::Ptr{hypre_BoxManEntry_struct}
 
-    hypre_BoxManEntry() = new()
+  hypre_BoxManEntry() = new()
 end
 
 type hypre_StructAssumedPart
-    regions::Ptr{hypre_BoxArray}
-    num_regions::HYPRE_Int
-    proc_partitions::Ptr{HYPRE_Int}
-    divisions::Ptr{hypre_Index}
-    my_partition::Ptr{hypre_BoxArray}
-    my_partition_boxes::Ptr{hypre_BoxArray}
-    my_partition_proc_ids::Ptr{HYPRE_Int}
-    my_partition_boxnums::Ptr{HYPRE_Int}
-    my_partition_ids_size::HYPRE_Int
-    my_partition_ids_alloc::HYPRE_Int
-    my_partition_num_distinct_procs::HYPRE_Int
+  regions::Ptr{hypre_BoxArray}
+  num_regions::HYPRE_Int
+  proc_partitions::Ptr{HYPRE_Int}
+  divisions::Ptr{hypre_Index}
+  my_partition::Ptr{hypre_BoxArray}
+  my_partition_boxes::Ptr{hypre_BoxArray}
+  my_partition_proc_ids::Ptr{HYPRE_Int}
+  my_partition_boxnums::Ptr{HYPRE_Int}
+  my_partition_ids_size::HYPRE_Int
+  my_partition_ids_alloc::HYPRE_Int
+  my_partition_num_distinct_procs::HYPRE_Int
 
-    hypre_StructAssumedPart() = new()
+  hypre_StructAssumedPart() = new()
 end
 
 type hypre_BoxManager
-    comm::MPI_Comm
-    max_nentries::HYPRE_Int
-    is_gather_called::HYPRE_Int
-    gather_regions::Ptr{hypre_BoxArray}
-    all_global_known::HYPRE_Int
-    is_entries_sort::HYPRE_Int
-    entry_info_size::HYPRE_Int
-    is_assembled::HYPRE_Int
-    nentries::HYPRE_Int
-    entries::Ptr{hypre_BoxManEntry}
-    procs_sort::Ptr{HYPRE_Int}
-    ids_sort::Ptr{HYPRE_Int}
-    num_procs_sort::HYPRE_Int
-    procs_sort_offsets::Ptr{HYPRE_Int}
-    first_local::HYPRE_Int
-    local_proc_offset::HYPRE_Int
-    index_table::Ptr{Ptr{hypre_BoxManEntry}}
-    indexes::Array_3_Ptr
-    size::Array_3_HYPRE_Int
-    last_index::Array_3_HYPRE_Int
-    num_my_entries::HYPRE_Int
-    my_ids::Ptr{HYPRE_Int}
-    my_entries::Ptr{Ptr{hypre_BoxManEntry}}
-    info_objects::Ptr{Void}
-    assumed_partition::Ptr{hypre_StructAssumedPart}
-    dim::HYPRE_Int
-    bounding_box::Ptr{hypre_Box}
-    next_id::HYPRE_Int
-    num_ghost::Array_6_HYPRE_Int
+  comm::MPI_Comm
+  max_nentries::HYPRE_Int
+  is_gather_called::HYPRE_Int
+  gather_regions::Ptr{hypre_BoxArray}
+  all_global_known::HYPRE_Int
+  is_entries_sort::HYPRE_Int
+  entry_info_size::HYPRE_Int
+  is_assembled::HYPRE_Int
+  nentries::HYPRE_Int
+  entries::Ptr{hypre_BoxManEntry}
+  procs_sort::Ptr{HYPRE_Int}
+  ids_sort::Ptr{HYPRE_Int}
+  num_procs_sort::HYPRE_Int
+  procs_sort_offsets::Ptr{HYPRE_Int}
+  first_local::HYPRE_Int
+  local_proc_offset::HYPRE_Int
+  index_table::Ptr{Ptr{hypre_BoxManEntry}}
+  indexes::Array_3_Ptr
+  size::Array_3_HYPRE_Int
+  last_index::Array_3_HYPRE_Int
+  num_my_entries::HYPRE_Int
+  my_ids::Ptr{HYPRE_Int}
+  my_entries::Ptr{Ptr{hypre_BoxManEntry}}
+  info_objects::Ptr{Void}
+  assumed_partition::Ptr{hypre_StructAssumedPart}
+  dim::HYPRE_Int
+  bounding_box::Ptr{hypre_Box}
+  next_id::HYPRE_Int
+  num_ghost::Array_6_HYPRE_Int
 
-    hypre_BoxManager() = new()
+  hypre_BoxManager() = new()
 end
 
 type hypre_StructGrid
-    comm::MPI_Comm
-    dim::HYPRE_Int
-    boxes::Ptr{hypre_BoxArray}
-    ids::Ptr{HYPRE_Int}
-    max_distance::hypre_Index
-    bounding_box::Ptr{hypre_Box}
-    local_size::HYPRE_Int
-    global_size::HYPRE_Int
-    periodic::hypre_Index
-    num_periods::HYPRE_Int
-    pshifts::Ptr{hypre_Index}
-    ref_count::HYPRE_Int
-    ghlocal_size::HYPRE_Int
-    num_ghost::Array_6_HYPRE_Int
-    box_man::Ptr{hypre_BoxManager}
+  comm::MPI_Comm
+  dim::HYPRE_Int
+  boxes::Ptr{hypre_BoxArray}
+  ids::Ptr{HYPRE_Int}
+  max_distance::hypre_Index
+  bounding_box::Ptr{hypre_Box}
+  local_size::HYPRE_Int
+  global_size::HYPRE_Int
+  periodic::hypre_Index
+  num_periods::HYPRE_Int
+  pshifts::Ptr{hypre_Index}
+  ref_count::HYPRE_Int
+  ghlocal_size::HYPRE_Int
+  num_ghost::Array_6_HYPRE_Int
+  box_man::Ptr{hypre_BoxManager}
 
-    hypre_StructGrid() = new()
+  hypre_StructGrid() = new()
 end
 
 type hypre_StructVector_struct
-    comm::MPI_Comm
-    grid::Ptr{hypre_StructGrid}
-    data_space::Ptr{hypre_BoxArray}
-    data::Ptr{Cdouble}
-    data_alloced::HYPRE_Int
-    data_size::HYPRE_Int
-    data_indices::Ptr{HYPRE_Int}
-    num_ghost::Array_6_HYPRE_Int
-    bghost_not_clear::HYPRE_Int
-    global_size::HYPRE_Int
-    ref_count::HYPRE_Int
+  comm::MPI_Comm
+  grid::Ptr{hypre_StructGrid}
+  data_space::Ptr{hypre_BoxArray}
+  data::Ptr{Cdouble}
+  data_alloced::HYPRE_Int
+  data_size::HYPRE_Int
+  data_indices::Ptr{HYPRE_Int}
+  num_ghost::Array_6_HYPRE_Int
+  bghost_not_clear::HYPRE_Int
+  global_size::HYPRE_Int
+  ref_count::HYPRE_Int
 
-    hypre_StructVector_struct() = new()
+  hypre_StructVector_struct() = new()
 end
 
 typealias HYPRE_StructVector Ptr{hypre_StructVector_struct}
 
 type hypre_StructGrid_struct
-    comm::MPI_Comm
-    dim::HYPRE_Int
-    boxes::Ptr{hypre_BoxArray}
-    ids::Ptr{HYPRE_Int}
-    max_distance::hypre_Index
-    bounding_box::Ptr{hypre_Box}
-    local_size::HYPRE_Int
-    global_size::HYPRE_Int
-    periodic::hypre_Index
-    num_periods::HYPRE_Int
-    pshifts::Ptr{hypre_Index}
-    ref_count::HYPRE_Int
-    ghlocal_size::HYPRE_Int
-    num_ghost::Array_6_HYPRE_Int
-    box_man::Ptr{hypre_BoxManager}
+  comm::MPI_Comm
+  dim::HYPRE_Int
+  boxes::Ptr{hypre_BoxArray}
+  ids::Ptr{HYPRE_Int}
+  max_distance::hypre_Index
+  bounding_box::Ptr{hypre_Box}
+  local_size::HYPRE_Int
+  global_size::HYPRE_Int
+  periodic::hypre_Index
+  num_periods::HYPRE_Int
+  pshifts::Ptr{hypre_Index}
+  ref_count::HYPRE_Int
+  ghlocal_size::HYPRE_Int
+  num_ghost::Array_6_HYPRE_Int
+  box_man::Ptr{hypre_BoxManager}
 
-    hypre_StructGrid_struct() = new()
+  hypre_StructGrid_struct() = new()
 end
 
 typealias HYPRE_StructGrid Ptr{hypre_StructGrid_struct}
 
 type hypre_StructStencil_struct
-    shape::Ptr{hypre_Index}
-    size::HYPRE_Int
-    dim::HYPRE_Int
-    ref_count::HYPRE_Int
+  shape::Ptr{hypre_Index}
+  size::HYPRE_Int
+  dim::HYPRE_Int
+  ref_count::HYPRE_Int
 
-    hypre_StructStencil_struct() = new()
+  hypre_StructStencil_struct() = new()
 end
 
 typealias HYPRE_StructStencil Ptr{hypre_StructStencil_struct}
 
 type hypre_StructStencil
-    shape::Ptr{hypre_Index}
-    size::HYPRE_Int
-    dim::HYPRE_Int
-    ref_count::HYPRE_Int
+  shape::Ptr{hypre_Index}
+  size::HYPRE_Int
+  dim::HYPRE_Int
+  ref_count::HYPRE_Int
 
-    hypre_StructStencil() = new()
+  hypre_StructStencil() = new()
 end
 
 immutable Array_4_HYPRE_Int
-    d1::HYPRE_Int
-    d2::HYPRE_Int
-    d3::HYPRE_Int
-    d4::HYPRE_Int
+  d1::HYPRE_Int
+  d2::HYPRE_Int
+  d3::HYPRE_Int
+  d4::HYPRE_Int
 end
 
 zero(::Type{Array_4_HYPRE_Int}) = Array_4_HYPRE_Int(fill(zero(HYPRE_Int),4)...)
 
 type hypre_CommEntryType
-    offset::HYPRE_Int
-    dim::HYPRE_Int
-    length_array::Array_3_HYPRE_Int
-    stride_array::Array_4_HYPRE_Int
-    order::Ptr{HYPRE_Int}
+  offset::HYPRE_Int
+  dim::HYPRE_Int
+  length_array::Array_3_HYPRE_Int
+  stride_array::Array_4_HYPRE_Int
+  order::Ptr{HYPRE_Int}
 
-    hypre_CommEntryType() = new()
+  hypre_CommEntryType() = new()
 end
 
 type hypre_CommType
-    proc::HYPRE_Int
-    bufsize::HYPRE_Int
-    num_entries::HYPRE_Int
-    entries::Ptr{hypre_CommEntryType}
-    rem_boxnums::Ptr{HYPRE_Int}
-    rem_boxes::Ptr{hypre_Box}
+  proc::HYPRE_Int
+  bufsize::HYPRE_Int
+  num_entries::HYPRE_Int
+  entries::Ptr{hypre_CommEntryType}
+  rem_boxnums::Ptr{HYPRE_Int}
+  rem_boxes::Ptr{hypre_Box}
 
-    hypre_CommType() = new()
+  hypre_CommType() = new()
 end
 
 type hypre_CommPkg
-    comm::MPI_Comm
-    first_comm::HYPRE_Int
-    num_values::HYPRE_Int
-    send_stride::hypre_Index
-    recv_stride::hypre_Index
-    send_bufsize::HYPRE_Int
-    recv_bufsize::HYPRE_Int
-    num_sends::HYPRE_Int
-    num_recvs::HYPRE_Int
-    send_types::Ptr{hypre_CommType}
-    recv_types::Ptr{hypre_CommType}
-    copy_from_type::Ptr{hypre_CommType}
-    copy_to_type::Ptr{hypre_CommType}
-    entries::Ptr{hypre_CommEntryType}
-    rem_boxnums::Ptr{HYPRE_Int}
-    rem_boxes::Ptr{hypre_Box}
-    num_orders::HYPRE_Int
-    orders::Ptr{Ptr{HYPRE_Int}}
-    recv_data_offsets::Ptr{HYPRE_Int}
-    recv_data_space::Ptr{hypre_BoxArray}
-    identity_coord::hypre_Index
-    identity_dir::hypre_Index
-    identity_order::Ptr{HYPRE_Int}
+  comm::MPI_Comm
+  first_comm::HYPRE_Int
+  num_values::HYPRE_Int
+  send_stride::hypre_Index
+  recv_stride::hypre_Index
+  send_bufsize::HYPRE_Int
+  recv_bufsize::HYPRE_Int
+  num_sends::HYPRE_Int
+  num_recvs::HYPRE_Int
+  send_types::Ptr{hypre_CommType}
+  recv_types::Ptr{hypre_CommType}
+  copy_from_type::Ptr{hypre_CommType}
+  copy_to_type::Ptr{hypre_CommType}
+  entries::Ptr{hypre_CommEntryType}
+  rem_boxnums::Ptr{HYPRE_Int}
+  rem_boxes::Ptr{hypre_Box}
+  num_orders::HYPRE_Int
+  orders::Ptr{Ptr{HYPRE_Int}}
+  recv_data_offsets::Ptr{HYPRE_Int}
+  recv_data_space::Ptr{hypre_BoxArray}
+  identity_coord::hypre_Index
+  identity_dir::hypre_Index
+  identity_order::Ptr{HYPRE_Int}
 
-    hypre_CommPkg() = new()
+  hypre_CommPkg() = new()
 end
 
 type hypre_StructMatrix_struct
-    comm::MPI_Comm
-    grid::Ptr{hypre_StructGrid}
-    user_stencil::Ptr{hypre_StructStencil}
-    stencil::Ptr{hypre_StructStencil}
-    num_values::HYPRE_Int
-    data_space::Ptr{hypre_BoxArray}
-    data::Ptr{Cdouble}
-    data_alloced::HYPRE_Int
-    data_size::HYPRE_Int
-    data_indices::Ptr{Ptr{HYPRE_Int}}
-    constant_coefficient::HYPRE_Int
-    symmetric::HYPRE_Int
-    symm_elements::Ptr{HYPRE_Int}
-    num_ghost::Array_6_HYPRE_Int
-    global_size::HYPRE_Int
-    comm_pkg::Ptr{hypre_CommPkg}
-    ref_count::HYPRE_Int
+  comm::MPI_Comm
+  grid::Ptr{hypre_StructGrid}
+  user_stencil::Ptr{hypre_StructStencil}
+  stencil::Ptr{hypre_StructStencil}
+  num_values::HYPRE_Int
+  data_space::Ptr{hypre_BoxArray}
+  data::Ptr{Cdouble}
+  data_alloced::HYPRE_Int
+  data_size::HYPRE_Int
+  data_indices::Ptr{Ptr{HYPRE_Int}}
+  constant_coefficient::HYPRE_Int
+  symmetric::HYPRE_Int
+  symm_elements::Ptr{HYPRE_Int}
+  num_ghost::Array_6_HYPRE_Int
+  global_size::HYPRE_Int
+  comm_pkg::Ptr{hypre_CommPkg}
+  ref_count::HYPRE_Int
 
-    hypre_StructMatrix_struct() = new()
+  hypre_StructMatrix_struct() = new()
 end
 
 typealias HYPRE_StructMatrix Ptr{hypre_StructMatrix_struct}
 
 type hypre_CommPkg_struct
-    comm::MPI_Comm
-    first_comm::HYPRE_Int
-    num_values::HYPRE_Int
-    send_stride::hypre_Index
-    recv_stride::hypre_Index
-    send_bufsize::HYPRE_Int
-    recv_bufsize::HYPRE_Int
-    num_sends::HYPRE_Int
-    num_recvs::HYPRE_Int
-    send_types::Ptr{hypre_CommType}
-    recv_types::Ptr{hypre_CommType}
-    copy_from_type::Ptr{hypre_CommType}
-    copy_to_type::Ptr{hypre_CommType}
-    entries::Ptr{hypre_CommEntryType}
-    rem_boxnums::Ptr{HYPRE_Int}
-    rem_boxes::Ptr{hypre_Box}
-    num_orders::HYPRE_Int
-    orders::Ptr{Ptr{HYPRE_Int}}
-    recv_data_offsets::Ptr{HYPRE_Int}
-    recv_data_space::Ptr{hypre_BoxArray}
-    identity_coord::hypre_Index
-    identity_dir::hypre_Index
-    identity_order::Ptr{HYPRE_Int}
+  comm::MPI_Comm
+  first_comm::HYPRE_Int
+  num_values::HYPRE_Int
+  send_stride::hypre_Index
+  recv_stride::hypre_Index
+  send_bufsize::HYPRE_Int
+  recv_bufsize::HYPRE_Int
+  num_sends::HYPRE_Int
+  num_recvs::HYPRE_Int
+  send_types::Ptr{hypre_CommType}
+  recv_types::Ptr{hypre_CommType}
+  copy_from_type::Ptr{hypre_CommType}
+  copy_to_type::Ptr{hypre_CommType}
+  entries::Ptr{hypre_CommEntryType}
+  rem_boxnums::Ptr{HYPRE_Int}
+  rem_boxes::Ptr{hypre_Box}
+  num_orders::HYPRE_Int
+  orders::Ptr{Ptr{HYPRE_Int}}
+  recv_data_offsets::Ptr{HYPRE_Int}
+  recv_data_space::Ptr{hypre_BoxArray}
+  identity_coord::hypre_Index
+  identity_dir::hypre_Index
+  identity_order::Ptr{HYPRE_Int}
 
-    hypre_CommPkg_struct() = new()
+  hypre_CommPkg_struct() = new()
 end
 
 typealias HYPRE_CommPkg Ptr{hypre_CommPkg_struct}
 typealias HYPRE_SStructVariable HYPRE_Int
 
 immutable Array_8_Ptr
-    d1::Ptr{hypre_StructGrid}
-    d2::Ptr{hypre_StructGrid}
-    d3::Ptr{hypre_StructGrid}
-    d4::Ptr{hypre_StructGrid}
-    d5::Ptr{hypre_StructGrid}
-    d6::Ptr{hypre_StructGrid}
-    d7::Ptr{hypre_StructGrid}
-    d8::Ptr{hypre_StructGrid}
+  d1::Ptr{hypre_StructGrid}
+  d2::Ptr{hypre_StructGrid}
+  d3::Ptr{hypre_StructGrid}
+  d4::Ptr{hypre_StructGrid}
+  d5::Ptr{hypre_StructGrid}
+  d6::Ptr{hypre_StructGrid}
+  d7::Ptr{hypre_StructGrid}
+  d8::Ptr{hypre_StructGrid}
 end
 
 zero(::Type{Array_8_Ptr}) = Array_8_Ptr(fill(zero(Ptr{hypre_StructGrid}),8)...)
 
 type hypre_SStructPGrid
-    comm::MPI_Comm
-    ndim::HYPRE_Int
-    nvars::HYPRE_Int
-    vartypes::Ptr{HYPRE_SStructVariable}
-    sgrids::Array_8_Ptr
-    iboxarrays::Array_8_Ptr
-    pneighbors::Ptr{hypre_BoxArray}
-    pnbor_offsets::Ptr{hypre_Index}
-    local_size::HYPRE_Int
-    global_size::HYPRE_Int
-    periodic::hypre_Index
-    ghlocal_size::HYPRE_Int
-    cell_sgrid_done::HYPRE_Int
+  comm::MPI_Comm
+  ndim::HYPRE_Int
+  nvars::HYPRE_Int
+  vartypes::Ptr{HYPRE_SStructVariable}
+  sgrids::Array_8_Ptr
+  iboxarrays::Array_8_Ptr
+  pneighbors::Ptr{hypre_BoxArray}
+  pnbor_offsets::Ptr{hypre_Index}
+  local_size::HYPRE_Int
+  global_size::HYPRE_Int
+  periodic::hypre_Index
+  ghlocal_size::HYPRE_Int
+  cell_sgrid_done::HYPRE_Int
 
-    hypre_SStructPGrid() = new()
+  hypre_SStructPGrid() = new()
 end
 
 type hypre_SStructNeighbor
-    box::hypre_Box
-    part::HYPRE_Int
-    ilower::hypre_Index
-    coord::hypre_Index
-    dir::hypre_Index
+  box::hypre_Box
+  part::HYPRE_Int
+  ilower::hypre_Index
+  coord::hypre_Index
+  dir::hypre_Index
 
-    hypre_SStructNeighbor() = new()
+  hypre_SStructNeighbor() = new()
 end
 
 type hypre_BoxArrayArray
-    box_arrays::Ptr{Ptr{hypre_BoxArray}}
-    size::HYPRE_Int
+  box_arrays::Ptr{Ptr{hypre_BoxArray}}
+  size::HYPRE_Int
 
-    hypre_BoxArrayArray() = new()
+  hypre_BoxArrayArray() = new()
 end
 
 type hypre_CommInfo
-    send_boxes::Ptr{hypre_BoxArrayArray}
-    send_stride::hypre_Index
-    send_processes::Ptr{Ptr{HYPRE_Int}}
-    send_rboxnums::Ptr{Ptr{HYPRE_Int}}
-    send_rboxes::Ptr{hypre_BoxArrayArray}
-    recv_boxes::Ptr{hypre_BoxArrayArray}
-    recv_stride::hypre_Index
-    recv_processes::Ptr{Ptr{HYPRE_Int}}
-    recv_rboxnums::Ptr{Ptr{HYPRE_Int}}
-    recv_rboxes::Ptr{hypre_BoxArrayArray}
-    num_transforms::HYPRE_Int
-    coords::Ptr{hypre_Index}
-    dirs::Ptr{hypre_Index}
-    send_transforms::Ptr{Ptr{HYPRE_Int}}
-    recv_transforms::Ptr{Ptr{HYPRE_Int}}
-    boxes_match::HYPRE_Int
+  send_boxes::Ptr{hypre_BoxArrayArray}
+  send_stride::hypre_Index
+  send_processes::Ptr{Ptr{HYPRE_Int}}
+  send_rboxnums::Ptr{Ptr{HYPRE_Int}}
+  send_rboxes::Ptr{hypre_BoxArrayArray}
+  recv_boxes::Ptr{hypre_BoxArrayArray}
+  recv_stride::hypre_Index
+  recv_processes::Ptr{Ptr{HYPRE_Int}}
+  recv_rboxnums::Ptr{Ptr{HYPRE_Int}}
+  recv_rboxes::Ptr{hypre_BoxArrayArray}
+  num_transforms::HYPRE_Int
+  coords::Ptr{hypre_Index}
+  dirs::Ptr{hypre_Index}
+  send_transforms::Ptr{Ptr{HYPRE_Int}}
+  recv_transforms::Ptr{Ptr{HYPRE_Int}}
+  boxes_match::HYPRE_Int
 
-    hypre_CommInfo() = new()
+  hypre_CommInfo() = new()
 end
 
 type hypre_SStructCommInfo
-    comm_info::Ptr{hypre_CommInfo}
-    send_part::HYPRE_Int
-    recv_part::HYPRE_Int
-    send_var::HYPRE_Int
-    recv_var::HYPRE_Int
+  comm_info::Ptr{hypre_CommInfo}
+  send_part::HYPRE_Int
+  recv_part::HYPRE_Int
+  send_var::HYPRE_Int
+  recv_var::HYPRE_Int
 
-    hypre_SStructCommInfo() = new()
+  hypre_SStructCommInfo() = new()
 end
 
 type hypre_SStructUVar
-    _type::HYPRE_SStructVariable
-    rank::HYPRE_Int
-    proc::HYPRE_Int
+  _type::HYPRE_SStructVariable
+  rank::HYPRE_Int
+  proc::HYPRE_Int
 
-    hypre_SStructUVar() = new()
+  hypre_SStructUVar() = new()
 end
 
 type hypre_SStructUCVar
-    part::HYPRE_Int
-    cell::hypre_Index
-    nuvars::HYPRE_Int
-    uvars::Ptr{hypre_SStructUVar}
+  part::HYPRE_Int
+  cell::hypre_Index
+  nuvars::HYPRE_Int
+  uvars::Ptr{hypre_SStructUVar}
 
-    hypre_SStructUCVar() = new()
+  hypre_SStructUCVar() = new()
 end
 
 type hypre_SStructGrid_struct
-    comm::MPI_Comm
-    ndim::HYPRE_Int
-    nparts::HYPRE_Int
-    pgrids::Ptr{Ptr{hypre_SStructPGrid}}
-    nneighbors::Ptr{HYPRE_Int}
-    neighbors::Ptr{Ptr{hypre_SStructNeighbor}}
-    nbor_offsets::Ptr{Ptr{hypre_Index}}
-    nvneighbors::Ptr{Ptr{HYPRE_Int}}
-    vneighbors::Ptr{Ptr{Ptr{hypre_SStructNeighbor}}}
-    vnbor_comm_info::Ptr{Ptr{hypre_SStructCommInfo}}
-    vnbor_ncomms::HYPRE_Int
-    nucvars::HYPRE_Int
-    ucvars::Ptr{Ptr{hypre_SStructUCVar}}
-    fem_nvars::Ptr{HYPRE_Int}
-    fem_vars::Ptr{Ptr{HYPRE_Int}}
-    fem_offsets::Ptr{Ptr{hypre_Index}}
-    boxmans::Ptr{Ptr{Ptr{hypre_BoxManager}}}
-    nbor_boxmans::Ptr{Ptr{Ptr{hypre_BoxManager}}}
-    start_rank::HYPRE_Int
-    local_size::HYPRE_Int
-    global_size::HYPRE_Int
-    ref_count::HYPRE_Int
-    ghlocal_size::HYPRE_Int
-    ghstart_rank::HYPRE_Int
+  comm::MPI_Comm
+  ndim::HYPRE_Int
+  nparts::HYPRE_Int
+  pgrids::Ptr{Ptr{hypre_SStructPGrid}}
+  nneighbors::Ptr{HYPRE_Int}
+  neighbors::Ptr{Ptr{hypre_SStructNeighbor}}
+  nbor_offsets::Ptr{Ptr{hypre_Index}}
+  nvneighbors::Ptr{Ptr{HYPRE_Int}}
+  vneighbors::Ptr{Ptr{Ptr{hypre_SStructNeighbor}}}
+  vnbor_comm_info::Ptr{Ptr{hypre_SStructCommInfo}}
+  vnbor_ncomms::HYPRE_Int
+  nucvars::HYPRE_Int
+  ucvars::Ptr{Ptr{hypre_SStructUCVar}}
+  fem_nvars::Ptr{HYPRE_Int}
+  fem_vars::Ptr{Ptr{HYPRE_Int}}
+  fem_offsets::Ptr{Ptr{hypre_Index}}
+  boxmans::Ptr{Ptr{Ptr{hypre_BoxManager}}}
+  nbor_boxmans::Ptr{Ptr{Ptr{hypre_BoxManager}}}
+  start_rank::HYPRE_Int
+  local_size::HYPRE_Int
+  global_size::HYPRE_Int
+  ref_count::HYPRE_Int
+  ghlocal_size::HYPRE_Int
+  ghstart_rank::HYPRE_Int
 
-    hypre_SStructGrid_struct() = new()
+  hypre_SStructGrid_struct() = new()
 end
 
 typealias HYPRE_SStructGrid Ptr{hypre_SStructGrid_struct}
 
 type hypre_SStructStencil_struct
-    sstencil::Ptr{hypre_StructStencil}
-    vars::Ptr{HYPRE_Int}
-    ref_count::HYPRE_Int
+  sstencil::Ptr{hypre_StructStencil}
+  vars::Ptr{HYPRE_Int}
+  ref_count::HYPRE_Int
 
-    hypre_SStructStencil_struct() = new()
+  hypre_SStructStencil_struct() = new()
 end
 
 typealias HYPRE_SStructStencil Ptr{hypre_SStructStencil_struct}
 
 type hypre_SStructGrid
-    comm::MPI_Comm
-    ndim::HYPRE_Int
-    nparts::HYPRE_Int
-    pgrids::Ptr{Ptr{hypre_SStructPGrid}}
-    nneighbors::Ptr{HYPRE_Int}
-    neighbors::Ptr{Ptr{hypre_SStructNeighbor}}
-    nbor_offsets::Ptr{Ptr{hypre_Index}}
-    nvneighbors::Ptr{Ptr{HYPRE_Int}}
-    vneighbors::Ptr{Ptr{Ptr{hypre_SStructNeighbor}}}
-    vnbor_comm_info::Ptr{Ptr{hypre_SStructCommInfo}}
-    vnbor_ncomms::HYPRE_Int
-    nucvars::HYPRE_Int
-    ucvars::Ptr{Ptr{hypre_SStructUCVar}}
-    fem_nvars::Ptr{HYPRE_Int}
-    fem_vars::Ptr{Ptr{HYPRE_Int}}
-    fem_offsets::Ptr{Ptr{hypre_Index}}
-    boxmans::Ptr{Ptr{Ptr{hypre_BoxManager}}}
-    nbor_boxmans::Ptr{Ptr{Ptr{hypre_BoxManager}}}
-    start_rank::HYPRE_Int
-    local_size::HYPRE_Int
-    global_size::HYPRE_Int
-    ref_count::HYPRE_Int
-    ghlocal_size::HYPRE_Int
-    ghstart_rank::HYPRE_Int
+  comm::MPI_Comm
+  ndim::HYPRE_Int
+  nparts::HYPRE_Int
+  pgrids::Ptr{Ptr{hypre_SStructPGrid}}
+  nneighbors::Ptr{HYPRE_Int}
+  neighbors::Ptr{Ptr{hypre_SStructNeighbor}}
+  nbor_offsets::Ptr{Ptr{hypre_Index}}
+  nvneighbors::Ptr{Ptr{HYPRE_Int}}
+  vneighbors::Ptr{Ptr{Ptr{hypre_SStructNeighbor}}}
+  vnbor_comm_info::Ptr{Ptr{hypre_SStructCommInfo}}
+  vnbor_ncomms::HYPRE_Int
+  nucvars::HYPRE_Int
+  ucvars::Ptr{Ptr{hypre_SStructUCVar}}
+  fem_nvars::Ptr{HYPRE_Int}
+  fem_vars::Ptr{Ptr{HYPRE_Int}}
+  fem_offsets::Ptr{Ptr{hypre_Index}}
+  boxmans::Ptr{Ptr{Ptr{hypre_BoxManager}}}
+  nbor_boxmans::Ptr{Ptr{Ptr{hypre_BoxManager}}}
+  start_rank::HYPRE_Int
+  local_size::HYPRE_Int
+  global_size::HYPRE_Int
+  ref_count::HYPRE_Int
+  ghlocal_size::HYPRE_Int
+  ghstart_rank::HYPRE_Int
 
-    hypre_SStructGrid() = new()
+  hypre_SStructGrid() = new()
 end
 
 type hypre_SStructStencil
-    sstencil::Ptr{hypre_StructStencil}
-    vars::Ptr{HYPRE_Int}
-    ref_count::HYPRE_Int
+  sstencil::Ptr{hypre_StructStencil}
+  vars::Ptr{HYPRE_Int}
+  ref_count::HYPRE_Int
 
-    hypre_SStructStencil() = new()
+  hypre_SStructStencil() = new()
 end
 
 type hypre_SStructUEntry
-    to_part::HYPRE_Int
-    to_index::hypre_Index
-    to_var::HYPRE_Int
-    to_boxnum::HYPRE_Int
-    to_proc::HYPRE_Int
-    to_rank::HYPRE_Int
+  to_part::HYPRE_Int
+  to_index::hypre_Index
+  to_var::HYPRE_Int
+  to_boxnum::HYPRE_Int
+  to_proc::HYPRE_Int
+  to_rank::HYPRE_Int
 
-    hypre_SStructUEntry() = new()
+  hypre_SStructUEntry() = new()
 end
 
 type hypre_SStructUVEntry
-    part::HYPRE_Int
-    index::hypre_Index
-    var::HYPRE_Int
-    rank::HYPRE_Int
-    nUentries::HYPRE_Int
-    Uentries::Ptr{hypre_SStructUEntry}
+  part::HYPRE_Int
+  index::hypre_Index
+  var::HYPRE_Int
+  rank::HYPRE_Int
+  nUentries::HYPRE_Int
+  Uentries::Ptr{hypre_SStructUEntry}
 
-    hypre_SStructUVEntry() = new()
+  hypre_SStructUVEntry() = new()
 end
 
 type hypre_SStructGraphEntry
-    part::HYPRE_Int
-    index::hypre_Index
-    var::HYPRE_Int
-    to_part::HYPRE_Int
-    to_index::hypre_Index
-    to_var::HYPRE_Int
+  part::HYPRE_Int
+  index::hypre_Index
+  var::HYPRE_Int
+  to_part::HYPRE_Int
+  to_index::hypre_Index
+  to_var::HYPRE_Int
 
-    hypre_SStructGraphEntry() = new()
+  hypre_SStructGraphEntry() = new()
 end
 
 type hypre_SStructGraph_struct
-    comm::MPI_Comm
-    ndim::HYPRE_Int
-    grid::Ptr{hypre_SStructGrid}
-    domain_grid::Ptr{hypre_SStructGrid}
-    nparts::HYPRE_Int
-    pgrids::Ptr{Ptr{hypre_SStructPGrid}}
-    stencils::Ptr{Ptr{Ptr{hypre_SStructStencil}}}
-    fem_nsparse::Ptr{HYPRE_Int}
-    fem_sparse_i::Ptr{Ptr{HYPRE_Int}}
-    fem_sparse_j::Ptr{Ptr{HYPRE_Int}}
-    fem_entries::Ptr{Ptr{HYPRE_Int}}
-    nUventries::HYPRE_Int
-    iUventries::Ptr{HYPRE_Int}
-    Uventries::Ptr{Ptr{hypre_SStructUVEntry}}
-    Uvesize::HYPRE_Int
-    Uemaxsize::HYPRE_Int
-    Uveoffsets::Ptr{Ptr{HYPRE_Int}}
-    ref_count::HYPRE_Int
-    _type::HYPRE_Int
-    graph_entries::Ptr{Ptr{hypre_SStructGraphEntry}}
-    n_graph_entries::HYPRE_Int
-    a_graph_entries::HYPRE_Int
+  comm::MPI_Comm
+  ndim::HYPRE_Int
+  grid::Ptr{hypre_SStructGrid}
+  domain_grid::Ptr{hypre_SStructGrid}
+  nparts::HYPRE_Int
+  pgrids::Ptr{Ptr{hypre_SStructPGrid}}
+  stencils::Ptr{Ptr{Ptr{hypre_SStructStencil}}}
+  fem_nsparse::Ptr{HYPRE_Int}
+  fem_sparse_i::Ptr{Ptr{HYPRE_Int}}
+  fem_sparse_j::Ptr{Ptr{HYPRE_Int}}
+  fem_entries::Ptr{Ptr{HYPRE_Int}}
+  nUventries::HYPRE_Int
+  iUventries::Ptr{HYPRE_Int}
+  Uventries::Ptr{Ptr{hypre_SStructUVEntry}}
+  Uvesize::HYPRE_Int
+  Uemaxsize::HYPRE_Int
+  Uveoffsets::Ptr{Ptr{HYPRE_Int}}
+  ref_count::HYPRE_Int
+  _type::HYPRE_Int
+  graph_entries::Ptr{Ptr{hypre_SStructGraphEntry}}
+  n_graph_entries::HYPRE_Int
+  a_graph_entries::HYPRE_Int
 
-    hypre_SStructGraph_struct() = new()
+  hypre_SStructGraph_struct() = new()
 end
 
 typealias HYPRE_SStructGraph Ptr{hypre_SStructGraph_struct}
 
 type hypre_SStructGraph
-    comm::MPI_Comm
-    ndim::HYPRE_Int
-    grid::Ptr{hypre_SStructGrid}
-    domain_grid::Ptr{hypre_SStructGrid}
-    nparts::HYPRE_Int
-    pgrids::Ptr{Ptr{hypre_SStructPGrid}}
-    stencils::Ptr{Ptr{Ptr{hypre_SStructStencil}}}
-    fem_nsparse::Ptr{HYPRE_Int}
-    fem_sparse_i::Ptr{Ptr{HYPRE_Int}}
-    fem_sparse_j::Ptr{Ptr{HYPRE_Int}}
-    fem_entries::Ptr{Ptr{HYPRE_Int}}
-    nUventries::HYPRE_Int
-    iUventries::Ptr{HYPRE_Int}
-    Uventries::Ptr{Ptr{hypre_SStructUVEntry}}
-    Uvesize::HYPRE_Int
-    Uemaxsize::HYPRE_Int
-    Uveoffsets::Ptr{Ptr{HYPRE_Int}}
-    ref_count::HYPRE_Int
-    _type::HYPRE_Int
-    graph_entries::Ptr{Ptr{hypre_SStructGraphEntry}}
-    n_graph_entries::HYPRE_Int
-    a_graph_entries::HYPRE_Int
+  comm::MPI_Comm
+  ndim::HYPRE_Int
+  grid::Ptr{hypre_SStructGrid}
+  domain_grid::Ptr{hypre_SStructGrid}
+  nparts::HYPRE_Int
+  pgrids::Ptr{Ptr{hypre_SStructPGrid}}
+  stencils::Ptr{Ptr{Ptr{hypre_SStructStencil}}}
+  fem_nsparse::Ptr{HYPRE_Int}
+  fem_sparse_i::Ptr{Ptr{HYPRE_Int}}
+  fem_sparse_j::Ptr{Ptr{HYPRE_Int}}
+  fem_entries::Ptr{Ptr{HYPRE_Int}}
+  nUventries::HYPRE_Int
+  iUventries::Ptr{HYPRE_Int}
+  Uventries::Ptr{Ptr{hypre_SStructUVEntry}}
+  Uvesize::HYPRE_Int
+  Uemaxsize::HYPRE_Int
+  Uveoffsets::Ptr{Ptr{HYPRE_Int}}
+  ref_count::HYPRE_Int
+  _type::HYPRE_Int
+  graph_entries::Ptr{Ptr{hypre_SStructGraphEntry}}
+  n_graph_entries::HYPRE_Int
+  a_graph_entries::HYPRE_Int
 
-    hypre_SStructGraph() = new()
+  hypre_SStructGraph() = new()
 end
 
 type hypre_StructMatrix
-    comm::MPI_Comm
-    grid::Ptr{hypre_StructGrid}
-    user_stencil::Ptr{hypre_StructStencil}
-    stencil::Ptr{hypre_StructStencil}
-    num_values::HYPRE_Int
-    data_space::Ptr{hypre_BoxArray}
-    data::Ptr{Cdouble}
-    data_alloced::HYPRE_Int
-    data_size::HYPRE_Int
-    data_indices::Ptr{Ptr{HYPRE_Int}}
-    constant_coefficient::HYPRE_Int
-    symmetric::HYPRE_Int
-    symm_elements::Ptr{HYPRE_Int}
-    num_ghost::Array_6_HYPRE_Int
-    global_size::HYPRE_Int
-    comm_pkg::Ptr{hypre_CommPkg}
-    ref_count::HYPRE_Int
+  comm::MPI_Comm
+  grid::Ptr{hypre_StructGrid}
+  user_stencil::Ptr{hypre_StructStencil}
+  stencil::Ptr{hypre_StructStencil}
+  num_values::HYPRE_Int
+  data_space::Ptr{hypre_BoxArray}
+  data::Ptr{Cdouble}
+  data_alloced::HYPRE_Int
+  data_size::HYPRE_Int
+  data_indices::Ptr{Ptr{HYPRE_Int}}
+  constant_coefficient::HYPRE_Int
+  symmetric::HYPRE_Int
+  symm_elements::Ptr{HYPRE_Int}
+  num_ghost::Array_6_HYPRE_Int
+  global_size::HYPRE_Int
+  comm_pkg::Ptr{hypre_CommPkg}
+  ref_count::HYPRE_Int
 
-    hypre_StructMatrix() = new()
+  hypre_StructMatrix() = new()
 end
 
 type hypre_SStructPMatrix
-    comm::MPI_Comm
-    pgrid::Ptr{hypre_SStructPGrid}
-    stencils::Ptr{Ptr{hypre_SStructStencil}}
-    nvars::HYPRE_Int
-    smaps::Ptr{Ptr{HYPRE_Int}}
-    sstencils::Ptr{Ptr{Ptr{hypre_StructStencil}}}
-    smatrices::Ptr{Ptr{Ptr{hypre_StructMatrix}}}
-    symmetric::Ptr{Ptr{HYPRE_Int}}
-    sentries_size::HYPRE_Int
-    sentries::Ptr{HYPRE_Int}
-    accumulated::HYPRE_Int
-    iscomplex::HYPRE_Int
-    ref_count::HYPRE_Int
+  comm::MPI_Comm
+  pgrid::Ptr{hypre_SStructPGrid}
+  stencils::Ptr{Ptr{hypre_SStructStencil}}
+  nvars::HYPRE_Int
+  smaps::Ptr{Ptr{HYPRE_Int}}
+  sstencils::Ptr{Ptr{Ptr{hypre_StructStencil}}}
+  smatrices::Ptr{Ptr{Ptr{hypre_StructMatrix}}}
+  symmetric::Ptr{Ptr{HYPRE_Int}}
+  sentries_size::HYPRE_Int
+  sentries::Ptr{HYPRE_Int}
+  accumulated::HYPRE_Int
+  iscomplex::HYPRE_Int
+  ref_count::HYPRE_Int
 
-    hypre_SStructPMatrix() = new()
+  hypre_SStructPMatrix() = new()
 end
 
 type hypre_SStructMatrix_struct
-    comm::MPI_Comm
-    ndim::HYPRE_Int
-    graph::Ptr{hypre_SStructGraph}
-    splits::Ptr{Ptr{Ptr{HYPRE_Int}}}
-    nparts::HYPRE_Int
-    pmatrices::Ptr{Ptr{hypre_SStructPMatrix}}
-    symmetric::Ptr{Ptr{Ptr{HYPRE_Int}}}
-    ijmatrix::HYPRE_IJMatrix
-    parcsrmatrix::Ptr{hypre_ParCSRMatrix}
-    entries_size::HYPRE_Int
-    Sentries::Ptr{HYPRE_Int}
-    Uentries::Ptr{HYPRE_Int}
-    tmp_col_coords::Ptr{HYPRE_Int}
-    tmp_coeffs::Ptr{Cdouble}
-    ns_symmetric::HYPRE_Int
-    iscomplex::HYPRE_Int
-    global_size::HYPRE_Int
-    ref_count::HYPRE_Int
-    object_type::HYPRE_Int
+  comm::MPI_Comm
+  ndim::HYPRE_Int
+  graph::Ptr{hypre_SStructGraph}
+  splits::Ptr{Ptr{Ptr{HYPRE_Int}}}
+  nparts::HYPRE_Int
+  pmatrices::Ptr{Ptr{hypre_SStructPMatrix}}
+  symmetric::Ptr{Ptr{Ptr{HYPRE_Int}}}
+  ijmatrix::HYPRE_IJMatrix
+  parcsrmatrix::Ptr{hypre_ParCSRMatrix}
+  entries_size::HYPRE_Int
+  Sentries::Ptr{HYPRE_Int}
+  Uentries::Ptr{HYPRE_Int}
+  tmp_col_coords::Ptr{HYPRE_Int}
+  tmp_coeffs::Ptr{Cdouble}
+  ns_symmetric::HYPRE_Int
+  iscomplex::HYPRE_Int
+  global_size::HYPRE_Int
+  ref_count::HYPRE_Int
+  object_type::HYPRE_Int
 
-    hypre_SStructMatrix_struct() = new()
+  hypre_SStructMatrix_struct() = new()
 end
 
 typealias HYPRE_SStructMatrix Ptr{hypre_SStructMatrix_struct}
 
 type hypre_StructVector
-    comm::MPI_Comm
-    grid::Ptr{hypre_StructGrid}
-    data_space::Ptr{hypre_BoxArray}
-    data::Ptr{Cdouble}
-    data_alloced::HYPRE_Int
-    data_size::HYPRE_Int
-    data_indices::Ptr{HYPRE_Int}
-    num_ghost::Array_6_HYPRE_Int
-    bghost_not_clear::HYPRE_Int
-    global_size::HYPRE_Int
-    ref_count::HYPRE_Int
+  comm::MPI_Comm
+  grid::Ptr{hypre_StructGrid}
+  data_space::Ptr{hypre_BoxArray}
+  data::Ptr{Cdouble}
+  data_alloced::HYPRE_Int
+  data_size::HYPRE_Int
+  data_indices::Ptr{HYPRE_Int}
+  num_ghost::Array_6_HYPRE_Int
+  bghost_not_clear::HYPRE_Int
+  global_size::HYPRE_Int
+  ref_count::HYPRE_Int
 
-    hypre_StructVector() = new()
+  hypre_StructVector() = new()
 end
 
 type hypre_SStructPVector
-    comm::MPI_Comm
-    pgrid::Ptr{hypre_SStructPGrid}
-    nvars::HYPRE_Int
-    svectors::Ptr{Ptr{hypre_StructVector}}
-    comm_pkgs::Ptr{Ptr{hypre_CommPkg}}
-    accumulated::HYPRE_Int
-    iscomplex::HYPRE_Int
-    ref_count::HYPRE_Int
-    dataindices::Ptr{HYPRE_Int}
-    datasize::HYPRE_Int
+  comm::MPI_Comm
+  pgrid::Ptr{hypre_SStructPGrid}
+  nvars::HYPRE_Int
+  svectors::Ptr{Ptr{hypre_StructVector}}
+  comm_pkgs::Ptr{Ptr{hypre_CommPkg}}
+  accumulated::HYPRE_Int
+  iscomplex::HYPRE_Int
+  ref_count::HYPRE_Int
+  dataindices::Ptr{HYPRE_Int}
+  datasize::HYPRE_Int
 
-    hypre_SStructPVector() = new()
+  hypre_SStructPVector() = new()
 end
 
 type hypre_SStructVector_struct
-    comm::MPI_Comm
-    ndim::HYPRE_Int
-    grid::Ptr{hypre_SStructGrid}
-    object_type::HYPRE_Int
-    nparts::HYPRE_Int
-    pvectors::Ptr{Ptr{hypre_SStructPVector}}
-    comm_pkgs::Ptr{Ptr{Ptr{hypre_CommPkg}}}
-    ijvector::HYPRE_IJVector
-    parvector::Ptr{hypre_ParVector}
-    nbor_ncomms::HYPRE_Int
-    data::Ptr{Cdouble}
-    dataindices::Ptr{HYPRE_Int}
-    datasize::HYPRE_Int
-    iscomplex::HYPRE_Int
-    global_size::HYPRE_Int
-    ref_count::HYPRE_Int
+  comm::MPI_Comm
+  ndim::HYPRE_Int
+  grid::Ptr{hypre_SStructGrid}
+  object_type::HYPRE_Int
+  nparts::HYPRE_Int
+  pvectors::Ptr{Ptr{hypre_SStructPVector}}
+  comm_pkgs::Ptr{Ptr{Ptr{hypre_CommPkg}}}
+  ijvector::HYPRE_IJVector
+  parvector::Ptr{hypre_ParVector}
+  nbor_ncomms::HYPRE_Int
+  data::Ptr{Cdouble}
+  dataindices::Ptr{HYPRE_Int}
+  datasize::HYPRE_Int
+  iscomplex::HYPRE_Int
+  global_size::HYPRE_Int
+  ref_count::HYPRE_Int
 
-    hypre_SStructVector_struct() = new()
+  hypre_SStructVector_struct() = new()
 end
 
 typealias HYPRE_SStructVector Ptr{hypre_SStructVector_struct}
@@ -3802,137 +3802,137 @@ typealias HYPRE_PtrToStructSolverFcn Ptr{Void}
 typealias hypre_IndexRef Ptr{HYPRE_Int}
 
 type hypre_Box_struct
-    imin::hypre_Index
-    imax::hypre_Index
+  imin::hypre_Index
+  imax::hypre_Index
 
-    hypre_Box_struct() = new()
+  hypre_Box_struct() = new()
 end
 
 type hypre_BoxArray_struct
-    boxes::Ptr{hypre_Box}
-    size::HYPRE_Int
-    alloc_size::HYPRE_Int
+  boxes::Ptr{hypre_Box}
+  size::HYPRE_Int
+  alloc_size::HYPRE_Int
 
-    hypre_BoxArray_struct() = new()
+  hypre_BoxArray_struct() = new()
 end
 
 type hypre_BoxArrayArray_struct
-    box_arrays::Ptr{Ptr{hypre_BoxArray}}
-    size::HYPRE_Int
+  box_arrays::Ptr{Ptr{hypre_BoxArray}}
+  size::HYPRE_Int
 
-    hypre_BoxArrayArray_struct() = new()
+  hypre_BoxArrayArray_struct() = new()
 end
 
 type hypre_CommInfo_struct
-    send_boxes::Ptr{hypre_BoxArrayArray}
-    send_stride::hypre_Index
-    send_processes::Ptr{Ptr{HYPRE_Int}}
-    send_rboxnums::Ptr{Ptr{HYPRE_Int}}
-    send_rboxes::Ptr{hypre_BoxArrayArray}
-    recv_boxes::Ptr{hypre_BoxArrayArray}
-    recv_stride::hypre_Index
-    recv_processes::Ptr{Ptr{HYPRE_Int}}
-    recv_rboxnums::Ptr{Ptr{HYPRE_Int}}
-    recv_rboxes::Ptr{hypre_BoxArrayArray}
-    num_transforms::HYPRE_Int
-    coords::Ptr{hypre_Index}
-    dirs::Ptr{hypre_Index}
-    send_transforms::Ptr{Ptr{HYPRE_Int}}
-    recv_transforms::Ptr{Ptr{HYPRE_Int}}
-    boxes_match::HYPRE_Int
+  send_boxes::Ptr{hypre_BoxArrayArray}
+  send_stride::hypre_Index
+  send_processes::Ptr{Ptr{HYPRE_Int}}
+  send_rboxnums::Ptr{Ptr{HYPRE_Int}}
+  send_rboxes::Ptr{hypre_BoxArrayArray}
+  recv_boxes::Ptr{hypre_BoxArrayArray}
+  recv_stride::hypre_Index
+  recv_processes::Ptr{Ptr{HYPRE_Int}}
+  recv_rboxnums::Ptr{Ptr{HYPRE_Int}}
+  recv_rboxes::Ptr{hypre_BoxArrayArray}
+  num_transforms::HYPRE_Int
+  coords::Ptr{hypre_Index}
+  dirs::Ptr{hypre_Index}
+  send_transforms::Ptr{Ptr{HYPRE_Int}}
+  recv_transforms::Ptr{Ptr{HYPRE_Int}}
+  boxes_match::HYPRE_Int
 
-    hypre_CommInfo_struct() = new()
+  hypre_CommInfo_struct() = new()
 end
 
 type hypre_CommEntryType_struct
-    offset::HYPRE_Int
-    dim::HYPRE_Int
-    length_array::Array_3_HYPRE_Int
-    stride_array::Array_4_HYPRE_Int
-    order::Ptr{HYPRE_Int}
+  offset::HYPRE_Int
+  dim::HYPRE_Int
+  length_array::Array_3_HYPRE_Int
+  stride_array::Array_4_HYPRE_Int
+  order::Ptr{HYPRE_Int}
 
-    hypre_CommEntryType_struct() = new()
+  hypre_CommEntryType_struct() = new()
 end
 
 type hypre_CommType_struct
-    proc::HYPRE_Int
-    bufsize::HYPRE_Int
-    num_entries::HYPRE_Int
-    entries::Ptr{hypre_CommEntryType}
-    rem_boxnums::Ptr{HYPRE_Int}
-    rem_boxes::Ptr{hypre_Box}
+  proc::HYPRE_Int
+  bufsize::HYPRE_Int
+  num_entries::HYPRE_Int
+  entries::Ptr{hypre_CommEntryType}
+  rem_boxnums::Ptr{HYPRE_Int}
+  rem_boxes::Ptr{hypre_Box}
 
-    hypre_CommType_struct() = new()
+  hypre_CommType_struct() = new()
 end
 
 type hypre_CommHandle_struct
-    comm_pkg::Ptr{hypre_CommPkg}
-    send_data::Ptr{Cdouble}
-    recv_data::Ptr{Cdouble}
-    num_requests::HYPRE_Int
-    requests::Ptr{hypre_MPI_Request}
-    status::Ptr{hypre_MPI_Status}
-    send_buffers::Ptr{Ptr{Cdouble}}
-    recv_buffers::Ptr{Ptr{Cdouble}}
-    action::HYPRE_Int
+  comm_pkg::Ptr{hypre_CommPkg}
+  send_data::Ptr{Cdouble}
+  recv_data::Ptr{Cdouble}
+  num_requests::HYPRE_Int
+  requests::Ptr{hypre_MPI_Request}
+  status::Ptr{hypre_MPI_Status}
+  send_buffers::Ptr{Ptr{Cdouble}}
+  recv_buffers::Ptr{Ptr{Cdouble}}
+  action::HYPRE_Int
 
-    hypre_CommHandle_struct() = new()
+  hypre_CommHandle_struct() = new()
 end
 
 type hypre_CommHandle
-    comm_pkg::Ptr{hypre_CommPkg}
-    send_data::Ptr{Cdouble}
-    recv_data::Ptr{Cdouble}
-    num_requests::HYPRE_Int
-    requests::Ptr{hypre_MPI_Request}
-    status::Ptr{hypre_MPI_Status}
-    send_buffers::Ptr{Ptr{Cdouble}}
-    recv_buffers::Ptr{Ptr{Cdouble}}
-    action::HYPRE_Int
+  comm_pkg::Ptr{hypre_CommPkg}
+  send_data::Ptr{Cdouble}
+  recv_data::Ptr{Cdouble}
+  num_requests::HYPRE_Int
+  requests::Ptr{hypre_MPI_Request}
+  status::Ptr{hypre_MPI_Status}
+  send_buffers::Ptr{Ptr{Cdouble}}
+  recv_buffers::Ptr{Ptr{Cdouble}}
+  action::HYPRE_Int
 
-    hypre_CommHandle() = new()
+  hypre_CommHandle() = new()
 end
 
 type hypre_ComputeInfo_struct
-    comm_info::Ptr{hypre_CommInfo}
-    indt_boxes::Ptr{hypre_BoxArrayArray}
-    dept_boxes::Ptr{hypre_BoxArrayArray}
-    stride::hypre_Index
+  comm_info::Ptr{hypre_CommInfo}
+  indt_boxes::Ptr{hypre_BoxArrayArray}
+  dept_boxes::Ptr{hypre_BoxArrayArray}
+  stride::hypre_Index
 
-    hypre_ComputeInfo_struct() = new()
+  hypre_ComputeInfo_struct() = new()
 end
 
 type hypre_ComputeInfo
-    comm_info::Ptr{hypre_CommInfo}
-    indt_boxes::Ptr{hypre_BoxArrayArray}
-    dept_boxes::Ptr{hypre_BoxArrayArray}
-    stride::hypre_Index
+  comm_info::Ptr{hypre_CommInfo}
+  indt_boxes::Ptr{hypre_BoxArrayArray}
+  dept_boxes::Ptr{hypre_BoxArrayArray}
+  stride::hypre_Index
 
-    hypre_ComputeInfo() = new()
+  hypre_ComputeInfo() = new()
 end
 
 type hypre_ComputePkg_struct
-    comm_pkg::Ptr{hypre_CommPkg}
-    indt_boxes::Ptr{hypre_BoxArrayArray}
-    dept_boxes::Ptr{hypre_BoxArrayArray}
-    stride::hypre_Index
-    grid::Ptr{hypre_StructGrid}
-    data_space::Ptr{hypre_BoxArray}
-    num_values::HYPRE_Int
+  comm_pkg::Ptr{hypre_CommPkg}
+  indt_boxes::Ptr{hypre_BoxArrayArray}
+  dept_boxes::Ptr{hypre_BoxArrayArray}
+  stride::hypre_Index
+  grid::Ptr{hypre_StructGrid}
+  data_space::Ptr{hypre_BoxArray}
+  num_values::HYPRE_Int
 
-    hypre_ComputePkg_struct() = new()
+  hypre_ComputePkg_struct() = new()
 end
 
 type hypre_ComputePkg
-    comm_pkg::Ptr{hypre_CommPkg}
-    indt_boxes::Ptr{hypre_BoxArrayArray}
-    dept_boxes::Ptr{hypre_BoxArrayArray}
-    stride::hypre_Index
-    grid::Ptr{hypre_StructGrid}
-    data_space::Ptr{hypre_BoxArray}
-    num_values::HYPRE_Int
+  comm_pkg::Ptr{hypre_CommPkg}
+  indt_boxes::Ptr{hypre_BoxArrayArray}
+  dept_boxes::Ptr{hypre_BoxArrayArray}
+  stride::hypre_Index
+  grid::Ptr{hypre_StructGrid}
+  data_space::Ptr{hypre_BoxArray}
+  num_values::HYPRE_Int
 
-    hypre_ComputePkg() = new()
+  hypre_ComputePkg() = new()
 end
 
 type hypre_SStructSolver_struct
@@ -3949,83 +3949,83 @@ const hypre_SSTRUCT_BOXMAN_INFO_NEIGHBOR = (uint32)(1)
 # end enum hypre_SStructBoxManInfoType
 
 type hypre_SStructBoxManInfo
-    _type::HYPRE_Int
-    offset::HYPRE_Int
-    ghoffset::HYPRE_Int
+  _type::HYPRE_Int
+  offset::HYPRE_Int
+  ghoffset::HYPRE_Int
 
-    hypre_SStructBoxManInfo() = new()
+  hypre_SStructBoxManInfo() = new()
 end
 
 type hypre_SStructBoxManNborInfo
-    _type::HYPRE_Int
-    offset::HYPRE_Int
-    ghoffset::HYPRE_Int
-    proc::HYPRE_Int
-    boxnum::HYPRE_Int
-    part::HYPRE_Int
-    ilower::hypre_Index
-    coord::hypre_Index
-    dir::hypre_Index
-    stride::hypre_Index
-    ghstride::hypre_Index
+  _type::HYPRE_Int
+  offset::HYPRE_Int
+  ghoffset::HYPRE_Int
+  proc::HYPRE_Int
+  boxnum::HYPRE_Int
+  part::HYPRE_Int
+  ilower::hypre_Index
+  coord::hypre_Index
+  dir::hypre_Index
+  stride::hypre_Index
+  ghstride::hypre_Index
 
-    hypre_SStructBoxManNborInfo() = new()
+  hypre_SStructBoxManNborInfo() = new()
 end
 
 type hypre_SStructMatrix
-    comm::MPI_Comm
-    ndim::HYPRE_Int
-    graph::Ptr{hypre_SStructGraph}
-    splits::Ptr{Ptr{Ptr{HYPRE_Int}}}
-    nparts::HYPRE_Int
-    pmatrices::Ptr{Ptr{hypre_SStructPMatrix}}
-    symmetric::Ptr{Ptr{Ptr{HYPRE_Int}}}
-    ijmatrix::HYPRE_IJMatrix
-    parcsrmatrix::Ptr{hypre_ParCSRMatrix}
-    entries_size::HYPRE_Int
-    Sentries::Ptr{HYPRE_Int}
-    Uentries::Ptr{HYPRE_Int}
-    tmp_col_coords::Ptr{HYPRE_Int}
-    tmp_coeffs::Ptr{Cdouble}
-    ns_symmetric::HYPRE_Int
-    iscomplex::HYPRE_Int
-    global_size::HYPRE_Int
-    ref_count::HYPRE_Int
-    object_type::HYPRE_Int
+  comm::MPI_Comm
+  ndim::HYPRE_Int
+  graph::Ptr{hypre_SStructGraph}
+  splits::Ptr{Ptr{Ptr{HYPRE_Int}}}
+  nparts::HYPRE_Int
+  pmatrices::Ptr{Ptr{hypre_SStructPMatrix}}
+  symmetric::Ptr{Ptr{Ptr{HYPRE_Int}}}
+  ijmatrix::HYPRE_IJMatrix
+  parcsrmatrix::Ptr{hypre_ParCSRMatrix}
+  entries_size::HYPRE_Int
+  Sentries::Ptr{HYPRE_Int}
+  Uentries::Ptr{HYPRE_Int}
+  tmp_col_coords::Ptr{HYPRE_Int}
+  tmp_coeffs::Ptr{Cdouble}
+  ns_symmetric::HYPRE_Int
+  iscomplex::HYPRE_Int
+  global_size::HYPRE_Int
+  ref_count::HYPRE_Int
+  object_type::HYPRE_Int
 
-    hypre_SStructMatrix() = new()
+  hypre_SStructMatrix() = new()
 end
 
 type hypre_SStructVector
-    comm::MPI_Comm
-    ndim::HYPRE_Int
-    grid::Ptr{hypre_SStructGrid}
-    object_type::HYPRE_Int
-    nparts::HYPRE_Int
-    pvectors::Ptr{Ptr{hypre_SStructPVector}}
-    comm_pkgs::Ptr{Ptr{Ptr{hypre_CommPkg}}}
-    ijvector::HYPRE_IJVector
-    parvector::Ptr{hypre_ParVector}
-    nbor_ncomms::HYPRE_Int
-    data::Ptr{Cdouble}
-    dataindices::Ptr{HYPRE_Int}
-    datasize::HYPRE_Int
-    iscomplex::HYPRE_Int
-    global_size::HYPRE_Int
-    ref_count::HYPRE_Int
+  comm::MPI_Comm
+  ndim::HYPRE_Int
+  grid::Ptr{hypre_SStructGrid}
+  object_type::HYPRE_Int
+  nparts::HYPRE_Int
+  pvectors::Ptr{Ptr{hypre_SStructPVector}}
+  comm_pkgs::Ptr{Ptr{Ptr{hypre_CommPkg}}}
+  ijvector::HYPRE_IJVector
+  parvector::Ptr{hypre_ParVector}
+  nbor_ncomms::HYPRE_Int
+  data::Ptr{Cdouble}
+  dataindices::Ptr{HYPRE_Int}
+  datasize::HYPRE_Int
+  iscomplex::HYPRE_Int
+  global_size::HYPRE_Int
+  ref_count::HYPRE_Int
 
-    hypre_SStructVector() = new()
+  hypre_SStructVector() = new()
 end
 
 type mv_TempMultiVector
-    numVectors::hypre_longint
-    mask::Ptr{HYPRE_Int}
-    vector::Ptr{Ptr{Void}}
-    ownsVectors::HYPRE_Int
-    ownsMask::HYPRE_Int
-    interpreter::Ptr{mv_InterfaceInterpreter}
+  numVectors::hypre_longint
+  mask::Ptr{HYPRE_Int}
+  vector::Ptr{Ptr{Void}}
+  ownsVectors::HYPRE_Int
+  ownsMask::HYPRE_Int
+  interpreter::Ptr{mv_InterfaceInterpreter}
 
-    mv_TempMultiVector() = new()
+  mv_TempMultiVector() = new()
 end
 
 typealias mv_TempMultiVectorPtr Ptr{mv_TempMultiVector}
@@ -4052,16 +4052,16 @@ const HYPRE = (int32)(2)
 # Skipping MacroDefinition: hypre_ParMultiVectorNumVectors ( vector ) ( ( vector ) -> num_vectors )
 
 type hypre_ParMultivector
-    comm::MPI_Comm
-    global_size::HYPRE_Int
-    first_index::HYPRE_Int
-    partitioning::Ptr{HYPRE_Int}
-    owns_data::HYPRE_Int
-    owns_partitioning::HYPRE_Int
-    num_vectors::HYPRE_Int
-    local_vector::Ptr{Cint}
+  comm::MPI_Comm
+  global_size::HYPRE_Int
+  first_index::HYPRE_Int
+  partitioning::Ptr{HYPRE_Int}
+  owns_data::HYPRE_Int
+  owns_partitioning::HYPRE_Int
+  num_vectors::HYPRE_Int
+  local_vector::Ptr{Cint}
 
-    hypre_ParMultivector() = new()
+  hypre_ParMultivector() = new()
 end
 
 # Skipping MacroDefinition: hypre_MultivectorData ( vector ) ( ( vector ) -> data )
@@ -4070,14 +4070,14 @@ end
 # Skipping MacroDefinition: hypre_MultivectorNumVectors ( vector ) ( ( vector ) -> num_vectors )
 
 type hypre_Multivector
-    data::Ptr{Cdouble}
-    size::Cint
-    owns_data::Cint
-    num_vectors::Cint
-    num_active_vectors::Cint
-    active_indices::Ptr{Cint}
+  data::Ptr{Cdouble}
+  size::Cint
+  owns_data::Cint
+  num_vectors::Cint
+  num_active_vectors::Cint
+  active_indices::Ptr{Cint}
 
-    hypre_Multivector() = new()
+  hypre_Multivector() = new()
 end
 
 const ADD_ = 0
@@ -4095,10 +4095,10 @@ const F77_CALL_C = ADD_
 # Skipping MacroDefinition: z_eq ( a , b ) ( ( a ) -> r == ( b ) -> r && ( a ) -> i == ( b ) -> i )
 
 type doublecomplex
-    r::Cdouble
-    i::Cdouble
+  r::Cdouble
+  i::Cdouble
 
-    doublecomplex() = new()
+  doublecomplex() = new()
 end
 
 # Skipping MacroDefinition: c_add ( c , a , b ) { ( c ) -> r = ( a ) -> r + ( b ) -> r ; ( c ) -> i = ( a ) -> i + ( b ) -> i ; }
@@ -4109,10 +4109,10 @@ end
 # Skipping MacroDefinition: c_eq ( a , b ) ( ( a ) -> r == ( b ) -> r && ( a ) -> i == ( b ) -> i )
 
 type complex
-    r::Cfloat
-    i::Cfloat
+  r::Cfloat
+  i::Cfloat
 
-    complex() = new()
+  complex() = new()
 end
 
 # Skipping MacroDefinition: FIRSTCOL_OF_SNODE ( i ) ( xsup [ i ] )
@@ -4317,32 +4317,32 @@ typealias flops_t Cfloat
 typealias Logical Cuchar
 
 type superlu_options_t
-    Fact::fact_t
-    Equil::yes_no_t
-    ColPerm::colperm_t
-    Trans::trans_t
-    IterRefine::IterRefine_t
-    PrintStat::yes_no_t
-    SymmetricMode::yes_no_t
-    DiagPivotThresh::Cdouble
-    PivotGrowth::yes_no_t
-    ConditionNumber::yes_no_t
-    RowPerm::rowperm_t
-    ReplaceTinyPivot::yes_no_t
-    SolveInitialized::yes_no_t
-    RefineInitialized::yes_no_t
+  Fact::fact_t
+  Equil::yes_no_t
+  ColPerm::colperm_t
+  Trans::trans_t
+  IterRefine::IterRefine_t
+  PrintStat::yes_no_t
+  SymmetricMode::yes_no_t
+  DiagPivotThresh::Cdouble
+  PivotGrowth::yes_no_t
+  ConditionNumber::yes_no_t
+  RowPerm::rowperm_t
+  ReplaceTinyPivot::yes_no_t
+  SolveInitialized::yes_no_t
+  RefineInitialized::yes_no_t
 
-    superlu_options_t() = new()
+  superlu_options_t() = new()
 end
 
 type SuperLUStat_t
-    panel_histo::Ptr{Cint}
-    utime::Ptr{Cdouble}
-    ops::Ptr{flops_t}
-    TinyPivots::Cint
-    RefineSteps::Cint
+  panel_histo::Ptr{Cint}
+  utime::Ptr{Cdouble}
+  ops::Ptr{flops_t}
+  TinyPivots::Cint
+  RefineSteps::Cint
 
-    SuperLUStat_t() = new()
+  SuperLUStat_t() = new()
 end
 
 # Skipping MacroDefinition: L_SUB_START ( col ) ( Lstore -> rowind_colptr [ col ] )
@@ -4415,62 +4415,62 @@ const SLU_HEU = (uint32)(8)
 # end enum Mtype_t
 
 type SuperMatrix
-    Stype::Stype_t
-    Dtype::Dtype_t
-    Mtype::Mtype_t
-    nrow::Cint
-    ncol::Cint
-    Store::Ptr{Void}
+  Stype::Stype_t
+  Dtype::Dtype_t
+  Mtype::Mtype_t
+  nrow::Cint
+  ncol::Cint
+  Store::Ptr{Void}
 
-    SuperMatrix() = new()
+  SuperMatrix() = new()
 end
 
 type NCformat
-    nnz::Cint
-    nzval::Ptr{Void}
-    rowind::Ptr{Cint}
-    colptr::Ptr{Cint}
+  nnz::Cint
+  nzval::Ptr{Void}
+  rowind::Ptr{Cint}
+  colptr::Ptr{Cint}
 
-    NCformat() = new()
+  NCformat() = new()
 end
 
 type NRformat
-    nnz::Cint
-    nzval::Ptr{Void}
-    colind::Ptr{Cint}
-    rowptr::Ptr{Cint}
+  nnz::Cint
+  nzval::Ptr{Void}
+  colind::Ptr{Cint}
+  rowptr::Ptr{Cint}
 
-    NRformat() = new()
+  NRformat() = new()
 end
 
 type SCformat
-    nnz::Cint
-    nsuper::Cint
-    nzval::Ptr{Void}
-    nzval_colptr::Ptr{Cint}
-    rowind::Ptr{Cint}
-    rowind_colptr::Ptr{Cint}
-    col_to_sup::Ptr{Cint}
-    sup_to_col::Ptr{Cint}
+  nnz::Cint
+  nsuper::Cint
+  nzval::Ptr{Void}
+  nzval_colptr::Ptr{Cint}
+  rowind::Ptr{Cint}
+  rowind_colptr::Ptr{Cint}
+  col_to_sup::Ptr{Cint}
+  sup_to_col::Ptr{Cint}
 
-    SCformat() = new()
+  SCformat() = new()
 end
 
 type NCPformat
-    nnz::Cint
-    nzval::Ptr{Void}
-    rowind::Ptr{Cint}
-    colbeg::Ptr{Cint}
-    colend::Ptr{Cint}
+  nnz::Cint
+  nzval::Ptr{Void}
+  rowind::Ptr{Cint}
+  colbeg::Ptr{Cint}
+  colend::Ptr{Cint}
 
-    NCPformat() = new()
+  NCPformat() = new()
 end
 
 type DNformat
-    lda::Cint
-    nzval::Ptr{Void}
+  lda::Cint
+  nzval::Ptr{Void}
 
-    DNformat() = new()
+  DNformat() = new()
 end
 
 const COLAMD_KNOBS = 20
@@ -4506,91 +4506,91 @@ const COLAMD_ERROR_internal_error = -999
 # )
 
 type Colamd_Col_struct
-    start::Cint
-    length::Cint
-    shared1::Void
-    shared2::Void
-    shared3::Void
-    shared4::Void
+  start::Cint
+  length::Cint
+  shared1::Void
+  shared2::Void
+  shared3::Void
+  shared4::Void
 
-    Colamd_Col_struct() = new()
+  Colamd_Col_struct() = new()
 end
 
 type Colamd_Col
-    start::Cint
-    length::Cint
-    shared1::Void
-    shared2::Void
-    shared3::Void
-    shared4::Void
+  start::Cint
+  length::Cint
+  shared1::Void
+  shared2::Void
+  shared3::Void
+  shared4::Void
 
-    Colamd_Col() = new()
+  Colamd_Col() = new()
 end
 
 type Colamd_Row_struct
-    start::Cint
-    length::Cint
-    shared1::Void
-    shared2::Void
+  start::Cint
+  length::Cint
+  shared1::Void
+  shared2::Void
 
-    Colamd_Row_struct() = new()
+  Colamd_Row_struct() = new()
 end
 
 type Colamd_Row
-    start::Cint
-    length::Cint
-    shared1::Void
-    shared2::Void
+  start::Cint
+  length::Cint
+  shared1::Void
+  shared2::Void
 
-    Colamd_Row() = new()
+  Colamd_Row() = new()
 end
 
 immutable Array_20_Cdouble
-    d1::Cdouble
-    d2::Cdouble
-    d3::Cdouble
-    d4::Cdouble
-    d5::Cdouble
-    d6::Cdouble
-    d7::Cdouble
-    d8::Cdouble
-    d9::Cdouble
-    d10::Cdouble
-    d11::Cdouble
-    d12::Cdouble
-    d13::Cdouble
-    d14::Cdouble
-    d15::Cdouble
-    d16::Cdouble
-    d17::Cdouble
-    d18::Cdouble
-    d19::Cdouble
-    d20::Cdouble
+  d1::Cdouble
+  d2::Cdouble
+  d3::Cdouble
+  d4::Cdouble
+  d5::Cdouble
+  d6::Cdouble
+  d7::Cdouble
+  d8::Cdouble
+  d9::Cdouble
+  d10::Cdouble
+  d11::Cdouble
+  d12::Cdouble
+  d13::Cdouble
+  d14::Cdouble
+  d15::Cdouble
+  d16::Cdouble
+  d17::Cdouble
+  d18::Cdouble
+  d19::Cdouble
+  d20::Cdouble
 end
 
 zero(::Type{Array_20_Cdouble}) = Array_20_Cdouble(fill(zero(Cdouble),20)...)
 
 immutable Array_20_Cint
-    d1::Cint
-    d2::Cint
-    d3::Cint
-    d4::Cint
-    d5::Cint
-    d6::Cint
-    d7::Cint
-    d8::Cint
-    d9::Cint
-    d10::Cint
-    d11::Cint
-    d12::Cint
-    d13::Cint
-    d14::Cint
-    d15::Cint
-    d16::Cint
-    d17::Cint
-    d18::Cint
-    d19::Cint
-    d20::Cint
+  d1::Cint
+  d2::Cint
+  d3::Cint
+  d4::Cint
+  d5::Cint
+  d6::Cint
+  d7::Cint
+  d8::Cint
+  d9::Cint
+  d10::Cint
+  d11::Cint
+  d12::Cint
+  d13::Cint
+  d14::Cint
+  d15::Cint
+  d16::Cint
+  d17::Cint
+  d18::Cint
+  d19::Cint
+  d20::Cint
 end
 
 zero(::Type{Array_20_Cint}) = Array_20_Cint(fill(zero(Cint),20)...)
@@ -4604,21 +4604,21 @@ zero(::Type{Array_20_Cint}) = Array_20_Cint(fill(zero(Cint),20)...)
 # Skipping MacroDefinition: hypre_DistributedMatrixLocalStorage ( matrix ) ( ( matrix ) -> local_storage )
 
 type hypre_DistributedMatrix
-    context::MPI_Comm
-    M::HYPRE_Int
-    N::HYPRE_Int
-    auxiliary_data::Ptr{Void}
-    local_storage::Ptr{Void}
-    local_storage_type::HYPRE_Int
-    translator::Ptr{Void}
+  context::MPI_Comm
+  M::HYPRE_Int
+  N::HYPRE_Int
+  auxiliary_data::Ptr{Void}
+  local_storage::Ptr{Void}
+  local_storage_type::HYPRE_Int
+  translator::Ptr{Void}
 
-    hypre_DistributedMatrix() = new()
+  hypre_DistributedMatrix() = new()
 end
 
 type HYPRE_FEI_struct
-    fei_::Ptr{Void}
+  fei_::Ptr{Void}
 
-    HYPRE_FEI_struct() = new()
+  HYPRE_FEI_struct() = new()
 end
 
 typealias HYPRE_FEI_Impl HYPRE_FEI_struct
@@ -4687,14 +4687,14 @@ const HYDSLU = (uint32)(17)
 # end enum HYpreconID
 
 type HYPRE_FEI_AMSData
-    EdgeNodeList_::Ptr{Cint}
-    NodeNumbers_::Ptr{Cint}
-    numEdges_::Cint
-    numLocalNodes_::Cint
-    numNodes_::Cint
-    NodalCoord_::Ptr{Cdouble}
+  EdgeNodeList_::Ptr{Cint}
+  NodeNumbers_::Ptr{Cint}
+  numEdges_::Cint
+  numLocalNodes_::Cint
+  numNodes_::Cint
+  NodalCoord_::Ptr{Cdouble}
 
-    HYPRE_FEI_AMSData() = new()
+  HYPRE_FEI_AMSData() = new()
 end
 
 # Skipping MacroDefinition: hypre_SStructOwnInfoDataSize ( own_data ) ( ( own_data ) -> size )
@@ -4707,112 +4707,112 @@ end
 ( ( own_data ) -> own_composite_size )
 
 type hypre_SStructOwnInfoData
-    size::HYPRE_Int
-    own_boxes::Ptr{hypre_BoxArrayArray}
-    own_cboxnums::Ptr{Ptr{HYPRE_Int}}
-    own_composite_cboxes::Ptr{hypre_BoxArrayArray}
-    own_composite_size::HYPRE_Int
+  size::HYPRE_Int
+  own_boxes::Ptr{hypre_BoxArrayArray}
+  own_cboxnums::Ptr{Ptr{HYPRE_Int}}
+  own_composite_cboxes::Ptr{hypre_BoxArrayArray}
+  own_composite_size::HYPRE_Int
 
-    hypre_SStructOwnInfoData() = new()
+  hypre_SStructOwnInfoData() = new()
 end
 
 type hypre_SStructRecvInfoData
-    size::HYPRE_Int
-    recv_boxes::Ptr{hypre_BoxArrayArray}
-    recv_procs::Ptr{Ptr{HYPRE_Int}}
+  size::HYPRE_Int
+  recv_boxes::Ptr{hypre_BoxArrayArray}
+  recv_procs::Ptr{Ptr{HYPRE_Int}}
 
-    hypre_SStructRecvInfoData() = new()
+  hypre_SStructRecvInfoData() = new()
 end
 
 type hypre_SStructSendInfoData
-    size::HYPRE_Int
-    send_boxes::Ptr{hypre_BoxArrayArray}
-    send_procs::Ptr{Ptr{HYPRE_Int}}
-    send_remote_boxnums::Ptr{Ptr{HYPRE_Int}}
+  size::HYPRE_Int
+  send_boxes::Ptr{hypre_BoxArrayArray}
+  send_procs::Ptr{Ptr{HYPRE_Int}}
+  send_remote_boxnums::Ptr{Ptr{HYPRE_Int}}
 
-    hypre_SStructSendInfoData() = new()
+  hypre_SStructSendInfoData() = new()
 end
 
 type hypre_PTopology
-    Face_iedge::Ptr{hypre_IJMatrix}
-    Element_iedge::Ptr{hypre_IJMatrix}
-    Edge_iedge::Ptr{hypre_IJMatrix}
-    Element_Face::Ptr{hypre_IJMatrix}
-    Element_Edge::Ptr{hypre_IJMatrix}
+  Face_iedge::Ptr{hypre_IJMatrix}
+  Element_iedge::Ptr{hypre_IJMatrix}
+  Edge_iedge::Ptr{hypre_IJMatrix}
+  Element_Face::Ptr{hypre_IJMatrix}
+  Element_Edge::Ptr{hypre_IJMatrix}
 
-    hypre_PTopology() = new()
+  hypre_PTopology() = new()
 end
 
 type hypre_MaxwellData
-    comm::MPI_Comm
-    tol::Cdouble
-    max_iter::HYPRE_Int
-    rel_change::HYPRE_Int
-    zero_guess::HYPRE_Int
-    ndim::HYPRE_Int
-    num_pre_relax::HYPRE_Int
-    num_post_relax::HYPRE_Int
-    constant_coef::HYPRE_Int
-    rfactor::Ptr{hypre_Index}
-    egrid_l::Ptr{Ptr{hypre_SStructGrid}}
-    Aen::HYPRE_IJMatrix
-    Aen_l::Ptr{Ptr{hypre_ParCSRMatrix}}
-    Ann::Ptr{hypre_SStructMatrix}
-    bn::Ptr{hypre_SStructVector}
-    xn::Ptr{hypre_SStructVector}
-    amg_vdata::Ptr{Void}
-    Ann_l::Ptr{Ptr{hypre_ParCSRMatrix}}
-    Ann_stencils::Ptr{Ptr{hypre_SStructStencil}}
-    Pn_l::Ptr{Ptr{hypre_ParCSRMatrix}}
-    RnT_l::Ptr{Ptr{hypre_ParCSRMatrix}}
-    bn_l::Ptr{Ptr{hypre_ParVector}}
-    xn_l::Ptr{Ptr{hypre_ParVector}}
-    resn_l::Ptr{Ptr{hypre_ParVector}}
-    en_l::Ptr{Ptr{hypre_ParVector}}
-    nVtemp_l::Ptr{Ptr{hypre_ParVector}}
-    nVtemp2_l::Ptr{Ptr{hypre_ParVector}}
-    nCF_marker_l::Ptr{Ptr{HYPRE_Int}}
-    nrelax_weight::Ptr{Cdouble}
-    nomega::Ptr{Cdouble}
-    nrelax_type::HYPRE_Int
-    node_numlevels::HYPRE_Int
-    Tgrad::Ptr{hypre_ParCSRMatrix}
-    T_transpose::Ptr{hypre_ParCSRMatrix}
-    edge_maxlevels::HYPRE_Int
-    edge_numlevels::HYPRE_Int
-    Aee_l::Ptr{Ptr{hypre_ParCSRMatrix}}
-    be_l::Ptr{Ptr{hypre_ParVector}}
-    xe_l::Ptr{Ptr{hypre_ParVector}}
-    rese_l::Ptr{Ptr{hypre_ParVector}}
-    ee_l::Ptr{Ptr{hypre_ParVector}}
-    eVtemp_l::Ptr{Ptr{hypre_ParVector}}
-    eVtemp2_l::Ptr{Ptr{hypre_ParVector}}
-    eCF_marker_l::Ptr{Ptr{HYPRE_Int}}
-    erelax_weight::Ptr{Cdouble}
-    eomega::Ptr{Cdouble}
-    erelax_type::HYPRE_Int
-    Pe_l::Ptr{Ptr{hypre_IJMatrix}}
-    ReT_l::Ptr{Ptr{hypre_IJMatrix}}
-    BdryRanks_l::Ptr{Ptr{HYPRE_Int}}
-    BdryRanksCnts_l::Ptr{HYPRE_Int}
-    en_numlevels::HYPRE_Int
-    num_iterations::HYPRE_Int
-    time_index::HYPRE_Int
-    print_level::HYPRE_Int
-    logging::HYPRE_Int
-    norms::Ptr{Cdouble}
-    rel_norms::Ptr{Cdouble}
+  comm::MPI_Comm
+  tol::Cdouble
+  max_iter::HYPRE_Int
+  rel_change::HYPRE_Int
+  zero_guess::HYPRE_Int
+  ndim::HYPRE_Int
+  num_pre_relax::HYPRE_Int
+  num_post_relax::HYPRE_Int
+  constant_coef::HYPRE_Int
+  rfactor::Ptr{hypre_Index}
+  egrid_l::Ptr{Ptr{hypre_SStructGrid}}
+  Aen::HYPRE_IJMatrix
+  Aen_l::Ptr{Ptr{hypre_ParCSRMatrix}}
+  Ann::Ptr{hypre_SStructMatrix}
+  bn::Ptr{hypre_SStructVector}
+  xn::Ptr{hypre_SStructVector}
+  amg_vdata::Ptr{Void}
+  Ann_l::Ptr{Ptr{hypre_ParCSRMatrix}}
+  Ann_stencils::Ptr{Ptr{hypre_SStructStencil}}
+  Pn_l::Ptr{Ptr{hypre_ParCSRMatrix}}
+  RnT_l::Ptr{Ptr{hypre_ParCSRMatrix}}
+  bn_l::Ptr{Ptr{hypre_ParVector}}
+  xn_l::Ptr{Ptr{hypre_ParVector}}
+  resn_l::Ptr{Ptr{hypre_ParVector}}
+  en_l::Ptr{Ptr{hypre_ParVector}}
+  nVtemp_l::Ptr{Ptr{hypre_ParVector}}
+  nVtemp2_l::Ptr{Ptr{hypre_ParVector}}
+  nCF_marker_l::Ptr{Ptr{HYPRE_Int}}
+  nrelax_weight::Ptr{Cdouble}
+  nomega::Ptr{Cdouble}
+  nrelax_type::HYPRE_Int
+  node_numlevels::HYPRE_Int
+  Tgrad::Ptr{hypre_ParCSRMatrix}
+  T_transpose::Ptr{hypre_ParCSRMatrix}
+  edge_maxlevels::HYPRE_Int
+  edge_numlevels::HYPRE_Int
+  Aee_l::Ptr{Ptr{hypre_ParCSRMatrix}}
+  be_l::Ptr{Ptr{hypre_ParVector}}
+  xe_l::Ptr{Ptr{hypre_ParVector}}
+  rese_l::Ptr{Ptr{hypre_ParVector}}
+  ee_l::Ptr{Ptr{hypre_ParVector}}
+  eVtemp_l::Ptr{Ptr{hypre_ParVector}}
+  eVtemp2_l::Ptr{Ptr{hypre_ParVector}}
+  eCF_marker_l::Ptr{Ptr{HYPRE_Int}}
+  erelax_weight::Ptr{Cdouble}
+  eomega::Ptr{Cdouble}
+  erelax_type::HYPRE_Int
+  Pe_l::Ptr{Ptr{hypre_IJMatrix}}
+  ReT_l::Ptr{Ptr{hypre_IJMatrix}}
+  BdryRanks_l::Ptr{Ptr{HYPRE_Int}}
+  BdryRanksCnts_l::Ptr{HYPRE_Int}
+  en_numlevels::HYPRE_Int
+  num_iterations::HYPRE_Int
+  time_index::HYPRE_Int
+  print_level::HYPRE_Int
+  logging::HYPRE_Int
+  norms::Ptr{Cdouble}
+  rel_norms::Ptr{Cdouble}
 
-    hypre_MaxwellData() = new()
+  hypre_MaxwellData() = new()
 end
 
 type hypre_MaxwellOffProcRow
-    row::HYPRE_Int
-    ncols::HYPRE_Int
-    cols::Ptr{HYPRE_Int}
-    data::Ptr{Cdouble}
+  row::HYPRE_Int
+  ncols::HYPRE_Int
+  cols::Ptr{HYPRE_Int}
+  data::Ptr{Cdouble}
 
-    hypre_MaxwellOffProcRow() = new()
+  hypre_MaxwellOffProcRow() = new()
 end
 
 # begin enum ANONYMOUS_16
@@ -4827,17 +4827,17 @@ const WRONG_CONSTRAINTS = 3
 const REQUESTED_ACCURACY_NOT_ACHIEVED = -1
 
 type lobpcg_Tolerance
-    absolute::Cdouble
-    relative::Cdouble
+  absolute::Cdouble
+  relative::Cdouble
 
-    lobpcg_Tolerance() = new()
+  lobpcg_Tolerance() = new()
 end
 
 type lobpcg_BLASLAPACKFunctions
-    dpotrf::Ptr{Void}
-    dsygv::Ptr{Void}
+  dpotrf::Ptr{Void}
+  dsygv::Ptr{Void}
 
-    lobpcg_BLASLAPACKFunctions() = new()
+  lobpcg_BLASLAPACKFunctions() = new()
 end
 
 const COLAMD_JUMBLED_COLS = 3
@@ -4850,13 +4850,13 @@ const COLAMD_JUMBLED_COLS = 3
 # Skipping MacroDefinition: hypre_ParCSRCommMultiHandleRequest ( comm_handle , i ) ( comm_handle -> requests [ i ] )
 
 type hypre_ParCSRCommMultiHandle
-    comm_pkg::Ptr{hypre_ParCSRCommPkg}
-    send_data::Ptr{Void}
-    recv_data::Ptr{Void}
-    num_requests::HYPRE_Int
-    requests::Ptr{hypre_MPI_Request}
+  comm_pkg::Ptr{hypre_ParCSRCommPkg}
+  send_data::Ptr{Void}
+  recv_data::Ptr{Void}
+  num_requests::HYPRE_Int
+  requests::Ptr{hypre_MPI_Request}
 
-    hypre_ParCSRCommMultiHandle() = new()
+  hypre_ParCSRCommMultiHandle() = new()
 end
 
 typealias int_t Cint
@@ -4982,30 +4982,30 @@ const NPHASES = (uint32)(11)
 # end enum ANONYMOUS_30
 
 type GlobalLU_t
-    xsup::Ptr{Cint}
-    supno::Ptr{Cint}
-    lsub::Ptr{Cint}
-    xlsub::Ptr{Cint}
-    lusup::Ptr{complex}
-    xlusup::Ptr{Cint}
-    ucol::Ptr{complex}
-    usub::Ptr{Cint}
-    xusub::Ptr{Cint}
-    nzlmax::Cint
-    nzumax::Cint
-    nzlumax::Cint
-    n::Cint
-    MemModel::LU_space_t
+  xsup::Ptr{Cint}
+  supno::Ptr{Cint}
+  lsub::Ptr{Cint}
+  xlsub::Ptr{Cint}
+  lusup::Ptr{complex}
+  xlusup::Ptr{Cint}
+  ucol::Ptr{complex}
+  usub::Ptr{Cint}
+  xusub::Ptr{Cint}
+  nzlmax::Cint
+  nzumax::Cint
+  nzlumax::Cint
+  n::Cint
+  MemModel::LU_space_t
 
-    GlobalLU_t() = new()
+  GlobalLU_t() = new()
 end
 
 type mem_usage_t
-    for_lu::Cfloat
-    total_needed::Cfloat
-    expansions::Cint
+  for_lu::Cfloat
+  total_needed::Cfloat
+  expansions::Cint
 
-    mem_usage_t() = new()
+  mem_usage_t() = new()
 end
 
 typealias logical Cint
