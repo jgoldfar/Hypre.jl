@@ -52,6 +52,7 @@ end
 
 
 ## Build steps
+sedscript = "s:/usr/bin/c++:/usr/bin/env mpic++:g"
 @linux_only begin
   provides(SimpleBuild, (@build_steps begin
                            GetSources(libhypre)
@@ -61,13 +62,13 @@ end
                              `cmake -DHYPRE_SHARED:BOOL=ON ..`
                              `cmake -DHYPRE_INSTALL_PREFIX:PATH=$prefix ..`
                              `cmake -L ..`
+                             `sed -i '' 's:/usr/bin/c++:/usr/bin/env mpic++:g' CMakeFiles/HYPRE.dir/link.txt`
                              `make`
                              `make install`
                            end
                          end), libhypre)
 end
 @osx_only begin
-  sedscript = "s:/usr/bin/c++:/usr/bin/env mpic++:g"
   provides(SimpleBuild, (@build_steps begin
                            GetSources(libhypre)
                            CreateDirectory(srcdir)
