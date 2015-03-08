@@ -62,7 +62,7 @@ sedscript = "s:/usr/bin/c++:/usr/bin/env mpic++:g"
                              `cmake -DHYPRE_SHARED:BOOL=ON ..`
                              `cmake -DHYPRE_INSTALL_PREFIX:PATH=$prefix ..`
                              `cmake -L ..`
-                             `sed -i '' 's:/usr/bin/c++:/usr/bin/env mpic++:g' CMakeFiles/HYPRE.dir/link.txt`
+                             `sed -i 's:/usr/bin/c++:/usr/bin/env mpic++:g' CMakeFiles/HYPRE.dir/link.txt`
                              `make`
                              `make install`
                            end
