@@ -1,5 +1,6 @@
 module ex1 # from Hypre examples
-# direct translation from the corresponding C source.
+# direct translation from the corresponding C source. See
+# src/hypre-2.9.0b/src/examples/ex1.c under the deps directory.
 include(joinpath(dirname(dirname(@__FILE__)), "src", "Hypre.jl"))
 using .Hypre
 using MPI
