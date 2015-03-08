@@ -86,8 +86,3 @@ end
 
 ## Install
 @BinDeps.install [:libhypre => :libhypre]
-try
-  dlopen(joinpath(prefix, "lib", "libHYPRE.so"))
-catch v
-  dump(v)
-end
