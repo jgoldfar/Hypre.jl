@@ -1,16 +1,24 @@
 module ex1 # from Hypre examples
 # direct translation from the corresponding C source.
 include(joinpath(dirname(dirname(@__FILE__)), "src", "Hypre.jl"))
+using .Hypre
 using MPI
 
 function runex1()
   grid = Hypre.hypre_StructGrid_struct()
-  #   stencil = Hypre.HYPRE_StructStencil()
-  #   A = Hypre.HYPRE_StructMatrix()
-  #   b = Hypre.HYPRE_StructVector()
-  #   x = Hypre.HYPRE_StructVector()
-  #   solver = Hypre.HYPRE_StructSolver()
-
+  gridptr = convert(Hypre.HYPRE_StructGrid, pointer_from_objref(grid))
+  stencil = Hypre.hypre_StructStencil_struct()
+  stencilptr = convert(Hypre.HYPRE_StructStencil, pointer_from_objref(stencil))
+  A = Hypre.hypre_StructMatrix_struct()
+  Aptr = convert(Hypre.HYPRE_StructMatrix, pointer_from_objref(A))
+  b = Hypre.hypre_StructVector_struct()
+  bptr = convert(Hypre.HYPRE_StructVector, pointer_from_objref(b))
+  x = Hypre.hypre_StructVector_struct()
+  xptr = convert(Hypre.HYPRE_StructVector, pointer_from_objref(x))
+  solver = Hypre.hypre_StructSolver_struct()
+  solverptr = convert(Hypre.HYPRE_StructSolver, pointer_from_objref(solver))
+  # keeps references to internal objects just created (?)
+  const keeprefs = [grid, stencil, A, b, x, solver]
   #   /* Initialize MPI */
   MPI.Init()
   const comm = MPI.COMM_WORLD
@@ -27,29 +35,29 @@ function runex1()
   # #   /* 1. Set up a grid. Each processor describes the piece
   # #   of the grid that it owns. */
   # #     /* Create an empty 2D grid object */
-  Hypre.HYPRE_StructGridCreate(comm, 2, grid)
+  Hypre.HYPRE_StructGridCreate(comm, 2, gridptr)
   # #     /* Add boxes to the grid */
   if myid == 0
-    ilower = [-3, 1]
-    iupper = [-1, 2]
-    #       Hypre.HYPRE_StructGridSetExtents(grid, ilower, iupper);
+    ilower = Hypre.HYPRE_Int[-3, 1]
+    iupper = Hypre.HYPRE_Int[-1, 2]
+    Hypre.HYPRE_StructGridSetExtents(gridptr, ilower, iupper)
   elseif myid == 1
-    ilower = [0, 1]
-    iupper = [2, 4]
-    #       Hypre.HYPRE_StructGridSetExtents(grid, ilower, iupper);
+    ilower = Hypre.HYPRE_Int[0, 1]
+    iupper = Hypre.HYPRE_Int[2, 4]
+    Hypre.HYPRE_StructGridSetExtents(gridptr, ilower, iupper)
   end
 
   # #     /* This is a collective call finalizing the grid assembly.
   # #     The grid is now ``ready to be used'' */
-  #     Hypre.HYPRE_StructGridAssemble(grid);
+  Hypre.HYPRE_StructGridAssemble(gridptr)
 
   # #   /* 2. Define the discretization stencil */
   # #     /* Create an empty 2D, 5-pt stencil object */
-  #     Hypre.HYPRE_StructStencilCreate(2, 5, &stencil);
+  Hypre.HYPRE_StructStencilCreate(2, 5, stencilptr)
 
   # #     /* Define the geometry of the stencil. Each represents a
   # #     relative offset (in the index space). */
-  offsets = reshape([0, 0, -1, 0, 1, 0, 0, -1, 0, 1], 2, 5)
+  offsets = reshape(Hypre.HYPRE_Int[0, 0, -1, 0, 1, 0, 0, -1, 0, 1], 2, 5)
 
   # #       /* Assign each of the 5 stencil entries */
   for entry in 1:5
@@ -69,12 +77,12 @@ function runex1()
   # #     each grid point.  Then we make modifications to grid points near
   # #     the boundary. */
   if myid == 0
-    ilower = [-3, 1]
-    iupper = [-1, 2]
-    stencil_indices = [0, 1, 2, 3, 4] #/* labels for the stencil entries -
+    ilower = Hypre.HYPRE_Int[-3, 1]
+    iupper = Hypre.HYPRE_Int[-1, 2]
+    stencil_indices = Hypre.HYPRE_Int[0, 1, 2, 3, 4] #/* labels for the stencil entries -
     # #         these correspond to the offsets defined above */
     nentries = length(stencil_indices)
-    nvalues  = 30 #/* 6 grid points, each with 5 stencil entries */
+    nvalues  = Hypre.HYPRE_Int30 #/* 6 grid points, each with 5 stencil entries */
     values = zeros(nvalues)
 
     # #       /* We have 6 grid points, each with 5 stencil entries */
@@ -88,9 +96,9 @@ function runex1()
     #       Hypre.HYPRE_StructMatrixSetBoxValues(A, ilower, iupper, nentries,
     #                                      stencil_indices, values);
   elseif myid == 1
-    ilower = [0, 1]
-    iupper = [2, 4]
-    stencil_indices = [0, 1, 2, 3, 4]
+    ilower = Hypre.HYPRE_Int[0, 1]
+    iupper = Hypre.HYPRE_Int[2, 4]
+    stencil_indices = Hypre.HYPRE_Int[0, 1, 2, 3, 4]
     nentries = length(stencil_indices)
     nvalues  = 60 #/* 12 grid points, each with 5 stencil entries */
     values = zeros(nvalues)
@@ -110,57 +118,57 @@ function runex1()
     values = zeros(3)
 
     # #         /* values below our box */
-    ilower = [-3, 1]
-    iupper = [-1, 1]
-    stencil_indices = [3,]
+    ilower = Hypre.HYPRE_Int[-3, 1]
+    iupper = Hypre.HYPRE_Int[-1, 1]
+    stencil_indices = Hypre.HYPRE_Int[3,]
     #         Hypre.HYPRE_StructMatrixSetBoxValues(A, ilower, iupper, 1,
     #                                        stencil_indices, values);
 
     # #         /* values to the left of our box */
-    ilower = [-3, 1]
-    iupper = [-3, 2]
-    stencil_indices = [1,]
+    ilower = Hypre.HYPRE_Int[-3, 1]
+    iupper = Hypre.HYPRE_Int[-3, 2]
+    stencil_indices = Hypre.HYPRE_Int[1,]
     #         Hypre.HYPRE_StructMatrixSetBoxValues(A, ilower, iupper, 1,
     #                                        stencil_indices, values);
 
     # #         /* values above our box */
-    ilower = [-3, 2]
-    iupper = [-1, 2]
-    stencil_indices = [4,]
+    ilower = Hypre.HYPRE_Int[-3, 2]
+    iupper = Hypre.HYPRE_Int[-1, 2]
+    stencil_indices = Hypre.HYPRE_Int[4,]
     #         Hypre.HYPRE_StructMatrixSetBoxValues(A, ilower, iupper, 1,
     #                                        stencil_indices, values);
   elseif myid == 1
     values = zeros(4)
     #       {
     #         /* values below our box */
-    ilower = [0, 1]
-    iupper = [2, 1]
-    stencil_indices = [3,]
+    ilower = Hypre.HYPRE_Int[0, 1]
+    iupper = Hypre.HYPRE_Int[2, 1]
+    stencil_indices = Hypre.HYPRE_Int[3,]
     #         Hypre.HYPRE_StructMatrixSetBoxValues(A, ilower, iupper, 1,
     #                                        stencil_indices, values);
     #         }
     #       {
     #         /* values to the right of our box */
-    ilower = [2, 1]
-    iupper = [2, 4]
-    stencil_indices = [2,]
+    ilower = Hypre.HYPRE_Int[2, 1]
+    iupper = Hypre.HYPRE_Int[2, 4]
+    stencil_indices = Hypre.HYPRE_Int[2,]
     #         Hypre.HYPRE_StructMatrixSetBoxValues(A, ilower, iupper, 1,
     #                                        stencil_indices, values);
     #         }
     #       {
     #         /* values above our box */
-    ilower = [0, 4]
-    iupper = [2, 4]
-    stencil_indices = [4,]
+    ilower = Hypre.HYPRE_Int[0, 4]
+    iupper = Hypre.HYPRE_Int[2, 4]
+    stencil_indices = Hypre.HYPRE_Int[4,]
     #         Hypre.HYPRE_StructMatrixSetBoxValues(A, ilower, iupper, 1,
     #                                        stencil_indices, values);
     #         }
     #       {
     # #         /* values to the left of our box
     # #         (that do not border the other box on proc. 0) */
-    ilower = [0, 3]
-    iupper = [0, 4]
-    stencil_indices = [1,]
+    ilower = Hypre.HYPRE_Int[0, 3]
+    iupper = Hypre.HYPRE_Int[0, 4]
+    stencil_indices = Hypre.HYPRE_Int[1,]
     #            Hypre.HYPRE_StructMatrixSetBoxValues(A, ilower, iupper, 1,
     #                                           stencil_indices, values);
     #            }
@@ -184,16 +192,16 @@ function runex1()
 
   # #                /* Set the vector coefficients */
   if myid == 0
-    ilower = [-3, 1]
-    iupper = [-1, 2]
+    ilower = Hypre.HYPRE_Int[-3, 1]
+    iupper = Hypre.HYPRE_Int[-1, 2]
     values = ones(6) #/* 6 grid points */
     #                  Hypre.HYPRE_StructVectorSetBoxValues(b, ilower, iupper, values);
 
     fill!(values, 0.0)
     #                  Hypre.HYPRE_StructVectorSetBoxValues(x, ilower, iupper, values);
   elseif myid == 1
-    ilower = [0, 1]
-    iupper = [2, 4]
+    ilower = Hypre.HYPRE_Int[0, 1]
+    iupper = Hypre.HYPRE_Int[2, 4]
     values = ones(12)
     #                  Hypre.HYPRE_StructVectorSetBoxValues(b, ilower, iupper, values);
 
@@ -235,7 +243,12 @@ end #function
 if isempty(ARGS)
   const nprocesses = 2
   println(readall(`mpirun -np $nprocesses julia $(@__FILE__) go`))
+elseif ARGS[1] == "noMPI" || ARGS[1] == "go"
+  gc_disable()
+  exitcode = runex1()
+  gc_enable()
+  exit(exitcode)
 else
-  exit(runex1())
+  println("Unrecognized command line argument.")
 end
 end #module
