@@ -18,25 +18,29 @@ function runex1()
   xptr = convert(Hypre.HYPRE_StructVector, pointer_from_objref(x))
   solver = Hypre.hypre_StructSolver_struct()
   solverptr = convert(Hypre.HYPRE_StructSolver, pointer_from_objref(solver))
+
+  ccall(:jl_, Void, (Any,), grid)
   # keeps references to internal objects just created (?)
   const keeprefs = [grid, stencil, A, b, x, solver]
+
   #   /* Initialize MPI */
   MPI.Init()
   const comm = MPI.COMM_WORLD
   const myid = MPI.Comm_rank(comm)
   const num_procs = MPI.Comm_size(comm)
 
-  if num_procs != 2
-    if myid == 0
-      println("Must run with 2 processors!")
-    end
-    MPI.Finalize()
-    return(0)
-  end
+#   if num_procs != 2
+#     if myid == 0
+#       println("Must run with 2 processors!")
+#     end
+#     MPI.Finalize()
+#     return(0)
+#   end
   # #   /* 1. Set up a grid. Each processor describes the piece
   # #   of the grid that it owns. */
   # #     /* Create an empty 2D grid object */
   Hypre.HYPRE_StructGridCreate(comm, 2, gridptr)
+  ccall(:jl_, Void, (Any,), grid)
   # #     /* Add boxes to the grid */
   if myid == 0
     ilower = Hypre.HYPRE_Int[-3, 1]
@@ -50,11 +54,11 @@ function runex1()
 
   # #     /* This is a collective call finalizing the grid assembly.
   # #     The grid is now ``ready to be used'' */
-  Hypre.HYPRE_StructGridAssemble(gridptr)
+#   Hypre.HYPRE_StructGridAssemble(gridptr)
 
   # #   /* 2. Define the discretization stencil */
   # #     /* Create an empty 2D, 5-pt stencil object */
-  Hypre.HYPRE_StructStencilCreate(2, 5, stencilptr)
+#   Hypre.HYPRE_StructStencilCreate(2, 5, stencilptr)
 
   # #     /* Define the geometry of the stencil. Each represents a
   # #     relative offset (in the index space). */
@@ -83,7 +87,7 @@ function runex1()
     stencil_indices = Hypre.HYPRE_Int[0, 1, 2, 3, 4] #/* labels for the stencil entries -
     # #         these correspond to the offsets defined above */
     nentries = length(stencil_indices)
-    nvalues  = Hypre.HYPRE_Int30 #/* 6 grid points, each with 5 stencil entries */
+    nvalues  = 30 #/* 6 grid points, each with 5 stencil entries */
     values = zeros(nvalues)
 
     # #       /* We have 6 grid points, each with 5 stencil entries */

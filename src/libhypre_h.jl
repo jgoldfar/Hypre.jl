@@ -3121,6 +3121,7 @@ type hypre_Box
   imax::hypre_Index
 
   hypre_Box() = new()
+  hypre_Box(imin, jmin) = new(convert(hypre_Index, imin), convert(hypre_Index, imax))
 end
 
 type hypre_BoxArray
@@ -3128,7 +3129,13 @@ type hypre_BoxArray
   size::HYPRE_Int
   alloc_size::HYPRE_Int
 
-  hypre_BoxArray() = new()
+  function hypre_BoxArray()
+    out = new()
+    out.boxes = pointer(Hypre.hypre_Box[])
+    out.size = convert(HYPRE_Int, 0)
+    out.alloc_size = convert(HYPRE_Int, 0)
+    return out
+  end
 end
 
 immutable Array_6_HYPRE_Int
@@ -3152,7 +3159,11 @@ type hypre_BoxManEntry_struct
   boxman::Ptr{Void}
   next::Ptr{hypre_BoxManEntry_struct}
 
-  hypre_BoxManEntry_struct() = new()
+  function hypre_BoxManEntry_struct()
+    out = new()
+
+    out
+  end
 end
 
 type hypre_BoxManEntry
@@ -3181,7 +3192,22 @@ type hypre_StructAssumedPart
   my_partition_ids_alloc::HYPRE_Int
   my_partition_num_distinct_procs::HYPRE_Int
 
-  hypre_StructAssumedPart() = new()
+  function hypre_StructAssumedPart()
+    out = new()
+
+    out.regions = pointer(hypre_BoxArray[])
+    out.proc_partitions = pointer(HYPRE_Int[])
+    out.divisions = pointer(hypre_Index[])
+
+    my_partition = hypre_BoxArray()
+    out.my_partition = pointer_from_objref(my_partition)
+
+    out.my_partition_boxes = pointer(hypre_BoxArray[])
+    out.my_partition_proc_ids = pointer(HYPRE_Int[])
+    out.my_partition_boxnums = pointer(HYPRE_Int[])
+
+    return out
+  end
 end
 
 type hypre_BoxManager
@@ -3215,7 +3241,30 @@ type hypre_BoxManager
   next_id::HYPRE_Int
   num_ghost::Array_6_HYPRE_Int
 
-  hypre_BoxManager() = new()
+  function hypre_BoxManager()
+    out = new()
+
+    gather_regions = hypre_BoxArray()
+    out.gather_regions = pointer_from_objref(gather_regions)
+
+    out.entries = pointer(hypre_BoxManEntry[])
+
+    out.procs_sort = pointer(HYPRE_Int[])
+
+    out.ids_sort = pointer(HYPRE_Int[])
+
+    out.procs_sort_offsets = pointer(HYPRE_Int[])
+
+    out.index_table = pointer(Ptr{hypre_BoxManEntry}[])
+
+    assumed_partition = hypre_StructAssumedPart()
+    out.assumed_partition = pointer_from_objref(assumed_partition)
+
+    bounding_box = hypre_Box()
+    out.bounding_box = pointer_from_objref(bounding_box)
+
+    return out
+  end
 end
 
 type hypre_StructGrid
@@ -3273,7 +3322,23 @@ type hypre_StructGrid_struct
   num_ghost::Array_6_HYPRE_Int
   box_man::Ptr{hypre_BoxManager}
 
-  hypre_StructGrid_struct() = new()
+  function hypre_StructGrid_struct()
+    out = new()
+
+    out.boxes = pointer(hypre_BoxArray[])
+
+    out.ids = pointer(HYPRE_Int[])
+
+    bounding_box = hypre_Box()
+    out.bounding_box = pointer_from_objref(bounding_box)
+
+    out.pshifts = pointer(hypre_Index[])
+
+    box_man = hypre_BoxManager()
+    out.box_man = pointer_from_objref(box_man)
+
+    return out
+  end
 end
 
 typealias HYPRE_StructGrid Ptr{hypre_StructGrid_struct}
@@ -3375,7 +3440,10 @@ type hypre_StructMatrix_struct
   comm_pkg::Ptr{hypre_CommPkg}
   ref_count::HYPRE_Int
 
-  hypre_StructMatrix_struct() = new()
+  function hypre_StructMatrix_struct()
+    out = new()
+    return out
+  end
 end
 
 typealias HYPRE_StructMatrix Ptr{hypre_StructMatrix_struct}
