@@ -3,6 +3,7 @@ compiler:
     - clang
 notifications:
     email: false
+    slack: fit-pde:LzLEcCWinA1d9YPSsN4GnTL1
 env:
     - JULIAVERSION="juliareleases"
     - JULIAVERSION="julianightlies"
