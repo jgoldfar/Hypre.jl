@@ -20,41 +20,49 @@ function runex1()
   solverptr = convert(Hypre.HYPRE_StructSolver, pointer_from_objref(solver))
   # keeps references to internal objects just created (?)
   const keeprefs = [grid, stencil, A, b, x, solver]
+  ccall(:jl_, Void, (Any,), grid)
+  ccall(:jl_, Void, (Any,), gridptr)
+
+
   #   /* Initialize MPI */
   MPI.Init()
   const comm = MPI.COMM_WORLD
   const myid = MPI.Comm_rank(comm)
   const num_procs = MPI.Comm_size(comm)
 
-  if num_procs != 2
+  #=  if num_procs != 2
     if myid == 0
       println("Must run with 2 processors!")
     end
     MPI.Finalize()
     return(0)
   end
+=#
   # #   /* 1. Set up a grid. Each processor describes the piece
   # #   of the grid that it owns. */
   # #     /* Create an empty 2D grid object */
   Hypre.HYPRE_StructGridCreate(comm, 2, gridptr)
+  ccall(:jl_, Void, (Any,), grid)
+  ccall(:jl_, Void, (Any,), gridptr)
+
   # #     /* Add boxes to the grid */
-  if myid == 0
-    ilower = Hypre.HYPRE_Int[-3, 1]
-    iupper = Hypre.HYPRE_Int[-1, 2]
-    Hypre.HYPRE_StructGridSetExtents(gridptr, ilower, iupper)
-  elseif myid == 1
-    ilower = Hypre.HYPRE_Int[0, 1]
-    iupper = Hypre.HYPRE_Int[2, 4]
-    Hypre.HYPRE_StructGridSetExtents(gridptr, ilower, iupper)
-  end
+#   if myid == 0
+#     ilower = Hypre.HYPRE_Int[-3, 1]
+#     iupper = Hypre.HYPRE_Int[-1, 2]
+#     Hypre.HYPRE_StructGridSetExtents(gridptr, ilower, iupper)
+#   elseif myid == 1
+#     ilower = Hypre.HYPRE_Int[0, 1]
+#     iupper = Hypre.HYPRE_Int[2, 4]
+#     Hypre.HYPRE_StructGridSetExtents(gridptr, ilower, iupper)
+#   end
 
-  # #     /* This is a collective call finalizing the grid assembly.
-  # #     The grid is now ``ready to be used'' */
-  Hypre.HYPRE_StructGridAssemble(gridptr)
+#   # #     /* This is a collective call finalizing the grid assembly.
+#   # #     The grid is now ``ready to be used'' */
+#   Hypre.HYPRE_StructGridAssemble(gridptr)
 
-  # #   /* 2. Define the discretization stencil */
-  # #     /* Create an empty 2D, 5-pt stencil object */
-  Hypre.HYPRE_StructStencilCreate(2, 5, stencilptr)
+#   # #   /* 2. Define the discretization stencil */
+#   # #     /* Create an empty 2D, 5-pt stencil object */
+#   Hypre.HYPRE_StructStencilCreate(2, 5, stencilptr)
 
   # #     /* Define the geometry of the stencil. Each represents a
   # #     relative offset (in the index space). */
@@ -241,15 +249,20 @@ function runex1()
 
   return(0)
 end #function
-if isempty(ARGS)
+
+function runex1mpi()
   const nprocesses = 2
   println(readall(`mpirun -np $nprocesses julia $(@__FILE__) go`))
-elseif ARGS[1] == "noMPI" || ARGS[1] == "go"
-  gc_disable()
-  exitcode = runex1()
-  gc_enable()
-  exit(exitcode)
-else
-  println("Unrecognized command line argument.")
 end
+function __init__()
+  if in("noMPI",ARGS) || in("go",ARGS)
+    gc_disable()
+    exitcode = runex1()
+    gc_enable()
+    exit(exitcode)
+  else
+    runex1mpi()
+  end
+end
+
 end #module
