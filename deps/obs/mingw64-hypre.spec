@@ -21,11 +21,11 @@ Name:           mingw64-%{_basename}
 Version:        2.9.0b
 Release:        0
 #!BuildIgnore: post-build-checks
-Summary:        Library for solving large, sparse linear systems of equations on massively parallel computers.
+Summary:        Library for solving large, sparse linear systems of equations in parallel
 License:        Apache-2.0
 Group:          Productivity/Scientific/Math
 Url:            http://acts.nersc.gov/hypre/
-Source0:        http://ftp.mcs.anl.gov/pub/petsc/externalpackages/${_basename}-%{version}.tar.gz
+Source0:        https://bitbucket.org/jgoldfar/hypre.jl/downloads/%{_basename}-%{version}.tar.gz
 BuildRequires:  cmake >= 2.8
 BuildRequires:  mingw64-cross-binutils
 BuildRequires:  mingw64-cross-gcc
@@ -63,24 +63,40 @@ User defined interfaces for multiple languages. Hypre currently supports Fortran
 %_mingw64_debug_package
 
 %prep
+echo "Prep Step"
 %setup -q -n %{_basename}-%{version}
 
+
 %build
+echo "Build Step"
+mv -f -v %{buildroot}/../../BUILD/%{_basename}-%{version}/* %{buildroot}
 cd %{buildroot}/src/cmbuild && %{_mingw64_cmake} -DHYPRE_SHARED:BOOL=ON -DHYPRE_SEQUENTIAL:BOOL=ON -DHYPRE_INSTALL_PREFIX:PATH=%{buildroot}/usr ..
 cd %{buildroot}/src/cmbuild && %{_mingw64_cmake} -L ..
-cd %{buildroot}/src && make && make install
+cd %{buildroot}/src/cmbuild && make && make install
 
 %install
-%{_mingw64_make} install
-
+echo "Install Step"
+ls -lR %{buildroot}
 mkdir -p %{buildroot}%{_mingw64_bindir}
-mv %{buildroot}%{_mingw64_libdir}/*.dll %{buildroot}%{_mingw64_bindir}/
+mkdir -p %{buildroot}%{_mingw64_includedir}
+mkdir -p %{buildroot}%{_mingw64_srcdir}
+mkdir -p %{buildroot}%{_mingw64_docdir}
+mv %{buildroot}/usr/lib/libHYPRE.dll %{buildroot}%{_mingw64_bindir}
+mv %{buildroot}/src %{buildroot}%{_mingw64_srcdir}
+rm %{buildroot}/usr/lib/libHYPRE.dll.a
+mv %{buildroot}/usr/include/* %{buildroot}%{_mingw64_includedir}
+mv %{buildroot}/docs %{_mingw64_docdir}
 
+
+%define _unpackaged_files_terminate_build 0
 %files
 %defattr(-,root,root,-)
+%{_mingw64_bindir}/libHYPRE.dll
+%{_mingw64_includedir}/*
 
 %files devel
 %defattr(-,root,root,-)
+%{_mingw64_bindir}/libHYPRE.dll
+%{_mingw64_includedir}/*
 
 %changelog
-
