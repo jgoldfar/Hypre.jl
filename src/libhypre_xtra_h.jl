@@ -23,9 +23,6 @@ const MPI_UNSIGNED_LONG_LONG = 0x4c000819
 const hypre_MPI_Datatype = MPI_Datatype
 const hypre_MPI_Request = MPI_Request
 
-type FILE
-end
-
 #=typedef struct
 {
   void*  (*MatvecCreate)  ( void *A, void *x );

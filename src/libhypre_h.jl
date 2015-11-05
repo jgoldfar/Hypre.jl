@@ -547,7 +547,7 @@ end
 
 typealias MPIX_Mutex Ptr{mpixi_mutex_s}
 
-type LinSysCore_struct
+immutable LinSysCore_struct
   lsc_::Ptr{Void}
 
   LinSysCore_struct() = new()
@@ -731,7 +731,7 @@ typealias hypre_MPI_Op MPI_Op
 typealias hypre_MPI_Aint MPI_Aint
 # typealias hypre_MPI_User_function MPI_User_function
 
-type double_linked_list
+immutable double_linked_list
   data::HYPRE_Int
   next_elt::Ptr{double_linked_list}
   prev_elt::Ptr{double_linked_list}
@@ -744,7 +744,7 @@ end
 typealias hypre_ListElement double_linked_list
 typealias hypre_LinkList Ptr{hypre_ListElement}
 
-type hypre_BinaryTree
+immutable hypre_BinaryTree
   parent_id::HYPRE_Int
   num_child::HYPRE_Int
   child_id::Ptr{HYPRE_Int}
@@ -752,7 +752,7 @@ type hypre_BinaryTree
   hypre_BinaryTree() = new()
 end
 
-type hypre_DataExchangeResponse
+immutable hypre_DataExchangeResponse
   fill_response::Ptr{Void}
   send_response_overhead::HYPRE_Int
   send_response_storage::HYPRE_Int
@@ -762,7 +762,7 @@ type hypre_DataExchangeResponse
   hypre_DataExchangeResponse() = new()
 end
 
-type hypre_CSRMatrix
+immutable hypre_CSRMatrix
   i::Ptr{HYPRE_Int}
   j::Ptr{HYPRE_Int}
   num_rows::HYPRE_Int
@@ -776,7 +776,7 @@ type hypre_CSRMatrix
   hypre_CSRMatrix() = new()
 end
 
-type hypre_CSRBooleanMatrix
+immutable hypre_CSRBooleanMatrix
   i::Ptr{HYPRE_Int}
   j::Ptr{HYPRE_Int}
   num_rows::HYPRE_Int
@@ -787,7 +787,7 @@ type hypre_CSRBooleanMatrix
   hypre_CSRBooleanMatrix() = new()
 end
 
-type hypre_MappedMatrix
+immutable hypre_MappedMatrix
   matrix::Ptr{Void}
   ColMap::Ptr{Void}
   MapData::Ptr{Void}
@@ -795,7 +795,7 @@ type hypre_MappedMatrix
   hypre_MappedMatrix() = new()
 end
 
-type hypre_MultiblockMatrix
+immutable hypre_MultiblockMatrix
   num_submatrices::HYPRE_Int
   submatrix_types::Ptr{HYPRE_Int}
   submatrices::Ptr{Ptr{Void}}
@@ -803,7 +803,7 @@ type hypre_MultiblockMatrix
   hypre_MultiblockMatrix() = new()
 end
 
-type hypre_Vector
+immutable hypre_Vector
   data::Ptr{Cdouble}
   size::HYPRE_Int
   owns_data::HYPRE_Int
@@ -815,7 +815,7 @@ type hypre_Vector
   hypre_Vector() = new()
 end
 
-type hypre_CSRBlockMatrix
+immutable hypre_CSRBlockMatrix
   data::Ptr{Cdouble}
   i::Ptr{HYPRE_Int}
   j::Ptr{HYPRE_Int}
@@ -828,7 +828,7 @@ type hypre_CSRBlockMatrix
   hypre_CSRBlockMatrix() = new()
 end
 
-type utilities_FortranMatrix
+immutable utilities_FortranMatrix
   globalHeight::hypre_longint
   height::hypre_longint
   width::hypre_longint
@@ -1023,7 +1023,7 @@ end
 
 typealias HYPRE_ParVector Ptr{hypre_ParVector_struct}
 
-type hypre_ParCSRCommPkg
+immutable hypre_ParCSRCommPkg
   comm::MPI_Comm
   num_sends::HYPRE_Int
   send_procs::Ptr{HYPRE_Int}
@@ -1038,7 +1038,7 @@ type hypre_ParCSRCommPkg
   hypre_ParCSRCommPkg() = new()
 end
 
-type hypre_ParCSRCommHandle
+immutable hypre_ParCSRCommHandle
   comm_pkg::Ptr{hypre_ParCSRCommPkg}
   send_data::Ptr{Void}
   recv_data::Ptr{Void}
@@ -1048,7 +1048,7 @@ type hypre_ParCSRCommHandle
   hypre_ParCSRCommHandle() = new()
 end
 
-type hypre_IJAssumedPart
+immutable hypre_IJAssumedPart
   length::HYPRE_Int
   row_start::HYPRE_Int
   row_end::HYPRE_Int
@@ -1061,7 +1061,7 @@ type hypre_IJAssumedPart
   hypre_IJAssumedPart() = new()
 end
 
-type hypre_ProcListElements
+immutable hypre_ProcListElements
   length::HYPRE_Int
   storage_length::HYPRE_Int
   id::Ptr{HYPRE_Int}
@@ -1074,7 +1074,7 @@ type hypre_ProcListElements
   hypre_ProcListElements() = new()
 end
 
-type hypre_ParVector
+immutable hypre_ParVector
   comm::MPI_Comm
   global_size::HYPRE_Int
   first_index::HYPRE_Int
@@ -1088,7 +1088,7 @@ type hypre_ParVector
   hypre_ParVector() = new()
 end
 
-type hypre_ParCSRMatrix
+immutable hypre_ParCSRMatrix
   comm::MPI_Comm
   global_num_rows::HYPRE_Int
   global_num_cols::HYPRE_Int
@@ -1116,7 +1116,7 @@ type hypre_ParCSRMatrix
   hypre_ParCSRMatrix() = new()
 end
 
-type hypre_ParCSRBooleanMatrix
+immutable hypre_ParCSRBooleanMatrix
   comm::MPI_Comm
   global_num_rows::HYPRE_Int
   global_num_cols::HYPRE_Int
@@ -1157,13 +1157,13 @@ end
 
 zero(::Type{Array_11_Ptr}) = Array_11_Ptr(fill(zero(Ptr{Void}),11)...)
 
-type hypre_NumbersNode
+immutable hypre_NumbersNode
   digit::Array_11_Ptr
 
   hypre_NumbersNode() = new()
 end
 
-type hypre_ParChordMatrix
+immutable hypre_ParChordMatrix
   comm::MPI_Comm
   num_inprocessors::HYPRE_Int
   inprocessor::Ptr{HYPRE_Int}
@@ -1185,7 +1185,7 @@ type hypre_ParChordMatrix
   hypre_ParChordMatrix() = new()
 end
 
-type HYPRE_ParCSR_System_Problem
+immutable HYPRE_ParCSR_System_Problem
   A::Ptr{hypre_ParCSRMatrix}
   x::Ptr{hypre_ParVector}
   b::Ptr{hypre_ParVector}
@@ -1193,7 +1193,7 @@ type HYPRE_ParCSR_System_Problem
   HYPRE_ParCSR_System_Problem() = new()
 end
 
-type hypre_IJMatrix_struct
+immutable hypre_IJMatrix_struct
   comm::MPI_Comm
   row_partitioning::Ptr{HYPRE_Int}
   col_partitioning::Ptr{HYPRE_Int}
@@ -1212,7 +1212,7 @@ end
 
 typealias HYPRE_IJMatrix Ptr{hypre_IJMatrix_struct}
 
-type hypre_IJVector_struct
+immutable hypre_IJVector_struct
   comm::MPI_Comm
   partitioning::Ptr{HYPRE_Int}
   object_type::HYPRE_Int
@@ -1227,7 +1227,7 @@ end
 
 typealias HYPRE_IJVector Ptr{hypre_IJVector_struct}
 
-type hypre_AuxParCSRMatrix
+immutable hypre_AuxParCSRMatrix
   local_num_rows::HYPRE_Int
   local_num_cols::HYPRE_Int
   need_aux::HYPRE_Int
@@ -1248,7 +1248,7 @@ type hypre_AuxParCSRMatrix
   hypre_AuxParCSRMatrix() = new()
 end
 
-type hypre_AuxParVector
+immutable hypre_AuxParVector
   max_off_proc_elmts::HYPRE_Int
   current_num_elmts::HYPRE_Int
   off_proc_i::Ptr{HYPRE_Int}
@@ -1258,7 +1258,7 @@ type hypre_AuxParVector
   hypre_AuxParVector() = new()
 end
 
-type hypre_IJMatrix
+immutable hypre_IJMatrix
   comm::MPI_Comm
   row_partitioning::Ptr{HYPRE_Int}
   col_partitioning::Ptr{HYPRE_Int}
@@ -1275,7 +1275,7 @@ type hypre_IJMatrix
   hypre_IJMatrix() = new()
 end
 
-type hypre_IJVector
+immutable hypre_IJVector
   comm::MPI_Comm
   partitioning::Ptr{HYPRE_Int}
   object_type::HYPRE_Int
@@ -1300,7 +1300,7 @@ typealias HYPRE_Matrix Ptr{hypre_Matrix_struct}
 typealias HYPRE_PtrToSolverFcn Ptr{Void}
 typealias HYPRE_PtrToModifyPCFcn Ptr{Void}
 
-type mv_InterfaceInterpreter
+immutable mv_InterfaceInterpreter
   CreateVector::Ptr{Void}
   DestroyVector::Ptr{Void}
   InnerProd::Ptr{Void}
@@ -1367,7 +1367,7 @@ typealias mv_MultiVectorPtr Ptr{mv_MultiVector}
 # Skipping MacroDefinition: hypre_ParAMGDataRestriction ( amg_data ) ( ( amg_data ) -> restr_par )
 # Skipping MacroDefinition: hypre_ParAMGDataMaxLevels ( amg_data ) ( ( amg_data ) -> max_levels )
 # Skipping MacroDefinition: hypre_ParAMGDataStrongThreshold ( amg_data ) \
-( ( amg_data ) -> strong_threshold )
+# ( ( amg_data ) -> strong_threshold )
 # Skipping MacroDefinition: hypre_ParAMGDataMaxRowSum ( amg_data ) ( ( amg_data ) -> max_row_sum )
 # Skipping MacroDefinition: hypre_ParAMGDataTruncFactor ( amg_data ) ( ( amg_data ) -> trunc_factor )
 # Skipping MacroDefinition: hypre_ParAMGDataAggTruncFactor ( amg_data ) ( ( amg_data ) -> agg_trunc_factor )
@@ -1407,7 +1407,7 @@ typealias mv_MultiVectorPtr Ptr{mv_MultiVector}
 # Skipping MacroDefinition: hypre_ParAMGDataUserNumSweeps ( amg_data ) ( ( amg_data ) -> user_num_sweeps )
 # Skipping MacroDefinition: hypre_ParAMGDataGridRelaxType ( amg_data ) ( ( amg_data ) -> grid_relax_type )
 # Skipping MacroDefinition: hypre_ParAMGDataGridRelaxPoints ( amg_data ) \
-( ( amg_data ) -> grid_relax_points )
+# ( ( amg_data ) -> grid_relax_points )
 # Skipping MacroDefinition: hypre_ParAMGDataRelaxOrder ( amg_data ) ( ( amg_data ) -> relax_order )
 # Skipping MacroDefinition: hypre_ParAMGDataRelaxWeight ( amg_data ) ( ( amg_data ) -> relax_weight )
 # Skipping MacroDefinition: hypre_ParAMGDataOmega ( amg_data ) ( ( amg_data ) -> omega )
@@ -1429,21 +1429,21 @@ typealias mv_MultiVectorPtr Ptr{mv_MultiVector}
 # Skipping MacroDefinition: hypre_ParAMGDataDofFuncArray ( amg_data ) ( ( amg_data ) -> dof_func_array )
 # Skipping MacroDefinition: hypre_ParAMGDataDofPointArray ( amg_data ) ( ( amg_data ) -> dof_point_array )
 # Skipping MacroDefinition: hypre_ParAMGDataPointDofMapArray ( amg_data ) \
-( ( amg_data ) -> point_dof_map_array )
+# ( ( amg_data ) -> point_dof_map_array )
 # Skipping MacroDefinition: hypre_ParAMGDataNumLevels ( amg_data ) ( ( amg_data ) -> num_levels )
 # Skipping MacroDefinition: hypre_ParAMGDataSmoothType ( amg_data ) ( ( amg_data ) -> smooth_type )
 # Skipping MacroDefinition: hypre_ParAMGDataSmoothNumLevels ( amg_data ) \
-( ( amg_data ) -> smooth_num_levels )
+# ( ( amg_data ) -> smooth_num_levels )
 # Skipping MacroDefinition: hypre_ParAMGDataSmoothNumSweeps ( amg_data ) \
-( ( amg_data ) -> smooth_num_sweeps )
+# ( ( amg_data ) -> smooth_num_sweeps )
 # Skipping MacroDefinition: hypre_ParAMGDataSmoother ( amg_data ) ( ( amg_data ) -> smoother )
 # Skipping MacroDefinition: hypre_ParAMGDataVariant ( amg_data ) ( ( amg_data ) -> schw_variant )
 # Skipping MacroDefinition: hypre_ParAMGDataOverlap ( amg_data ) ( ( amg_data ) -> schw_overlap )
 # Skipping MacroDefinition: hypre_ParAMGDataDomainType ( amg_data ) ( ( amg_data ) -> schw_domain_type )
 # Skipping MacroDefinition: hypre_ParAMGDataSchwarzRlxWeight ( amg_data ) \
-( ( amg_data ) -> schwarz_rlx_weight )
+# ( ( amg_data ) -> schwarz_rlx_weight )
 # Skipping MacroDefinition: hypre_ParAMGDataSchwarzUseNonSymm ( amg_data ) \
-( ( amg_data ) -> schwarz_use_nonsymm )
+# ( ( amg_data ) -> schwarz_use_nonsymm )
 # Skipping MacroDefinition: hypre_ParAMGDataSym ( amg_data ) ( ( amg_data ) -> ps_sym )
 # Skipping MacroDefinition: hypre_ParAMGDataLevel ( amg_data ) ( ( amg_data ) -> ps_level )
 # Skipping MacroDefinition: hypre_ParAMGDataMaxNzPerRow ( amg_data ) ( ( amg_data ) -> pi_max_nz_per_row )
@@ -3236,6 +3236,13 @@ type hypre_StructGrid
   box_man::Ptr{hypre_BoxManager}
 
   hypre_StructGrid() = new()
+
+  function hypre_StructGrid()
+    z = [new()]
+    ccall((:HYPRE_StructGridCreate, libhypre), Void, (Ptr{hypre_StructGrid},), z)
+    finalizer(z, HYPRE_StructGridDestroy)
+    return z
+  end
 end
 
 type hypre_StructVector_struct
@@ -3254,9 +3261,7 @@ type hypre_StructVector_struct
   hypre_StructVector_struct() = new()
 end
 
-typealias HYPRE_StructVector Ptr{hypre_StructVector_struct}
-
-type hypre_StructGrid_struct
+immutable hypre_StructGrid_struct
   comm::MPI_Comm
   dim::HYPRE_Int
   boxes::Ptr{hypre_BoxArray}
