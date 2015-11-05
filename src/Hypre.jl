@@ -9,7 +9,7 @@ end
 using MPI
 
 include("libhypre_h.jl")
-
+Base.convert(MPI_Comm, x::MPI.Comm) = x.val
 include("libhypre.jl")
 
 end # module
