@@ -1,26 +1,24 @@
-language: cpp
-compiler:
-    - clang
+language: julia
+os:
+    - osx
+    - linux
+julia:
+    - 0.4
+    - nightly
+matrix:
+    allow_failures:
+      - julia: nightly
 notifications:
     email: false
     slack: fit-pde:LzLEcCWinA1d9YPSsN4GnTL1
-env:
-    - JULIAVERSION="juliareleases"
-    - JULIAVERSION="julianightlies"
-matrix:
-    allow_failures:
-      - env: JULIAVERSION="julianightlies"
-before_install:
-    - sudo add-apt-repository ppa:staticfloat/julia-deps -y
-    - sudo add-apt-repository ppa:staticfloat/${JULIAVERSION} -y
-    - echo "yes" | sudo add-apt-repository ppa:kalakris/cmake
-    - sudo apt-get update -qq -y
-    - sudo apt-get install cmake libpcre3-dev libcr-dev mpich2 gfortran julia -y
+addons:
+  apt:
+    packages:
+    - gfortran
+    - cmake
+    - mpich2
 script:
-    - julia -e 'Pkg.init(); Pkg.clone("https://github.com/jgoldfar/Hypre.jl.git"); Pkg.build("Hypre"); using BinDeps; BinDeps.debug("Hypre");'
-    - ls -R
-    - julia -e 'using Hypre; @assert isdefined(:Hypre); @assert typeof(Hypre) === Module'
-    - if [ $JULIAVERSION = "juliareleases" ]; then julia --check-bounds=yes -e 'Pkg.test("Hypre"; coverage=true)'; fi
-    - if [ $JULIAVERSION = "julianightlies" ]; then julia test/runtests.jl; fi
+    - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
+    - julia -e 'Pkg.clone(pwd()); Pkg.build("Hypre"); Pkg.test("Hypre"; coverage=true)';
 after_success:
-    - if [ $JULIAVERSION = "juliareleases" ]; then julia -e 'cd(Pkg.dir("Hypre")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'; fi
+    - julia -e 'cd(Pkg.dir("Hypre")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())';
