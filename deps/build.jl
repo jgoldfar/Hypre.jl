@@ -17,7 +17,7 @@ srcrootdir = BinDeps.srcdir(libhypre)
 srcdir = joinpath(srcrootdir, hyprefilebase)
 cmakebuilddir = joinpath(srcdir, "src", "cmbuild")
 
-## Add support for basic "build flags"
+## Add support for basic "make flags"
 if !isempty(ARGS)
   if ARGS[1] == "clean"
     for dir in [BinDeps.srcdir(libhypre),
