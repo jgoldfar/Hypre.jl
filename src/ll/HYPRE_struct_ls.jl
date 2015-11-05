@@ -15,33 +15,27 @@ function HYPRE_ClearError(hypre_error_code::HYPRE_Int)
   ccall((:HYPRE_ClearError,libhypre),HYPRE_Int,(HYPRE_Int,),hypre_error_code)
 end
 
-function HYPRE_StructGridCreate(comm::MPI_Comm,ndim::HYPRE_Int,grid::Ptr{HYPRE_StructGrid})
-  ccall((:HYPRE_StructGridCreate,libhypre),HYPRE_Int,(MPI_Comm,HYPRE_Int,Ptr{HYPRE_StructGrid}),comm,ndim,grid)
+function HYPRE_StructGridCreate(comm::Union(MPI_Comm, MPI.Comm),ndim::Int,grid::Vector{hypre_StructGrid_struct})
+  ccall((:HYPRE_StructGridCreate,libhypre),HYPRE_Int,(MPI_Comm, HYPRE_Int, Ptr{hypre_StructGrid_struct}), comm, ndim, grid)
 end
-function HYPRE_StructGridCreate(comm::MPI_Comm,ndim::HYPRE_Int,grid::HYPRE_StructGrid)
-  ccall((:HYPRE_StructGridCreate,libhypre),HYPRE_Int,(MPI_Comm,HYPRE_Int,Ptr{HYPRE_StructGrid}),comm,ndim, &grid)
-end
-HYPRE_StructGridCreate(comm::MPI.Comm,ndim::HYPRE_Int,grid) = HYPRE_StructGridCreate(comm.val, ndim, grid)
-HYPRE_StructGridCreate(comm,ndim::Integer,grid) = HYPRE_StructGridCreate(comm, convert(HYPRE_Int, ndim), grid)
 
-function HYPRE_StructGridDestroy(grid::HYPRE_StructGrid)
+function HYPRE_StructGridDestroy(grid::Vector{hypre_StructGrid_struct})
   ccall((:HYPRE_StructGridDestroy,libhypre),HYPRE_Int,(HYPRE_StructGrid,),grid)
 end
 
-function HYPRE_StructGridSetExtents(grid::HYPRE_StructGrid,ilower::Ptr{HYPRE_Int},iupper::Ptr{HYPRE_Int})
-  ccall((:HYPRE_StructGridSetExtents,libhypre),HYPRE_Int,(HYPRE_StructGrid,Ptr{HYPRE_Int},Ptr{HYPRE_Int}),grid,ilower,iupper)
-end
-HYPRE_StructGridSetExtents(grid::HYPRE_StructGrid,ilower,iupper) = HYPRE_StructGridSetExtents(grid, convert(Ptr{HYPRE_Int}, pointer(ilower)), convert(Ptr{HYPRE_Int}, pointer(iupper)))
-
-function HYPRE_StructGridAssemble(grid::HYPRE_StructGrid)
-  ccall((:HYPRE_StructGridAssemble,libhypre),HYPRE_Int,(HYPRE_StructGrid,),grid)
+function HYPRE_StructGridSetExtents(grid::Vector{hypre_StructGrid_struct},ilower::Vector{HYPRE_Int},iupper::Vector{HYPRE_Int})
+  ccall((:HYPRE_StructGridSetExtents,libhypre),HYPRE_Int,(Ptr{hypre_StructGrid_struct},Ptr{HYPRE_Int},Ptr{HYPRE_Int}),grid,ilower,iupper)
 end
 
-function HYPRE_StructGridSetPeriodic(grid::HYPRE_StructGrid,periodic::Ptr{HYPRE_Int})
+function HYPRE_StructGridAssemble(grid::Vector{hypre_StructGrid_struct})
+  ccall((:HYPRE_StructGridAssemble,libhypre),HYPRE_Int,(Ptr{hypre_StructGrid_struct},),grid)
+end
+
+function HYPRE_StructGridSetPeriodic(grid::HYPRE_StructGrid,periodic::Vector{HYPRE_Int})
   ccall((:HYPRE_StructGridSetPeriodic,libhypre),HYPRE_Int,(HYPRE_StructGrid,Ptr{HYPRE_Int}),grid,periodic)
 end
 
-function HYPRE_StructGridSetNumGhost(grid::HYPRE_StructGrid,num_ghost::Ptr{HYPRE_Int})
+function HYPRE_StructGridSetNumGhost(grid::HYPRE_StructGrid,num_ghost::Vector{HYPRE_Int})
   ccall((:HYPRE_StructGridSetNumGhost,libhypre),HYPRE_Int,(HYPRE_StructGrid,Ptr{HYPRE_Int}),grid,num_ghost)
 end
 
