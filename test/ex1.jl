@@ -1,28 +1,19 @@
 module ex1 # from Hypre examples
 # direct translation from the corresponding C source. See
 # src/hypre-2.9.0b/src/examples/ex1.c under the deps directory.
+# Run with mpirun -np 2 julia ex1.jl
+#
 include(joinpath(dirname(dirname(@__FILE__)), "src", "Hypre.jl"))
 using .Hypre
 using MPI
 
 function runex1()
-  grid = Hypre.hypre_StructGrid_struct()
-  gridptr = convert(Hypre.HYPRE_StructGrid, pointer_from_objref(grid))
-  stencil = Hypre.hypre_StructStencil_struct()
-  stencilptr = convert(Hypre.HYPRE_StructStencil, pointer_from_objref(stencil))
-  A = Hypre.hypre_StructMatrix_struct()
-  Aptr = convert(Hypre.HYPRE_StructMatrix, pointer_from_objref(A))
-  b = Hypre.hypre_StructVector_struct()
-  bptr = convert(Hypre.HYPRE_StructVector, pointer_from_objref(b))
-  x = Hypre.hypre_StructVector_struct()
-  xptr = convert(Hypre.HYPRE_StructVector, pointer_from_objref(x))
-  solver = Hypre.hypre_StructSolver_struct()
-  solverptr = convert(Hypre.HYPRE_StructSolver, pointer_from_objref(solver))
-  # keeps references to internal objects just created (?)
-  const keeprefs = [grid, stencil, A, b, x, solver]
-  ccall(:jl_, Void, (Any,), grid)
-  ccall(:jl_, Void, (Any,), gridptr)
-
+  const grid = [Hypre.hypre_StructGrid_struct()]
+  const stencil = [Hypre.hypre_StructStencil_struct()]
+  const A = [Hypre.hypre_StructMatrix_struct()]
+  const b = [Hypre.hypre_StructVector_struct()]
+  const x = [Hypre.hypre_StructVector_struct()]
+  const solver = [Hypre.hypre_StructSolver_struct()]
 
   #   /* Initialize MPI */
   MPI.Init()
@@ -30,32 +21,31 @@ function runex1()
   const myid = MPI.Comm_rank(comm)
   const num_procs = MPI.Comm_size(comm)
 
-  #=  if num_procs != 2
+  if num_procs != 2
     if myid == 0
       println("Must run with 2 processors!")
     end
     MPI.Finalize()
     return(0)
   end
-=#
   # #   /* 1. Set up a grid. Each processor describes the piece
   # #   of the grid that it owns. */
   # #     /* Create an empty 2D grid object */
-  Hypre.HYPRE_StructGridCreate(comm, 2, gridptr)
-  ccall(:jl_, Void, (Any,), grid)
-  ccall(:jl_, Void, (Any,), gridptr)
+  Hypre.HYPRE_StructGridCreate(comm, 2, grid)
 
   # #     /* Add boxes to the grid */
-#   if myid == 0
-#     ilower = Hypre.HYPRE_Int[-3, 1]
-#     iupper = Hypre.HYPRE_Int[-1, 2]
-#     Hypre.HYPRE_StructGridSetExtents(gridptr, ilower, iupper)
-#   elseif myid == 1
-#     ilower = Hypre.HYPRE_Int[0, 1]
-#     iupper = Hypre.HYPRE_Int[2, 4]
-#     Hypre.HYPRE_StructGridSetExtents(gridptr, ilower, iupper)
-#   end
-
+  if myid == 0
+    ilower = Hypre.HYPRE_Int[-3, 1]
+    iupper = Hypre.HYPRE_Int[-1, 2]
+    Hypre.HYPRE_StructGridSetExtents(grid, ilower, iupper)
+  elseif myid == 1
+    ilower = Hypre.HYPRE_Int[0, 1]
+    iupper = Hypre.HYPRE_Int[2, 4]
+    Hypre.HYPRE_StructGridSetExtents(grid, ilower, iupper)
+  end
+  if myid == 0
+    println(grid)
+  end
 #   # #     /* This is a collective call finalizing the grid assembly.
 #   # #     The grid is now ``ready to be used'' */
 #   Hypre.HYPRE_StructGridAssemble(gridptr)
@@ -91,7 +81,7 @@ function runex1()
     stencil_indices = Hypre.HYPRE_Int[0, 1, 2, 3, 4] #/* labels for the stencil entries -
     # #         these correspond to the offsets defined above */
     nentries = length(stencil_indices)
-    nvalues  = Hypre.HYPRE_Int30 #/* 6 grid points, each with 5 stencil entries */
+    nvalues  = 30 #/* 6 grid points, each with 5 stencil entries */
     values = zeros(nvalues)
 
     # #       /* We have 6 grid points, each with 5 stencil entries */
@@ -250,19 +240,19 @@ function runex1()
   return(0)
 end #function
 
-function runex1mpi()
-  const nprocesses = 2
-  println(readall(`mpirun -np $nprocesses julia $(@__FILE__) go`))
-end
-function __init__()
-  if in("noMPI",ARGS) || in("go",ARGS)
-    gc_disable()
+# function runex1mpi()
+#   const nprocesses = 2
+#   println(readall(`mpirun -np $nprocesses julia $(@__FILE__) go`))
+# end
+# function __init__()
+#   if in("noMPI", ARGS) || in("go", ARGS)
+#     gc_disable()
     exitcode = runex1()
-    gc_enable()
+#     gc_enable()
     exit(exitcode)
-  else
-    runex1mpi()
-  end
-end
+#   else
+#     runex1mpi()
+#   end
+# end
 
 end #module
