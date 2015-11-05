@@ -366,7 +366,7 @@ typealias MPI_File Ptr{ADIOI_FileD}
 typealias MPI_Op Cint
 
 # begin enum MPIR_Win_flavor
-typealias MPIR_Win_flavor Uint32
+typealias MPIR_Win_flavor UInt32
 const MPI_WIN_FLAVOR_CREATE = (uint32)(1)
 const MPI_WIN_FLAVOR_ALLOCATE = (uint32)(2)
 const MPI_WIN_FLAVOR_DYNAMIC = (uint32)(3)
@@ -374,7 +374,7 @@ const MPI_WIN_FLAVOR_SHARED = (uint32)(4)
 # end enum MPIR_Win_flavor
 
 # begin enum MPIR_Win_flavor_t
-typealias MPIR_Win_flavor_t Uint32
+typealias MPIR_Win_flavor_t UInt32
 const MPI_WIN_FLAVOR_CREATE = (uint32)(1)
 const MPI_WIN_FLAVOR_ALLOCATE = (uint32)(2)
 const MPI_WIN_FLAVOR_DYNAMIC = (uint32)(3)
@@ -382,19 +382,19 @@ const MPI_WIN_FLAVOR_SHARED = (uint32)(4)
 # end enum MPIR_Win_flavor_t
 
 # begin enum MPIR_Win_model
-typealias MPIR_Win_model Uint32
+typealias MPIR_Win_model UInt32
 const MPI_WIN_SEPARATE = (uint32)(1)
 const MPI_WIN_UNIFIED = (uint32)(2)
 # end enum MPIR_Win_model
 
 # begin enum MPIR_Win_model_t
-typealias MPIR_Win_model_t Uint32
+typealias MPIR_Win_model_t UInt32
 const MPI_WIN_SEPARATE = (uint32)(1)
 const MPI_WIN_UNIFIED = (uint32)(2)
 # end enum MPIR_Win_model_t
 
 # begin enum MPIR_Topo_type
-typealias MPIR_Topo_type Uint32
+typealias MPIR_Topo_type UInt32
 const MPI_GRAPH = (uint32)(1)
 const MPI_CART = (uint32)(2)
 const MPI_DIST_GRAPH = (uint32)(3)
@@ -408,7 +408,7 @@ typealias MPI_Request Cint
 typealias MPI_Message Cint
 
 # begin enum MPIR_Combiner_enum
-typealias MPIR_Combiner_enum Uint32
+typealias MPIR_Combiner_enum UInt32
 const MPI_COMBINER_NAMED = (uint32)(1)
 const MPI_COMBINER_DUP = (uint32)(2)
 const MPI_COMBINER_CONTIGUOUS = (uint32)(3)
@@ -477,7 +477,7 @@ end
 typealias MPI_T_pvar_session Ptr{MPIR_T_pvar_session}
 
 # begin enum MPIR_T_verbosity_t
-typealias MPIR_T_verbosity_t Uint32
+typealias MPIR_T_verbosity_t UInt32
 const MPIX_T_VERBOSITY_INVALID = (uint32)(0)
 const MPI_T_VERBOSITY_USER_BASIC = (uint32)(221)
 const MPI_T_VERBOSITY_USER_DETAIL = (uint32)(222)
@@ -491,7 +491,7 @@ const MPI_T_VERBOSITY_MPIDEV_ALL = (uint32)(229)
 # end enum MPIR_T_verbosity_t
 
 # begin enum MPIR_T_bind_t
-typealias MPIR_T_bind_t Uint32
+typealias MPIR_T_bind_t UInt32
 const MPIX_T_BIND_INVALID = (uint32)(0)
 const MPI_T_BIND_NO_OBJECT = (uint32)(9700)
 const MPI_T_BIND_MPI_COMM = (uint32)(9701)
@@ -507,7 +507,7 @@ const MPI_T_BIND_MPI_INFO = (uint32)(9710)
 # end enum MPIR_T_bind_t
 
 # begin enum MPIR_T_scope_t
-typealias MPIR_T_scope_t Uint32
+typealias MPIR_T_scope_t UInt32
 const MPIX_T_SCOPE_INVALID = (uint32)(0)
 const MPI_T_SCOPE_READONLY = (uint32)(60439)
 const MPI_T_SCOPE_LOCAL = (uint32)(60440)
@@ -518,7 +518,7 @@ const MPI_T_SCOPE_ALL_EQ = (uint32)(60444)
 # end enum MPIR_T_scope_t
 
 # begin enum MPIR_T_pvar_class_t
-typealias MPIR_T_pvar_class_t Uint32
+typealias MPIR_T_pvar_class_t UInt32
 const MPIX_T_PVAR_CLASS_INVALID = (uint32)(0)
 const MPI_T_PVAR_CLASS_STATE = (uint32)(240)
 const MPI_T_PVAR_CLASS_LEVEL = (uint32)(241)
@@ -720,7 +720,7 @@ end
 typealias HYPRE_Vector Ptr{hypre_Vector_struct}
 typealias hypre_int Cint
 typealias hypre_longint Clong
-typealias hypre_uint Uint32
+typealias hypre_uint UInt32
 typealias hypre_ulongint Culong
 typealias hypre_MPI_Comm MPI_Comm
 typealias hypre_MPI_Group MPI_Group
@@ -3948,7 +3948,7 @@ typealias HYPRE_PtrToSStructSolverFcn Ptr{Void}
 typealias hypre_SStructVariable HYPRE_Int
 
 # begin enum hypre_SStructBoxManInfoType
-typealias hypre_SStructBoxManInfoType Uint32
+typealias hypre_SStructBoxManInfoType UInt32
 const hypre_SSTRUCT_BOXMAN_INFO_DEFAULT = (uint32)(0)
 const hypre_SSTRUCT_BOXMAN_INFO_NEIGHBOR = (uint32)(1)
 # end enum hypre_SStructBoxManInfoType
@@ -4141,19 +4141,19 @@ const FALSE = 0
 const TRUE = 1
 
 # begin enum ANONYMOUS_2
-typealias ANONYMOUS_2 Uint32
+typealias ANONYMOUS_2 UInt32
 const NO = (uint32)(0)
 const YES = (uint32)(1)
 # end enum ANONYMOUS_2
 
 # begin enum yes_no_t
-typealias yes_no_t Uint32
+typealias yes_no_t UInt32
 const NO = (uint32)(0)
 const YES = (uint32)(1)
 # end enum yes_no_t
 
 # begin enum ANONYMOUS_3
-typealias ANONYMOUS_3 Uint32
+typealias ANONYMOUS_3 UInt32
 const DOFACT = (uint32)(0)
 const SamePattern = (uint32)(1)
 const SamePattern_SameRowPerm = (uint32)(2)
@@ -4161,7 +4161,7 @@ const FACTORED = (uint32)(3)
 # end enum ANONYMOUS_3
 
 # begin enum fact_t
-typealias fact_t Uint32
+typealias fact_t UInt32
 const DOFACT = (uint32)(0)
 const SamePattern = (uint32)(1)
 const SamePattern_SameRowPerm = (uint32)(2)
@@ -4169,21 +4169,21 @@ const FACTORED = (uint32)(3)
 # end enum fact_t
 
 # begin enum ANONYMOUS_4
-typealias ANONYMOUS_4 Uint32
+typealias ANONYMOUS_4 UInt32
 const NOROWPERM = (uint32)(0)
 const LargeDiag = (uint32)(1)
 const MY_PERMR = (uint32)(2)
 # end enum ANONYMOUS_4
 
 # begin enum rowperm_t
-typealias rowperm_t Uint32
+typealias rowperm_t UInt32
 const NOROWPERM = (uint32)(0)
 const LargeDiag = (uint32)(1)
 const MY_PERMR = (uint32)(2)
 # end enum rowperm_t
 
 # begin enum ANONYMOUS_5
-typealias ANONYMOUS_5 Uint32
+typealias ANONYMOUS_5 UInt32
 const NATURAL = (uint32)(0)
 const MMD_ATA = (uint32)(1)
 const MMD_AT_PLUS_A = (uint32)(2)
@@ -4192,7 +4192,7 @@ const MY_PERMC = (uint32)(4)
 # end enum ANONYMOUS_5
 
 # begin enum colperm_t
-typealias colperm_t Uint32
+typealias colperm_t UInt32
 const NATURAL = (uint32)(0)
 const MMD_ATA = (uint32)(1)
 const MMD_AT_PLUS_A = (uint32)(2)
@@ -4201,21 +4201,21 @@ const MY_PERMC = (uint32)(4)
 # end enum colperm_t
 
 # begin enum ANONYMOUS_6
-typealias ANONYMOUS_6 Uint32
+typealias ANONYMOUS_6 UInt32
 const NOTRANS = (uint32)(0)
 const TRANS = (uint32)(1)
 const CONJ = (uint32)(2)
 # end enum ANONYMOUS_6
 
 # begin enum trans_t
-typealias trans_t Uint32
+typealias trans_t UInt32
 const NOTRANS = (uint32)(0)
 const TRANS = (uint32)(1)
 const CONJ = (uint32)(2)
 # end enum trans_t
 
 # begin enum ANONYMOUS_7
-typealias ANONYMOUS_7 Uint32
+typealias ANONYMOUS_7 UInt32
 const NOEQUIL = (uint32)(0)
 const ROW = (uint32)(1)
 const COL = (uint32)(2)
@@ -4223,7 +4223,7 @@ const BOTH = (uint32)(3)
 # end enum ANONYMOUS_7
 
 # begin enum DiagScale_t
-typealias DiagScale_t Uint32
+typealias DiagScale_t UInt32
 const NOEQUIL = (uint32)(0)
 const ROW = (uint32)(1)
 const COL = (uint32)(2)
@@ -4231,7 +4231,7 @@ const BOTH = (uint32)(3)
 # end enum DiagScale_t
 
 # begin enum ANONYMOUS_8
-typealias ANONYMOUS_8 Uint32
+typealias ANONYMOUS_8 UInt32
 const NOREFINE = (uint32)(0)
 const SINGLE = (uint32)(1)
 const DOUBLE = (uint32)(2)
@@ -4239,7 +4239,7 @@ const EXTRA = (uint32)(3)
 # end enum ANONYMOUS_8
 
 # begin enum IterRefine_t
-typealias IterRefine_t Uint32
+typealias IterRefine_t UInt32
 const NOREFINE = (uint32)(0)
 const SINGLE = (uint32)(1)
 const DOUBLE = (uint32)(2)
@@ -4247,7 +4247,7 @@ const EXTRA = (uint32)(3)
 # end enum IterRefine_t
 
 # begin enum ANONYMOUS_9
-typealias ANONYMOUS_9 Uint32
+typealias ANONYMOUS_9 UInt32
 const LUSUP = (uint32)(0)
 const UCOL = (uint32)(1)
 const LSUB = (uint32)(2)
@@ -4255,7 +4255,7 @@ const USUB = (uint32)(3)
 # end enum ANONYMOUS_9
 
 # begin enum MemType
-typealias MemType Uint32
+typealias MemType UInt32
 const LUSUP = (uint32)(0)
 const UCOL = (uint32)(1)
 const LSUB = (uint32)(2)
@@ -4263,31 +4263,31 @@ const USUB = (uint32)(3)
 # end enum MemType
 
 # begin enum ANONYMOUS_10
-typealias ANONYMOUS_10 Uint32
+typealias ANONYMOUS_10 UInt32
 const HEAD = (uint32)(0)
 const TAIL = (uint32)(1)
 # end enum ANONYMOUS_10
 
 # begin enum stack_end_t
-typealias stack_end_t Uint32
+typealias stack_end_t UInt32
 const HEAD = (uint32)(0)
 const TAIL = (uint32)(1)
 # end enum stack_end_t
 
 # begin enum ANONYMOUS_11
-typealias ANONYMOUS_11 Uint32
+typealias ANONYMOUS_11 UInt32
 const SYSTEM = (uint32)(0)
 const USER = (uint32)(1)
 # end enum ANONYMOUS_11
 
 # begin enum LU_space_t
-typealias LU_space_t Uint32
+typealias LU_space_t UInt32
 const SYSTEM = (uint32)(0)
 const USER = (uint32)(1)
 # end enum LU_space_t
 
 # begin enum ANONYMOUS_12
-typealias ANONYMOUS_12 Uint32
+typealias ANONYMOUS_12 UInt32
 const COLPERM = (uint32)(0)
 const RELAX = (uint32)(1)
 const ETREE = (uint32)(2)
@@ -4303,7 +4303,7 @@ const NPHASES = (uint32)(11)
 # end enum ANONYMOUS_12
 
 # begin enum PhaseType
-typealias PhaseType Uint32
+typealias PhaseType UInt32
 const COLPERM = (uint32)(0)
 const RELAX = (uint32)(1)
 const ETREE = (uint32)(2)
@@ -4358,7 +4358,7 @@ end
 # Skipping MacroDefinition: U_SUB ( ptr ) ( Ustore -> rowind [ ptr ] )
 
 # begin enum ANONYMOUS_13
-typealias ANONYMOUS_13 Uint32
+typealias ANONYMOUS_13 UInt32
 const SLU_NC = (uint32)(0)
 const SLU_NR = (uint32)(1)
 const SLU_SC = (uint32)(2)
@@ -4368,7 +4368,7 @@ const SLU_DN = (uint32)(5)
 # end enum ANONYMOUS_13
 
 # begin enum Stype_t
-typealias Stype_t Uint32
+typealias Stype_t UInt32
 const SLU_NC = (uint32)(0)
 const SLU_NR = (uint32)(1)
 const SLU_SC = (uint32)(2)
@@ -4378,7 +4378,7 @@ const SLU_DN = (uint32)(5)
 # end enum Stype_t
 
 # begin enum ANONYMOUS_14
-typealias ANONYMOUS_14 Uint32
+typealias ANONYMOUS_14 UInt32
 const SLU_S = (uint32)(0)
 const SLU_D = (uint32)(1)
 const SLU_C = (uint32)(2)
@@ -4386,7 +4386,7 @@ const SLU_Z = (uint32)(3)
 # end enum ANONYMOUS_14
 
 # begin enum Dtype_t
-typealias Dtype_t Uint32
+typealias Dtype_t UInt32
 const SLU_S = (uint32)(0)
 const SLU_D = (uint32)(1)
 const SLU_C = (uint32)(2)
@@ -4394,7 +4394,7 @@ const SLU_Z = (uint32)(3)
 # end enum Dtype_t
 
 # begin enum ANONYMOUS_15
-typealias ANONYMOUS_15 Uint32
+typealias ANONYMOUS_15 UInt32
 const SLU_GE = (uint32)(0)
 const SLU_TRLU = (uint32)(1)
 const SLU_TRUU = (uint32)(2)
@@ -4407,7 +4407,7 @@ const SLU_HEU = (uint32)(8)
 # end enum ANONYMOUS_15
 
 # begin enum Mtype_t
-typealias Mtype_t Uint32
+typealias Mtype_t UInt32
 const SLU_GE = (uint32)(0)
 const SLU_TRLU = (uint32)(1)
 const SLU_TRUU = (uint32)(2)
@@ -4650,7 +4650,7 @@ const HYFEI_PRINTPARCSRMAT = 2097152
 const HYFEI_IMPOSENOBC = 4194304
 
 # begin enum HYsolverID
-typealias HYsolverID Uint32
+typealias HYsolverID UInt32
 const HYPCG = (uint32)(0)
 const HYLSICG = (uint32)(1)
 const HYGMRES = (uint32)(2)
@@ -4670,7 +4670,7 @@ const HYHYBRID = (uint32)(15)
 # end enum HYsolverID
 
 # begin enum HYpreconID
-typealias HYpreconID Uint32
+typealias HYpreconID UInt32
 const HYIDENTITY = (uint32)(0)
 const HYDIAGONAL = (uint32)(1)
 const HYPILUT = (uint32)(2)
@@ -4867,7 +4867,7 @@ end
 typealias int_t Cint
 
 # begin enum ANONYMOUS_17
-typealias ANONYMOUS_17 Uint32
+typealias ANONYMOUS_17 UInt32
 const SLU_NC = (uint32)(0)
 const SLU_NR = (uint32)(1)
 const SLU_SC = (uint32)(2)
@@ -4877,7 +4877,7 @@ const SLU_DN = (uint32)(5)
 # end enum ANONYMOUS_17
 
 # begin enum ANONYMOUS_18
-typealias ANONYMOUS_18 Uint32
+typealias ANONYMOUS_18 UInt32
 const SLU_S = (uint32)(0)
 const SLU_D = (uint32)(1)
 const SLU_C = (uint32)(2)
@@ -4885,7 +4885,7 @@ const SLU_Z = (uint32)(3)
 # end enum ANONYMOUS_18
 
 # begin enum ANONYMOUS_19
-typealias ANONYMOUS_19 Uint32
+typealias ANONYMOUS_19 UInt32
 const SLU_GE = (uint32)(0)
 const SLU_TRLU = (uint32)(1)
 const SLU_TRUU = (uint32)(2)
@@ -4898,13 +4898,13 @@ const SLU_HEU = (uint32)(8)
 # end enum ANONYMOUS_19
 
 # begin enum ANONYMOUS_20
-typealias ANONYMOUS_20 Uint32
+typealias ANONYMOUS_20 UInt32
 const NO = (uint32)(0)
 const YES = (uint32)(1)
 # end enum ANONYMOUS_20
 
 # begin enum ANONYMOUS_21
-typealias ANONYMOUS_21 Uint32
+typealias ANONYMOUS_21 UInt32
 const DOFACT = (uint32)(0)
 const SamePattern = (uint32)(1)
 const SamePattern_SameRowPerm = (uint32)(2)
@@ -4912,14 +4912,14 @@ const FACTORED = (uint32)(3)
 # end enum ANONYMOUS_21
 
 # begin enum ANONYMOUS_22
-typealias ANONYMOUS_22 Uint32
+typealias ANONYMOUS_22 UInt32
 const NOROWPERM = (uint32)(0)
 const LargeDiag = (uint32)(1)
 const MY_PERMR = (uint32)(2)
 # end enum ANONYMOUS_22
 
 # begin enum ANONYMOUS_23
-typealias ANONYMOUS_23 Uint32
+typealias ANONYMOUS_23 UInt32
 const NATURAL = (uint32)(0)
 const MMD_ATA = (uint32)(1)
 const MMD_AT_PLUS_A = (uint32)(2)
@@ -4928,14 +4928,14 @@ const MY_PERMC = (uint32)(4)
 # end enum ANONYMOUS_23
 
 # begin enum ANONYMOUS_24
-typealias ANONYMOUS_24 Uint32
+typealias ANONYMOUS_24 UInt32
 const NOTRANS = (uint32)(0)
 const TRANS = (uint32)(1)
 const CONJ = (uint32)(2)
 # end enum ANONYMOUS_24
 
 # begin enum ANONYMOUS_25
-typealias ANONYMOUS_25 Uint32
+typealias ANONYMOUS_25 UInt32
 const NOEQUIL = (uint32)(0)
 const ROW = (uint32)(1)
 const COL = (uint32)(2)
@@ -4943,7 +4943,7 @@ const BOTH = (uint32)(3)
 # end enum ANONYMOUS_25
 
 # begin enum ANONYMOUS_26
-typealias ANONYMOUS_26 Uint32
+typealias ANONYMOUS_26 UInt32
 const NOREFINE = (uint32)(0)
 const SINGLE = (uint32)(1)
 const DOUBLE = (uint32)(2)
@@ -4951,7 +4951,7 @@ const EXTRA = (uint32)(3)
 # end enum ANONYMOUS_26
 
 # begin enum ANONYMOUS_27
-typealias ANONYMOUS_27 Uint32
+typealias ANONYMOUS_27 UInt32
 const LUSUP = (uint32)(0)
 const UCOL = (uint32)(1)
 const LSUB = (uint32)(2)
@@ -4959,19 +4959,19 @@ const USUB = (uint32)(3)
 # end enum ANONYMOUS_27
 
 # begin enum ANONYMOUS_28
-typealias ANONYMOUS_28 Uint32
+typealias ANONYMOUS_28 UInt32
 const HEAD = (uint32)(0)
 const TAIL = (uint32)(1)
 # end enum ANONYMOUS_28
 
 # begin enum ANONYMOUS_29
-typealias ANONYMOUS_29 Uint32
+typealias ANONYMOUS_29 UInt32
 const SYSTEM = (uint32)(0)
 const USER = (uint32)(1)
 # end enum ANONYMOUS_29
 
 # begin enum ANONYMOUS_30
-typealias ANONYMOUS_30 Uint32
+typealias ANONYMOUS_30 UInt32
 const COLPERM = (uint32)(0)
 const RELAX = (uint32)(1)
 const ETREE = (uint32)(2)
@@ -5016,7 +5016,7 @@ end
 typealias logical Cint
 
 # begin enum ANONYMOUS_31
-typealias ANONYMOUS_31 Uint32
+typealias ANONYMOUS_31 UInt32
 const SLU_NC = (uint32)(0)
 const SLU_NR = (uint32)(1)
 const SLU_SC = (uint32)(2)
@@ -5026,7 +5026,7 @@ const SLU_DN = (uint32)(5)
 # end enum ANONYMOUS_31
 
 # begin enum ANONYMOUS_32
-typealias ANONYMOUS_32 Uint32
+typealias ANONYMOUS_32 UInt32
 const SLU_S = (uint32)(0)
 const SLU_D = (uint32)(1)
 const SLU_C = (uint32)(2)
@@ -5034,7 +5034,7 @@ const SLU_Z = (uint32)(3)
 # end enum ANONYMOUS_32
 
 # begin enum ANONYMOUS_33
-typealias ANONYMOUS_33 Uint32
+typealias ANONYMOUS_33 UInt32
 const SLU_GE = (uint32)(0)
 const SLU_TRLU = (uint32)(1)
 const SLU_TRUU = (uint32)(2)
@@ -5047,13 +5047,13 @@ const SLU_HEU = (uint32)(8)
 # end enum ANONYMOUS_33
 
 # begin enum ANONYMOUS_34
-typealias ANONYMOUS_34 Uint32
+typealias ANONYMOUS_34 UInt32
 const NO = (uint32)(0)
 const YES = (uint32)(1)
 # end enum ANONYMOUS_34
 
 # begin enum ANONYMOUS_35
-typealias ANONYMOUS_35 Uint32
+typealias ANONYMOUS_35 UInt32
 const DOFACT = (uint32)(0)
 const SamePattern = (uint32)(1)
 const SamePattern_SameRowPerm = (uint32)(2)
@@ -5061,14 +5061,14 @@ const FACTORED = (uint32)(3)
 # end enum ANONYMOUS_35
 
 # begin enum ANONYMOUS_36
-typealias ANONYMOUS_36 Uint32
+typealias ANONYMOUS_36 UInt32
 const NOROWPERM = (uint32)(0)
 const LargeDiag = (uint32)(1)
 const MY_PERMR = (uint32)(2)
 # end enum ANONYMOUS_36
 
 # begin enum ANONYMOUS_37
-typealias ANONYMOUS_37 Uint32
+typealias ANONYMOUS_37 UInt32
 const NATURAL = (uint32)(0)
 const MMD_ATA = (uint32)(1)
 const MMD_AT_PLUS_A = (uint32)(2)
@@ -5077,14 +5077,14 @@ const MY_PERMC = (uint32)(4)
 # end enum ANONYMOUS_37
 
 # begin enum ANONYMOUS_38
-typealias ANONYMOUS_38 Uint32
+typealias ANONYMOUS_38 UInt32
 const NOTRANS = (uint32)(0)
 const TRANS = (uint32)(1)
 const CONJ = (uint32)(2)
 # end enum ANONYMOUS_38
 
 # begin enum ANONYMOUS_39
-typealias ANONYMOUS_39 Uint32
+typealias ANONYMOUS_39 UInt32
 const NOEQUIL = (uint32)(0)
 const ROW = (uint32)(1)
 const COL = (uint32)(2)
@@ -5092,7 +5092,7 @@ const BOTH = (uint32)(3)
 # end enum ANONYMOUS_39
 
 # begin enum ANONYMOUS_40
-typealias ANONYMOUS_40 Uint32
+typealias ANONYMOUS_40 UInt32
 const NOREFINE = (uint32)(0)
 const SINGLE = (uint32)(1)
 const DOUBLE = (uint32)(2)
@@ -5100,7 +5100,7 @@ const EXTRA = (uint32)(3)
 # end enum ANONYMOUS_40
 
 # begin enum ANONYMOUS_41
-typealias ANONYMOUS_41 Uint32
+typealias ANONYMOUS_41 UInt32
 const LUSUP = (uint32)(0)
 const UCOL = (uint32)(1)
 const LSUB = (uint32)(2)
@@ -5108,19 +5108,19 @@ const USUB = (uint32)(3)
 # end enum ANONYMOUS_41
 
 # begin enum ANONYMOUS_42
-typealias ANONYMOUS_42 Uint32
+typealias ANONYMOUS_42 UInt32
 const HEAD = (uint32)(0)
 const TAIL = (uint32)(1)
 # end enum ANONYMOUS_42
 
 # begin enum ANONYMOUS_43
-typealias ANONYMOUS_43 Uint32
+typealias ANONYMOUS_43 UInt32
 const SYSTEM = (uint32)(0)
 const USER = (uint32)(1)
 # end enum ANONYMOUS_43
 
 # begin enum ANONYMOUS_44
-typealias ANONYMOUS_44 Uint32
+typealias ANONYMOUS_44 UInt32
 const COLPERM = (uint32)(0)
 const RELAX = (uint32)(1)
 const ETREE = (uint32)(2)
@@ -5136,7 +5136,7 @@ const NPHASES = (uint32)(11)
 # end enum ANONYMOUS_44
 
 # begin enum ANONYMOUS_45
-typealias ANONYMOUS_45 Uint32
+typealias ANONYMOUS_45 UInt32
 const SLU_NC = (uint32)(0)
 const SLU_NR = (uint32)(1)
 const SLU_SC = (uint32)(2)
@@ -5146,7 +5146,7 @@ const SLU_DN = (uint32)(5)
 # end enum ANONYMOUS_45
 
 # begin enum ANONYMOUS_46
-typealias ANONYMOUS_46 Uint32
+typealias ANONYMOUS_46 UInt32
 const SLU_S = (uint32)(0)
 const SLU_D = (uint32)(1)
 const SLU_C = (uint32)(2)
@@ -5154,7 +5154,7 @@ const SLU_Z = (uint32)(3)
 # end enum ANONYMOUS_46
 
 # begin enum ANONYMOUS_47
-typealias ANONYMOUS_47 Uint32
+typealias ANONYMOUS_47 UInt32
 const SLU_GE = (uint32)(0)
 const SLU_TRLU = (uint32)(1)
 const SLU_TRUU = (uint32)(2)
@@ -5167,13 +5167,13 @@ const SLU_HEU = (uint32)(8)
 # end enum ANONYMOUS_47
 
 # begin enum ANONYMOUS_48
-typealias ANONYMOUS_48 Uint32
+typealias ANONYMOUS_48 UInt32
 const NO = (uint32)(0)
 const YES = (uint32)(1)
 # end enum ANONYMOUS_48
 
 # begin enum ANONYMOUS_49
-typealias ANONYMOUS_49 Uint32
+typealias ANONYMOUS_49 UInt32
 const DOFACT = (uint32)(0)
 const SamePattern = (uint32)(1)
 const SamePattern_SameRowPerm = (uint32)(2)
@@ -5181,14 +5181,14 @@ const FACTORED = (uint32)(3)
 # end enum ANONYMOUS_49
 
 # begin enum ANONYMOUS_50
-typealias ANONYMOUS_50 Uint32
+typealias ANONYMOUS_50 UInt32
 const NOROWPERM = (uint32)(0)
 const LargeDiag = (uint32)(1)
 const MY_PERMR = (uint32)(2)
 # end enum ANONYMOUS_50
 
 # begin enum ANONYMOUS_51
-typealias ANONYMOUS_51 Uint32
+typealias ANONYMOUS_51 UInt32
 const NATURAL = (uint32)(0)
 const MMD_ATA = (uint32)(1)
 const MMD_AT_PLUS_A = (uint32)(2)
@@ -5197,14 +5197,14 @@ const MY_PERMC = (uint32)(4)
 # end enum ANONYMOUS_51
 
 # begin enum ANONYMOUS_52
-typealias ANONYMOUS_52 Uint32
+typealias ANONYMOUS_52 UInt32
 const NOTRANS = (uint32)(0)
 const TRANS = (uint32)(1)
 const CONJ = (uint32)(2)
 # end enum ANONYMOUS_52
 
 # begin enum ANONYMOUS_53
-typealias ANONYMOUS_53 Uint32
+typealias ANONYMOUS_53 UInt32
 const NOEQUIL = (uint32)(0)
 const ROW = (uint32)(1)
 const COL = (uint32)(2)
@@ -5212,7 +5212,7 @@ const BOTH = (uint32)(3)
 # end enum ANONYMOUS_53
 
 # begin enum ANONYMOUS_54
-typealias ANONYMOUS_54 Uint32
+typealias ANONYMOUS_54 UInt32
 const NOREFINE = (uint32)(0)
 const SINGLE = (uint32)(1)
 const DOUBLE = (uint32)(2)
@@ -5220,7 +5220,7 @@ const EXTRA = (uint32)(3)
 # end enum ANONYMOUS_54
 
 # begin enum ANONYMOUS_55
-typealias ANONYMOUS_55 Uint32
+typealias ANONYMOUS_55 UInt32
 const LUSUP = (uint32)(0)
 const UCOL = (uint32)(1)
 const LSUB = (uint32)(2)
@@ -5228,19 +5228,19 @@ const USUB = (uint32)(3)
 # end enum ANONYMOUS_55
 
 # begin enum ANONYMOUS_56
-typealias ANONYMOUS_56 Uint32
+typealias ANONYMOUS_56 UInt32
 const HEAD = (uint32)(0)
 const TAIL = (uint32)(1)
 # end enum ANONYMOUS_56
 
 # begin enum ANONYMOUS_57
-typealias ANONYMOUS_57 Uint32
+typealias ANONYMOUS_57 UInt32
 const SYSTEM = (uint32)(0)
 const USER = (uint32)(1)
 # end enum ANONYMOUS_57
 
 # begin enum ANONYMOUS_58
-typealias ANONYMOUS_58 Uint32
+typealias ANONYMOUS_58 UInt32
 const COLPERM = (uint32)(0)
 const RELAX = (uint32)(1)
 const ETREE = (uint32)(2)
@@ -5256,7 +5256,7 @@ const NPHASES = (uint32)(11)
 # end enum ANONYMOUS_58
 
 # begin enum ANONYMOUS_59
-typealias ANONYMOUS_59 Uint32
+typealias ANONYMOUS_59 UInt32
 const SLU_NC = (uint32)(0)
 const SLU_NR = (uint32)(1)
 const SLU_SC = (uint32)(2)
@@ -5266,7 +5266,7 @@ const SLU_DN = (uint32)(5)
 # end enum ANONYMOUS_59
 
 # begin enum ANONYMOUS_60
-typealias ANONYMOUS_60 Uint32
+typealias ANONYMOUS_60 UInt32
 const SLU_S = (uint32)(0)
 const SLU_D = (uint32)(1)
 const SLU_C = (uint32)(2)
@@ -5274,7 +5274,7 @@ const SLU_Z = (uint32)(3)
 # end enum ANONYMOUS_60
 
 # begin enum ANONYMOUS_61
-typealias ANONYMOUS_61 Uint32
+typealias ANONYMOUS_61 UInt32
 const SLU_GE = (uint32)(0)
 const SLU_TRLU = (uint32)(1)
 const SLU_TRUU = (uint32)(2)
@@ -5287,13 +5287,13 @@ const SLU_HEU = (uint32)(8)
 # end enum ANONYMOUS_61
 
 # begin enum ANONYMOUS_62
-typealias ANONYMOUS_62 Uint32
+typealias ANONYMOUS_62 UInt32
 const NO = (uint32)(0)
 const YES = (uint32)(1)
 # end enum ANONYMOUS_62
 
 # begin enum ANONYMOUS_63
-typealias ANONYMOUS_63 Uint32
+typealias ANONYMOUS_63 UInt32
 const DOFACT = (uint32)(0)
 const SamePattern = (uint32)(1)
 const SamePattern_SameRowPerm = (uint32)(2)
@@ -5301,14 +5301,14 @@ const FACTORED = (uint32)(3)
 # end enum ANONYMOUS_63
 
 # begin enum ANONYMOUS_64
-typealias ANONYMOUS_64 Uint32
+typealias ANONYMOUS_64 UInt32
 const NOROWPERM = (uint32)(0)
 const LargeDiag = (uint32)(1)
 const MY_PERMR = (uint32)(2)
 # end enum ANONYMOUS_64
 
 # begin enum ANONYMOUS_65
-typealias ANONYMOUS_65 Uint32
+typealias ANONYMOUS_65 UInt32
 const NATURAL = (uint32)(0)
 const MMD_ATA = (uint32)(1)
 const MMD_AT_PLUS_A = (uint32)(2)
@@ -5317,14 +5317,14 @@ const MY_PERMC = (uint32)(4)
 # end enum ANONYMOUS_65
 
 # begin enum ANONYMOUS_66
-typealias ANONYMOUS_66 Uint32
+typealias ANONYMOUS_66 UInt32
 const NOTRANS = (uint32)(0)
 const TRANS = (uint32)(1)
 const CONJ = (uint32)(2)
 # end enum ANONYMOUS_66
 
 # begin enum ANONYMOUS_67
-typealias ANONYMOUS_67 Uint32
+typealias ANONYMOUS_67 UInt32
 const NOEQUIL = (uint32)(0)
 const ROW = (uint32)(1)
 const COL = (uint32)(2)
@@ -5332,7 +5332,7 @@ const BOTH = (uint32)(3)
 # end enum ANONYMOUS_67
 
 # begin enum ANONYMOUS_68
-typealias ANONYMOUS_68 Uint32
+typealias ANONYMOUS_68 UInt32
 const NOREFINE = (uint32)(0)
 const SINGLE = (uint32)(1)
 const DOUBLE = (uint32)(2)
@@ -5340,7 +5340,7 @@ const EXTRA = (uint32)(3)
 # end enum ANONYMOUS_68
 
 # begin enum ANONYMOUS_69
-typealias ANONYMOUS_69 Uint32
+typealias ANONYMOUS_69 UInt32
 const LUSUP = (uint32)(0)
 const UCOL = (uint32)(1)
 const LSUB = (uint32)(2)
@@ -5348,19 +5348,19 @@ const USUB = (uint32)(3)
 # end enum ANONYMOUS_69
 
 # begin enum ANONYMOUS_70
-typealias ANONYMOUS_70 Uint32
+typealias ANONYMOUS_70 UInt32
 const HEAD = (uint32)(0)
 const TAIL = (uint32)(1)
 # end enum ANONYMOUS_70
 
 # begin enum ANONYMOUS_71
-typealias ANONYMOUS_71 Uint32
+typealias ANONYMOUS_71 UInt32
 const SYSTEM = (uint32)(0)
 const USER = (uint32)(1)
 # end enum ANONYMOUS_71
 
 # begin enum ANONYMOUS_72
-typealias ANONYMOUS_72 Uint32
+typealias ANONYMOUS_72 UInt32
 const COLPERM = (uint32)(0)
 const RELAX = (uint32)(1)
 const ETREE = (uint32)(2)
