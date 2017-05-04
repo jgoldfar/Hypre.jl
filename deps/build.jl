@@ -28,7 +28,7 @@ if "clean" in ARGS || "clean-all" in ARGS
 end
 
 mpicc = get(ENV, "JULIA_MPI_C_COMPILER", chomp(readstring(`which mpicc`)))
-mpicc = get(ENV, "JULIA_MPI_CXX_COMPILER", chomp(readstring(`which mpicxx`)))
+mpicxx = get(ENV, "JULIA_MPI_CXX_COMPILER", chomp(readstring(`which mpicxx`)))
 
 ## Build steps
 provides(SimpleBuild,
