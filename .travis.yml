@@ -1,13 +1,8 @@
 language: julia
+sudo: required
 os:
   - linux
   - osx
-addons:
-  apt:
-    packages:
-    - gfortran
-    - cmake
-    - mpich2
 julia:
   - release
   - nightly
@@ -20,10 +15,16 @@ notifications:
   slack: fit-pde:LzLEcCWinA1d9YPSsN4GnTL1
 notifications:
   email: false
+env:
+  - MPI_IMPL=mpich
+  - MPI_IMPL=openmpi
+before_install:
+  - sh ./deps/travis-install-mpi.sh $MPI_IMPL
+  - export PATH=$HOME/OpenMPI/bin:$PATH
 # uncomment the following lines to override the default test script
 #script:
 #  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
-#  - julia -e 'Pkg.clone(pwd()); Pkg.build("igraph"); Pkg.test("igraph"; coverage=true)'
+#  - julia -e 'Pkg.clone(pwd()); Pkg.build("Hypre"); Pkg.test("Hypre"; coverage=true)'
 after_success:
   # push coverage results to Codecov
   - julia -e 'cd(Pkg.dir("Hypre")); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())'
