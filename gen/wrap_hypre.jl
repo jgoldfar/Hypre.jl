@@ -1,7 +1,18 @@
 # This file is not an active part of the package. This is the code
-# that uses the Clang.jl package to wrap Sundials using the headers.
+# that uses the Clang.jl package to wrap Hypre using the headers.
 
 # Find all headers
+# To run the script from Julia console:
+# include(joinpath(Pkg.dir("Hypre"), "src", "wrap_hypre.jl"));
+push!(Libdl.DL_LOAD_PATH, "/usr/local/Cellar/llvm/4.0.0_1/lib")
+using Clang.wrap_c
+
+# `outpath` specifies, where the julian wrappers would be generated.
+# If the generated .jl files are ok, they have to be copied to the "src" folder
+# overwriting the old ones
+const outpath = normpath(joinpath(dirname(@__FILE__), "..", "new"))
+mkpath(outpath)
+
 const wdir = dirname(@__FILE__)
 const pkgbasedir = joinpath(wdir, "..")
 const incpath = realpath(joinpath(pkgbasedir, "deps", "usr", "include"))
@@ -9,46 +20,59 @@ if !isdir(incpath)
   error("Run Pkg.build(\"Hypre\") before trying to wrap C headers.")
 end
 
-cd(wdir)
-
-headers1 = readdir(incpath)
-headers2 = filter(t->startswith(t, "HYPRE") && t != "HYPRE_config.h", headers1)
-headers3 = map(t->joinpath(incpath, t), headers2)
-# @show headers2
-# exit(0)
-
-
-## Do wrapping using Clang.jl
-ENV["JULIAHOME"] = "/Users/jgoldfar/Public/julia/usr/"
-
+# This script is not an active part of the package.
+# It uses Clang.jl package to parse igraph C headers and generate
+# a Julia wrapper for igraph API.
+#
+# To run the script from Julia console:
+# include(joinpath(Pkg.dir("igraph"), "src", "generate.jl"));
+push!(Libdl.DL_LOAD_PATH, "/usr/local/Cellar/llvm/4.0.0_1/lib")
 using Clang.wrap_c
-# 
-if (!haskey(ENV, "JULIAHOME"))
-  error("Please set JULIAHOME variable to the root of your julia install")
+
+# `outpath` specifies, where the julian wrappers would be generated.
+# If the generated .jl files are ok, they have to be copied to the "src" folder
+# overwriting the old ones
+const outpath = normpath(joinpath(dirname(@__FILE__), "..", "new"))
+rm(outpath, recursive = true, force = true)
+mkpath(outpath)
+
+# Find all relevant Hypre headers
+const incpath = normpath(joinpath(dirname(@__FILE__), "..", "deps", "usr", "include"))
+if !isdir(incpath)
+    error("Hypre C headers not found. Run Pkg.build(\"Hypre\") before trying to wrap C headers.")
 end
 
-clang_includes = map(x->joinpath(ENV["JULIAHOME"], "..", x), [
-"deps/llvm-3.3/build/Release/lib/clang/3.3/include",
-"deps/llvm-3.3/include",
-"deps/llvm-3.3/include",
-"deps/llvm-3.3/build/include/",
-"deps/llvm-3.3/include/"
-])
-# println(typeof(clang_includes))
-# println(typeof(headers))
-# check_use_header(path) = true
-header_file(str::AbstractString) = string(basename(dirname(str)), ".jl")
-clang_extraargs = [
-"-D", "__STDC_LIMIT_MACROS", "-D", "__STDC_CONSTANT_MACROS", 
-"-v"]
-context = wrap_c.init(
-common_file="hypre_h.jl", 
-clang_args = clang_extraargs, 
-clang_diagnostics = true, 
-clang_includes = ASCIIString[clang_includes; incpath],
- header_outputfile = header_file
+info("Scanning Hypre headers in $incpath...")
+const Hypre_header_files = ["sstruct_ls", "struct_ls", "parcsr_ls", "DistributedMatrixPilutSolver_types", "DistributedMatrixPilutSolver_protos", "lobpcg"]
+const Hypre_headers =[joinpath(incpath, y) for y in (string("HYPRE_", x, ".h") for x in Hypre_header_files)]
+# map(x->joinpath(incpath, x), readdir(incpath))
+
+const clang_path = "/usr/local/Cellar/llvm/4.0.0_1/lib/clang/4.0.0/" # change to your clang location
+const includes = [
+    joinpath(clang_path, "include"),
+    incpath,
+    "/usr/local/Cellar/open-mpi/2.1.0/include/"
+]
+
+function find_outfile(s)
+    joinpath(outpath, string(first(splitext(basename(s))), ".jl"))
+end
+find_libfile(s) = "libHypre"
+
+const context = wrap_c.init(
+    headers = Hypre_headers,
+    common_file = joinpath(outpath, "types_and_consts.jl"),
+    clang_args = [
+        "-D", "__STDC_LIMIT_MACROS",
+        "-D", "__STDC_CONSTANT_MACROS",
+        # "-v"
+    ],
+    # clang_diagnostics = true,
+    header_library = find_libfile,
+    header_outputfile = find_outfile,
+    clang_includes = includes,
 )
-context.headers = headers3
-# dump(context)
+
+info("Generating .jl wrappers for Hypre in $outpath...")
 run(context)
-mv(joinpath(wdir, "hypre.jl"), joinpath(wdir, "libhypre.jl"))  # avoid a name conflict for case-insensitive file systems
+info("Done generating .jl wrappers for Hypre in $outpath")
