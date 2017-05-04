@@ -3,86 +3,48 @@ using BinDeps
 @BinDeps.setup
 
 ## Start defining dependency
-libhypre = library_dependency("libhypre", aliases=["libhypre", "libHYPRE"])
-hyprever="2.9.0b"
-hyprefilebase = "hypre-$(hyprever)"
+const libhypre = library_dependency("libhypre", aliases=["libhypre", "libHYPRE"])
+const hyprever = "2.11.2"
+const hyprefilebase = "hypre-$(hyprever)"
 
 provides(Sources,
-         URI("http://ftp.mcs.anl.gov/pub/petsc/externalpackages/$(hyprefilebase).tar.gz"),
+         URI("https://computation.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods/download/$(hyprefilebase).tar.gz"),
          libhypre)
 
 ## Define paths used later.
-prefix = BinDeps.usrdir(libhypre)
-srcrootdir = BinDeps.srcdir(libhypre)
-srcdir = joinpath(srcrootdir, hyprefilebase)
-cmakebuilddir = joinpath(srcdir, "src", "cmbuild")
+const prefix = BinDeps.usrdir(libhypre)
+const srcrootdir = BinDeps.srcdir(libhypre)
+const srcdir = joinpath(srcrootdir, hyprefilebase, "src")
+const cmakebuilddir = joinpath(srcdir, "cmbuild")
 
 ## Add support for basic "make flags"
-if !isempty(ARGS)
-  if ARGS[1] == "clean"
-    for dir in [BinDeps.srcdir(libhypre),
-                ]
-      println("Removing ", dir)
-      try
-        rm(dir, recursive = true)
-      catch v
-        println("Already gone")
-      end
-    end #for
+if "clean" in ARGS || "clean-all" in ARGS
+    dirsToRm = [BinDeps.srcdir(libhypre)]
+    "clean-all" in ARGS && push!(dirsToRm, prefix, BinDeps.downloadsdir(libhypre))
+    for dir in dirsToRm
+        rm(dir, recursive = true, force = true)
+    end
     exit(0)
-  end #if
-  if ARGS[1] == "clean-all"
-    for dir in [BinDeps.srcdir(libhypre),
-                prefix,
-                BinDeps.downloadsdir(libhypre),
-                ]
-      println("Removing ", dir)
-      try
-        rm(dir, recursive = true)
-      catch v
-        println("Already gone")
-      end
-    end #for
-    exit(0)
-  end #if
-  #   TODO: After fixing/finding MPI support on OSX, add an option to
-  #   build with MPI support.
-
 end
 
+mpicc = get(ENV, "JULIA_MPI_C_COMPILER", chomp(readstring(`which mpicc`)))
+mpicc = get(ENV, "JULIA_MPI_CXX_COMPILER", chomp(readstring(`which mpicxx`)))
 
 ## Build steps
-sedscript = "s:/usr/bin/c++:/usr/bin/env mpic++:g"
-@linux_only begin
-  provides(SimpleBuild, (@build_steps begin
-                           GetSources(libhypre)
-                           CreateDirectory(srcdir)
-                           @build_steps begin
-                             ChangeDirectory(cmakebuilddir)
-                             `cmake -DHYPRE_SHARED:BOOL=ON ..`
-                             `cmake -DHYPRE_INSTALL_PREFIX:PATH=$prefix ..`
-                             `cmake -L ..`
-                             `sed -i 's:/usr/bin/c++:/usr/bin/env mpic++:g' CMakeFiles/HYPRE.dir/link.txt`
-                             `make`
-                             `make install`
-                           end
-                         end), libhypre)
-end
-@osx_only begin
-  provides(SimpleBuild, (@build_steps begin
-                           GetSources(libhypre)
-                           CreateDirectory(srcdir)
-                           @build_steps begin
-                             ChangeDirectory(cmakebuilddir)
-                             `cmake -DHYPRE_SHARED:BOOL=ON ..`
-                             `cmake -DHYPRE_INSTALL_PREFIX:PATH=$prefix ..`
-                             `cmake -L ..`
-                             `sed -i '' 's:/usr/bin/c++:/usr/bin/env mpic++:g' CMakeFiles/HYPRE.dir/link.txt`
-                             `make`
-                             `make install`
-                           end
-                         end), libhypre)
-end
+provides(SimpleBuild,
+(@build_steps begin
+    GetSources(libhypre)
+    CreateDirectory(prefix)
+    @build_steps begin
+        ChangeDirectory(cmakebuilddir)
+        `cmake -DHYPRE_SHARED:BOOL=ON -DHYPRE_INSTALL_PREFIX:PATH=$prefix -DCMAKE_C_COMPILER:FILEPATH=$(mpicc) -DCMAKE_CXX_COMPILER:FILEPATH=$(mpicxx) ..`
+        `cmake -L ..`
+        `make`
+        `make install`
+    end
+end),
+libhypre,
+os = :Unix)
 
 ## Install
-@BinDeps.install [:libhypre => :libhypre]
+@BinDeps.install Dict(:libhypre => :libhypre)
