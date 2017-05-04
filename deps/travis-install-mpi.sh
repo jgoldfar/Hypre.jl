@@ -9,21 +9,21 @@ MPI_IMPL="$1"
 os=`uname`
 
 case "$os" in
-Darwin)
-    brew update
-    brew upgrade
-    case "$MPI_IMPL" in
-        mpich|mpich3)
-            brew install --build-from-source mpich
-            ;;
-        openmpi)
-            brew install --build-from-source openmpi
-            ;;
-        *)
-            echo "Unknown MPI implementation: $MPI_IMPL"
-            exit 1
-            ;;
-    esac
+    Darwin)
+        brew update
+        brew upgrade cmake
+        case "$MPI_IMPL" in
+            mpich|mpich3)
+                brew install mpich
+                ;;
+            openmpi)
+                brew install openmpi
+                ;;
+            *)
+                echo "Unknown MPI implementation: $MPI_IMPL"
+                exit 1
+                ;;
+        esac
     ;;
 
     Linux)

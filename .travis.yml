@@ -6,11 +6,11 @@ os:
   - osx
 julia:
   - release
-  - nightly
+  # - nightly
 matrix:
   allow_failures:
     - os: osx #TODO: Guarantee deps build on CI
-    - julia: nightly
+    # - julia: nightly
 notifications:
   email: false
   slack: fit-pde:LzLEcCWinA1d9YPSsN4GnTL1
