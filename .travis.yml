@@ -1,24 +1,29 @@
 language: julia
 os:
-    - osx
-    - linux
-julia:
-    - 0.4
-    - nightly
-matrix:
-    allow_failures:
-      - julia: nightly
-notifications:
-    email: false
-    slack: fit-pde:LzLEcCWinA1d9YPSsN4GnTL1
+  - linux
+  - osx
 addons:
   apt:
     packages:
     - gfortran
     - cmake
     - mpich2
-script:
-    - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
-    - julia -e 'Pkg.clone(pwd()); Pkg.build("Hypre"); Pkg.test("Hypre"; coverage=true)';
+julia:
+  - release
+  - nightly
+matrix:
+  allow_failures:
+    - os: osx #TODO: Guarantee deps build on CI
+    - julia: nightly
+notifications:
+  email: false
+  slack: fit-pde:LzLEcCWinA1d9YPSsN4GnTL1
+notifications:
+  email: false
+# uncomment the following lines to override the default test script
+#script:
+#  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
+#  - julia -e 'Pkg.clone(pwd()); Pkg.build("igraph"); Pkg.test("igraph"; coverage=true)'
 after_success:
-    - julia -e 'cd(Pkg.dir("Hypre")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())';
+  # push coverage results to Codecov
+  - julia -e 'cd(Pkg.dir("Hypre")); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())'
