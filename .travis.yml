@@ -7,9 +7,8 @@ os:
 julia:
   - release
   # - nightly
-matrix:
-  allow_failures:
-    - os: osx #TODO: Guarantee deps build on CI
+# matrix:
+#   allow_failures:
     # - julia: nightly
 notifications:
   email: false
