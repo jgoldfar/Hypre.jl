@@ -6,40 +6,20 @@
 # include(joinpath(Pkg.dir("Hypre"), "src", "wrap_hypre.jl"));
 push!(Libdl.DL_LOAD_PATH, "/usr/local/Cellar/llvm/4.0.0_1/lib")
 using Clang.wrap_c
-
-# `outpath` specifies, where the julian wrappers would be generated.
-# If the generated .jl files are ok, they have to be copied to the "src" folder
-# overwriting the old ones
-const outpath = normpath(joinpath(dirname(@__FILE__), "..", "new"))
-mkpath(outpath)
-
 const wdir = dirname(@__FILE__)
 const pkgbasedir = joinpath(wdir, "..")
-const incpath = realpath(joinpath(pkgbasedir, "deps", "usr", "include"))
-if !isdir(incpath)
-  error("Run Pkg.build(\"Hypre\") before trying to wrap C headers.")
-end
-
-# This script is not an active part of the package.
-# It uses Clang.jl package to parse igraph C headers and generate
-# a Julia wrapper for igraph API.
-#
-# To run the script from Julia console:
-# include(joinpath(Pkg.dir("igraph"), "src", "generate.jl"));
-push!(Libdl.DL_LOAD_PATH, "/usr/local/Cellar/llvm/4.0.0_1/lib")
-using Clang.wrap_c
 
 # `outpath` specifies, where the julian wrappers would be generated.
 # If the generated .jl files are ok, they have to be copied to the "src" folder
 # overwriting the old ones
-const outpath = normpath(joinpath(dirname(@__FILE__), "..", "new"))
+const outpath = joinpath(pkgbasedir, "new")
 rm(outpath, recursive = true, force = true)
 mkpath(outpath)
+mkpath(outpath)
 
-# Find all relevant Hypre headers
-const incpath = normpath(joinpath(dirname(@__FILE__), "..", "deps", "usr", "include"))
+const incpath = joinpath(pkgbasedir, "deps", "usr", "include")
 if !isdir(incpath)
-    error("Hypre C headers not found. Run Pkg.build(\"Hypre\") before trying to wrap C headers.")
+  error("Run Pkg.build(\"Hypre\") before trying to wrap C headers.")
 end
 
 info("Scanning Hypre headers in $incpath...")

@@ -10,8 +10,11 @@ end
 
 using MPI
 
-# include("libhypre_h.jl")
-# Base.convert(MPI_Comm, x::MPI.Comm) = x.val
-# include("libhypre.jl")
+include("types_and_consts.jl")
+include("HYPRE_sstruct_ls.jl")
+include("HYPRE_struct_ls.jl")
+include("HYPRE_parcsr_ls.jl")
+include("HYPRE_DistributedMatrixPilutSolver_protos.jl")
+include("HYPRE_lobpcg_ls.jl")
 
 end # module

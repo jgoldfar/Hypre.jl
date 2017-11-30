@@ -3,8 +3,7 @@ module ex1 # from Hypre examples
 # src/hypre-2.9.0b/src/examples/ex1.c under the deps directory.
 # Run with mpirun -np 2 julia ex1.jl
 #
-include(joinpath(dirname(dirname(@__FILE__)), "src", "Hypre.jl"))
-using .Hypre
+using Hypre
 using MPI
 
 function runex1()
