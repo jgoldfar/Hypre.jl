@@ -15,6 +15,6 @@ include("HYPRE_sstruct_ls.jl")
 include("HYPRE_struct_ls.jl")
 include("HYPRE_parcsr_ls.jl")
 include("HYPRE_DistributedMatrixPilutSolver_protos.jl")
-include("HYPRE_lobpcg_ls.jl")
+include("HYPRE_lobpcg.jl")
 
 end # module
