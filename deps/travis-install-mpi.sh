@@ -10,7 +10,8 @@ os=`uname`
 
 case "$os" in
     Darwin)
-        brew update
+        brew update &> /dev/null
+        brew cask uninstall --force oclint
         brew upgrade cmake
         case "$MPI_IMPL" in
             mpich|mpich3)
