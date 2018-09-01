@@ -1,7 +1,5 @@
 # Automatically generated using Clang.jl wrap_c, version 0.0.0
 
-using Compat
-
 # const HYPRE_RELEASE_DATE = $(Expr(:incomplete, "incomplete: premature end of input"))
 
 # Skipping MacroDefinition: HYPRE_RELEASE_TIME 00 : 00 :
@@ -595,11 +593,11 @@ using Compat
 # Skipping MacroDefinition: hypre_StructVectorBoxDataValue ( vector , b , index ) \
 #( hypre_StructVectorBoxData ( vector , b ) + hypre_BoxIndexRank ( hypre_StructVectorBox ( vector , b ) , index )
 
-typealias HYPRE_Int Cint
-typealias HYPRE_Real Cdouble
-typealias HYPRE_Complex HYPRE_Real
-typealias hypre_StructGrid Void
-typealias hypre_BoxArray Void
+const HYPRE_Int = Cint
+const HYPRE_Real = Cdouble
+const HYPRE_Complex = HYPRE_Real
+const hypre_StructGrid = Void
+const hypre_BoxArray = Void
 
 type hypre_StructVector_struct
     comm::MPI.Comm
@@ -615,10 +613,10 @@ type hypre_StructVector_struct
     ref_count::HYPRE_Int
 end
 
-typealias HYPRE_StructVector Ptr{Void}
-typealias hypre_Index NTuple{3,HYPRE_Int}
-typealias hypre_Box Void
-typealias hypre_BoxManager Void
+const HYPRE_StructVector = Ptr{Void}
+const hypre_Index = NTuple{3,HYPRE_Int}
+const hypre_Box = Void
+const hypre_BoxManager = Void
 
 type hypre_StructGrid_struct
     comm::MPI.Comm
@@ -638,7 +636,7 @@ type hypre_StructGrid_struct
     boxman::Ptr{hypre_BoxManager}
 end
 
-typealias HYPRE_StructGrid Ptr{Void}
+const HYPRE_StructGrid = Ptr{Void}
 
 type hypre_StructStencil_struct
     shape::Ptr{hypre_Index}
@@ -647,9 +645,9 @@ type hypre_StructStencil_struct
     ref_count::HYPRE_Int
 end
 
-typealias HYPRE_StructStencil Ptr{Void}
-typealias hypre_StructStencil Void
-typealias hypre_CommPkg Void
+const HYPRE_StructStencil = Ptr{Void}
+const hypre_StructStencil = Void
+const hypre_CommPkg = Void
 
 type hypre_StructMatrix_struct
     comm::MPI.Comm
@@ -671,9 +669,9 @@ type hypre_StructMatrix_struct
     ref_count::HYPRE_Int
 end
 
-typealias HYPRE_StructMatrix Ptr{Void}
-typealias hypre_CommType Void
-typealias hypre_CommEntryType Void
+const HYPRE_StructMatrix = Ptr{Void}
+const hypre_CommType = Void
+const hypre_CommEntryType = Void
 
 type hypre_CommPkg_struct
     comm::MPI.Comm
@@ -702,42 +700,42 @@ type hypre_CommPkg_struct
     identity_order::Ptr{HYPRE_Int}
 end
 
-typealias HYPRE_CommPkg Ptr{Void}
+const HYPRE_CommPkg = Ptr{Void}
 
 type hypre_StructSolver_struct
 end
 
-typealias HYPRE_StructSolver Ptr{Void}
-typealias HYPRE_PtrToStructSolverFcn Ptr{Void}
+const HYPRE_StructSolver = Ptr{Void}
+const HYPRE_PtrToStructSolverFcn = Ptr{Void}
 
 type hypre_Solver_struct
 end
 
-typealias HYPRE_Solver Ptr{Void}
-typealias HYPRE_PtrToModifyPCFcn Ptr{Void}
-typealias hypre_int Cint
-typealias hypre_longint Clong
-typealias hypre_uint UInt32
-typealias hypre_ulongint Culong
-typealias hypre_double Cdouble
-typealias hypre_MPI_Comm MPI.Comm
-typealias hypre_MPI_Group Ptr{Void}
-typealias hypre_MPI_Request Ptr{Void}
-typealias hypre_MPI_Datatype Ptr{Void}
-typealias hypre_MPI_Status MPI.Status
-typealias hypre_MPI_Op MPI.Op
-typealias hypre_MPI_Aint Ptr{Void}
-typealias hypre_MPI_User_function Ptr{Void}
+const HYPRE_Solver = Ptr{Void}
+const HYPRE_PtrToModifyPCFcn = Ptr{Void}
+const hypre_int = Cint
+const hypre_longint = Clong
+const hypre_uint = UInt32
+const hypre_ulongint = Culong
+const hypre_double = Cdouble
+const hypre_MPI_Comm = MPI.Comm
+const hypre_MPI_Group = Ptr{Void}
+const hypre_MPI_Request = Ptr{Void}
+const hypre_MPI_Datatype = Ptr{Void}
+const hypre_MPI_Status = MPI.Status
+const hypre_MPI_Op = MPI.Op
+const hypre_MPI_Aint = Ptr{Void}
+const hypre_MPI_User_function = Ptr{Void}
 
 # begin enum ANONYMOUS_10
-typealias ANONYMOUS_10 UInt32
+const ANONYMOUS_10 = UInt32
 const P_ALL = (UInt32)(0)
 const P_PID = (UInt32)(1)
 const P_PGID = (UInt32)(2)
 # end enum ANONYMOUS_10
 
 # begin enum ANONYMOUS_40
-typealias ANONYMOUS_40 UInt32
+const ANONYMOUS_40 = UInt32
 const P_ALL = (UInt32)(0)
 const P_PID = (UInt32)(1)
 const P_PGID = (UInt32)(2)
@@ -751,19 +749,19 @@ type double_linked_list
     tail::HYPRE_Int
 end
 
-typealias hypre_ListElement Void
-typealias hypre_LinkList Ptr{hypre_ListElement}
-typealias hypre_BinaryTree Void
-typealias hypre_DataExchangeResponse Void
-typealias hypre_UnorderedIntSet Void
-typealias hypre_HopscotchBucket Void
-typealias hypre_UnorderedIntMap Void
-typealias mv_InterfaceInterpreter Void
-typealias HYPRE_MatvecFunctions Void
-typealias float_t Cfloat
-typealias double_t Cdouble
+const hypre_ListElement = Void
+const hypre_LinkList = Ptr{hypre_ListElement}
+const hypre_BinaryTree = Void
+const hypre_DataExchangeResponse = Void
+const hypre_UnorderedIntSet = Void
+const hypre_HopscotchBucket = Void
+const hypre_UnorderedIntMap = Void
+const mv_InterfaceInterpreter = Void
+const HYPRE_MatvecFunctions = Void
+const float_t = Cfloat
+const double_t = Cdouble
 
-typealias hypre_IndexRef Ptr{HYPRE_Int}
+const hypre_IndexRef = Ptr{HYPRE_Int}
 
 type hypre_Box_struct
     imin::hypre_Index
@@ -784,8 +782,8 @@ type hypre_BoxArrayArray_struct
     ndim::HYPRE_Int
 end
 
-typealias hypre_BoxArrayArray Void
-typealias hypre_StructAssumedPart Void
+const hypre_BoxArrayArray = Void
+const hypre_StructAssumedPart = Void
 
 type hypre_BoxManEntry_struct
     imin::hypre_Index
@@ -799,7 +797,7 @@ type hypre_BoxManEntry_struct
     next::Ptr{Void}
 end
 
-typealias hypre_BoxManEntry Void
+const hypre_BoxManEntry = Void
 
 type hypre_CommInfo_struct
     ndim::HYPRE_Int
@@ -821,7 +819,7 @@ type hypre_CommInfo_struct
     boxes_match::HYPRE_Int
 end
 
-typealias hypre_CommInfo Void
+const hypre_CommInfo = Void
 
 type hypre_CommEntryType_struct
     offset::HYPRE_Int
@@ -852,7 +850,7 @@ type hypre_CommHandle_struct
     action::HYPRE_Int
 end
 
-typealias hypre_CommHandle Void
+const hypre_CommHandle = Void
 
 type hypre_ComputeInfo_struct
     comm_info::Ptr{hypre_CommInfo}
@@ -861,7 +859,7 @@ type hypre_ComputeInfo_struct
     stride::hypre_Index
 end
 
-typealias hypre_ComputeInfo Void
+const hypre_ComputeInfo = Void
 
 type hypre_ComputePkg_struct
     comm_pkg::Ptr{hypre_CommPkg}
@@ -873,32 +871,32 @@ type hypre_ComputePkg_struct
     num_values::HYPRE_Int
 end
 
-typealias hypre_ComputePkg Void
-typealias hypre_StructMatrix Void
-typealias hypre_StructVector Void
+const hypre_ComputePkg = Void
+const hypre_StructMatrix = Void
+const hypre_StructVector = Void
 
 type hypre_CSRMatrix_struct
 end
 
-typealias HYPRE_CSRMatrix Ptr{Void}
+const HYPRE_CSRMatrix = Ptr{Void}
 
 type hypre_MappedMatrix_struct
 end
 
-typealias HYPRE_MappedMatrix Ptr{Void}
+const HYPRE_MappedMatrix = Ptr{Void}
 
 type hypre_MultiblockMatrix_struct
 end
 
-typealias HYPRE_MultiblockMatrix Ptr{Void}
+const HYPRE_MultiblockMatrix = Ptr{Void}
 
 type hypre_Vector_struct
 end
 
-typealias HYPRE_Vector Ptr{Void}
+const HYPRE_Vector = Ptr{Void}
 
 # begin enum HYPRE_TimerID
-typealias HYPRE_TimerID UInt32
+const HYPRE_TimerID = UInt32
 const HYPRE_TIMER_ID_MATVEC = (UInt32)(0)
 const HYPRE_TIMER_ID_BLAS1 = (UInt32)(1)
 const HYPRE_TIMER_ID_RELAX = (UInt32)(2)
@@ -926,9 +924,9 @@ const HYPRE_TIMER_ID_MERGE = (UInt32)(23)
 const HYPRE_TIMER_ID_COUNT = (UInt32)(24)
 # end enum HYPRE_TimerID
 
-typealias hypre_CSRMatrix Void
-typealias hypre_ParCSRCommPkg Void
-typealias hypre_IJAssumedPart Void
+const hypre_CSRMatrix = Void
+const hypre_ParCSRCommPkg = Void
+const hypre_IJAssumedPart = Void
 
 type hypre_ParCSRMatrix_struct
     comm::MPI.Comm
@@ -958,8 +956,8 @@ type hypre_ParCSRMatrix_struct
     assumed_partition::Ptr{hypre_IJAssumedPart}
 end
 
-typealias HYPRE_ParCSRMatrix Ptr{Void}
-typealias hypre_Vector Void
+const HYPRE_ParCSRMatrix = Ptr{Void}
+const hypre_Vector = Void
 
 type hypre_ParVector_struct
     comm::MPI.Comm
@@ -974,7 +972,7 @@ type hypre_ParVector_struct
     assumed_partition::Ptr{hypre_IJAssumedPart}
 end
 
-typealias HYPRE_ParVector Ptr{Void}
+const HYPRE_ParVector = Ptr{Void}
 
 type hypre_IJMatrix_struct
     comm::MPI.Comm
@@ -993,7 +991,7 @@ type hypre_IJMatrix_struct
     print_level::HYPRE_Int
 end
 
-typealias HYPRE_IJMatrix Ptr{Void}
+const HYPRE_IJMatrix = Ptr{Void}
 
 type hypre_IJVector_struct
     comm::MPI.Comm
@@ -1007,8 +1005,8 @@ type hypre_IJVector_struct
     print_level::HYPRE_Int
 end
 
-typealias HYPRE_IJVector Ptr{Void}
-typealias HYPRE_PtrToParSolverFcn Ptr{Void}
+const HYPRE_IJVector = Ptr{Void}
+const HYPRE_PtrToParSolverFcn = Ptr{Void}
 
 # Skipping MacroDefinition: hypre_CSRMatrixData ( matrix ) ( ( matrix ) -> data
 # Skipping MacroDefinition: hypre_CSRMatrixI ( matrix ) ( ( matrix ) -> i
@@ -1403,10 +1401,10 @@ typealias HYPRE_PtrToParSolverFcn Ptr{Void}
 # Skipping MacroDefinition: hypre_SStructPVectorDataIndices ( pvec ) ( ( pvec ) -> dataindices
 # Skipping MacroDefinition: hypre_SStructPVectorDataSize ( pvec ) ( ( pvec ) -> datasize
 
-typealias hypre_SStructPGrid Void
-typealias hypre_SStructNeighbor Void
-typealias hypre_SStructCommInfo Void
-typealias hypre_SStructUCVar Void
+const hypre_SStructPGrid = Void
+const hypre_SStructNeighbor = Void
+const hypre_SStructCommInfo = Void
+const hypre_SStructUCVar = Void
 
 type hypre_SStructGrid_struct
     comm::MPI.Comm
@@ -1436,8 +1434,8 @@ type hypre_SStructGrid_struct
     num_ghost::NTuple{6,HYPRE_Int}
 end
 
-typealias HYPRE_SStructGrid Ptr{Void}
-typealias HYPRE_SStructVariable HYPRE_Int
+const HYPRE_SStructGrid = Ptr{Void}
+const HYPRE_SStructVariable = HYPRE_Int
 
 type hypre_SStructStencil_struct
     sstencil::Ptr{hypre_StructStencil}
@@ -1445,11 +1443,11 @@ type hypre_SStructStencil_struct
     ref_count::HYPRE_Int
 end
 
-typealias HYPRE_SStructStencil Ptr{Void}
-typealias hypre_SStructGrid Void
-typealias hypre_SStructStencil Void
-typealias hypre_SStructUVEntry Void
-typealias hypre_SStructGraphEntry Void
+const HYPRE_SStructStencil = Ptr{Void}
+const hypre_SStructGrid = Void
+const hypre_SStructStencil = Void
+const hypre_SStructUVEntry = Void
+const hypre_SStructGraphEntry = Void
 
 type hypre_SStructGraph_struct
     comm::MPI.Comm
@@ -1476,10 +1474,10 @@ type hypre_SStructGraph_struct
     a_graph_entries::HYPRE_Int
 end
 
-typealias HYPRE_SStructGraph Ptr{Void}
-typealias hypre_SStructGraph Void
-typealias hypre_SStructPMatrix Void
-typealias hypre_ParCSRMatrix Void
+const HYPRE_SStructGraph = Ptr{Void}
+const hypre_SStructGraph = Void
+const hypre_SStructPMatrix = Void
+const hypre_ParCSRMatrix = Void
 
 type hypre_SStructMatrix_struct
     comm::MPI.Comm
@@ -1502,9 +1500,9 @@ type hypre_SStructMatrix_struct
     object_type::HYPRE_Int
 end
 
-typealias HYPRE_SStructMatrix Ptr{Void}
-typealias hypre_SStructPVector Void
-typealias hypre_ParVector Void
+const HYPRE_SStructMatrix = Ptr{Void}
+const hypre_SStructPVector = Void
+const hypre_ParVector = Void
 
 type hypre_SStructVector_struct
     comm::MPI.Comm
@@ -1524,54 +1522,54 @@ type hypre_SStructVector_struct
     ref_count::HYPRE_Int
 end
 
-typealias HYPRE_SStructVector Ptr{Void}
+const HYPRE_SStructVector = Ptr{Void}
 
 type hypre_SStructSolver_struct
 end
 
-typealias HYPRE_SStructSolver Ptr{Void}
-typealias HYPRE_PtrToSStructSolverFcn Ptr{Void}
-typealias hypre_CSRBooleanMatrix Void
-typealias hypre_MappedMatrix Void
-typealias hypre_MultiblockMatrix Void
-typealias hypre_ParCSRCommHandle Void
-typealias hypre_ProcListElements Void
-typealias hypre_ParCSRBooleanMatrix Void
+const HYPRE_SStructSolver = Ptr{Void}
+const HYPRE_PtrToSStructSolverFcn = Ptr{Void}
+const hypre_CSRBooleanMatrix = Void
+const hypre_MappedMatrix = Void
+const hypre_MultiblockMatrix = Void
+const hypre_ParCSRCommHandle = Void
+const hypre_ProcListElements = Void
+const hypre_ParCSRBooleanMatrix = Void
 
 type hypre_NumbersNode
     digit::NTuple{11,Ptr{Void}}
 end
 
-typealias hypre_ParChordMatrix Void
-typealias HYPRE_ParCSR_System_Problem Void
-typealias hypre_AuxParCSRMatrix Void
-typealias hypre_AuxParVector Void
-typealias hypre_IJMatrix Void
-typealias hypre_IJVector Void
-typealias hypre_SStructVariable HYPRE_Int
-typealias hypre_SStructUVar Void
+const hypre_ParChordMatrix = Void
+const HYPRE_ParCSR_System_Problem = Void
+const hypre_AuxParCSRMatrix = Void
+const hypre_AuxParVector = Void
+const hypre_IJMatrix = Void
+const hypre_IJVector = Void
+const hypre_SStructVariable = HYPRE_Int
+const hypre_SStructUVar = Void
 
 # begin enum hypre_SStructBoxManInfoType
-typealias hypre_SStructBoxManInfoType UInt32
+const hypre_SStructBoxManInfoType = UInt32
 const hypre_SSTRUCT_BOXMAN_INFO_DEFAULT = (UInt32)(0)
 const hypre_SSTRUCT_BOXMAN_INFO_NEIGHBOR = (UInt32)(1)
 # end enum hypre_SStructBoxManInfoType
 
-typealias hypre_SStructBoxManInfo Void
-typealias hypre_SStructBoxManNborInfo Void
-typealias hypre_SStructUEntry Void
-typealias hypre_SStructMatrix Void
-typealias hypre_SStructVector Void
-typealias HYPRE_DistributedMatrixPilutSolver Ptr{Void}
+const hypre_SStructBoxManInfo = Void
+const hypre_SStructBoxManNborInfo = Void
+const hypre_SStructUEntry = Void
+const hypre_SStructMatrix = Void
+const hypre_SStructVector = Void
+const HYPRE_DistributedMatrixPilutSolver = Ptr{Void}
 
 type hypre_Matrix_struct
 end
 
-typealias HYPRE_Matrix Ptr{Void}
-typealias HYPRE_PtrToSolverFcn Ptr{Void}
-typealias utilities_FortranMatrix Void
+const HYPRE_Matrix = Ptr{Void}
+const HYPRE_PtrToSolverFcn = Ptr{Void}
+const utilities_FortranMatrix = Void
 
 type mv_MultiVector
 end
 
-typealias mv_MultiVectorPtr Ptr{Void}
+const mv_MultiVectorPtr = Ptr{Void}
